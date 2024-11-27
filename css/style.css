@@ -1,145 +1,178 @@
 /* General Styles */
+/* These are the base styles applied to the entire site */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Clean and modern font */
     margin: 0;
     padding: 0;
-    background-color: #f0f2f5;
-    color: #333;
-    scroll-behavior: smooth;
+    background-color: #f0f2f5; /* Light background for contrast */
+    color: #333; /* Default text colour */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    padding-left: 10rem; /* Padding on the left side */
+    padding-right: 10rem; /* Padding on the right side */
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Use the same colour as the surrounding text */
 }
 
 button {
-    font-family: inherit;
-    cursor: pointer;
-    border: none;
-    outline: none;
+    font-family: inherit; /* Match the site font */
+    cursor: pointer; /* Pointer cursor for buttons */
+    border: none; /* No border */
+    outline: none; /* Remove focus outline */
 }
 
     button:focus {
-        box-shadow: 0 0 4px #ff9800;
+        box-shadow: 0 0 4px #ff9800; /* Highlight button on focus */
     }
 
+/* Add a wrapper for main content */
+.main-wrapper {
+    background-color: #000000; /* Set main content background to white */
+    margin-left: 10rem; /* Padding on the left side */
+    margin-right: 10rem; /* Padding on the right side */
+    padding: 2rem; /* Space around the main content */
+}
+
 /* Navigation */
+/* Styles for the navigation bar */
+/* Ensure padding and margin don't affect layout */
+* {
+    box-sizing: border-box; /* Ensures padding and borders are included in width/height */
+}
+
 nav {
-    position: fixed;
+    position: fixed; /* Sticks to the top of the page */
     top: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    padding: 0.8rem 0;
-    z-index: 10;
+    left: 0; /* Ensure nav is anchored to the left */
+    right: 0; /* Ensure nav stretches to full width */
+    width: 100%; /* Full width */
+    max-width: calc(100% - 20rem); /* Adjust width considering the body padding (left + right 10rem each) */
+    margin: 0 auto; /* Center the nav */
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    color: #fff; /* White text */
+    display: flex; /* Flexbox to align items */
+    justify-content: center; /* Center navigation links */
+    padding: 0.8rem 0; /* Padding on top/bottom */
+    z-index: 10; /* Ensures it appears above other elements */
 }
 
     nav a {
-        margin: 0 1.5rem;
-        font-weight: 600;
-        transition: color 0.3s ease;
+        margin: 0 1.5rem; /* Spacing between links */
+        font-weight: 600; /* Bold text */
+        transition: color 0.3s ease; /* Smooth hover effect */
     }
 
         nav a.active,
         nav a:hover {
-            color: #ff9800;
+            color: #ff9800; /* Highlight link on hover or when active */
         }
 
-/* Projects Section */
+/* Header */
+/* Styles for the site header */
 header {
-    padding: 6rem 2rem 2rem;
-    text-align: center;
-    background: #222;
-    color: #fff;
+    padding: 6rem 2rem 2rem; /* Space around content */
+    text-align: center; /* Center-align header text */
+    background: #222; /* Dark background */
+    color: #fff; /* White text */
 }
 
     header h1 {
-        font-size: 2.5rem;
-        margin: 0;
+        font-size: 2.5rem; /* Large heading */
+        margin: 0; /* Remove default margin */
     }
 
+/* Tags */
+/* Styles for tags used in filtering projects */
 .tags-container {
     text-align: center;
-    margin: 2rem 0;
+    margin: 2rem 0; /* Space above and below */
 }
 
 .tag {
     display: inline-block;
-    background: #f0f0f0;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    background: #f0f0f0; /* Light grey background */
+    padding: 0.5rem 1rem; /* Padding inside the tag */
+    margin: 0.5rem; /* Spacing between tags */
+    border-radius: 8px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth hover effect */
 }
 
     .tag.active,
     .tag:hover {
-        background: #ff9800;
-        color: #fff;
+        background: #ff9800; /* Highlight active or hovered tags */
+        color: #fff; /* White text */
     }
 
+/* Projects Section */
+/* Styles for the projects section */
 .projects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
+    display: grid; /* Grid layout for projects */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 1rem; /* Space between cards */
+    padding: 2rem; /* Space around the container */
 }
 
 .project-card {
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Flexbox for card content */
+    flex-direction: column; /* Stack content vertically */
+    background: #fff; /* White background */
+    border-radius: 12px; /* Rounded corners */
+    overflow: hidden; /* Trim overflowing content */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    aspect-ratio: 2 / 1; /* Ensure 2:1 width-to-height ratio */
 }
 
     .project-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05); /* Slightly enlarge card on hover */
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
     }
 
     .project-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
+        width: 100%; /* Full width */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover; /* Ensure the image fills the card */
     }
 
     .project-card div {
-        padding: 1.5rem;
+        padding: 1.5rem; /* Space inside the card */
     }
 
     .project-card h3 {
-        font-size: 1.5rem;
-        margin: 0;
-        color: #333;
+        font-size: 1.5rem; /* Heading size */
+        margin: 0; /* Remove default margin */
+        color: #333; /* Dark text */
     }
 
     .project-card p {
-        font-size: 0.9rem;
-        margin-top: 0.5rem;
-        color: #555;
+        font-size: 0.9rem; /* Small text */
+        margin-top: 0.5rem; /* Space above the text */
+        color: #555; /* Subtle text colour */
     }
 
     .project-card .tags span {
-        background: #f0f0f0;
-        padding: 0.2rem 0.5rem;
-        margin-right: 0.5rem;
-        border-radius: 5px;
+        background: #f0f0f0; /* Tag background colour */
+        padding: 0.2rem 0.5rem; /* Space inside tags */
+        margin-right: 0.5rem; /* Space between tags */
+        border-radius: 5px; /* Rounded corners */
     }
 
+/* Footer */
+/* Styles for the footer section */
 footer {
-    text-align: center;
-    padding: 1rem;
-    background: #222;
-    color: #fff;
+    text-align: center; /* Center-align footer text */
+    padding: 1rem; /* Space inside the footer */
+    background: #222; /* Dark background */
+    color: #fff; /* White text */
 }
 
+/* Section Wrapper */
+/* General styling for content sections */
 .section {
-    display: flex;
-    flex-direction: column; /* Or row if horizontal layout is needed */
-    align-items: center;
-    justify-content: center;
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center-align items */
+    justify-content: center; /* Center-align content */
 }
