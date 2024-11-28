@@ -1,10 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
-    import { setupLazyLoading } from './lazyLoad.js';
-    import { setupDynamicFiltering } from './filter.js';
+document.addEventListener('DOMContentLoaded', async () => {
+    const { setupLazyLoading } = await import('./modules/lazyLoad.js');
+    const { setupDynamicFiltering } = await import('./modules/filter.js');
 
-    document.addEventListener('DOMContentLoaded', () => {
-        setupDynamicFiltering();
-        setupLazyLoading();
-    });
-
+    setupDynamicFiltering();
+    setupLazyLoading();
 });
+

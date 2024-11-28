@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\modules\\filter.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:js\\scripts\\modules\\filter.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:js\\scripts\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\modules\\lazyLoad.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:js\\scripts\\modules\\lazyLoad.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\contact.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:contact.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\about.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -19,20 +31,8 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:projects.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:js\\scripts\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\contact.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:contact.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\modules\\filter.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:js\\scripts\\modules\\filter.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\modules\\lazyLoad.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:js\\scripts\\modules\\lazyLoad.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,11 +42,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "lazyLoad.js",
               "DocumentMoniker": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\modules\\lazyLoad.js",
               "RelativeDocumentMoniker": "js\\scripts\\modules\\lazyLoad.js",
@@ -60,13 +60,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "main.js",
               "DocumentMoniker": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\main.js",
               "RelativeDocumentMoniker": "js\\scripts\\main.js",
               "ToolTip": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\main.js",
               "RelativeToolTip": "js\\scripts\\main.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAiAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-11-27T13:09:01.299Z",
               "IsPinned": true,
@@ -74,55 +74,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "filter.js",
               "DocumentMoniker": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\modules\\filter.js",
               "RelativeDocumentMoniker": "js\\scripts\\modules\\filter.js",
               "ToolTip": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\modules\\filter.js",
               "RelativeToolTip": "js\\scripts\\modules\\filter.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAaAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-11-27T13:12:51.8Z",
               "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\index.html",
-              "RelativeDocumentMoniker": "index.html",
-              "ToolTip": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\index.html",
-              "RelativeToolTip": "index.html",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAC0AAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-11-27T12:02:32.884Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "about.html",
-              "DocumentMoniker": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\about.html",
-              "RelativeDocumentMoniker": "about.html",
-              "ToolTip": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\about.html",
-              "RelativeToolTip": "about.html",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-11-27T12:46:44.456Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "contact.html",
-              "DocumentMoniker": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\contact.html",
-              "RelativeDocumentMoniker": "contact.html",
-              "ToolTip": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\contact.html",
-              "RelativeToolTip": "contact.html",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-11-27T12:46:20.106Z",
               "EditorCaption": ""
             },
             {
@@ -131,26 +92,65 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\index.html",
+              "RelativeDocumentMoniker": "index.html",
+              "ToolTip": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\index.html",
+              "RelativeToolTip": "index.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-11-27T12:02:32.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "about.html",
+              "DocumentMoniker": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\about.html",
+              "RelativeDocumentMoniker": "about.html",
+              "ToolTip": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\about.html",
+              "RelativeToolTip": "about.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-11-27T12:46:44.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "contact.html",
+              "DocumentMoniker": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\contact.html",
+              "RelativeDocumentMoniker": "contact.html",
+              "ToolTip": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\contact.html",
+              "RelativeToolTip": "contact.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-11-27T12:46:20.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "projects.html",
               "DocumentMoniker": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\projects.html",
               "RelativeDocumentMoniker": "projects.html",
               "ToolTip": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\projects.html",
               "RelativeToolTip": "projects.html",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2024-11-27T12:27:33.042Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "style.css",
               "DocumentMoniker": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\css\\style.css",
               "RelativeDocumentMoniker": "css\\style.css",
               "ToolTip": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\css\\style.css",
               "RelativeToolTip": "css\\style.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAjAAAA",
+              "ViewState": "AQIAAKAAAAAAAAAAAAAAALwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-11-27T12:49:43.929Z",
               "EditorCaption": ""

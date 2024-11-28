@@ -1,6 +1,6 @@
 // ui.js
 
-/**
+/*
  * Sets up dynamic filtering for elements.
  * Filters project cards based on selected tags.
  */
@@ -22,7 +22,3 @@ export function setupDynamicFiltering() {
         });
     });
 }
-
-
-// Call this function when the DOM is ready or as part of initialisation
-//setupDynamicFiltering();

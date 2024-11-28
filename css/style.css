@@ -1,178 +1,318 @@
 /* General Styles */
-/* These are the base styles applied to the entire site */
 body {
-    font-family: 'Poppins', sans-serif; /* Clean and modern font */
+    font-family: 'Poppins', sans-serif; /* Modern and sleek font */
     margin: 0;
     padding: 0;
-    background-color: #f0f2f5; /* Light background for contrast */
-    color: #333; /* Default text colour */
-    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
-    padding-left: 10rem; /* Padding on the left side */
-    padding-right: 10rem; /* Padding on the right side */
+    background-color: #f7f9f9; /* Subtle beige for background */
+    color: #2c2c2c; /* Neutral dark grey for text */
+    scroll-behavior: smooth;
+    padding-left: 10rem;
+    padding-right: 10rem;
 }
 
 a {
-    text-decoration: none; /* Remove underline from links */
-    color: inherit; /* Use the same colour as the surrounding text */
+    text-decoration: none;
+    color: #008f68; /* Muted green for links */
+    transition: color 0.3s ease;
 }
+
+    a:hover {
+        color: #00b57f; /* Brighter green on hover */
+    }
 
 button {
-    font-family: inherit; /* Match the site font */
-    cursor: pointer; /* Pointer cursor for buttons */
-    border: none; /* No border */
-    outline: none; /* Remove focus outline */
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: #00b57f; /* Brighter green for buttons */
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 5px; /* Slightly rounded corners */
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
+    button:hover {
+        background-color: #008f68; /* Darker green on hover */
+    }
 
     button:focus {
-        box-shadow: 0 0 4px #ff9800; /* Highlight button on focus */
+        box-shadow: 0 0 6px rgba(0, 191, 127, 0.5); /* Soft green glow */
     }
 
-/* Add a wrapper for main content */
+/* Wrapper */
 .main-wrapper {
-    background-color: #000000; /* Set main content background to white */
-    margin-left: 10rem; /* Padding on the left side */
-    margin-right: 10rem; /* Padding on the right side */
-    padding: 2rem; /* Space around the main content */
+    background-color: #ffffff; /* Clean white content area */
+    margin-left: 10rem;
+    margin-right: 10rem;
+    padding: 2rem;
+    border-radius: 12px; /* Rounded corners for modern look */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-/* Navigation */
-/* Styles for the navigation bar */
-/* Ensure padding and margin don't affect layout */
-* {
-    box-sizing: border-box; /* Ensures padding and borders are included in width/height */
-}
-
+/* Navigation Bar */
 nav {
-    position: fixed; /* Sticks to the top of the page */
+    position: fixed;
     top: 0;
-    left: 0; /* Ensure nav is anchored to the left */
-    right: 0; /* Ensure nav stretches to full width */
-    width: 100%; /* Full width */
-    max-width: calc(100% - 20rem); /* Adjust width considering the body padding (left + right 10rem each) */
-    margin: 0 auto; /* Center the nav */
-    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
-    color: #fff; /* White text */
-    display: flex; /* Flexbox to align items */
-    justify-content: center; /* Center navigation links */
-    padding: 0.8rem 0; /* Padding on top/bottom */
-    z-index: 10; /* Ensures it appears above other elements */
+    left: 0;
+    right: 0;
+    width: calc(100% - 20rem);
+    margin: 0 auto;
+    background: #2c2c2c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    z-index: 100;
+    border-bottom: 2px solid #800080;
 }
 
-    nav a {
-        margin: 0 1.5rem; /* Spacing between links */
-        font-weight: 600; /* Bold text */
-        transition: color 0.3s ease; /* Smooth hover effect */
+    nav .logo {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+        text-transform: uppercase;
+        margin-left: 2rem;
     }
 
-        nav a.active,
-        nav a:hover {
-            color: #ff9800; /* Highlight link on hover or when active */
+    nav ul {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        nav ul li {
+            margin: 0 1rem;
+            display: flex;
+            align-items: center;
         }
 
+            nav ul li a {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                font-size: 1rem;
+                font-weight: 500;
+                color: white;
+                transition: color 0.3s ease;
+            }
+
+                nav ul li a img {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 0.5rem;
+                    filter: brightness(0) invert(1);
+                }
+
+                nav ul li a:hover {
+                    color: #00b57f;
+                }
+
+/* Portfolio Button */
+.portfolio-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    line-height: 1rem;
+    border: 2px solid white;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: bold;
+    background: #00b57f; /* Default button background */
+    border-radius: 30px;
+    margin-right: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+
+}
+
+    /* Red fill-in animation */
+    .portfolio-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background: red;
+        border-radius: 30px;
+        z-index: 2; /* Raised above the text/icon */
+        transition: width 0.4s ease;
+    }
+
+    .portfolio-button:hover::before {
+        width: 100%; /* Fills from left to right */
+    }
+
+    /* Wrapper for text and icon */
+    .portfolio-button .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        z-index: 3; /* Higher than the red fill */
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* Portfolio text */
+    .portfolio-button .portfolio-text {
+        margin-right: 0.5rem; /* Gap between text and icon */
+        transition: transform 0.3s ease, opacity 0.3s ease; /* Individual animation */
+    }
+
+    /* Portfolio icon */
+    .portfolio-button .portfolio-icon {
+        width: 20px;
+        height: 20px;
+        filter: brightness(0) invert(1);
+        transition: transform 0.3s ease, opacity 0.3s ease; /* Individual animation */
+    }
+
+    /* Hover effects to move down and fade out */
+    .portfolio-button:hover .portfolio-text,
+    .portfolio-button:hover .portfolio-icon {
+        transform: translateY(100%); /* Moves down */
+        opacity: 0; /* Fades out */
+    }
+
+    /* Keep the content wrapper hidden during hover */
+    .portfolio-button:hover .content {
+        opacity: 0; /* Ensure full fade-out for the entire content container */
+    }
+
+   /* Open text animation */
+.portfolio-button .open-text {
+    position: absolute;
+    top: 50%;
+    left: -50%; /* Start far left */
+    transform: translate(-100%, -50%); /* Adjust for proper centring */
+    opacity: 0;
+    z-index: 5; /* Highest to ensure visibility */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.portfolio-button:hover .open-text {
+    transform: translate(0, -50%); /* Slide in horizontally, maintain vertical centring */
+    opacity: 1; /* Fade in */
+}
+
+
+
 /* Header */
-/* Styles for the site header */
 header {
-    padding: 6rem 2rem 2rem; /* Space around content */
-    text-align: center; /* Center-align header text */
-    background: #222; /* Dark background */
-    color: #fff; /* White text */
+    padding: 6rem 2rem 2rem;
+    text-align: center;
+    background: #2c2c2c; /* Neutral dark grey */
+    color: #f7f9f9; /* Subtle beige for contrast */
 }
 
     header h1 {
-        font-size: 2.5rem; /* Large heading */
-        margin: 0; /* Remove default margin */
+        font-size: 3rem; /* Bold and prominent */
+        margin: 0;
     }
 
 /* Tags */
-/* Styles for tags used in filtering projects */
 .tags-container {
     text-align: center;
-    margin: 2rem 0; /* Space above and below */
+    margin: 2rem 0;
 }
 
 .tag {
     display: inline-block;
-    background: #f0f0f0; /* Light grey background */
-    padding: 0.5rem 1rem; /* Padding inside the tag */
-    margin: 0.5rem; /* Spacing between tags */
-    border-radius: 8px; /* Rounded corners */
-    transition: all 0.3s ease; /* Smooth hover effect */
+    background: #e7e7e7; /* Light grey for tags */
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    border-radius: 8px;
+    color: #2c2c2c;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
     .tag.active,
     .tag:hover {
-        background: #ff9800; /* Highlight active or hovered tags */
-        color: #fff; /* White text */
+        background: #00b57f; /* Green accent for active/hovered tags */
+        color: white;
     }
 
 /* Projects Section */
-/* Styles for the projects section */
 .projects-container {
-    display: grid; /* Grid layout for projects */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
-    gap: 1rem; /* Space between cards */
-    padding: 2rem; /* Space around the container */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
 }
 
 .project-card {
-    display: flex; /* Flexbox for card content */
-    flex-direction: column; /* Stack content vertically */
-    background: #fff; /* White background */
-    border-radius: 12px; /* Rounded corners */
-    overflow: hidden; /* Trim overflowing content */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-    aspect-ratio: 2 / 1; /* Ensure 2:1 width-to-height ratio */
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 2 / 1;
 }
 
     .project-card:hover {
-        transform: scale(1.05); /* Slightly enlarge card on hover */
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
 
     .project-card img {
-        width: 100%; /* Full width */
-        height: auto; /* Maintain aspect ratio */
-        object-fit: cover; /* Ensure the image fills the card */
+        width: 100%;
+        height: auto;
+        object-fit: cover;
     }
 
     .project-card div {
-        padding: 1.5rem; /* Space inside the card */
+        padding: 1.5rem;
     }
 
     .project-card h3 {
-        font-size: 1.5rem; /* Heading size */
-        margin: 0; /* Remove default margin */
-        color: #333; /* Dark text */
+        font-size: 1.5rem;
+        margin: 0;
+        color: #2c2c2c;
     }
 
     .project-card p {
-        font-size: 0.9rem; /* Small text */
-        margin-top: 0.5rem; /* Space above the text */
-        color: #555; /* Subtle text colour */
+        font-size: 0.95rem;
+        margin-top: 0.5rem;
+        color: #4f4f4f; /* Medium grey */
     }
 
     .project-card .tags span {
-        background: #f0f0f0; /* Tag background colour */
-        padding: 0.2rem 0.5rem; /* Space inside tags */
-        margin-right: 0.5rem; /* Space between tags */
-        border-radius: 5px; /* Rounded corners */
+        background: #e7e7e7;
+        padding: 0.2rem 0.5rem;
+        margin-right: 0.5rem;
+        border-radius: 5px;
+        font-size: 0.85rem;
+        color: #2c2c2c;
     }
 
 /* Footer */
-/* Styles for the footer section */
 footer {
-    text-align: center; /* Center-align footer text */
-    padding: 1rem; /* Space inside the footer */
-    background: #222; /* Dark background */
-    color: #fff; /* White text */
+    text-align: center;
+    padding: 1rem;
+    background: #2c2c2c; /* Neutral dark grey */
+    color: white;
 }
 
 /* Section Wrapper */
-/* General styling for content sections */
 .section {
-    display: flex; /* Flexbox layout */
-    flex-direction: column; /* Stack content vertically */
-    align-items: center; /* Center-align items */
-    justify-content: center; /* Center-align content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
