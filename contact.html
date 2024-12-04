@@ -8,6 +8,7 @@
     <title>Contact | Jibbe Wieman</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navigation.css">
 
 </head>
 <body>
@@ -15,24 +16,29 @@
         <h1>Contact Me</h1>
     </header>
     <nav>
-        <a href="index.html" class="logo">WIEMAN</a>
+        <a href="index.html" class="logo">
+            <img src="assets/images/personalLogo.svg" alt="JBWIEMAN" />
+        </a>
         <ul>
-            <li><a href="#about"><img src="assets/images/user.png" alt="About Icon"> About</a></li>
-            <li><a href="#contact"><class id="current-page"><img src="assets/images/chat.png" alt="Contact Icon"> Contact</a></li>
-            <li><a href="#projects"><img src="assets/images/folder.png" alt="Projects Icon"> Projects</a></li>
+            <li><a href="./index.html"><img src="assets/images/home.png" alt="Home Icon"> Home</a></li>
+            <li><a href="./about.html"><img src="assets/images/user.png" alt="About Icon"> About</a></li>
+            <li><a href="./contact.html"><img src="assets/images/chat.png" alt="Contact Icon"> Contact</a></li>
+            <li><a href="./projects.html"><img src="assets/images/folder.png" alt="Projects Icon"> Projects</a></li>
         </ul>
-        <button class="portfolio-button">
-            <img src="assets/images/folder.png" alt="Folder Icon" class="portfolio-icon">
-            <span class="portfolio-text">Portfolio</span>
-            <span class="open-text">Open</span>
-        </button>
+        <a href="./projects.html" class="portfolio-link">
+            <button class="portfolio-button">
+                <img src="assets/images/folderFilled.png" alt="Folder Filled Icon" class="portfolio-icon">
+                <span class="portfolio-text">Portfolio</span>
+                <span class="open-text">Open</span>
+            </button>
+        </a>
     </nav>
 
     <main>
         <section id="contact" class="section">
-            <h2>Get in Touch</h2>
             <p>
-                I'm always open to new opportunities, collaborations, and challenges! Whether you want to chat about game design, brainstorm ideas, or just say hi, feel free to reach out.
+                Feel free to send me a message here: contact.jibbe@gmail.com, I'll try to respond as quick as I can!
+                I'm also on social media, if you need me there.
             </p>
             <form action="#" method="post">
                 <label for="name">Name:</label><br>

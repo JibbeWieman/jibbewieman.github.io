@@ -7,20 +7,28 @@
     <title>Projects | Jibbe Wieman</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/projects.css">
+
 </head>
 <body>
     <nav>
-        <a href="index.html" class="logo">WIEMAN</a>
+        <a href="index.html" class="logo">
+            <img src="assets/images/personalLogo.svg" alt="JBWIEMAN" />
+        </a>
         <ul>
-            <li><a href="#about"><img src="assets/images/user.png" alt="About Icon"> About</a></li>
-            <li><a href="#contact"><img src="assets/images/chat.png" alt="Contact Icon"> Contact</a></li>
-            <li><a href="#projects"><class id="current-page"><img src="assets/images/folder.png" alt="Projects Icon"> Projects</a></li>
+            <li><a href="./index.html"><img src="assets/images/home.png" alt="Home Icon"> Home</a></li>
+            <li><a href="./about.html"><img src="assets/images/user.png" alt="About Icon"> About</a></li>
+            <li><a href="./contact.html"><img src="assets/images/chat.png" alt="Contact Icon"> Contact</a></li>
+            <li><a href="./projects.html"><img src="assets/images/folder.png" alt="Projects Icon"> Projects</a></li>
         </ul>
-        <button class="portfolio-button">
-            <img src="assets/images/folder.png" alt="Folder Icon" class="portfolio-icon">
-            <span class="portfolio-text">Portfolio</span>
-            <span class="open-text">Open</span>
-        </button>
+        <a href="./projects.html" class="portfolio-link">
+            <button class="portfolio-button">
+                <img src="assets/images/folderFilled.png" alt="Folder Filled Icon" class="portfolio-icon">
+                <span class="portfolio-text">Portfolio</span>
+                <span class="open-text">Open</span>
+            </button>
+        </a>
     </nav>
 
 
@@ -31,16 +39,82 @@
 
     <section class="tags-container" aria-label="Filter projects by tags">
         <button class="tag active" data-tag="all">All</button>
-        <button class="tag" data-tag="VR">VR</button>
+        <button class="tag" data-tag="2D">2D</button>
+        <button class="tag" data-tag="2DArtist">2D Artist</button>
+        <button class="tag" data-tag="3D">3D</button>
+        <button class="tag" data-tag="3DArtist">3D Artist</button>
+        <button class="tag" data-tag="GameJam">GameJam</button>
+        <button class="tag" data-tag="GameMaker">GameMaker</button>
+        <button class="tag" data-tag="Personal">Personal</button>
+        <button class="tag" data-tag="Programmer">Programmer</button>
         <button class="tag" data-tag="Unity">Unity</button>
         <button class="tag" data-tag="University">University</button>
-        <button class="tag" data-tag="GameMaker">GameMaker</button>
-        <button class="tag" data-tag="Game Jam">Game Jam</button>
-        <button class="tag" data-tag="Programmer">Programmer</button>
+        <button class="tag" data-tag="VR">VR</button>
     </section>
 
-    <section class="projects-container">
-        <!-- Projects will be dynamically loaded -->
+    <section class="projects">
+        <h1>My Projects</h1>
+        <div class="projects-container">
+            <!-- Project panels will go here -->
+            <div class="project-card" data-tags="GameMaker 2D University Programmer 2DArtist">
+                <img src="assets/images/Phobophobia.jpg" alt="Phobophobia Image">
+                <div>
+                    <h3>Phobophobia</h3>
+                    <p>A story-based puzzle game about moving into a new town and overcoming your fears while helping others overcome theirs.</p>
+                    <div class="tags">
+                        <span class="tag gamemaker">GameMaker</span>
+                        <span class="tag programmer">Programmer</span>
+                        <span class="tag artist">2D Artist</span>
+                        <span class="tag 2D">2D</span>
+                        <span class="tag university">University</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-tags="Unity 3D Programmer 3DArtist University">
+                <img src="assets/images/RevengeOfTheRenter.jpg" alt="Revenge Of The Renter Image">
+                <div>
+                    <h3>Revenge of the Renter</h3>
+                    <p>A creative stealth puzzle game about holding your slumlord accountable and saving energy.</p>
+                    <div class="tags">
+                        <span class="tag unity">Unity</span>
+                        <span class="tag programmer">Programmer</span>
+                        <span class="tag artist">3D Artist</span>
+                        <span class="tag university">University</span>
+                        <span class="tag 3D">3D</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-tags="VR 3D University Unity Programmer 3DArtist">
+                <img src="assets/images/TheNews.jpg" alt="The News Image">
+                <div>
+                    <h3>The News</h3>
+                    <p>A VR game about managing a news broadcast 30-years into the future.</p>
+                    <div class="tags">
+                        <span class="tag unity">Unity</span>
+                        <span class="tag programmer">Programmer</span>
+                        <span class="tag artist">3D Artist</span>
+                        <span class="tag university">University</span>
+                        <span class="tag vr">VR</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-tags="Unity 3D GameJam Programmer">
+                <img src="assets/images/MechMates.jpg" alt="Mech Mates Image">
+                <div>
+                    <h3>Mech Mates</h3>
+                    <p>A local co-op game about trying to defeat as many aliens together as possible.</p>
+                    <div class="tags">
+                        <span class="tag unity">Unity</span>
+                        <span class="tag programmer">Programmer</span>
+                        <span class="tag gamejam">GameJam</span>
+                        <span class="tag 3D">3D</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer>

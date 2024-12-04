@@ -8,6 +8,8 @@
     <title>Jibbe Wieman | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/projects.css">
 
 </head>
 <body>
@@ -16,47 +18,70 @@
         <p>Game Developer | Designer | Content Creator</p>
     </header>
     <nav>
-        <a href="index.html" class="logo">WIEMAN</a>
+        <a href="index.html" class="logo">
+            <img src="assets/images/personalLogo.svg" alt="JBWIEMAN" />
+        </a>
         <ul>
-            <li><a href="#about"><img src="assets/images/user.png" alt="About Icon"> About</a></li>
-            <li><a href="#contact"><img src="assets/images/chat.png" alt="Contact Icon"> Contact</a></li>
-            <li><a href="#projects"><img src="assets/images/folder.png" alt="Projects Icon"> Projects</a></li>
+            <li><a href="./index.html"><img src="assets/images/home.png" alt="Home Icon"> Home</a></li>
+            <li><a href="./about.html"><img src="assets/images/user.png" alt="About Icon"> About</a></li>
+            <li><a href="./contact.html"><img src="assets/images/chat.png" alt="Contact Icon"> Contact</a></li>
+            <li><a href="./projects.html"><img src="assets/images/folder.png" alt="Projects Icon"> Projects</a></li>
         </ul>
-        <button class="portfolio-button">
-            <img src="assets/images/folder.png" alt="Folder Icon" class="portfolio-icon">
-            <span class="portfolio-text">Portfolio</span>
-            <span class="open-text">Open</span>
-        </button>
+        <a href="./projects.html" class="portfolio-link">
+            <button class="portfolio-button">
+                <img src="assets/images/folderFilled.png" alt="Folder Filled Icon" class="portfolio-icon">
+                <span class="portfolio-text">Portfolio</span>
+                <span class="open-text">Open</span>
+            </button>
+        </a>
     </nav>
 
     <main>
         <section id="about">
-            <h1>About Me</h1>
-            <p>
-                Hi! I'm Jibbe, a 18-year-old game design generalist from The Netherlands, currently a student at Hanze University of Applied Sciences. I recently completed my first year of Creative Media and Game Technologies cum laude and I am currently striving to make more awesome games in year 2 of the programme.
-                I have a wide range of skills across programming, 2D and 3D art, and game design, but my main forte is in programming.
-                I love taking on challenges, learning new things and I always like to put some extra time in to refine my creations making sure that the creative vision is achieved in the best possible way. Whether it's writing code, making art assets, or designing game mechanics, I thrive on bringing a game to life.
-                Here you can see some of the projects I have had the opportunity of contributing to, and feel free to get in touch if you'd like to collaborate or learn more about my work. =)
-            </p>
+            <div>
+                <h1>About Me</h1>
+                <p>
+                    Hi! I'm Jibbe, a game design generalist from The Netherlands born in 2006, currently a student at Hanze University of Applied Sciences. I recently completed my first year of Creative Media and Game Technologies cum laude and I am currently striving to make more awesome games in year 2 of the programme.
+                    I have a wide range of skills across programming, 2D and 3D art, and game design, but my main forte is in programming.
+                    I love taking on challenges, learning new things and I always like to put some extra time in to refine my creations making sure that the creative vision is achieved in the best possible way. Whether it's writing code, making art assets, or designing game mechanics, I thrive on bringing a game to life.
+                    Here you can see some of the projects I have had the opportunity of contributing to, and feel free to get in touch if you'd like to collaborate or learn more about my work. =)
+                </p>
+            </div>
         </section>
 
         <section id="projects">
             <h1>My Projects</h1>
             <div class="projects-container">
                 <!-- Project panels will go here -->
-                <div class="project-card" data-tags="html css">
-                    <img src="project-image1.jpg" alt="Project 1 Image">
+                <div class="project-card" data-tags="GameMaker">
+                    <img src="assets/images/Phobophobia.jpg" alt="Phobophobia Image">
                     <div>
-                        <h3>Project 1 Title</h3>
-                        <p>A brief description of Project 1.</p>
+                        <h3>Phobophobia</h3>
+                        <p>A story-based puzzle game about moving into a new town and overcoming your fears while helping others overcome theirs.</p>
                     </div>
                 </div>
 
-                <div class="project-card" data-tags="javascript">
-                    <img src="project-image2.jpg" alt="Project 2 Image">
+                <div class="project-card" data-tags="Unity">
+                    <img src="assets/images/RevengeOfTheRenter.jpg" alt="Revenge Of The Renter Image">
                     <div>
-                        <h3>Project 2 Title</h3>
-                        <p>A brief description of Project 2.</p>
+                        <h3>Revenge of the Renter</h3>
+                        <p>A creative stealth puzzle game about holding your slumlord accountable and saving energy.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-tags="VR">
+                    <img src="assets/images/TheNews.jpg" alt="The News Image">
+                    <div>
+                        <h3>The News</h3>
+                        <p>A VR game about managing a news broadcast 30-years into the future.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-tags="Unity">
+                    <img src="assets/images/MechMates.jpg" alt="Mech Mates Image">
+                    <div>
+                        <h3>Mech Mates</h3>
+                        <p>A local co-op game about trying to defeat as many aliens together as possible.</p>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,154 @@
+/* Tags */
+.tags-container {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.tag.active,
+.tag:hover {
+    background: #00b57f; /* Green accent for active/hovered tags */
+    color: white;
+}
+
+/* General Tag Styles */
+.tags {
+    display: flex;
+    gap: 1px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    display: inline-block;
+    background: #e7e7e7; /* Light grey for tags */
+    padding: 0.5rem 1rem;
+    margin: 0.4rem;
+    border-radius: 8px;
+    color: #2c2c2c;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+    /* Colour-Coded Tags */
+    .tag.2d {
+        background-color: #c5d9e5 !important; /* Soft Pastel Blue */
+    }
+
+    .tag.2dartist {
+        background-color: #f1d0d6 !important; /* Soft Pastel Pink */
+    }
+
+    .tag.3d {
+        background-color: #c8e6c9 !important; /* Soft Pastel Green */
+    }
+
+    .tag.3dartist {
+        background-color: #d0b0f4 !important; /* Soft Lavender Purple */
+    }
+
+    .tag.artist {
+        background-color: #c6a4f7 !important; /* Soft Lilac Purple */
+    }
+
+    .tag.gamejam {
+        background-color: #ffab91 !important; /* Soft Coral */
+    }
+
+    .tag.gamemaker {
+        background-color: #a5d6a7 !important; /* Soft Mint Green */
+    }
+
+    .tag.personal {
+        background-color: #d6d6d6 !important; /* Light Gray */
+    }
+
+    .tag.programmer {
+        background-color: #ffcc80 !important; /* Soft Peach */
+    }
+
+    .tag.unity {
+        background-color: #80b3ff !important; /* Light Pastel Blue */
+    }
+
+    .tag.university {
+        background-color: #ffd699 !important; /* Soft Light Yellow */
+    }
+
+    .tag.vr {
+        background-color: #a3e4d7 !important; /* Soft Teal */
+    }
+
+
+
+/* Projects Section */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
+    gap: 2rem; /* Adjust the gap between cards */
+    padding-top: .5rem;
+    padding-bottom: 2rem;
+    justify-items: stretch; /* Stretch the cards to fill the column width */
+}
+
+/* Adjustments for medium screens (when screen width is reduced) */
+@media (max-width: 1200px) {
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 equal-width columns on medium screens */
+    }
+}
+
+/* Further adjustments for small screens */
+@media (max-width: 600px) {
+    .projects-container {
+        grid-template-columns: 1fr; /* 1 column layout for small screens */
+    }
+}
+
+/* Project Cards */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 1 / 1.5; /* Adjusted to be taller than wide */
+    width: 100%; /* Ensures the card takes up the full width of the column */
+    height: auto; /* Maintain aspect ratio */
+}
+
+    .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-card img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .project-card div {
+        padding: 1.5rem;
+    }
+
+    .project-card h3 {
+        font-size: 1.5rem;
+        margin: 0;
+        color: #2c2c2c;
+    }
+
+    .project-card p {
+        font-size: 0.95rem;
+        margin-top: 0.5rem;
+        color: #4f4f4f; /* Medium grey */
+    }
+
+    .project-card .tags span {
+        background: #e7e7e7;
+        padding: 0.2rem 0.5rem;
+        margin-right: 0.5rem;
+        border-radius: 5px;
+        font-size: 0.85rem;
+        color: #2c2c2c;
+    }
