@@ -1,15 +1,22 @@
-document.addEventListener('DOMContentLoaded', async () => {
-    const { setupLazyLoading } = await import('./modules/lazyLoad.js');
-    const { setupDynamicFiltering } = await import('./modules/filter.js');
-
-    setupDynamicFiltering();
-    setupLazyLoading();
-});
-
 document.addEventListener('DOMContentLoaded', function () {
-    const tags = document.querySelectorAll('.tag');
+    const tags = document.querySelectorAll('.tags-container .tag'); // External tags
+    const projectTags = document.querySelectorAll('.project-card .tag'); // Internal tags
     const projectCards = document.querySelectorAll('.project-card');
 
+    // Reusable filtering function
+    function filterProjects(filter) {
+        projectCards.forEach(card => {
+            const cardTags = card.getAttribute('data-tags').split(' ');
+
+            if (filter === 'all' || cardTags.includes(filter)) {
+                card.style.display = 'block'; // Show the card
+            } else {
+                card.style.display = 'none'; // Hide the card
+            }
+        });
+    }
+
+    // Add click event to external tags
     tags.forEach(tag => {
         tag.addEventListener('click', function () {
             // Remove active class from all tags
@@ -19,31 +26,32 @@ document.addEventListener('DOMContentLoaded', function () {
             tag.classList.add('active');
 
             const filter = tag.getAttribute('data-tag');
+            filterProjects(filter);
+        });
+    });
 
-            projectCards.forEach(card => {
-                // Get the tags of the project card
-                const cardTags = card.getAttribute('data-tags').split(' ');
+    // Add click event to project card tags
+    projectTags.forEach(tag => {
+        tag.addEventListener('click', function () {
+            const filter = tag.getAttribute('data-tag');
 
-                if (filter === 'all' || cardTags.includes(filter)) {
-                    card.style.display = 'block'; // Show the card
-                } else {
-                    card.style.display = 'none'; // Hide the card
-                }
-            });
+            // Trigger the same logic as external tags
+            tags.forEach(tag => tag.classList.remove('active'));
+            const matchingExternalTag = [...tags].find(t => t.getAttribute('data-tag') === filter);
+            if (matchingExternalTag) {
+                matchingExternalTag.classList.add('active');
+            }
+
+            filterProjects(filter);
         });
     });
 });
 
-
-// Is supposed to underline the current page but doesn't
-// Get the current URL path
+// Highlight current page in the navbar
 const currentPath = window.location.pathname;
-
-// Select all navigation links
 const navLinks = document.querySelectorAll('nav ul li a');
 
 navLinks.forEach(link => {
-    // Check if the link's href matches the current path
     if (link.getAttribute('href').includes(currentPath)) {
         link.classList.add('active');
     }
