@@ -160,6 +160,7 @@ nav {
 .portfolio-button .portfolio-icon {
     width: 20px;
     height: 20px;
+    padding-right: 4px;
     filter: brightness(0) invert(1);
     transition: transform 0.3s ease, opacity 0.3s ease; /* Individual animation */
 }

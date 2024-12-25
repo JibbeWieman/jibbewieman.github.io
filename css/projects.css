@@ -5,36 +5,63 @@
     }
 }
 
-/* Further adjustments for small screens */
+/* Media Query for Small Screens */
 @media (max-width: 600px) {
-    .projects-container {
-        grid-template-columns: 1fr; /* 1 column layout for small screens */
+    .project-card {
+        padding: 1rem; /* Reduce padding for smaller cards */
     }
+
+        .project-card .tags {
+            gap: 0.25rem; /* Smaller gap between tags */
+        }
+
+            .project-card .tags span {
+                font-size: 0.75rem; /* Smaller font size for tags */
+                padding: 0.2rem 0.4rem; /* Smaller padding */
+            }
 }
 
 /* Project Cards */
 .project-card {
     display: flex;
     flex-direction: column;
-    background: white;
+    background: #eaecec;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    aspect-ratio: 1 / 1.5; /* Adjusted to be taller than wide */
-    width: 100%; /* Ensures the card takes up the full width of the column */
-    height: auto; /* Maintain aspect ratio */
+    aspect-ratio: 1 / 1.5;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box; /* Include padding and borders in width/height */
 }
 
     .project-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
     }
 
-    .project-card img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
+    /* Project Title Image */
+    /*.project-title-image {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        width: auto;*/ /* Make the title image stretch to the card's width */
+        /*height: 5rem;*/ /* Fixed height for the title image */
+        /*object-fit: contain;*/ /* Ensure the whole logo is visible without cropping */
+        /*margin-bottom: 1rem;*/ /* Add some space below the title image */
+        /*border-radius: 8px;*/ /* Optional: add rounded corners to the title image */
+    /*}*/
+
+    .project-card > a > img {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center content vertically */
+        align-items: center; /* Center content horizontally */
+        width: 100%; /* Make the image stretch to fill the card's width */
+        height: 150px; /* Set a fixed height for all images */
+        object-fit: cover; /* Crop the image to maintain aspect ratio */
+        overflow: hidden; /* Hide any overflow */
     }
 
     .project-card div {
@@ -53,14 +80,30 @@
         color: #4f4f4f; /* Medium grey */
     }
 
-    .project-card .tags span {
-        background: #e7e7e7;
-        padding: 0.2rem 0.5rem;
-        margin-right: 0.5rem;
-        border-radius: 5px;
-        font-size: 0.85rem;
-        color: #2c2c2c;
+    .project-card .tags {
+        display: flex;
+        flex-wrap: wrap; /* Allow tags to move to the next line */
+        gap: 0px;
+        margin-top: auto; /* Push tags to the bottom */
+        justify-content: start; /* Align tags to the left */
+        overflow: hidden;
+        padding: 0;
+        max-width: 100%; /* Ensure tags stay within the card width */
+        box-sizing: border-box; /* Ensure consistent sizing */
     }
+
+        /* Individual Tag Styles */
+        .project-card .tags span {
+            background: #d2d4d4; /* Light grey */
+            padding: 0.2rem 0.4rem;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #2c2c2c;
+            white-space: nowrap; /* Prevent line breaks in tags */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
 .projects-container {
     display: grid;
@@ -99,14 +142,6 @@
     color: #2c2c2c;
     font-weight: 500;
     transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.project-card .tags span {
-    background: #e7e7e7;
-    padding: 0.2rem 0.5rem; /* Tag Size */
-    border-radius: 5px; /* Rounded Corner Size */
-    font-size: 0.85rem;
-    color: #2c2c2c;
 }
 
 /* Space between tags */

@@ -13,47 +13,67 @@
 
 </head>
 <body>
-    <div class="main-wrapper">
-        <header class="index-header">
-            <h1>Jibbe Wieman</h1>
-            <p>Game Developer | Programmer | Content Creator</p>
-        </header>
-        <nav>
-            <a href="index.html" class="logo">
-                <img src="assets/images/personalLogo.svg" alt="JBWIEMAN" />
-            </a>
-            <ul>
-                <li><a href="./index.html"><img src="assets/images/icons/home.png" alt="Home Icon"> Home</a></li>
-                <li><a href="./about.html"><img src="assets/images/icons/user.png" alt="About Icon"> About</a></li>
-                <li><a href="./contact.html"><img src="assets/images/icons/chat.png" alt="Contact Icon"> Contact</a></li>
-                <li><a href="./projects.html"><img src="assets/images/icons/folder.png" alt="Projects Icon"> Projects</a></li>
-            </ul>
-            <a href="./projects.html" class="portfolio-link">
-                <button class="portfolio-button">
-                    <img src="assets/images/icons/folderFilled.png" alt="Folder Filled Icon" class="portfolio-icon">
-                    <span class="portfolio-text">Portfolio</span>
-                    <span class="open-text">Open</span>
-                </button>
-            </a>
-        </nav>
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="assets/images/personalLogo.svg" alt="JBWIEMAN" />
+        </a>
+        <ul>
+            <li><a href="./index.html"><img src="assets/images/icons/home.png" alt="Home Icon"> Home</a></li>
+            <li><a href="./about.html"><img src="assets/images/icons/user.png" alt="About Icon"> About</a></li>
+            <li><a href="./contact.html"><img src="assets/images/icons/chat.png" alt="Contact Icon"> Contact</a></li>
+            <li><a href="assets/images/resume.pdf" target="_blank"><img src="assets/images/icons/file.png" alt="Resume Icon"> Resume</a></li>
+        </ul>
+        <button class="portfolio-button" onclick="window.location.href='./projects.html';">
+            <img src="assets/images/icons/folderFilled.png" alt="Folder Filled Icon" class="portfolio-icon">
+            <span class="portfolio-text">Portfolio</span>
+            <span class="open-text">Open</span>
+        </button>
+    </nav>
 
+    <header class="index-header">
+        <h1>Jibbe Wieman</h1>
+        <p>Game Developer | Programmer | Content Creator</p>
+    </header>
+    <div class="main-wrapper">
         <main>
             <section id="about">
                 <div>
-                    <h1>About Me</h1>
+                    <h2>About Me</h2>
                     <p>
                         Hi! I'm Jibbe, a game design generalist from The Netherlands born in 2006, currently a student at Hanze University of Applied Sciences.
                         I have a wide range of skills across programming, 2D and 3D art, and game design, but my main forte is in C# programming.
                         Here you can see some of the projects I have had the opportunity of contributing to, and feel free to get in touch if you'd like to collaborate or learn more about my work. =)
                     </p>
-                    <a href="about.html">
-                        <button class="read-more-button">Read More</button>
-                    </a>
+                    <button class="read-more-button" onclick="window.location.href='about.html';">Read More</button>
+                </div>
+            </section>
+
+            <section id="skills">
+                <div>
+                    <h2>Skills</h2>
+                    <h3>Soft</h3>
+                    <ul>
+                        <li>Adaptibility</li>
+                        <li>Communication</li>
+                        <li>Creativity</li>
+                        <li>Hard-working</li>
+                        <li>Proactive</li>
+                        <li>Teamwork</li>
+                    </ul>
+                    <h3>Hard</h3>
+                    <ul>
+                        <li>Adobe Creative Cloud</li>
+                        <li>Microsoft Office 365</li>
+                        <li>Blender</li>
+                        <li>Unity</li>
+                        <li>C#</li>
+                        <li>GML</li>
+                    </ul>
                 </div>
             </section>
 
             <section id="projects">
-                <h1>My Projects</h1>
+                <h2>My Projects</h2>
                 <div class="projects-container">
                     <!-- Project panels will go here -->
                     <div class="project-card" data-tags="GameMaker">
@@ -62,6 +82,13 @@
                             <div>
                                 <h3>Phobophobia</h3>
                                 <p>A story-based puzzle game about moving into a new town and overcoming your fears while helping others overcome theirs.</p>
+                                <div class="tags">
+                                    <span class="tag 2D" data-tag="2D">2D</span>
+                                    <span class="tag artist" data-tag="Artist">Artist</span>
+                                    <span class="tag gamemaker" data-tag="GameMaker">GameMaker</span>
+                                    <span class="tag programmer" data-tag="Programmer">Programmer</span>
+                                    <span class="tag university" data-tag="University">University</span>
+                                </div>
                             </div>
                         </a>
                     </div>
@@ -72,6 +99,13 @@
                             <div>
                                 <h3>Revenge of the Renter</h3>
                                 <p>A creative stealth puzzle game about holding your slumlord accountable and saving energy.</p>
+                                <div class="tags">
+                                    <span class="tag 3D" data-tag="3D">3D</span>
+                                    <span class="tag artist" data-tag="Artist">Artist</span>
+                                    <span class="tag programmer" data-tag="Programmer">Programmer</span>
+                                    <span class="tag unity" data-tag="Unity">Unity</span>
+                                    <span class="tag university" data-tag="University">University</span>
+                                </div>
                             </div>
                         </a>
                     </div>
@@ -82,6 +116,14 @@
                             <div>
                                 <h3>The News</h3>
                                 <p>A VR game about managing a news broadcast 30-years into the future.</p>
+                                <div class="tags">
+                                    <span class="tag 3D" data-tag="3D">3D</span>
+                                    <span class="tag artist" data-tag="Artist">Artist</span>
+                                    <span class="tag programmer" data-tag="Programmer">Programmer</span>
+                                    <span class="tag unity" data-tag="Unity">Unity</span>
+                                    <span class="tag university" data-tag="University">University</span>
+                                    <span class="tag vr" data-tag="VR">VR</span>
+                                </div>
                             </div>
                         </a>
                     </div>
@@ -92,6 +134,14 @@
                             <div>
                                 <h3>Mech Mates</h3>
                                 <p>A local co-op game about trying to defeat as many aliens together as possible.</p>
+                                <div class="tags">
+                                    <span class="tag 3D" data-tag="3D">3D</span>
+                                    <span class="tag artist" data-tag="2DArtist">Artist</span>
+                                    <span class="tag gamejam" data-tag="GameMaker">GameJam</span>
+                                    <span class="tag personal" data-tag="Personal">Personal</span>
+                                    <span class="tag programmer" data-tag="Programmer">Programmer</span>
+                                    <span class="tag unity" data-tag="Unity">Unity</span>
+                                </div>
                             </div>
                         </a>
                     </div>
@@ -114,10 +164,10 @@
             </section>
 
         </main>
-        </div>
+    </div>
 
-        <footer>
-            <p>&copy; 2024 Jibbe Wieman | <a href="https://github.com/JibbeWieman">GitHub</a> | <a href="https://www.linkedin.com/in/jibbe-wieman-53b34428b/">LinkedIn</a></p>
-        </footer>
+    <footer>
+        <p>&copy; 2024 Jibbe Wieman | <a href="https://github.com/JibbeWieman">GitHub</a> | <a href="https://www.linkedin.com/in/jibbe-wieman-53b34428b/">LinkedIn</a></p>
+    </footer>
 </body>
 </html>

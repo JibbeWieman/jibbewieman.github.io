@@ -3,27 +3,35 @@
     --recontent-width: calc(80%); /* Define a reusable width */
 }
 /** {
-    box-sizing: border-box;*/ /* Include padding/borders in width */
+    margin: 0;
+    padding: 0;*/
+    /*box-sizing: border-box;*/ /*Include padding/borders in width*/
 /*}*/
 
 /* General Styles */
 body {
     font-family: 'Poppins', sans-serif; /* Modern and sleek font */
-    margin: 0;
+    /*margin: 0;*/
     padding: 0;
     background: url('../assets/images/background-image.jpg') no-repeat center center fixed;
     background-size: cover; /* Ensures the image covers the entire background */
     color: #2c2c2c; /* Neutral dark grey for text */
     scroll-behavior: smooth;
 }
+main {
+    display: block; /* Default works fine unless other styles interfere */
+    width: 100%; /* Ensure main doesn’t clip child sections */
+}
 
 .main-wrapper {
-    flex: 1; /* Fill available height */
+    flex: 1; /* Fills remaining space in the viewport */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
     width: var(--recontent-width); /* Use root variable */
     margin: 0 auto;
-    background-color: #f7f9f9;
+    background-color: #f7f9f9; /* light beige */
     padding: 2rem;
-    border-radius: 12px;
+    border-radius: 0 0 12px 12px; /* Bottom-left and bottom-right corners */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     box-sizing: border-box; /* Include padding and border in width calculation */
 }
@@ -40,12 +48,17 @@ a {
 
 /* Header */
 header {
-    width: 100%; /* Make the header match the main-wrapper width */
-    padding: 5rem 2rem 2rem;
-    text-align: center;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center;
+    align-items: center;
+    width: var(--recontent-width);
+    max-width: 100%; /* Prevent overflow */
+    margin: 0 auto; /* Centre the header horizontally */
+    padding: 8rem 2rem 2rem;
     background: #2c2c2c; /* Neutral dark grey */
     color: #f7f9f9; /* Subtle beige for contrast */
-    box-sizing: border-box; /* Include border in header's width calculation */
+    box-sizing: border-box;
 }
 
     header h1 {
@@ -53,18 +66,32 @@ header {
         margin: 0;
     }
 
+    header h2 {
+        font-size: 2.5rem; /* Bold and prominent */
+        margin: 0;
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+
+    header h3 {
+        font-size: 2rem; /* Bold and prominent */
+        margin: 0;
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+
 /* Footer */
 footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px; /* Fixed height */
+    height: 60px; /* Fixed height */
     width: var(--recontent-width);
+    max-width: 100%;
     background: #2c2c2c;
     color: white;
-    margin: 20px auto 0; /* Add 20px space above the footer */
-    margin-top: auto; /* Push to bottom */
-    border-radius: 12px;
+    margin: 8px auto 0;
+    border-radius: 12px 12px 0 0; /* Top-left and top-right corners */
     padding: 0; /* Ensure no padding issues */
 }
 
@@ -92,7 +119,7 @@ button {
     background-color: #00b57f; /* Brighter green for buttons */
     color: white;
     padding: 0.8rem 1.2rem;
-    border-radius: 5px; /* Slightly rounded corners */
+    border-radius: 30px; /* Rounded corners */
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -111,7 +138,7 @@ button {
     text-align: center;
     color: white;
     position: relative;
-    max-height: 250px;
+    max-height: 15rem;
     overflow: hidden; /* Ensures content doesn't overflow the max height */
     display: flex; /* Flexbox for vertical alignment */
     justify-content: center;
@@ -124,6 +151,7 @@ button {
         font-weight: 600;
         text-transform: uppercase;
         margin-bottom: 20px;
+        margin-top: 0;
         z-index: 1;
         position: relative;
     }
