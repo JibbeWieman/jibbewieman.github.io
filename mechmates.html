@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio website of Jibbe Wieman">
+    <script src="js/scripts/main.js"></script>
+    <title>Jibbe Wieman | MechMates</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/project-page.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="assets/images/personalLogo.svg" alt="JBWIEMAN" />
+        </a>
+        <ul>
+            <li><a href="./index.html"><img src="assets/images/icons/home.png" alt="Home Icon"> Home</a></li>
+            <li><a href="./about.html"><img src="assets/images/icons/user.png" alt="About Icon"> About</a></li>
+            <li><a href="./contact.html"><img src="assets/images/icons/chat.png" alt="Contact Icon"> Contact</a></li>
+            <li><a href="assets/images/resume.pdf" target="_blank"><img src="assets/images/icons/file.png" alt="Resume Icon"> Resume</a></li>
+        </ul>
+        <button class="portfolio-button" onclick="window.location.href='./projects.html';">
+            <img src="assets/images/icons/folderFilled.png" alt="Folder Filled Icon" class="portfolio-icon">
+            <span class="portfolio-text">Portfolio</span>
+            <span class="open-text">Open</span>
+        </button>
+    </nav>
+
+    <div class="arrow-button arrow-left" onclick="window.location.href='revengeoftherenter.html';">
+        <img src="assets/images/icons/arrow-left.png" alt="Left Arrow">
+    </div>
+    <div class="arrow-button arrow-right" onclick="window.location.href='thenews.html';">
+        <img src="assets/images/icons/arrow-right.png" alt="Right Arrow">
+    </div>
+
+    <header class="projects-header">
+        <h1>MechMates</h1>
+        <p>gun goes pew pew</p>
+    </header>
+    <div class="main-wrapper">
+        <main>
+            <dl class="project-details">
+                <dt>PROJECT STATUS:</dt>
+                <dd>FINISHED</dd>
+                <dt>PROJECT TYPE:</dt>
+                <dd>GAME JAM</dd>
+                <dt>PROJECT DURATION:</dt>
+                <dd>4 SEPTEMBER 2024 - 6 SEPTEMBER 2024</dd>
+                <dt>SOFTWARE USED:</dt>
+                <dd>UNITY</dd>
+                <dt>LANGUAGES USED:</dt>
+                <dd>C#</dd>
+                <dt>PRIMARY ROLE(S):</dt>
+                <dd>PROGRAMMER</dd>
+            </dl><br />
+            <p>
+                In the first week of the new uni year we did a Game Jam where the theme was 'Together'.
+                Together with 4 other people we decided to make a local co-op game where two players must work together to control a mech and beat as many alien creatures until the timer runs out.
+                Our team consisted of two artist, one sound designer and one other programmer.
+            </p><br />
+            <video controls width="600">
+                <source src="assets/videos/mechmates-gameplay.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video><br />
+            <h2>My Contributions</h2>
+            <dl>
+                <dt>• Enemy AI System</dt>
+                <dt>• Spawning System</dt>
+                <dt>• Score System</dt>
+                <dt>• Movement System</dt>
+                <dt>• Bullet Behaviour</dt>
+                <dt>• Mech Upper & Lower Body Rotation</dt>
+                <dt>• Rotating Skybox Sun</dt>
+            </dl><br />
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Jibbe Wieman | <a href="https://github.com/JibbeWieman">GitHub</a> | <a href="https://www.linkedin.com/in/jibbe-wieman-53b34428b/">LinkedIn</a></p>
+    </footer>
+</body>
+</html>

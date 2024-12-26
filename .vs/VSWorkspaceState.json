@@ -3,11 +3,12 @@
     "",
     "\\assets",
     "\\assets\\images",
+    "\\assets\\videos",
     "\\css",
     "\\js",
     "\\js\\scripts",
     "\\js\\scripts\\modules"
   ],
-  "SelectedNode": "\\revengeoftherenter.html",
+  "SelectedNode": "\\assets\\videos",
   "PreviewInSolutionExplorer": false
 }

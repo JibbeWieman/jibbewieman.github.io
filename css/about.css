@@ -1,49 +1,30 @@
 @media (max-width: 768px) {
-    .about-me {
-        flex-direction: column; /* Stack items vertically */
-        gap: 1rem; /* Adjust gap for smaller viewports */
-    }
-
-    .about-me .text {
-        max-width: 100%; /* Allow text to take full width */
+    .section.about-me {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        text-align: center; /* Centre-align text for mobile */
     }
 
     .about-image {
-        margin-left: 0; /* Remove left margin */
-        max-width: 100%; /* Scale image to fit */
+        margin-top: 20px; /* Add spacing above the image */
     }
 }
 
-/* Flex container styling for about-me */
-.about-me {
-    display: flex; /* Arrange items side by side */
-    flex-wrap: nowrap; /* Prevent wrapping */
+.section.about-me {
+    display: flex;
+    flex-direction: row; /* Align items horizontally */
     align-items: flex-start; /* Align items to the top */
-    gap: 2rem; /* Space between text and image */
-    max-width: 100%; /* Ensure it stretches the width of the parent */
-    overflow: hidden; /* Prevent content spilling outside */
-    margin: 0 auto; /* Center-align container */
-    padding: 1rem 0; /* Add spacing */
-    box-sizing: border-box; /* Include padding in width calculation */
+    gap: 20px; /* Add space between text and image */
 }
 
-    /* Text container */
-    .about-me .text {
-        flex: 1; /* Allow text to take up available space */
-        max-width: 60%; /* Limit text width */
-        min-width: 200px; /* Set a minimum width to prevent collapsing */
-        word-wrap: break-word; /* Prevent long words from breaking layout */
-        box-sizing: border-box; /* Include padding/borders in width */
-    }
+.text {
+    flex: 2; /* Allow text to take more space */
+    max-width: 600px; /* Limit text width */
+}
 
-/* Image styling */
 .about-image {
-    flex: 0 0 auto; /* Prevent resizing */
-    max-width: 350px; /* Limit image width */
+    flex: 1; /* Allow image to take less space */
+    max-width: 20%; /* Ensure the image scales correctly */
     height: auto; /* Maintain aspect ratio */
-    border-radius: 12px; /* Optional: Rounded corners */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Optional: Shadow */
-    margin-left: auto; /* Push image to the right */
-    box-sizing: border-box; /* Include padding/borders in width */
-    margin: 0; /* Reset all margins */
+    border-radius: 10px; /* Add rounded corners for style */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for aesthetic */
 }
