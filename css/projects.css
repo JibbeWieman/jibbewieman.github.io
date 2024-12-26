@@ -88,6 +88,7 @@
         justify-content: start; /* Align tags to the left */
         overflow: hidden;
         padding: 0;
+        padding-top: 0.5rem;
         max-width: 100%; /* Ensure tags stay within the card width */
         box-sizing: border-box; /* Ensure consistent sizing */
     }
