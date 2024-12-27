@@ -192,3 +192,31 @@ nav {
     transform: translate(0, -50%); /* Slide in horizontally, maintain vertical centring */
     opacity: 1; /* Fade in */
 }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Stack items */
+        padding: 1rem;
+    }
+
+        nav .logo {
+            margin-left: 0; /* Centre the logo */
+            margin-bottom: 1rem;
+        }
+
+        nav ul {
+            position: static; /* Aligning naturally for mobile */
+            flex-direction: column; /* Stack nav items */
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+            nav ul li {
+                margin: 0;
+            }
+
+    .portfolio-button {
+        margin: 1rem 0; /* Adjust button spacing */
+    }
+}

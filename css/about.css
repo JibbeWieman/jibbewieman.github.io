@@ -18,7 +18,7 @@
 
 .text {
     flex: 2; /* Allow text to take more space */
-    max-width: 600px; /* Limit text width */
+    max-width: 45%; /* Limit text width */
 }
 
 .about-image {

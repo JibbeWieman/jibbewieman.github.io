@@ -37,7 +37,6 @@
     display: grid;
     grid-template-columns: max-content 1fr; /* Define two columns */
     gap: 0.5rem 1rem; /* Row and column spacing */
-    font-family: Arial, sans-serif;
     font-size: 1rem;
     line-height: 1.5;
     margin: 0;
