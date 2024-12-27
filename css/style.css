@@ -32,7 +32,7 @@ main {
     background-color: #f7f9f9; /* light beige */
     padding: 2rem;
     border-radius: 0 0 12px 12px; /* Bottom-left and bottom-right corners */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     box-sizing: border-box; /* Include padding and border in width calculation */
 }
 
@@ -64,6 +64,8 @@ header {
     header h1 {
         font-size: 3rem; /* Bold and prominent */
         margin-bottom: 0.5rem;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), /* Outer glow */
+        0 0 5px rgba(0, 0, 0, 0.6); /* Softer inner glow */
     }
 
     header h2 {
@@ -76,6 +78,11 @@ header {
         font-size: 2rem; /* Bold and prominent */
         margin-top: 1rem !important;
         margin-bottom: 4px;
+    }
+
+    header p {
+        font-size: 1.2rem; /* Slightly smaller than the heading */
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
     }
 
 h1 {
@@ -146,3 +153,86 @@ button {
     button:focus {
         box-shadow: 0 0 6px rgba(0, 191, 127, 0.5); /* Soft green glow */
     }
+
+/* Header Styles */
+header.index-header {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 16 / 9; /* Replace with your desired ratio */
+    height: auto; /* Maintain ratio based on the width */
+    width: var(--recontent-width);
+    max-width: 100%; /* Prevent overflow */
+    margin: 0 auto; /* Centre the header horizontally */
+    padding: 7.5rem 2rem 2rem;
+    color: #f7f9f9; /* Subtle beige for contrast */
+    box-sizing: border-box;
+
+    /* Animation */
+    background-size: cover; /* Maintain a good visual fill */
+    background-repeat: no-repeat; /* Prevent tiling of smaller images */
+    background-position: center; /* Centre the image for alignment */
+    animation: fadeBackground 15s infinite;
+
+    /* Positioning for overlay */
+    position: relative;
+    z-index: 1; /* Ensure content stays above the overlay */
+}
+
+    header.index-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Transparent black overlay */
+        z-index: -1; /* Ensure the overlay stays behind the text */
+        pointer-events: none; /* Allow interaction with header content */
+    }
+
+/* Keyframes for background fading */
+@keyframes fadeBackground {
+    0%, 25% {
+        background-image: url('../assets/images/phobophobia.jpg');
+    }
+
+    25%, 50% {
+        background-image: url('../assets/images/revenge-of-the-renter.jpg');
+    }
+
+    50%, 75% {
+        background-image: url('../assets/images/mechmates.jpg');
+    }
+
+    75%, 99.9% {
+        background-image: url('../assets/images/the-news.jpg');
+    }
+
+    99.9%, 100% {
+        background-image: url('../assets/images/phobophobia.jpg');
+    }
+}
+
+.skills-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skills-column {
+    width: 50%;
+}
+
+    .skills-column h3 {
+        margin-bottom: 10px;
+    }
+
+    .skills-column ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+        .skills-column ul li {
+            margin-bottom: 5px;
+        }

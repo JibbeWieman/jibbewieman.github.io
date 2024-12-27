@@ -1,3 +1,44 @@
+
+.project-details {
+    display: grid;
+    grid-template-columns: max-content 1fr; /* Define two columns */
+    gap: 0.5rem 1rem; /* Row and column spacing */
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+    .project-details dt {
+        font-weight: bold; /* Make the labels bold */
+        text-align: left;
+    }
+
+    .project-details dd {
+        margin: 0; /* Remove default margins */
+        padding: 0; /* Remove default padding */
+        text-align: left; /* Align text to the left */
+    }
+
+.content-wrapper {
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+}
+
+.contributions {
+    max-width: 100%; /* Limit the width of the contributions section */
+    word-break: break-word;
+}
+
+iframe {
+    max-width: 60%; /* Limit the width of the video */
+    max-height: 20%; /* Limit the width of the video */
+    margin-left: auto; /* Push the video to the far right */
+    flex-shrink: 0; /* Prevent the video from shrinking */
+    border-radius: 10px;
+}
+
+/* NAVIGATION ARROWS*/
 .arrow-button {
     position: fixed;
     top: 50%;
@@ -32,24 +73,3 @@
 .arrow-right {
     right: 5%; /* Position on the right side */
 }
-
-.project-details {
-    display: grid;
-    grid-template-columns: max-content 1fr; /* Define two columns */
-    gap: 0.5rem 1rem; /* Row and column spacing */
-    font-size: 1rem;
-    line-height: 1.5;
-    margin: 0;
-    padding: 0;
-}
-
-    .project-details dt {
-        font-weight: bold; /* Make the labels bold */
-        text-align: left;
-    }
-
-    .project-details dd {
-        margin: 0; /* Remove default margins */
-        padding: 0; /* Remove default padding */
-        text-align: left; /* Align text to the left */
-    }
