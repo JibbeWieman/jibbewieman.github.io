@@ -236,3 +236,62 @@ header.index-header {
         .skills-column ul li {
             margin-bottom: 5px;
         }
+
+/* Header with background image */
+.phobophobia-header,
+.revenge-of-the-renter-header,
+.mechmates-header,
+.the-news-header {
+    position: relative; /* Ensure the overlay is positioned correctly */
+    background-size: cover;
+    background-position: center;
+    color: white; /* Make sure text is readable on dark overlay */
+}
+
+/* Background for Phobophobia */
+.phobophobia-header {
+    background-image: url('../assets/images/phobophobia.jpg');
+}
+
+/* Background for Revenge of the Renter */
+.revenge-of-the-renter-header {
+    background-image: url('../assets/images/revenge-of-the-renter.jpg');
+}
+
+/* Background for Mechmates */
+.mechmates-header {
+    background-image: url('../assets/images/mechmates.jpg');
+}
+
+/* Background for The News */
+.the-news-header {
+    background-image: url('../assets/images/the-news.jpg');
+}
+
+    /* Overlay with slight black */
+    .phobophobia-header::before,
+    .revenge-of-the-renter-header::before,
+    .mechmates-header::before,
+    .the-news-header::before {
+        content: ''; /* Empty content for the pseudo-element */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Transparent black overlay */
+        z-index: 1; /* Ensure overlay is on top of the background */
+    }
+
+    /* Ensure text appears above the overlay */
+    .phobophobia-header h1,
+    .revenge-of-the-renter-header h1,
+    .mechmates-header h1,
+    .the-news-header h1,
+    .phobophobia-header p,
+    .revenge-of-the-renter-header p,
+    .mechmates-header p,
+    .the-news-header p {
+        position: relative;
+        z-index: 2; /* Ensure text is above the overlay */
+    }
