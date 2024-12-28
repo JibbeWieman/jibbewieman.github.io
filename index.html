@@ -11,25 +11,19 @@
     <link rel="stylesheet" href="css/projects.css">
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
 
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="logo">
-            <img src="assets/images/personalLogo.svg" alt="JBWIEMAN" />
-        </a>
-        <ul>
-            <li><a href="./index.html"><img src="assets/images/icons/home.png" alt="Home Icon"> Home</a></li>
-            <li><a href="./about.html"><img src="assets/images/icons/user.png" alt="About Icon"> About</a></li>
-            <li><a href="./contact.html"><img src="assets/images/icons/chat.png" alt="Contact Icon"> Contact</a></li>
-            <li><a href="assets/images/resume.pdf" target="_blank"><img src="assets/images/icons/file.png" alt="Resume Icon"> Resume</a></li>
-        </ul>
-        <button class="portfolio-button" onclick="window.location.href='./projects.html';">
-            <img src="assets/images/icons/folderFilled.png" alt="Folder Filled Icon" class="portfolio-icon">
-            <span class="portfolio-text">Portfolio</span>
-            <span class="open-text">Open</span>
-        </button>
-    </nav>
+    <div id="nav-placeholder"></div>
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+    </script>
+
 
     <header class="index-header">
         <h1>Jibbe Wieman</h1>
@@ -37,15 +31,17 @@
     </header>
     <div class="main-wrapper">
         <main>
-            <section id="about">
-                <div>
+            <section class="section about-me">
+                <div class="text">
                     <h2>About Me</h2>
                     <p>
-                        Hi! I'm Jibbe, a game design generalist from The Netherlands born in 2006, currently a student at Hanze University of Applied Sciences.
-                        I have a wide range of skills across programming, 2D and 3D art, and game design, but my main forte is in C# programming.
+                        Hi! I'm Jibbe, a game programmer from The Netherlands born in 2006, currently a <a href="https://www.hanze.nl/en/programmes/full-time/bachelor/creative-media-and-game-technologies" target="_blank">Creative Media & Game Technologies</a> student at Hanze.<br/>
                         Here you can see some of the projects I have had the opportunity of contributing to, and feel free to get in touch if you'd like to collaborate or learn more about my work. =)
                     </p>
                     <button class="read-more-button" onclick="window.location.href='about.html';">Read More</button>
+                </div>
+                <div class="index-about-image-wrapper">
+                    <img src="assets/images/sexy-man.jpg" alt="Sexy Man" class="index-about-image">
                 </div>
             </section>
 

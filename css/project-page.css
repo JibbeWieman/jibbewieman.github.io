@@ -1,4 +1,12 @@
 
+
+.project-logo {
+    max-height: 100px; /* Limit the maximum height */
+    width: auto; /* Adjust the width proportionally */
+    display: block; /* Prevent inline element spacing issues */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
 .project-details {
     display: grid;
     grid-template-columns: max-content 1fr; /* Define two columns */

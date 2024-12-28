@@ -195,7 +195,7 @@ header.index-header {
 /* Keyframes for background fading */
 @keyframes fadeBackground {
     0%, 25% {
-        background-image: url('/assets/images/phobophobia.jpg');
+        background-image: url('../assets/images/phobophobia.jpg');
     }
 
     25%, 50% {
@@ -203,7 +203,7 @@ header.index-header {
     }
 
     50%, 75% {
-        background-image: url('/assets/images/mechmates.jpg');
+        background-image: url('../assets/images/mechmates.jpg');
     }
 
     75%, 99.9% {
@@ -214,6 +214,24 @@ header.index-header {
         background-image: url('../assets/images/phobophobia.jpg');
     }
 }
+
+.index-about-image-wrapper {
+    width: 14rem; /* Set the width of the wrapper */
+    height: 14rem; /* Set the height of the wrapper to be square */
+    overflow: hidden; /* Hide the overflow to create the circular effect */
+    border-radius: 50%; /* Make the wrapper circular */
+    display: flex; /* Ensure the image is centered inside */
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.index-about-image {
+    max-width: 60rem; /* Maintain the 2:1 aspect ratio */
+    height: 60rem; /* Maintain 2:1 aspect ratio */
+    object-fit: cover; /* Ensure the image fills the circle while maintaining its aspect ratio */
+}
+
 
 .skills-container {
     display: flex;

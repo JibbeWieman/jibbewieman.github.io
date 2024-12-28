@@ -1,30 +1,53 @@
+/* Mobile Layout */
 @media (max-width: 768px) {
     .section.about-me {
-        flex-direction: column; /* Stack items vertically on smaller screens */
-        text-align: center; /* Centre-align text for mobile */
+        display: grid; /* Use grid layout */
+        grid-template-columns: 1fr; /* Stack items in one column */
+        gap: 2rem; /* Space between text and image */
+        text-align: left; /* Align text to the left for mobile */
     }
 
     .about-image {
         margin-top: 20px; /* Add spacing above the image */
+        max-width: 100%; /* Allow image to take full width */
     }
 }
 
+/* Default (Larger screens) Layout */
 .section.about-me {
-    display: flex;
-    flex-direction: row; /* Align items horizontally */
-    align-items: flex-start; /* Align items to the top */
-    gap: 20px; /* Add space between text and image */
+    display: grid !important; /* Set up grid layout */
+    grid-template-columns: 1fr 1fr; /* Two equal columns for text and image */
+    gap: 5rem; /* Add space between text and image */
+    padding: 0; /* Remove any padding that could interfere */
 }
 
+/* Text Section */
 .text {
-    flex: 2; /* Allow text to take more space */
-    max-width: 45%; /* Limit text width */
+    width: 100%; /* Ensure text section uses full available space */
+    padding-left: 1rem; /* Optional: Add left padding to text */
 }
 
+/* Image Section */
 .about-image {
-    flex: 1; /* Allow image to take less space */
-    max-width: 20%; /* Ensure the image scales correctly */
+    max-width: 100%; /* Ensure the image scales correctly */
     height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Add rounded corners for style */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for aesthetic */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    margin: 0; /* Remove any extra margin */
+
 }
+
+/* Button Styling */
+.read-more-button {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .read-more-button:hover {
+        background-color: #0056b3; /* Darker blue for hover effect */
+    }

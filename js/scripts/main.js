@@ -56,3 +56,14 @@ navLinks.forEach(link => {
         link.classList.add('active');
     }
 });
+
+// Hamburger button
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const overlay = document.querySelector('.overlay');
+
+    hamburger.addEventListener('click', () => {
+        overlay.classList.toggle('active');
+        hamburger.classList.toggle('open');
+    });
+});
