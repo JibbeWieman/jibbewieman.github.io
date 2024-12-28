@@ -195,7 +195,7 @@ header.index-header {
 /* Keyframes for background fading */
 @keyframes fadeBackground {
     0%, 25% {
-        background-image: url('../assets/images/phobophobia.jpg');
+        background-image: url('/assets/images/phobophobia.jpg');
     }
 
     25%, 50% {
@@ -203,7 +203,7 @@ header.index-header {
     }
 
     50%, 75% {
-        background-image: url('../assets/images/mechmates.jpg');
+        background-image: url('/assets/images/mechmates.jpg');
     }
 
     75%, 99.9% {
