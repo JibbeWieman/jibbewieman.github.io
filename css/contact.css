@@ -48,6 +48,23 @@
         position: relative;
     }
 
+#contact-page-content {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    max-width: 800px; /* Increased width */
+    margin: 0 auto;
+    border-radius: 10px;
+    z-index: 1;
+    position: relative;
+    color: black; /* Ensure text is black */
+    /* Flexbox for centring */
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Ensures content stacks vertically */
+    justify-content: center; /* Centres content vertically */
+    align-items: center; /* Centres content horizontally */
+    text-align: center; /* Centres inline text inside the div */
+}
+
 .contact-content {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
@@ -56,7 +73,7 @@
     border-radius: 10px;
     z-index: 1;
     position: relative;
-    color: white; /* Explicitly ensure all text inside is white */
+    color: black; /* Explicitly ensure all text inside is white */
 }
 
     .contact-content p {

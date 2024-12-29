@@ -16,32 +16,41 @@
 /* Default (Larger screens) Layout */
 .section.about-me {
     display: grid !important; /* Set up grid layout */
-    grid-template-columns: 1fr 1fr; /* Two equal columns for text and image */
-    gap: 5rem; /* Add space between text and image */
+    grid-template-columns: 2.5fr 1fr; /* Two equal columns for text and image */
+    gap: 2.5rem; /* Add space between text and image */
     padding: 0; /* Remove any padding that could interfere */
+    width: var(--recontent-width); /* Ensure the grid container's width adjusts to its content */
+    margin: 0 auto; /* Center the entire grid container horizontally */
 }
+
 
 /* Text Section */
 .text {
     width: 100%; /* Ensure text section uses full available space */
-    padding-left: 1rem; /* Optional: Add left padding to text */
+    /*padding-left: 1rem;*/ /* Optional: Add left padding to text */
 }
 
-/* Image Section */
-.about-image {
-    max-width: 100%; /* Ensure the image scales correctly */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
-    margin: 0; /* Remove any extra margin */
+.about-image-wrapper {
+    width: 16rem; /* Set the width of the wrapper */
+    height: 24rem; /* Set the height of the wrapper to be square */
+    overflow: hidden; /* Hide the overflow to create the circular effect */
+    border-radius: 30px; /* Make the wrapper circular */
+    display: flex; /* Ensure the image is centered inside */
+    justify-content: center;
+    align-items: center;
+}
 
+.about-image {
+    max-width: 60rem; /* Maintain the 2:1 aspect ratio */
+    height: 60rem; /* Maintain 2:1 aspect ratio */
+    object-fit: cover; /* Ensure the image fills the circle while maintaining its aspect ratio */
 }
 
 /* Button Styling */
 .read-more-button {
     margin-top: 15px;
     padding: 10px 15px;
-    background-color: #007bff;
+    background-color: #00b57f;
     color: white;
     border: none;
     border-radius: 5px;
@@ -49,5 +58,58 @@
 }
 
     .read-more-button:hover {
-        background-color: #0056b3; /* Darker blue for hover effect */
+        background-color: #008f68; /* Darker green on hover */
     }
+
+    .read-more-button:focus {
+        box-shadow: 0 0 6px rgba(0, 191, 127, 0.5); /* Soft green glow */
+    }
+
+/* Style for the section container */
+#technical-experience {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+/* Style for the content inside the section */s
+.stack-content {
+    max-width: calc(var(--recontent-width)-2rem);
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Style for the heading */
+#technical-experience h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+/* Container for app logos */
+.app-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* Space between the images */
+    flex-wrap: wrap; /* Ensures the logos wrap on smaller screens */
+}
+
+    /* Style for the images */
+    .app-logos img {
+        width: auto; /* Adjust size as needed */
+        height: 75px;
+        object-fit: contain;
+        border-radius: 8px; /* Optional: Rounded edges for logos */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        /* Hover effect for the images */
+        .app-logos img:hover {
+            transform: scale(1.05); /* Slightly enlarges the logo */
+        }

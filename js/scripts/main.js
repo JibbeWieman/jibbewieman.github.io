@@ -57,13 +57,17 @@ navLinks.forEach(link => {
     }
 });
 
-// Hamburger button
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger-menu');
-    const overlay = document.querySelector('.overlay');
+/*// Hamburger button*/
+//document.addEventListener('DOMContentLoaded', () => {
+//    if (window.innerWidth <= 768) { // Adjust breakpoint as needed
+//        const hamburger = document.querySelector('.hamburger-menu');
+//        const overlay = document.querySelector('.overlay');
 
-    hamburger.addEventListener('click', () => {
-        overlay.classList.toggle('active');
-        hamburger.classList.toggle('open');
-    });
-});
+//        if (hamburger && overlay) {
+//            hamburger.addEventListener('click', () => {
+//                overlay.classList.toggle('active');
+//                hamburger.classList.toggle('open');
+//            });
+//        }
+//    }
+//});
