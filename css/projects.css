@@ -8,16 +8,16 @@
 /* Media Query for Small Screens */
 @media (max-width: 600px) {
     .project-card {
-        padding: 1rem; /* Reduce padding for smaller cards */
+        padding: 1vw; /* Reduce padding for smaller cards */
     }
 
         .project-card .tags {
-            gap: 0.25rem; /* Smaller gap between tags */
+            gap: 0px; /* Smaller gap between tags */
         }
 
             .project-card .tags span {
-                font-size: 0.75rem; /* Smaller font size for tags */
-                padding: 0.2rem 0.4rem; /* Smaller padding */
+                font-size: 0.75vw; /* Smaller font size for tags */
+                padding: 0.2vw 0.4vw; /* Smaller padding */
             }
 }
 
@@ -53,30 +53,32 @@
         /*border-radius: 8px;*/ /* Optional: add rounded corners to the title image */
     /*}*/
 
-    .project-card > a > img {
+    .project-card > a {
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Center content vertically */
-        align-items: center; /* Center content horizontally */
-        width: 100%; /* Make the image stretch to fill the card's width */
-        height: 150px; /* Set a fixed height for all images */
-        object-fit: cover; /* Crop the image to maintain aspect ratio */
-        overflow: hidden; /* Hide any overflow */
+        height: 100%; /* Ensure it inherits the height of the card */
     }
 
+        .project-card > a > img {
+            height: 30%;
+            flex-grow: 0;
+            object-fit: cover;
+        }
+
+
     .project-card div {
-        padding: 1.5rem;
+        padding: 1.5vw;
     }
 
     .project-card h3 {
-        font-size: 1.5rem;
+        font-size: 1.5vw; 
         margin: 0;
         color: #2c2c2c;
     }
 
     .project-card p {
-        font-size: 0.95rem;
-        margin-top: 0.5rem;
+        font-size: 0.95vw;
+        margin-top: 0.5vw;
         color: #4f4f4f; /* Medium grey */
     }
 
@@ -88,7 +90,7 @@
         justify-content: start; /* Align tags to the left */
         overflow: hidden;
         padding: 0;
-        padding-top: 0.5rem;
+        padding-top: 0.5vw;
         max-width: 100%; /* Ensure tags stay within the card width */
         box-sizing: border-box; /* Ensure consistent sizing */
     }
@@ -96,9 +98,9 @@
         /* Individual Tag Styles */
         .project-card .tags span {
             background: #d2d4d4; /* Light grey */
-            padding: 0.2rem 0.4rem;
+            padding: 0.2vw 0.4vw;
             border-radius: 5px;
-            font-size: 0.85rem;
+            font-size: 0.85vw;
             font-weight: bold;
             color: #2c2c2c;
             white-space: nowrap; /* Prevent line breaks in tags */
