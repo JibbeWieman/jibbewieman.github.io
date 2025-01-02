@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio website of Jibbe Wieman">
-    <script src="js/scripts/main.js"></script>
     <title>Jibbe Wieman | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/navigation.css">
@@ -17,11 +16,16 @@
 <body>
     <div id="nav-placeholder"></div>
     <script>
-        fetch('nav.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('nav-placeholder').innerHTML = data;
-            });
+        if (location.protocol !== 'file:') {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error fetching nav.html:', error));
+        } else {
+            console.warn('Fetch skipped because you are running locally (file:// protocol).');
+        }
     </script>
 
 
@@ -35,7 +39,7 @@
                 <div class="text">
                     <h2 style="margin-top: 0;">About Me</h2>
                     <p>
-                        Hi! I'm Jibbe, a game programmer from The Netherlands born in 2006, <br />
+                        Hi! I'm Jibbe, a game programmer from The Netherlands born in 2006,
                         currently a <a href="https://www.hanze.nl/en/programmes/full-time/bachelor/creative-media-and-game-technologies" target="_blank">Creative Media & Game Technologies</a> student at Hanze.<br />
                         Here you can see some of the projects I have had the opportunity of contributing to,
                         and feel free to get in touch if you'd like to collaborate or learn more about my work.
@@ -53,7 +57,7 @@
                     <!-- Project panels will go here -->
                     <div class="project-card" data-tags="GameMaker">
                         <a href="phobophobia.html">
-                            <img src="assets/images/phobophobia.jpg" alt="Phobophobia Image">
+                            <img src="assets/images/phobophobia/banner.jpg" alt="Phobophobia Image">
                             <div>
                                 <h3>Phobophobia</h3>
                                 <p>A story-based puzzle game about moving into a new town and overcoming your fears while helping others overcome theirs.</p>
@@ -70,7 +74,7 @@
 
                     <div class="project-card" data-tags="Unity">
                         <a href="revengeoftherenter.html">
-                            <img src="assets/images/revenge-of-the-renter.jpg" alt="Revenge Of The Renter Image">
+                            <img src="assets/images/revenge-of-the-renter/banner.jpg" alt="Revenge Of The Renter Image">
                             <div>
                                 <h3>Revenge of the Renter</h3>
                                 <p>A creative stealth puzzle game about holding your slumlord accountable and saving energy.</p>
@@ -87,7 +91,7 @@
 
                     <div class="project-card" data-tags="VR">
                         <a href="thenews.html">
-                            <img src="assets/images/the-news.jpg" alt="The News Image">
+                            <img src="assets/images/the-news/banner.jpg" alt="The News Image">
                             <div>
                                 <h3>The News</h3>
                                 <p>A VR game about managing a news broadcast 30-years into the future.</p>
@@ -105,7 +109,7 @@
 
                     <div class="project-card" data-tags="Unity">
                         <a href="mechmates.html">
-                            <img src="assets/images/mechmates.jpg" alt="Mech Mates Image">
+                            <img src="assets/images/mechmates/banner.jpg" alt="Mech Mates Image">
                             <div>
                                 <h3>Mech Mates</h3>
                                 <p>A local co-op game about trying to defeat as many aliens together as possible.</p>
@@ -135,6 +139,7 @@
                         <img src="/assets/images/icons/photoshop.png" alt="Adobe Photoshop" />
                         <img src="/assets/images/icons/illustrator.png" alt="Adobe Illustrator" />
                         <img src="/assets/images/icons/figma.png" alt="Figma" />
+                        <img src="/assets/images/icons/davinci-resolve.png" alt="Davinci Resolve" />
                     </div>
                 </div>
             </section>

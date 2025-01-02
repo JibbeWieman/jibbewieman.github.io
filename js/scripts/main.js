@@ -47,15 +47,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Highlight current page in the navbar
-const currentPath = window.location.pathname;
-const navLinks = document.querySelectorAll('nav ul li a');
+//// Highlight current page in the navbar
+//const currentPath = window.location.pathname;
+//const navLinks = document.querySelectorAll('nav ul li a');
 
-navLinks.forEach(link => {
-    if (link.getAttribute('href').includes(currentPath)) {
-        link.classList.add('active');
-    }
-});
+//navLinks.forEach(link => {
+//    if (link.getAttribute('href').includes(currentPath)) {
+//        link.classList.add('active');
+//    }
+//});
 
 /*// Hamburger button*/
 //document.addEventListener('DOMContentLoaded', () => {

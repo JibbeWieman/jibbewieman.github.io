@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio website of Jibbe Wieman">
-    <script src="js/scripts/main.js"></script>
     <title>Jibbe Wieman | MechMates</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/navigation.css">
@@ -15,11 +14,16 @@
 <body>
     <div id="nav-placeholder"></div>
     <script>
-        fetch('nav.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('nav-placeholder').innerHTML = data;
-            });
+        if (location.protocol !== 'file:') {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error fetching nav.html:', error));
+        } else {
+            console.warn('Fetch skipped because you are running locally (file:// protocol).');
+        }
     </script>
 
     <div class="arrow-button arrow-left" onclick="window.location.href='revengeoftherenter.html';">

@@ -73,8 +73,9 @@
     align-items: center;
     text-align: center;
     padding-bottom: 2rem;
-    background-color: #ffffff;
+    background-color: white;
     border-radius: 10px;
+    border: 5px solid #eaecec; /* Neutral dark grey */
 }
 
 /* Style for the content inside the section */s

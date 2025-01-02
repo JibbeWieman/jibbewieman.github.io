@@ -195,23 +195,23 @@ header.index-header {
 /* Keyframes for background fading */
 @keyframes fadeBackground {
     0%, 25% {
-        background-image: url('../assets/images/phobophobia.jpg');
+        background-image: url('../assets/images/phobophobia/banner.jpg');
     }
 
     25%, 50% {
-        background-image: url('../assets/images/revenge-of-the-renter.jpg');
+        background-image: url('../assets/images/revenge-of-the-renter/banner.jpg');
     }
 
     50%, 75% {
-        background-image: url('../assets/images/mechmates.jpg');
+        background-image: url('../assets/images/mechmates/banner.jpg');
     }
 
     75%, 99.9% {
-        background-image: url('../assets/images/the-news.jpg');
+        background-image: url('../assets/images/the-news/banner.jpg');
     }
 
     99.9%, 100% {
-        background-image: url('../assets/images/phobophobia.jpg');
+        background-image: url('../assets/images/phobophobia/banner.jpg');
     }
 }
 
@@ -268,22 +268,22 @@ header.index-header {
 
 /* Background for Phobophobia */
 .phobophobia-header {
-    background-image: url('../assets/images/phobophobia.jpg');
+    background-image: url('../assets/images/phobophobia/banner.jpg');
 }
 
 /* Background for Revenge of the Renter */
 .revenge-of-the-renter-header {
-    background-image: url('../assets/images/revenge-of-the-renter.jpg');
+    background-image: url('../assets/images/revenge-of-the-renter/banner.jpg');
 }
 
 /* Background for Mechmates */
 .mechmates-header {
-    background-image: url('../assets/images/mechmates.jpg');
+    background-image: url('../assets/images/mechmates/banner.jpg');
 }
 
 /* Background for The News */
 .the-news-header {
-    background-image: url('../assets/images/the-news.jpg');
+    background-image: url('../assets/images/the-news/banner.jpg');
 }
 
     /* Overlay with slight black */

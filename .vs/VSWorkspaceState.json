@@ -3,12 +3,11 @@
     "",
     "\\assets",
     "\\assets\\images",
-    "\\assets\\images\\icons",
     "\\css",
     "\\js",
     "\\js\\scripts",
     "\\js\\scripts\\modules"
   ],
-  "SelectedNode": "\\assets\\images\\icons\\chat.png",
+  "SelectedNode": "\\assets\\images\\icons",
   "PreviewInSolutionExplorer": false
 }
