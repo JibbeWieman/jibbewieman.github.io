@@ -1,0 +1,95 @@
+<div id="loading-overlay">
+    <div class="loading-text" id="loading-text">LOADING.</div>
+    <div class="loading-bar-container">
+        <div class="loading-bar" id="loading-bar"></div>
+    </div>
+</div>
+<style>
+    @font-face {
+        font-family: 'Inkywinky';
+        src: url('/assets/fonts/Inkywinky-Regular.ttf') format('ttf'); /* Add additional formats if necessary */
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    /* Full-page loading overlay */
+    #loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 9999;
+        font-family: 'Inkywinky';
+        color: white;
+        opacity: 1; /* Fully visible initially */
+        transition: opacity 0.5s ease; /* Fade out effect */
+    }
+
+    /* Full-page loading overlay */
+    #loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .9); /* Dark background */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 9999;
+        font-family: 'Inkywinky';
+        color: white;
+        opacity: 1; /* Fully visible initially */
+        transition: opacity 0.5s ease; /* Fade out effect */
+    }
+
+    /* Loading bar container with image overlay */
+    .loading-bar-container {
+        width: 80%;
+        max-width: 18vw;
+        background-color: #3A6145; /* Default background color */
+        border-radius: 5px;
+        overflow: hidden;
+        margin-top: .5vh;
+        position: relative; /* Necessary for positioning pseudo-element */
+        z-index: 0; /* Ensure the background image stays behind */
+    }
+
+        /* Pseudo-element to add the background image with transparency and zoom effect */
+        .loading-bar-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/assets/images/dot-pattern.jpg'); /* Path to your image */
+            background-size: 100%; /* Zoom in the image */
+            background-position: center;
+            background-blend-mode: overlay; /* Apply the 'multiply' blend mode */
+            opacity: 0.2; /* Adjust the opacity to make the image slightly transparent */
+            z-index: -1; /* Place it behind the loading bar */
+        }
+
+    /* Actual loading bar */
+    .loading-bar {
+        width: 0%;
+        height: 2.5vw;
+        background-color: #99C48C;
+        transition: width 0.3s ease; /* Smooth loading effect */
+    }
+
+    /* Loading text */
+    .loading-text {
+        font-size: 5vw;
+    }
+
+
+</style>
