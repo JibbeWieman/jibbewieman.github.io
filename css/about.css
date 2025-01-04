@@ -34,7 +34,7 @@
     width: 16rem; /* Set the width of the wrapper */
     height: 24rem; /* Set the height of the wrapper to be square */
     overflow: hidden; /* Hide the overflow to create the circular effect */
-    border-radius: 30px; /* Make the wrapper circular */
+    border-radius: 1vw; /*round out the corners slightly*/
     display: flex; /* Ensure the image is centered inside */
     justify-content: center;
     align-items: center;
@@ -46,25 +46,6 @@
     object-fit: cover; /* Ensure the image fills the circle while maintaining its aspect ratio */
 }
 
-/* Button Styling */
-.read-more-button {
-    margin-top: 15px;
-    padding: 10px 15px;
-    background-color: #00b57f;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-    .read-more-button:hover {
-        background-color: #008f68; /* Darker green on hover */
-    }
-
-    .read-more-button:focus {
-        box-shadow: 0 0 6px rgba(0, 191, 127, 0.5); /* Soft green glow */
-    }
-
 /* Style for the section container */
 #technical-experience {
     margin-top: 1rem;
@@ -74,7 +55,7 @@
     text-align: center;
     padding-bottom: 2rem;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 0.625vw;
     border: 5px solid #eaecec; /* Neutral dark grey */
 }
 
@@ -106,7 +87,6 @@
         width: auto; /* Adjust size as needed */
         height: 75px;
         object-fit: contain;
-        border-radius: 8px; /* Optional: Rounded edges for logos */
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 

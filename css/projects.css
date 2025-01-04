@@ -26,7 +26,7 @@
     display: flex;
     flex-direction: column;
     background: #eaecec;
-    border-radius: 12px;
+    border-radius: 0.75vw;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -102,7 +102,7 @@
             margin: 0;
             margin-top: 0.6vw;
             margin-right: 0.6vw;
-            border-radius: 5px;
+            border-radius: 0.3125vw;
             font-size: 0.85vw;
             font-weight: bold;
             color: #2c2c2c;
@@ -114,9 +114,9 @@
 .projects-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
-    gap: 2rem; /* Adjust the gap between cards */
-    padding-top: .5rem;
-    padding-bottom: 2rem;
+    gap: 2vw; /* Adjust the gap between cards */
+    padding-top: .5vh;
+    padding-bottom: 2vh;
     justify-items: stretch; /* Stretch the cards to fill the column width */
 }
     
@@ -142,9 +142,9 @@
 .tag {
     display: inline-block;
     background: #e7e7e7; /* Light grey for tags */
-    padding: 0.5rem 1rem;
-    margin: 0.4rem;
-    border-radius: 8px;
+    padding: 0.5vw 1vw;
+    margin: 0.4vw;
+    border-radius: 0.5vw;
     color: #2c2c2c;
     font-weight: 500;
     transition: background-color 0.3s ease, color 0.3s ease;

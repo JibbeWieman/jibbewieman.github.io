@@ -43,7 +43,7 @@ iframe {
     max-height: 30%; /* Limit the width of the video */
     margin-left: auto; /* Push the video to the far right */
     flex-shrink: 0; /* Prevent the video from shrinking */
-    border-radius: 10px;
+    border-radius: 0.625vw;
 }
 
 /* Headers */

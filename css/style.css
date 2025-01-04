@@ -137,7 +137,7 @@ button {
     background-color: #00b57f; /* Brighter green for buttons */
     color: white;
     padding: 0.8rem 1.2rem;
-    border-radius: 30px; /* Rounded corners */
+    border-radius: 2vw; /* Rounded corners */
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin-top: 1rem;
     margin-bottom: 1rem;
