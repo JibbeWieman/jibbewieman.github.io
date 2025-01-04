@@ -4,20 +4,26 @@
 }
 * {
     margin: 0;
-    /*padding: 0;*/
-    /*box-sizing: border-box;*/ /*Include padding/borders in width*/
+    /*padding: 0;
+    box-sizing: border-box;*/ /*Include padding/borders in width*/
+}
+
+html, body {
+    height: 100%; /* Ensure the body and html take up full height */
+    margin: 0; /* Reset any default margins */
+    display: flex;
+    flex-direction: column; /* Align content in a column layout */
 }
 
 /* General Styles */
 body {
-    font-family: 'Poppins', sans-serif; /* Modern and sleek font */
-    /*margin: 0;*/
-    /*padding: 0;*/
+    font-family: 'Poppins', sans-serif;
     background: url('../assets/images/background-image.jpg') no-repeat center center fixed;
-    background-size: cover; /* Ensures the image covers the entire background */
+    background-size: cover;
     color: #2c2c2c; /* Neutral dark grey for text */
     scroll-behavior: smooth;
 }
+
 main {
     display: block; /* Default works fine unless other styles interfere */
     width: 100%; /* Ensure main doesn’t clip child sections */
@@ -101,7 +107,6 @@ h3 {
     margin-bottom: 4px;
 }
 
-/* Footer */
 footer {
     display: flex;
     justify-content: center;
@@ -114,14 +119,6 @@ footer {
     margin: 8px auto 0;
     border-radius: 12px 12px 0 0; /* Top-left and top-right corners */
     padding: 0; /* Ensure no padding issues */
-}
-
-/* Body and HTML to ensure the footer placement */
-html, body {
-    height: 100%; /* Ensure the body and html take up full height */
-    margin: 0; /* Reset any default margins */
-    display: flex;
-    flex-direction: column; /* Align content in a column layout */
 }
 
 /* Section Wrapper */
@@ -164,17 +161,18 @@ header.index-header {
     height: auto; /* Maintain ratio based on the width */
     width: var(--recontent-width);
     max-width: 100%; /* Prevent overflow */
+
     margin: 0 auto; /* Centre the header horizontally */
     padding: 7.5rem 2rem 2rem;
     color: #f7f9f9; /* Subtle beige for contrast */
     box-sizing: border-box;
+    max-height: 35%;
 
     /* Animation */
     background-size: cover; /* Maintain a good visual fill */
     background-repeat: no-repeat; /* Prevent tiling of smaller images */
     background-position: center; /* Centre the image for alignment */
     animation: fadeBackground 15s infinite;
-
     /* Positioning for overlay */
     position: relative;
     z-index: 1; /* Ensure content stays above the overlay */
@@ -232,8 +230,7 @@ header.index-header {
     object-fit: cover; /* Ensure the image fills the circle while maintaining its aspect ratio */
 }
 
-
-.skills-container {
+/*.skills-container {
     display: flex;
     justify-content: space-between;
 }
@@ -253,64 +250,4 @@ header.index-header {
 
         .skills-column ul li {
             margin-bottom: 5px;
-        }
-
-/* Header with background image */
-.phobophobia-header,
-.revenge-of-the-renter-header,
-.mechmates-header,
-.the-news-header {
-    position: relative; /* Ensure the overlay is positioned correctly */
-    background-size: cover;
-    background-position: center;
-    color: white; /* Make sure text is readable on dark overlay */
-}
-
-/* Background for Phobophobia */
-.phobophobia-header {
-    background-image: url('../assets/images/phobophobia/banner.jpg');
-}
-
-/* Background for Revenge of the Renter */
-.revenge-of-the-renter-header {
-    background-image: url('../assets/images/revenge-of-the-renter/banner.jpg');
-}
-
-/* Background for Mechmates */
-.mechmates-header {
-    background-image: url('../assets/images/mechmates/banner.jpg');
-}
-
-/* Background for The News */
-.the-news-header {
-    background-image: url('../assets/images/the-news/banner.jpg');
-}
-
-    /* Overlay with slight black */
-    .phobophobia-header::before,
-    .revenge-of-the-renter-header::before,
-    .mechmates-header::before,
-    .the-news-header::before {
-        content: ''; /* Empty content for the pseudo-element */
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5); /* Transparent black overlay */
-        z-index: 1; /* Ensure overlay is on top of the background */
-    }
-
-    /* Ensure text appears above the overlay */
-    .phobophobia-header h1,
-    .revenge-of-the-renter-header h1,
-    .mechmates-header h1,
-    .the-news-header h1,
-    .phobophobia-header p,
-    .revenge-of-the-renter-header p,
-    .mechmates-header p,
-    .the-news-header p {
-        position: relative;
-        z-index: 2; /* Ensure text is above the overlay */
-    }
-
+        }*/
