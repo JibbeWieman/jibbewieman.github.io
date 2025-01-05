@@ -123,7 +123,7 @@
 /* Tags */
 .tags-container {
     text-align: center;
-    margin: 1rem 0;
+    margin-bottom: 1vh;
 }
 
 .tag.active,
@@ -142,11 +142,12 @@
 .tag {
     display: inline-block;
     background: #e7e7e7; /* Light grey for tags */
-    padding: 0.5vw 1vw;
+    padding: 0.5vw .7vw; /* tb - rl*/
     margin: 0.4vw;
     border-radius: 0.5vw;
     color: #2c2c2c;
-    font-weight: 500;
+    font-size: .9rem;
+    font-weight: bold;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
