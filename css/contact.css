@@ -50,13 +50,13 @@
 
 #contact-page-content {
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    max-width: 800px; /* Increased width */
+    padding: 1.25vw;
+    max-width: 50vw;
     margin: 0 auto;
     border-radius: 0.625vw;
     z-index: 1;
     position: relative;
-    color: black; /* Ensure text is black */
+    color: black;
     /* Flexbox for centring */
     display: flex; /* Enables flexbox */
     flex-direction: column; /* Ensures content stacks vertically */
@@ -65,10 +65,20 @@
     text-align: center; /* Centres inline text inside the div */
 }
 
+    #contact-page-content p
+    {
+        font-size: 1vw;
+    }
+
+    #contact-page-content .social-buttons a {
+        width: 3.75vw; /* Adjust button width */
+        height: 3.75vw; /* Adjust button height */
+    }
+
 .contact-content {
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    max-width: 800px; /* Increased width */
+    padding: 1.25rem 2vw 1.25rem 2vw; /* t r b l */
+    max-width: 50%;
     margin: 0 auto;
     border-radius: 0.625vw;
     z-index: 1;
@@ -78,7 +88,7 @@
 
     .contact-content p {
         margin: 10px 0 20px;
-        font-size: 16px;
+        font-size: 1vw;
         color: white; /* Make paragraph text white explicitly */
     }
 
@@ -95,13 +105,13 @@
 .social-buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 1.25vh;
 }
 
     .social-buttons a {
         position: relative;
-        width: 60px;
-        height: 60px;
+        width: 3.75rem;
+        height: 3.75rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -125,5 +135,5 @@
 
         .social-buttons a:hover {
             transform: scale(1.1);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+            box-shadow: 0 0 .625vw rgba(255, 255, 255, 0.7);
         }

@@ -60,6 +60,7 @@ header {
     align-items: center;
     width: var(--recontent-width);
     max-width: 100%; /* Prevent overflow */
+    max-height: 21%;
     margin: 0 auto; /* Centre the header horizontally */
     padding: 7.5rem 2rem 2rem;
     background: #2c2c2c; /* Neutral dark grey */
@@ -166,7 +167,6 @@ header.index-header {
     padding: 7.5rem 2rem 2rem;
     color: #f7f9f9; /* Subtle beige for contrast */
     box-sizing: border-box;
-    max-height: 35%;
 
     /* Animation */
     background-size: cover; /* Maintain a good visual fill */
