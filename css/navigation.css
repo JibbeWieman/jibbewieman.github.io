@@ -5,24 +5,24 @@ nav {
     left: 0;
     right: 0;
     width: var(--recontent-width);
-    max-height: 3rem;
+    height: 2.5vw;
     margin: 0 auto;
     /*background: #2c2c2c; /* Gray */
     background: rgba(20, 20, 20, 0.8); /* Slightly transparent black */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: 1vh 0;
     z-index: 100;
-    border-bottom: 2px solid #800080;
+    border-bottom: .1vw solid #800080;
 }
 
     /* Logo Styles */
     nav .logo img {
         width: auto; /* Maintain aspect ratio */
-        max-width: 12rem; /* Limit the maximum width */
+        max-width: 12vw; /* Limit the maximum width */
         height: auto; /* Adjust height automatically */
-        max-height: 75px; /* Limit the maximum height */
+        max-height: 4.6875vh; /* Limit the maximum height */
         object-fit: contain; /* Ensure the image scales nicely */
     }
 
@@ -32,7 +32,7 @@ nav {
         font-weight: bold;
         color: white;
         text-transform: uppercase;
-        margin-left: 3rem;
+        margin-left: 3vw;
     }
 
     nav ul {
@@ -46,7 +46,7 @@ nav {
     }
 
         nav ul li {
-            margin: 0 1rem;
+            margin: 0 .7vw;
             display: flex;
             align-items: center;
         }
@@ -55,16 +55,16 @@ nav {
                 display: flex;
                 align-items: center;
                 text-decoration: none;
-                font-size: 1rem;
+                font-size: .7vw;
                 font-weight: 500;
                 color: white;
                 transition: color 0.3s ease;
             }
 
                 nav ul li a img {
-                    width: 20px;
-                    height: 20px;
-                    margin-right: 0.5rem;
+                    width: 1vw;
+                    height: 1vw;
+                    margin-right: 0.4vw;
                     filter: brightness(0) invert(1);
                 }
 
@@ -90,16 +90,16 @@ nav {
     align-items: center;
     align-self: center; /* Ensures the button aligns with other nav elements */
     justify-content: center;
-    padding: 0.75rem 1.5rem; /* Button size */
-    line-height: 1rem;
-    border: 2px solid white;
+    padding: 0.6vw 1.3vw; /* Button size */
+    line-height: 1vw;
+    border: .1vw solid white;
     color: white;
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: .7vw;
     font-weight: bold;
     background: #00b57f; /* Default button background */
-    border-radius: 30px;
-    margin: 0 3rem 0 auto; /* Auto aligns to the right */
+    border-radius: 3vw;
+    margin: 0 3vw 0 auto; /* Auto aligns to the right */
     position: relative;
     overflow: hidden;
     transition: color 0.3s ease;
@@ -129,7 +129,7 @@ nav {
     width: 0%;
     height: 100%;
     background: red;
-    border-radius: 30px;
+    border-radius: 2vw;
     z-index: 2; /* Raised above the text/icon */
     transition: width 0.4s ease;
 }
@@ -160,9 +160,9 @@ nav {
 
 /* Portfolio icon */
 .portfolio-button .portfolio-icon {
-    width: 20px;
-    height: 20px;
-    padding-right: 4px;
+    width: 1vw;
+    height: 1vw;
+    padding-right: .3vw;
     filter: brightness(0) invert(1);
     transition: transform 0.3s ease, opacity 0.3s ease; /* Individual animation */
 }

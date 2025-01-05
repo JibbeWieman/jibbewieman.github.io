@@ -70,14 +70,14 @@ header {
 
     header h1 {
         font-size: 1.95vw; /* Bold and prominent */
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.5vh;
         text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), /* Outer glow */
         0 0 5px rgba(0, 0, 0, 0.6); /* Softer inner glow */
     }
 
     header h2 {
         font-size: 2.5rem; /* Bold and prominent */
-        margin-top: 2rem !important;
+        margin-top: 2vh !important;
         margin-bottom: 4px;
     }
 
