@@ -68,7 +68,7 @@ header {
 }
 
     header h1 {
-        font-size: 3rem; /* Bold and prominent */
+        font-size: 1.95vw; /* Bold and prominent */
         margin-bottom: 0.5rem;
         text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), /* Outer glow */
         0 0 5px rgba(0, 0, 0, 0.6); /* Softer inner glow */
@@ -87,7 +87,7 @@ header {
     }
 
     header p {
-        font-size: 1.2rem; /* Slightly smaller than the heading */
+        font-size: 0.75vw; /* Slightly smaller than the heading */
         text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
     }
 

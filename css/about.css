@@ -21,6 +21,7 @@
     padding: 0; /* Remove any padding that could interfere */
     width: var(--recontent-width); /* Ensure the grid container's width adjusts to its content */
     margin: 0 auto; /* Center the entire grid container horizontally */
+    font-size: 1rem;
 }
 
 

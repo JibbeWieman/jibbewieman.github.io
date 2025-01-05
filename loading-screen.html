@@ -7,7 +7,11 @@
 <style>
     @font-face {
         font-family: 'Inkywinky';
-        src: url('/assets/fonts/Inkywinky-Regular.ttf') format('ttf'); /* Add additional formats if necessary */
+        src: 
+            url('/assets/fonts/Inkywinky-Regular.woff2') format('woff2'), 
+            url('/assets/fonts/Inkywinky-Regular.woff') format('woff'), 
+            url('/assets/fonts/Inkywinky-Regular.ttf') format('truetype');
+
         font-weight: normal;
         font-style: normal;
     }
@@ -25,7 +29,7 @@
         justify-content: center;
         flex-direction: column;
         z-index: 9999;
-        font-family: 'Inkywinky';
+        font-family: 'Inkywinky', Consolas, monospace;
         color: white;
         opacity: 1; /* Fully visible initially */
         transition: opacity 0.5s ease; /* Fade out effect */

@@ -71,13 +71,13 @@
     }
 
     .project-card h3 {
-        font-size: 1.5vw; 
+        font-size: 1.25vw; 
         margin: 0;
         color: #2c2c2c;
     }
 
     .project-card p {
-        font-size: 0.95vw;
+        font-size: 0.9vw;
         margin-top: 0.5vw;
         color: #4f4f4f; /* Medium grey */
     }
@@ -103,7 +103,7 @@
             margin-top: 0.6vw;
             margin-right: 0.6vw;
             border-radius: 0.3125vw;
-            font-size: 0.85vw;
+            font-size: 0.8vw;
             font-weight: bold;
             color: #2c2c2c;
             white-space: nowrap; /* Prevent line breaks in tags */
