@@ -60,9 +60,9 @@ header {
     align-items: center;
     width: var(--recontent-width);
     max-width: 100%; /* Prevent overflow */
-    max-height: 21%;
+    max-height: 25vh;
     margin: 0 auto; /* Centre the header horizontally */
-    padding: 7.5rem 2rem 2rem;
+    padding: 7.5vw 2vw 2vw; /* t - rl - b */
     background: #2c2c2c; /* Neutral dark grey */
     color: #f7f9f9; /* Subtle beige for contrast */
     box-sizing: border-box;

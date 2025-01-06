@@ -55,7 +55,24 @@ iframe {
     background-size: cover;
     background-position: center;
     color: white; /* Make sure text is readable on dark overlay */
+    height: 20vh;
 }
+
+    /* Image centring, max height styling, and white glow */
+    .phobophobia-header img,
+    .revenge-of-the-renter-header img,
+    .mechmates-header img,
+    .the-news-header img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Center the image horizontally and vertically */
+        max-height: 50%; /* Restrict the height to % of the header */
+        width: auto; /* Maintain the aspect ratio */
+        filter: drop-shadow(0 0 1vw rgba(0, 0, 0, 1));
+        margin-top: 3.5vh;
+        z-index: 2;
+    }
 
 /* Background for Phobophobia */
 .phobophobia-header {
