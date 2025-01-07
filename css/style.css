@@ -24,6 +24,29 @@ body {
     scroll-behavior: smooth;
 }
 
+    body::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* Prevents the overlay from affecting interactions */
+        transition: background-color 1s ease; /* Smooth transition for tint effect */
+    }
+
+.morning-dusk::after {
+    background-color: rgba(255, 165, 0, 0.3); /* Soft orange tint */
+}
+
+.daytime::after {
+    background-color: transparent; /* No tint */
+}
+
+.nighttime::after {
+    background-color: rgba(0, 0, 139, 0.4); /* Dark blue tint */
+}
+
 main {
     display: block; /* Default works fine unless other styles interfere */
     width: 100%; /* Ensure main doesn’t clip child sections */
@@ -69,7 +92,7 @@ header {
 }
 
     header h1 {
-        font-size: 1.95vw; /* Bold and prominent */
+        font-size: 2.5vw; /* Bold and prominent */
         margin-bottom: 0.5vh;
         text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), /* Outer glow */
         0 0 5px rgba(0, 0, 0, 0.6); /* Softer inner glow */
@@ -88,8 +111,9 @@ header {
     }
 
     header p {
-        font-size: 0.75vw; /* Slightly smaller than the heading */
+        font-size: 1vw; /* Slightly smaller than the heading */
         text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+        margin-bottom: 5vh;
     }
 
 h1 {
