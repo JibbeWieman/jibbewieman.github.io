@@ -48,9 +48,11 @@ iframe {
 
 /* Headers */
 .phobophobia-header,
+.project-parasite-header,
 .revenge-of-the-renter-header,
 .mechmates-header,
-.the-news-header {
+.the-news-header,
+.noorderpoort-header {
     position: relative; /* Ensure the overlay is positioned correctly */
     background-size: cover;
     background-position: center;
@@ -60,9 +62,11 @@ iframe {
 
     /* Image centring, max height styling, and white glow */
     .phobophobia-header img,
+    .project-parasite-header img,
     .revenge-of-the-renter-header img,
     .mechmates-header img,
-    .the-news-header img {
+    .the-news-header img,
+    .noorderpoort-header img {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -94,11 +98,23 @@ iframe {
     background-image: url('../assets/images/the-news/banner.jpg');
 }
 
+/* Background for Noorderpoort Escape Room */
+.noorderpoort-header {
+    background-image: url('../assets/images/noorderpoort/banner.jpg');
+}
+
+/* Background for The News */
+.project-parasite-header {
+    background-image: url('../assets/images/project-parasite/banner.jpg');
+}
+
     /* Overlay with slight black */
     .phobophobia-header::before,
     .revenge-of-the-renter-header::before,
     .mechmates-header::before,
-    .the-news-header::before {
+    .the-news-header::before,
+    .noorderpoort-header::before,
+    .project-parasite-header::before {
         content: ''; /* Empty content for the pseudo-element */
         position: absolute;
         top: 0;
@@ -111,13 +127,17 @@ iframe {
 
     /* Ensure text appears above the overlay */
     .phobophobia-header h1,
+    .project-parasite-header h1,
     .revenge-of-the-renter-header h1,
     .mechmates-header h1,
     .the-news-header h1,
+    .noorderpoort-header h1,
     .phobophobia-header p,
+    .project-parasite-header p,
     .revenge-of-the-renter-header p,
     .mechmates-header p,
-    .the-news-header p {
+    .the-news-header p,
+    .noorderpoort-header p {
         position: relative;
         z-index: 2; /* Ensure text is above the overlay */
     }
