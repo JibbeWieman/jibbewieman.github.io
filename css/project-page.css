@@ -7,44 +7,85 @@
     margin: 0 auto; /* Center the image horizontally */
 }
 
-.project-details {
+.project-container {
     display: grid;
-    grid-template-columns: max-content 1fr; /* Define two columns */
-    gap: 0.5rem 1rem; /* Row and column spacing */
-    font-size: 1rem;
-    line-height: 1.5;
-    margin: 0;
-    padding: 0;
+    grid-template-columns: 2fr 1fr; /* Two columns: content on the left, sidebar on the right */
+    grid-template-areas:
+        "content sidebar"; /* Ensures sidebar is always on the right */
+    gap: 2rem; /* Adds spacing between the sections */
+    align-items: start; /* Aligns items to the top */
 }
 
-    .project-details dt {
-        font-weight: bold; /* Make the labels bold */
-        text-align: left;
-    }
-
-    .project-details dd {
-        margin: 0; /* Remove default margins */
-        padding: 0; /* Remove default padding */
-        text-align: left; /* Align text to the left */
-    }
-
+/* Left side content (text, video, etc.) */
 .content-wrapper {
+    grid-area: content; /* Assigns to the content area */
     display: flex;
-    align-items: flex-start; /* Align items at the top */
+    flex-direction: column;
+    align-items: flex-start; /* Ensures everything aligns left */
+    max-width: calc(var(--recontent-width) - 10rem);
 }
 
-.contributions {
-    max-width: 100%; /* Limit the width of the contributions section */
-    word-break: break-word;
+/* Media container for the iframe */
+.media-container {
+    width: 100%; /* Ensures it stretches within the content */
+    display: flex;
+    justify-content: flex-start; /* Aligns video to the left */
 }
 
 iframe {
-    max-width: 60%; /* Limit the width of the video */
-    max-height: 30%; /* Limit the width of the video */
-    margin-left: auto; /* Push the video to the far right */
-    flex-shrink: 0; /* Prevent the video from shrinking */
-    border-radius: 0.625vw;
+    width: 560px; /* Fixed width */
+    height: 315px; /* Fixed height */
+    border-radius: 10px;
 }
+
+.main-wrapper {
+    position: relative; /* Establishes a positioning context */
+    max-width: var(--recontent-width); /* Adjust to match your layout */
+    margin: 0 auto; /* Center the wrapper */
+    padding: 2rem; /* Ensure content has space */
+
+    display: flex;
+    justify-content: space-between; /* Space out the sidebar and content */
+}
+
+.project-sidebar {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 10px 10px;
+    max-width: 20rem;
+
+    position: absolute; /* Take it out of document flow */
+    top: 0; /* Align to the top */
+    right: 0; /* Align to the right inside .main-wrapper */
+}
+
+    /* Sidebar details formatting */
+    .project-sidebar .project-details {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: 0.5rem 1rem;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+.project-details dt {
+    font-weight: bold;
+    text-align: left;
+}
+
+.project-details dd {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+/* Contributions section */
+.contributions {
+    max-width: 100%;
+    word-break: break-word;
+}
+
 
 /* Headers */
 .phobophobia-header,
@@ -58,6 +99,10 @@ iframe {
     background-position: center;
     color: white; /* Make sure text is readable on dark overlay */
     height: 20vh;
+}
+
+img {
+    max-width: var(--recontent-width);
 }
 
     /* Image centring, max height styling, and white glow */

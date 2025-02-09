@@ -113,7 +113,7 @@ header {
     header p {
         font-size: 1vw; /* Slightly smaller than the heading */
         text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
-        margin-bottom: 3vh;
+        margin-bottom: 1rem;
     }
 
 h1 {
