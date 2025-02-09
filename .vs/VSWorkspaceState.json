@@ -3,12 +3,12 @@
     "",
     "\\assets",
     "\\assets\\images",
-    "\\assets\\images\\noorderpoort",
-    "\\assets\\images\\project-parasite",
+    "\\assets\\images\\icons",
     "\\css",
     "\\js",
     "\\js\\scripts",
     "\\js\\scripts\\modules"
   ],
+  "SelectedNode": "\\assets\\images\\icons\\linkedin.svg",
   "PreviewInSolutionExplorer": false
 }
