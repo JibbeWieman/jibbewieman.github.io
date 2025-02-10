@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/project-page.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="/js/scripts/expandable-section.js"></script>
 
 </head>
 <body>
@@ -61,7 +62,7 @@
             <div class="content-wrapper">
                 <iframe width="560"
                         height="315"
-                        src="https://www.youtube.com/embed/;"
+                        src="https://www.youtube-nocookie.com/embed/BOX9HpR85gE?si=18WYtGJfOQ_OCiks;"
                         title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -82,24 +83,86 @@
                     (money, viewership, and awareness raised). Additionally, they must determine which ads are aired and work to prevent the world
                     from descending into chaos.
                 </p> <br />
-                <div class="contributions">
-                    <h2>My Contributions</h2>
-                    <ul>
-                        <li>Destructible Object Code;</li>
-                        <li>News Story Spawner;</li>
-                        <li>News Story Statistics System;</li>
-                        <li>Political Impact System;</li>
-                        <li>Randomised Story Trends;</li>
-                        <li>
-                            Room Interactivity (Working Coffee Machine, Auto-Opening Door, <br />
-                            Studio Camera with On Light and Cam Display View);
-                        </li>
-                        <li>Statistics UI System;</li>
-                        <li>Supporting Group Members with their Programming;</li>
-                        <li>Tutorial Sequence;</li>
-                        <li>3D Models;</li>
-                    </ul>
-                </div>
+                     <div class="contributions">
+                         <h2>My Contributions</h2>
+
+                         <div class="expandable-container">
+                             <button class="expandable-button" onclick="toggleContent(this)">Destructible Object Code</button>
+                             <div class="expandable-content">
+                                 <p>Implemented object destruction mechanics, including physics-based breakage and damage interaction.</p>
+                             </div>
+                         </div>
+
+                         <div class="expandable-container">
+                             <button class="expandable-button" onclick="toggleContent(this)">News Story Spawner</button>
+                             <div class="expandable-content">
+                                 <p>Designed a system to dynamically generate news stories based on in-game events and player choices.</p>
+                             </div>
+                         </div>
+
+                         <div class="expandable-container">
+                             <button class="expandable-button" onclick="toggleContent(this)">News Story Statistics System</button>
+                             <div class="expandable-content">
+                                 <p>Created a system that tracks and updates statistics for news stories, influencing gameplay and narrative.</p>
+                             </div>
+                         </div>
+
+                         <div class="expandable-container">
+                             <button class="expandable-button" onclick="toggleContent(this)">Political Impact System</button>
+                             <div class="expandable-content">
+                                 <p>Developed a system where in-game choices affect political standings, leading to branching consequences.</p>
+                             </div>
+                         </div>
+
+                         <div class="expandable-container">
+                             <button class="expandable-button" onclick="toggleContent(this)">Randomised Story Trends</button>
+                             <div class="expandable-content">
+                                 <p>Implemented a dynamic system that randomises trending news topics, ensuring varied playthroughs.</p>
+                             </div>
+                         </div>
+
+                         <div class="expandable-container">
+                             <button class="expandable-button" onclick="toggleContent(this)">Room Interactivity</button>
+                             <div class="expandable-content">
+                                 <p>
+                                     Added interactive room elements including:
+                                     <ul>
+                                         <li>Functional coffee machine</li>
+                                         <li>Auto-opening door</li>
+                                         <li>Studio camera with 'On Air' light and display view</li>
+                                     </ul>
+                                 </p>
+                             </div>
+                         </div>
+
+                         <div class="expandable-container">
+                             <button class="expandable-button" onclick="toggleContent(this)">Statistics UI System</button>
+                             <div class="expandable-content">
+                                 <p>Designed a user-friendly statistics display to track player progress and game impact.</p>
+                             </div>
+                         </div>
+
+                         <div class="expandable-container">
+                             <button class="expandable-button" onclick="toggleContent(this)">Supporting Group Members with Programming</button>
+                             <div class="expandable-content">
+                                 <p>Assisted team members with coding challenges, debugging, and optimising game systems.</p>
+                             </div>
+                         </div>
+
+                         <div class="expandable-container">
+                             <button class="expandable-button" onclick="toggleContent(this)">Tutorial Sequence</button>
+                             <div class="expandable-content">
+                                 <p>Developed a guided tutorial to introduce players to mechanics and gameplay objectives.</p>
+                             </div>
+                         </div>
+
+                         <div class="expandable-container">
+                             <button class="expandable-button" onclick="toggleContent(this)">3D Models</button>
+                             <div class="expandable-content">
+                                 <p>Created and optimised various 3D models for in-game use, enhancing visual fidelity.</p>
+                             </div>
+                         </div>
+                     </div>
             </div>
         </main>
     </div>

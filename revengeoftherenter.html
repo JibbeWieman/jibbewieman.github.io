@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/project-page.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="/js/scripts/expandable-section.js"></script>
 
 </head>
 <body>
@@ -85,15 +86,51 @@
                 <br />
                 <div class="contributions">
                     <h2>My Contributions</h2>
-                    <ul>
-                        <li>Camera Logic;</li>
-                        <li>Damage Feedback;</li>
-                        <li>Movement System;</li>
-                        <li>Remote Control Car;</li>
-                        <li>Scenes;</li>
-                        <li>3D Models;</li>
-                    </ul>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Camera Logic</button>
+                        <div class="expandable-content">
+                            <p>Implemented camera movement, transitions, and tracking for a smooth player experience.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Damage Feedback</button>
+                        <div class="expandable-content">
+                            <p>Designed visual and audio feedback systems to enhance the impact of player and enemy damage.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Movement System</button>
+                        <div class="expandable-content">
+                            <p>Developed a responsive movement system, including walking, running, and interaction mechanics.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Remote Control Car</button>
+                        <div class="expandable-content">
+                            <p>Implemented a controllable remote car with physics-based movement and interaction capabilities.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Scenes</button>
+                        <div class="expandable-content">
+                            <p>Managed scene transitions, loading, and optimised level organisation for smooth gameplay.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">3D Models</button>
+                        <div class="expandable-content">
+                            <p>Created and optimised 3D assets, including environmental objects and interactive elements.</p>
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
         </main>
     </div>

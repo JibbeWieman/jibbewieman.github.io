@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/project-page.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="/js/scripts/expandable-section.js"></script>
 
 </head>
 <body>
@@ -81,15 +82,56 @@
                 <br />
                 <div class="contributions">
                     <h2>My Contributions</h2>
-                    <ul>
-                        <li>Bullet Behaviour;</li>
-                        <li>Enemy AI System;</li>
-                        <li>Mech Upper & Lower Body Rotation;</li>
-                        <li>Movement System;</li>
-                        <li>Rotating Skybox Sun;</li>
-                        <li>Score System;</li>
-                        <li>Spawning System;</li>
-                    </ul>
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Bullet Behaviour</button>
+                        <div class="expandable-content">
+                            <p>Handled bullet physics, collision, and damage logic.</p>
+                            <img src="assets/images/bullet.png" alt="Bullet System">
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Enemy AI System</button>
+                        <div class="expandable-content">
+                            <p>Designed enemy pathfinding and attack patterns.</p>
+                            <img src="assets/images/enemy-ai.png" alt="Enemy AI System">
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Mech Upper & Lower Body Rotation</button>
+                        <div class="expandable-content">
+                            <p>Implemented separate rotation for mech torso and legs.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Movement System</button>
+                        <div class="expandable-content">
+                            <p>Developed smooth movement and input handling.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Rotating Skybox Sun</button>
+                        <div class="expandable-content">
+                            <p>Created a dynamic sun rotation effect for immersion.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Score System</button>
+                        <div class="expandable-content">
+                            <p>Implemented a scoring system with UI feedback.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Spawning System</button>
+                        <div class="expandable-content">
+                            <p>Designed enemy wave spawning logic.</p>
+                        </div>
+                    </div>
                 </div>
                 <h2>Devlog</h2>
                 <iframe width="560"

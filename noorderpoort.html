@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/project-page.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="/js/scripts/expandable-section.js"></script>
 
 </head>
 <body>
@@ -62,7 +63,7 @@
             <div class="content-wrapper">
                 <iframe width="560"
                         height="315"
-                        src="https://www.youtube.com/embed/;"
+                        src="https://www.youtube-nocookie.com/embed/KIEHpEm2dvA?si=b7kuWqZl2NBSn_wj;"
                         title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -79,17 +80,69 @@
                 <br />
                 <div class="contributions">
                     <h2>My Contributions</h2>
-                    <ul>
-                        <li>Drawer Logic;</li>
-                        <li>Game Design;</li>
-                        <li>Key Safe Logic;</li>
-                        <li>Laptop Logic;</li>
-                        <li>Level Design;</li>
-                        <li>Lock Logic;</li>
-                        <li>Puzzle Integration;</li>
-                        <li>Randomization System;</li>
-                        <li>USB Logic;</li>
-                    </ul>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Drawer Logic</button>
+                        <div class="expandable-content">
+                            <p>Implemented interactive drawers with smooth animations and logical constraints.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Game Design</button>
+                        <div class="expandable-content">
+                            <p>Contributed to the overall game mechanics, narrative, and player experience.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Key Safe Logic</button>
+                        <div class="expandable-content">
+                            <p>Developed the logic for a secure key safe, including password validation and item retrieval.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Laptop Logic</button>
+                        <div class="expandable-content">
+                            <p>Implemented laptop interactions, including password protection and in-game functionality.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Level Design</button>
+                        <div class="expandable-content">
+                            <p>Designed engaging environments, ensuring balance between challenge and accessibility.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Lock Logic</button>
+                        <div class="expandable-content">
+                            <p>Created locking mechanisms for doors, safes, and other interactable objects.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Puzzle Integration</button>
+                        <div class="expandable-content">
+                            <p>Seamlessly integrated various puzzles into gameplay, ensuring logical progression.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Randomization System</button>
+                        <div class="expandable-content">
+                            <p>Developed a system to randomise puzzle elements for replayability.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">USB Logic</button>
+                        <div class="expandable-content">
+                            <p>Designed USB interactions, including data transfers and key-based unlocks.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
