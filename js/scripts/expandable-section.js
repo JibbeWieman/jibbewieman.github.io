@@ -7,15 +7,43 @@ function toggleContent(button) {
     }
 }
 
-// Ensure all expandable contents start hidden
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".expandable-content").forEach(content => {
-        content.style.display = "none";
+    document.querySelectorAll(".expandable-container").forEach(container => {
+        let button = container.querySelector(".expandable-button");
+        let content = container.querySelector(".expandable-content");
+
+        if (content) {
+            content.style.display = "none"; // Ensure content is hidden initially
+        }
+
+        if (button) {
+            let color = button.dataset.color;
+            if (color) {
+                button.style.background = color;
+
+                // Generate and apply darker color on hover
+                let darkenedColor = darkenColor(color, 0.85);
+
+                button.addEventListener("mouseenter", () => {
+                    button.style.background = darkenedColor;
+                });
+
+                button.addEventListener("mouseleave", () => {
+                    button.style.background = color;
+                });
+            }
+        }
     });
 });
 
+function darkenColor(hex, percent) {
+    let num = parseInt(hex.replace("#", ""), 16);
+    let r = Math.max(0, (num >> 16) - (255 * (1 - percent)));
+    let g = Math.max(0, ((num >> 8) & 0x00FF) - (255 * (1 - percent)));
+    let b = Math.max(0, (num & 0x0000FF) - (255 * (1 - percent)));
+    return `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
+}
 
-// Function to dynamically create expandable sections
 function createExpandableSection(parentId, buttonText, contentText, imageUrl) {
     let container = document.createElement("div");
     container.classList.add("expandable-container");

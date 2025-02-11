@@ -13,24 +13,18 @@
 }
 
 .expandable-button {
-    background: #00b57f;
     color: white;
     border: none;
     padding: 12px;
-    width: 100%; /* Ensures button takes full width of container */
+    width: 100%;
     text-align: left;
     cursor: pointer;
     border-radius: 5px;
     transition: background 0.3s;
-    margin: 0;
     margin-top: 10px;
     margin-bottom: 5px;
-    box-sizing: border-box; /* Prevents padding from affecting width */
+    box-sizing: border-box;
 }
-
-    .expandable-button:hover {
-        background: #008f68;
-    }
 
 .expandable-content {
     background: #f4f4f4;
@@ -47,8 +41,6 @@
         margin-top: 10px;
         border-radius: 5px;
     }
-
-
 
 .project-container {
     display: grid;
