@@ -261,7 +261,7 @@ header.index-header {
         }
 
     header p {
-        font-size: 3.2vw; /* Slightly smaller than the heading */
+        font-size: 3vw; /* Slightly smaller than the heading */
         text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
         margin-bottom: 1rem;
     }

@@ -18,14 +18,14 @@
         overflow: hidden;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-        aspect-ratio: 1 / .8;
+        aspect-ratio: 1 / 1;
         width: 100%;
         height: auto;
         box-sizing: border-box; /* Include padding and borders in width/height */
     }
 
         .project-card > a > img {
-            height: 45%;
+            height: 40%;
             flex-grow: 0;
             object-fit: cover;
         }
