@@ -1,77 +1,93 @@
-/* Adjustments for medium screens (when screen width is reduced) */
-@media (max-width: 1200px) {
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
     .projects-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 equal-width columns on medium screens */
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); /* 4 equal-width columns */
+        gap: 2vw; /* Adjust the gap between cards */
+        padding-top: .5vh;
+        padding-bottom: 2vh;
+        justify-items: center; /* Stretch the cards to fill the column width */
     }
-}
 
-/* Media Query for Small Screens */
-@media (max-width: 600px) {
     .project-card {
-        padding: 1vw; /* Reduce padding for smaller cards */
-    }
-
-        .project-card .tags {
-            gap: 0px; /* Smaller gap between tags */
-        }
-
-            .project-card .tags span {
-                font-size: 0.75vw; /* Smaller font size for tags */
-                padding: 0.2vw 0.4vw; /* Smaller padding */
-            }
-}
-
-/* Project Cards */
-.project-card {
-    display: flex;
-    flex-direction: column;
-    background: #eaecec;
-    border-radius: 0.75vw;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    aspect-ratio: 1 / 1.5;
-    width: 100%;
-    height: auto;
-    box-sizing: border-box; /* Include padding and borders in width/height */
-}
-
-    .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-    }
-
-    /* Project Title Image */
-    /*.project-title-image {
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        width: auto;*/ /* Make the title image stretch to the card's width */
-        /*height: 5rem;*/ /* Fixed height for the title image */
-        /*object-fit: contain;*/ /* Ensure the whole logo is visible without cropping */
-        /*margin-bottom: 1rem;*/ /* Add some space below the title image */
-        /*border-radius: 8px;*/ /* Optional: add rounded corners to the title image */
-    /*}*/
-
-    .project-card > a {
         display: flex;
         flex-direction: column;
-        height: 100%; /* Ensure it inherits the height of the card */
+        background: #eaecec;
+        border-radius: 0.75vw;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        aspect-ratio: 1 / .8;
+        width: 100%;
+        height: auto;
+        box-sizing: border-box; /* Include padding and borders in width/height */
     }
 
         .project-card > a > img {
-            height: 30%;
+            height: 45%;
             flex-grow: 0;
             object-fit: cover;
         }
 
+        .project-card h3 {
+            font-size: 5.25vw;
+            margin: 0;
+            padding-left: 1vw;
+            color: #2c2c2c;
+        }
 
-    .project-card div {
-        padding: 1.5vw;
+        .project-card p {
+            font-size: 3vw;
+            margin-top: 0.5vw;
+            padding-left: 1vw;
+            padding-right: 1vw;
+            color: #4f4f4f; /* Medium grey */
+        }
+
+        .project-card .tags {
+            display: flex;
+            flex-wrap: wrap; /* Allow tags to move to the next line */
+            gap: 0;
+            margin-top: auto; /* Push tags to the bottom */
+            justify-content: start; /* Align tags to the left */
+            overflow: hidden;
+            padding: 0;
+            padding-top: 0.5vw;
+            padding-left: 1vw;
+            max-width: 100%; /* Ensure tags stay within the card width */
+            box-sizing: border-box; /* Ensure consistent sizing */
+        }
+
+            /* Individual Tag Styles */
+            .project-card .tags span {
+                background: #d2d4d4; /* Light grey */
+                padding: 1.2vw 2.4vw;
+                margin: 0;
+                margin-top: 1.5vw;
+                margin-right: 1.5vw;
+                border-radius: 1.5vw;
+                font-size: 2.8vw;
+                font-weight: bold;
+                color: #2c2c2c;
+                white-space: nowrap; /* Prevent line breaks in tags */
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+}
+
+@media screen and (min-width: 769px) {
+    .projects-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
+        gap: 2vw; /* Adjust the gap between cards */
+        padding-top: .5vh;
+        padding-bottom: 2vh;
+        justify-items: stretch; /* Stretch the cards to fill the column width */
     }
 
     .project-card h3 {
-        font-size: 1.25vw; 
+        font-size: 1.25vw;
         margin: 0;
         color: #2c2c2c;
     }
@@ -111,46 +127,85 @@
             text-overflow: ellipsis;
         }
 
-.projects-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
-    gap: 2vw; /* Adjust the gap between cards */
-    padding-top: .5vh;
-    padding-bottom: 2vh;
-    justify-items: stretch; /* Stretch the cards to fill the column width */
-}
-    
-/* Tags */
-.tags-container {
-    text-align: center;
-    margin-bottom: 1vh;
+    .project-card {
+        display: flex;
+        flex-direction: column;
+        background: #eaecec;
+        border-radius: 0.75vw;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        aspect-ratio: 1 / 1.5;
+        width: 100%;
+        height: auto;
+        box-sizing: border-box; /* Include padding and borders in width/height */
+    }
+
+        .project-card > a > img {
+            height: 30%;
+            flex-grow: 0;
+            object-fit: cover;
+        }
 }
 
-.tag.active,
-.tag:hover {
-    background: #00b57f; /* Green accent for active/hovered tags */
-    color: white;
-}
+    /* Project Cards */
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+        }
 
-/* General Tag Styles */
-.tags {
-    display: flex;
-    gap: 1px;
-    flex-wrap: wrap;
-}
+        .project-card > a {
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Ensure it inherits the height of the card */
+        }
 
-.tag {
-    display: inline-block;
-    background: #e7e7e7; /* Light grey for tags */
-    padding: 0.5vw .7vw; /* tb - rl*/
-    margin: 0.4vw;
-    border-radius: 0.5vw;
-    color: #2c2c2c;
-    font-size: .9rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
 
-/* Space between tags */
-margin-top: auto; /* Pushes tags to the bottom */
-justify-content: start; /* Align tags to the left */
+        .project-card div {
+            padding: 1.5vw;
+        }
+
+    /* Tags */
+    .tags-container {
+        text-align: center;
+        margin-bottom: 1vh;
+        margin-top: auto; /* Pushes tags to the bottom */
+        justify-content: flex-start; /* Align tags to the left */
+    }
+
+    .tag.active,
+    .tag:hover {
+        background: #00b57f; /* Green accent for active/hovered tags */
+        color: white;
+    }
+
+    /* General Tag Styles */
+    .tags {
+        display: flex;
+        gap: 1px;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        display: inline-block;
+        background: #e7e7e7; /* Light grey for tags */
+        padding: 0.5vw .7vw; /* tb - rl*/
+        margin: 0.4vw;
+        border-radius: 0.5vw;
+        color: #2c2c2c;
+        font-size: .9rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Project Title Image */
+    /*.project-title-image {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        width: auto;*/ /* Make the title image stretch to the card's width */
+    /*height: 5rem;*/ /* Fixed height for the title image */
+    /*object-fit: contain;*/ /* Ensure the whole logo is visible without cropping */
+    /*margin-bottom: 1rem;*/ /* Add some space below the title image */
+    /*border-radius: 8px;*/ /* Optional: add rounded corners to the title image */
+    /*}*/

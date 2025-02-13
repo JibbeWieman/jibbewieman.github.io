@@ -1,146 +1,179 @@
-#contact .section {
-    background-color: #ffffff;
-    padding: 0.5rem 1rem; /* Minimal padding inside the section */
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
+@media (max-width: 768px) {
+    #contact h1 {
+        font-size: 2.5rem; /* Original font size */
+        margin-bottom: 0.25rem; /* Very small spacing below the header */
+    }
 
-#contact h2 {
-    font-size: 2.2rem; /* Original font size */
-    color: #28a745;
-    margin-bottom: 0.25rem; /* Very small spacing below the header */
-}
-
-#contact p {
-    font-size: 1.1rem; /* Original font size */
-    color: #ffffff;
-    line-height: 1.4; /* Slightly reduced line height */
-    margin-bottom: 0.5rem; /* Minimal spacing below paragraphs */
-}
-
-/* Contact Strip Styling */
-.contact-strip {
-    background: url('../assets/images/contact-background.jpg') no-repeat center center/cover;
-    border-radius: 0.625vw;
-    margin-top: 3rem;
-    padding: 50px 0;
-    text-align: center;
-    color: white;
-    position: relative;
-    max-height: 15rem;
-    overflow: hidden; /* Ensures content doesn't overflow the max height */
-    display: flex; /* Flexbox for vertical alignment */
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; /* Ensure children stack vertically */
-}
-
-    .contact-strip h1 {
-        font-size: 48px;
-        font-weight: 600;
-        text-transform: uppercase;
-        margin-bottom: 20px;
-        margin-top: 0;
+    .contact-content {
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 1.25rem 2vw 1.25rem 2vw; /* t r b l */
+        max-width: 90%;
+        margin: 0 auto;
+        border-radius: 1.5vw;
         z-index: 1;
         position: relative;
+        color: black; /* Explicitly ensure all text inside is white */
     }
 
-#contact-page-content {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 1.25vw;
-    max-width: 50vw;
-    margin: 0 auto;
-    border-radius: 0.625vw;
-    z-index: 1;
-    position: relative;
-    color: black;
-    /* Flexbox for centring */
-    display: flex; /* Enables flexbox */
-    flex-direction: column; /* Ensures content stacks vertically */
-    justify-content: center; /* Centres content vertically */
-    align-items: center; /* Centres content horizontally */
-    text-align: center; /* Centres inline text inside the div */
-}
-
-    #contact-page-content p
-    {
-        font-size: 1vw;
-    }
-
-    #contact-page-content .social-buttons a {
-        width: 3.75vw; /* Adjust button width */
-        height: 3.75vw; /* Adjust button height */
-    }
-
-.contact-content {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 1.25rem 2vw 1.25rem 2vw; /* t r b l */
-    max-width: 50%;
-    margin: 0 auto;
-    border-radius: 0.625vw;
-    z-index: 1;
-    position: relative;
-    color: black; /* Explicitly ensure all text inside is white */
-}
-
-    .contact-content p {
-        margin: 10px 0 20px;
-        font-size: 1vw;
-        color: white; /* Make paragraph text white explicitly */
-    }
-
-    .contact-content a {
-        color: #4CAF50; /* Keep links green */
-        text-decoration: none;
-    }
-
-        .contact-content a:hover {
-            text-decoration: underline;
-        }
-
-/* Social Buttons */
-.social-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1.25vh;
-}
-
-    .social-buttons a {
-        display: inline-flex;
+    .contact-strip {
+        background: url('../assets/images/contact-background.jpg') no-repeat center center/cover;
+        border-radius: 1.5vw;
+        margin-top: 3rem;
+        padding: 50px 0;
+        text-align: center;
+        color: white;
         position: relative;
-        width: 3.75rem;
-        height: 3.75rem;
+        max-height: 15rem;
+        overflow: hidden; /* Ensures content doesn't overflow the max height */
+        display: flex; /* Flexbox for vertical alignment */
         justify-content: center;
         align-items: center;
-        background-color: white; /* White circular background */
-        border-radius: 50%;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        overflow: hidden; /* Ensure the icon stays within the circle */
+        flex-direction: column; /* Ensure children stack vertically */
+    }
+}
+
+@media (min-width: 769px) {
+    #contact h1 {
+        font-size: 2.2rem; /* Original font size */
+        margin-bottom: 0.25rem; /* Very small spacing below the header */
     }
 
-        .social-buttons a:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    .contact-content {
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 1.25rem 2vw 1.25rem 2vw; /* t r b l */
+        max-width: 50%;
+        margin: 0 auto;
+        border-radius: 0.625vw;
+        z-index: 1;
+        position: relative;
+        color: black; /* Explicitly ensure all text inside is white */
+    }
+
+    .contact-strip {
+        background: url('../assets/images/contact-background.jpg') no-repeat center center/cover;
+        border-radius: 0.625vw;
+        margin-top: 3rem;
+        padding: 50px 0;
+        text-align: center;
+        color: white;
+        position: relative;
+        max-height: 15rem;
+        overflow: hidden; /* Ensures content doesn't overflow the max height */
+        display: flex; /* Flexbox for vertical alignment */
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; /* Ensure children stack vertically */
+    }
+}
+    
+    #contact .section {
+        background-color: #ffffff;
+        padding: 0.5rem 1rem; /* Minimal padding inside the section */
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #contact p {
+        font-size: 1.1rem; /* Original font size */
+        color: #ffffff;
+        line-height: 1.4; /* Slightly reduced line height */
+        margin-bottom: 0.5rem; /* Minimal spacing below paragraphs */
+    }
+
+        .contact-strip h1 {
+            font-size: 48px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            margin-top: 0;
+            z-index: 1;
+            position: relative;
         }
 
+    #contact-page-content {
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 1.25vw;
+        max-width: 50vw;
+        margin: 0 auto;
+        border-radius: 0.625vw;
+        z-index: 1;
+        position: relative;
+        color: black;
+        /* Flexbox for centring */
+        display: flex; /* Enables flexbox */
+        flex-direction: column; /* Ensures content stacks vertically */
+        justify-content: center; /* Centres content vertically */
+        align-items: center; /* Centres content horizontally */
+        text-align: center; /* Centres inline text inside the div */
+    }
 
-        .social-buttons a img {
-            width: 60%; /* Adjust icon size to fit nicely in the circle */
-            height: auto;
-            transition: filter 0.3s ease; /* Smooth transition for filter */
-            filter: brightness(0) saturate(100%);
-            /* This creates a greenish color effect */
+        #contact-page-content p {
+            font-size: 1vw;
         }
 
-        .social-buttons a:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 .625vw rgba(255, 255, 255, 0.7);
+        #contact-page-content .social-buttons a {
+            width: 3.75vw; /* Adjust button width */
+            height: 3.75vw; /* Adjust button height */
         }
 
-            /* Apply filter effect on the image inside the anchor tag when hovering over the button */
-            .social-buttons a:hover img {
-                filter: none;
+        .contact-content p {
+            margin: 10px 0 20px;
+            font-size: 1vw;
+            color: white; /* Make paragraph text white explicitly */
+        }
+
+        .contact-content a {
+            color: #4CAF50; /* Keep links green */
+            text-decoration: none;
+        }
+
+            .contact-content a:hover {
+                text-decoration: underline;
             }
+
+    /* Social Buttons */
+    .social-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1.25vh;
+    }
+
+        .social-buttons a {
+            display: inline-flex;
+            position: relative;
+            width: 3.75rem;
+            height: 3.75rem;
+            justify-content: center;
+            align-items: center;
+            background-color: white; /* White circular background */
+            border-radius: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden; /* Ensure the icon stays within the circle */
+        }
+
+            .social-buttons a:hover {
+                transform: scale(1.1);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+            }
+
+
+            .social-buttons a img {
+                width: 60%; /* Adjust icon size to fit nicely in the circle */
+                height: auto;
+                transition: filter 0.3s ease; /* Smooth transition for filter */
+                filter: brightness(0) saturate(100%);
+                /* This creates a greenish color effect */
+            }
+
+            .social-buttons a:hover {
+                transform: scale(1.1);
+                box-shadow: 0 0 .625vw rgba(255, 255, 255, 0.7);
+            }
+
+                /* Apply filter effect on the image inside the anchor tag when hovering over the button */
+                .social-buttons a:hover img {
+                    filter: none;
+                }
