@@ -1,15 +1,152 @@
+@media screen and (max-width: 768px) {
+    .project-sidebar {
+        background-color: #f8f9fa;
+        padding: 1rem;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 10px 10px;
+        max-width: 22vw;
+        position: absolute; /* Take it out of document flow */
+        top: 0; /* Align to the top */
+        right: 0; /* Align to the right inside .main-wrapper */
+    }
 
+    .arrow-button {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 5vw; 
+        height: 5vw;
+        background-color: #f0f0f0; /* Light grey background */
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1000;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .arrow-left {
+        left: 2px; /* Position on the left side */
+    }
+
+    .arrow-right {
+        right: 2px; /* Position on the right side */
+    }
+
+    iframe {
+        width: 80%; /* Fixed width */
+        height: 40%; /* Fixed height */
+        border-radius: 10px;
+    }
+
+    /* Sidebar details formatting */
+    .project-sidebar .project-details {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: 0.5rem 1rem;
+        font-size: 1vw;
+        line-height: 1.5;
+    }
+
+    .expandable-container {
+        width: auto; /* Set a fixed width */
+        margin-bottom: 5px;
+    }
+
+    .phobophobia-header,
+    .project-parasite-header,
+    .revenge-of-the-renter-header,
+    .mechmates-header,
+    .the-news-header,
+    .noorderpoort-header {
+        position: relative; /* Ensure the overlay is positioned correctly */
+        background-size: cover;
+        background-position: center;
+        color: white; /* Make sure text is readable on dark overlay */
+        height: 70vw;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .project-sidebar {
+        background-color: #f8f9fa;
+        padding: 1rem;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 10px 10px;
+        max-width: 20rem;
+        position: absolute; /* Take it out of document flow */
+        top: 0; /* Align to the top */
+        right: 0; /* Align to the right inside .main-wrapper */
+    }
+
+    .arrow-button {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2vw;
+        height: 2vw;
+        background-color: #f0f0f0; /* Light grey background */
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1000;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .arrow-left {
+        left: 5%; /* Position on the left side */
+    }
+
+    .arrow-right {
+        right: 5%; /* Position on the right side */
+    }
+
+    iframe {
+        width: 560px; /* Fixed width */
+        height: 315px; /* Fixed height */
+        border-radius: 10px;
+    }
+    
+    /* Sidebar details formatting */
+    .project-sidebar .project-details {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: 0.5rem 1rem;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .expandable-container {
+        width: 30vw; /* Set a fixed width */
+        margin-bottom: 5px;
+    }
+
+    .phobophobia-header,
+    .project-parasite-header,
+    .revenge-of-the-renter-header,
+    .mechmates-header,
+    .the-news-header,
+    .noorderpoort-header {
+        position: relative; /* Ensure the overlay is positioned correctly */
+        background-size: cover;
+        background-position: center;
+        color: white; /* Make sure text is readable on dark overlay */
+        height: 20vh;
+    }
+}
 
 .project-logo {
     max-height: 100px; /* Limit the maximum height */
     width: auto; /* Adjust the width proportionally */
     display: block; /* Prevent inline element spacing issues */
     margin: 0 auto; /* Center the image horizontally */
-}
-
-.expandable-container {
-    width: 30vw; /* Set a fixed width */
-    margin-bottom: 5px;
 }
 
 .expandable-button {
@@ -67,12 +204,6 @@
     justify-content: flex-start; /* Aligns video to the left */
 }
 
-iframe {
-    width: 560px; /* Fixed width */
-    height: 315px; /* Fixed height */
-    border-radius: 10px;
-}
-
 .main-wrapper {
     position: relative; /* Establishes a positioning context */
     max-width: var(--recontent-width); /* Adjust to match your layout */
@@ -82,27 +213,6 @@ iframe {
     display: flex;
     justify-content: space-between; /* Space out the sidebar and content */
 }
-
-.project-sidebar {
-    background-color: #f8f9fa;
-    padding: 1rem;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    border-radius: 0 0 10px 10px;
-    max-width: 20rem;
-
-    position: absolute; /* Take it out of document flow */
-    top: 0; /* Align to the top */
-    right: 0; /* Align to the right inside .main-wrapper */
-}
-
-    /* Sidebar details formatting */
-    .project-sidebar .project-details {
-        display: grid;
-        grid-template-columns: max-content 1fr;
-        gap: 0.5rem 1rem;
-        font-size: 1rem;
-        line-height: 1.5;
-    }
 
 .project-details dt {
     font-weight: bold;
@@ -123,18 +233,7 @@ iframe {
 
 
 /* Headers */
-.phobophobia-header,
-.project-parasite-header,
-.revenge-of-the-renter-header,
-.mechmates-header,
-.the-news-header,
-.noorderpoort-header {
-    position: relative; /* Ensure the overlay is positioned correctly */
-    background-size: cover;
-    background-position: center;
-    color: white; /* Make sure text is readable on dark overlay */
-    height: 20vh;
-}
+
 
 img {
     max-width: var(--recontent-width);
@@ -223,24 +322,6 @@ img {
     }
 
 /* NAVIGATION ARROWS*/
-.arrow-button {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2vw; /* 2% of viewport width */
-    height: 2vw; /* Keep it square */
-    background-color: #f0f0f0; /* Light grey background */
-    border: none;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 1000;
-    transition: transform 0.2s ease-in-out;
-}
-
     .arrow-button:hover {
         transform: translateY(-50%) scale(1.1); /* Slight zoom on hover */
     }
@@ -249,11 +330,3 @@ img {
         width: 60%; /* Arrow image takes 60% of button size */
         height: auto;
     }
-
-.arrow-left {
-    left: 5%; /* Position on the left side */
-}
-
-.arrow-right {
-    right: 5%; /* Position on the right side */
-}

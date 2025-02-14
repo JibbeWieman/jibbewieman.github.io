@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\assets",
-    "\\css"
+    "\\css",
+    "\\js",
+    "\\js\\scripts"
   ],
-  "SelectedNode": "\\css\\about.css",
+  "SelectedNode": "\\js\\scripts\\header-animation.js",
   "PreviewInSolutionExplorer": false
 }

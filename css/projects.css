@@ -25,7 +25,7 @@
     }
 
         .project-card > a > img {
-            height: 40%;
+            height: 45%;
             flex-grow: 0;
             object-fit: cover;
         }
@@ -77,13 +77,42 @@
 }
 
 @media screen and (min-width: 769px) {
+
+    .navigation-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+        background-color: gray;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .dot.active {
+            background-color: black;
+        }
+
+    .projects-container {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 2vw;
+        scroll-behavior: smooth;
+        transition: transform 0.5s ease-in-out;
+    }
+
     .projects-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
-        gap: 2vw; /* Adjust the gap between cards */
+        gap: 2vw;  /*Adjust the gap between cards */
         padding-top: .5vh;
         padding-bottom: 2vh;
-        justify-items: stretch; /* Stretch the cards to fill the column width */
+        justify-items: stretch;  /*Stretch the cards to fill the column width */
     }
 
     .project-card h3 {
@@ -128,6 +157,8 @@
         }
 
     .project-card {
+        flex: 0 0 calc(25% - 2vw); /* Adjust width for proper alignment */
+        min-width: 250px; /* Ensure cards don’t shrink too much */
         display: flex;
         flex-direction: column;
         background: #eaecec;
