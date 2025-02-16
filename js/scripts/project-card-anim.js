@@ -6,7 +6,7 @@
         this.isPaused = false;
         this.isDragging = false;
         this.lastMouseX = 0;
-        this.cardWidth = this.cards[0].offsetWidth + 25; // Include margin
+        this.cardWidth = this.cards[0].offsetWidth + (1 * window.innerWidth / 100); // 1vw is equivalent to 1% of the viewport width // Include margin
         this.init();
     }
 

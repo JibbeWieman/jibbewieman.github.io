@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\css\\project-page.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:css\\project-page.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\css\\projects.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:css\\projects.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\project-card-anim.js||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -93,12 +93,12 @@
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 1,
+      "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 289,
-          "SelectedChildIndex": 4,
+          "DockedWidth": 472,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -137,17 +137,18 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-12-24T21:29:42.07Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\index.html",
               "RelativeDocumentMoniker": "index.html",
               "ToolTip": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\index.html",
               "RelativeToolTip": "index.html",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAUwJ0AAABPAAAAAAAAAA==",
+              "ViewState": "AgIAAJMAAAAAAAAAAAAUwK8AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2024-11-27T12:02:32.884Z",
               "IsPinned": true,
@@ -155,13 +156,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "project-page.css",
               "DocumentMoniker": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\css\\project-page.css",
               "RelativeDocumentMoniker": "css\\project-page.css",
               "ToolTip": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\css\\project-page.css",
               "RelativeToolTip": "css\\project-page.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-12-26T13:59:25.811Z",
               "IsPinned": true,
@@ -169,13 +170,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "projects.css",
               "DocumentMoniker": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\css\\projects.css",
               "RelativeDocumentMoniker": "css\\projects.css",
               "ToolTip": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\css\\projects.css",
               "RelativeToolTip": "css\\projects.css",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAGMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAEwE4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-11-28T23:05:34.566Z",
               "IsPinned": true,
@@ -189,7 +190,7 @@
               "RelativeDocumentMoniker": "js\\scripts\\project-card-anim.js",
               "ToolTip": "C:\\Users\\joke\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\project-card-anim.js",
               "RelativeToolTip": "js\\scripts\\project-card-anim.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAAgwDoAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-02-14T16:45:49.405Z",
               "IsPinned": true,
@@ -387,7 +388,7 @@
           ]
         },
         {
-          "DockedHeight": 60,
+          "DockedWidth": 72,
           "SelectedChildIndex": -1,
           "Children": [
             {
