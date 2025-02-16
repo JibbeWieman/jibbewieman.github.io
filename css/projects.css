@@ -99,14 +99,6 @@
         }
 
     .projects-container {
-        display: flex;
-        flex-wrap: nowrap;
-        gap: 2vw;
-        scroll-behavior: smooth;
-        transition: transform 0.5s ease-in-out;
-    }
-
-    .projects-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
         gap: 2vw;  /*Adjust the gap between cards */
