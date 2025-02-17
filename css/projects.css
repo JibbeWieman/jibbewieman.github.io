@@ -78,34 +78,29 @@
 
 @media screen and (min-width: 769px) {
 
-    .navigation-dots {
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
-    }
-
-    .dot {
-        width: 10px;
-        height: 10px;
-        margin: 0 5px;
-        background-color: gray;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-        .dot.active {
-            background-color: black;
-        }
-
     .projects-container {
         display: grid;
+        position: relative; /* Ensure scrollbar is positioned relative to this */
         grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
-        gap: 2vw;  /*Adjust the gap between cards */
+        gap: 2vw; /*Adjust the gap between cards */
         padding-top: .5vh;
         padding-bottom: 2vh;
-        justify-items: stretch;  /*Stretch the cards to fill the column width */
+        justify-items: stretch; /*Stretch the cards to fill the column width */
+        user-select: none; /* Prevents text selection */
+        cursor: grab; /* Normal state */
     }
+
+        .projects-container:active {
+            cursor: grabbing; /* While dragging */
+        }
+
+        .projects-container a,
+        .projects-container img {
+            user-drag: none; /* Prevents browser-based dragging */
+            -webkit-user-drag: none; /* For Safari */
+        }
+
+
 
     .project-card h3 {
         font-size: 1.25vw;
@@ -232,3 +227,27 @@
     /*margin-bottom: 1rem;*/ /* Add some space below the title image */
     /*border-radius: 8px;*/ /* Optional: add rounded corners to the title image */
     /*}*/
+
+/*.scrollbar {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);*/ /* Center scrollbar */
+/*width: calc(100% - 40px);*/ /* Ensure it stays inside container */
+/*max-width: 100%;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .scrollbar-thumb {
+        position: absolute;
+        height: 100%;
+        width: 20%;*/ /* Dynamically updated */
+/*background: #2c2c2c;
+        border-radius: 4px;
+        cursor: pointer;
+        left: 0;
+        transition: left 0.1s linear;
+    }*/

@@ -6,7 +6,9 @@
         this.isPaused = false;
         this.isDragging = false;
         this.lastMouseX = 0;
-        this.cardWidth = this.cards[0].offsetWidth + (1 * window.innerWidth / 100); // 1vw is equivalent to 1% of the viewport width // Include margin
+        this.cardWidth = this.cards[0].offsetWidth + (1 * window.innerWidth / 100);
+        this.hasDragged = false;
+        this.dragTimeout = null;
         this.init();
     }
 
@@ -35,28 +37,42 @@
                 card.style.left = `${currentX - this.scrollSpeed}px`;
             });
 
-            // Check if first card is fully off-screen
             this.checkAndRecycleCards();
         }
         requestAnimationFrame(this.update.bind(this));
     }
 
     startDrag(event) {
+        this.hasDragged = false;
         this.isDragging = true;
         this.lastMouseX = event.clientX;
+        document.body.style.userSelect = "none";
+
+        this.dragTimeout = setTimeout(() => {
+            if (this.isDragging) {
+                this.cards.forEach(card => {
+                    card.style.pointerEvents = "none"; // Disable clicks only if dragging
+                });
+            }
+        }, 100);
     }
 
     handleDrag(event) {
         if (!this.isDragging) return;
+
         let deltaX = event.clientX - this.lastMouseX;
 
-        // Get the leftmost card's position
+        if (Math.abs(deltaX) > 5) {
+            this.hasDragged = true;
+            clearTimeout(this.dragTimeout);
+            this.cards.forEach(card => (card.style.pointerEvents = "none"));
+        }
+
         let firstCard = this.cards[0];
         let firstCardLeft = parseFloat(firstCard.style.left);
 
-        // Prevent dragging left beyond the first card's position
         if (firstCardLeft + deltaX > 0) {
-            deltaX = -firstCardLeft; // Stop movement at the boundary
+            deltaX = -firstCardLeft;
         }
 
         this.cards.forEach(card => {
@@ -66,10 +82,24 @@
 
         this.lastMouseX = event.clientX;
 
-        // 🔹 Check for off-screen cards **while dragging**
         this.checkAndRecycleCards();
     }
 
+    stopDrag(event) {
+        this.isDragging = false;
+        document.body.style.userSelect = "auto";
+
+        // Restore pointer events immediately if clicking on a card after dragging
+        this.cards.forEach(card => (card.style.pointerEvents = "auto"));
+
+        // Simulate an immediate click if user releases on a card
+        if (!this.hasDragged) {
+            let clickedElement = document.elementFromPoint(event.clientX, event.clientY);
+            if (clickedElement && clickedElement.classList.contains("project-card")) {
+                clickedElement.click(); // Manually trigger the click event
+            }
+        }
+    }
 
     checkAndRecycleCards() {
         let firstCard = this.cards[0];
@@ -78,56 +108,32 @@
         }
     }
 
-    stopDrag() {
-        this.isDragging = false;
-    }
-
     recycleCard(card) {
         let lastCard = this.cards[this.cards.length - 1];
         card.style.left = `${parseFloat(lastCard.style.left) + this.cardWidth}px`;
-
-        // Move first card to end of array
         this.cards.push(this.cards.shift());
     }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     if (window.matchMedia("(min-width: 769px)").matches) {
-        new PanelScroll(".projects-container", .5);
+        new PanelScroll(".projects-container", 0.5);
     }
 });
 
-//const container = document.querySelector(".projects-container");
-//const cards = document.querySelectorAll(".project-card");
+document.querySelector(".projects-container").addEventListener("dragstart", (event) => {
+    event.preventDefault();
+});
 
-//let isScrolling = false;
-//const scrollSpeed = 1; // Adjust speed as needed
 
-//function startScrolling() {
-//    isScrolling = true;
-//    requestAnimationFrame(scroll);
+//snapToNearestCard() {
+//    let firstCard = this.cards[0];
+//    let firstCardLeft = parseFloat(firstCard.style.left);
+
+//    let closestIndex = Math.round(Math.abs(firstCardLeft) / this.cardWidth);
+//    let targetPosition = -closestIndex * this.cardWidth;
+
+//    this.cards.forEach(card => {
+//        card.style.left = `${targetPosition + (this.cards.indexOf(card) * this.cardWidth)}px`;
+//    });
 //}
-
-//function stopScrolling() {
-//    isScrolling = false;
-//}
-
-//function scroll() {
-//    if (!isScrolling) return;
-
-//    container.scrollBy({ left: scrollSpeed, behavior: 'smooth' });
-
-//    // Check if the first card is out of view
-//    const firstCard = container.firstElementChild;
-//    if (firstCard.getBoundingClientRect().right <= container.getBoundingClientRect().left) {
-//        container.appendChild(firstCard); // Move it to the end
-//        container.scrollLeft -= firstCard.offsetWidth; // Adjust scroll position
-//    }
-
-//    requestAnimationFrame(scroll);
-//}
-
-//container.addEventListener("mouseenter", stopScrolling);
-//container.addEventListener("mouseleave", startScrolling);
-
-//startScrolling();
