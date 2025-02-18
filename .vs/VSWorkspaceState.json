@@ -2,10 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\assets",
+    "\\assets\\images",
+    "\\assets\\images\\mechmates",
+    "\\assets\\videos",
     "\\css",
     "\\js",
     "\\js\\scripts"
   ],
-  "SelectedNode": "\\revengeoftherenter.html",
+  "SelectedNode": "\\assets\\images\\mechmates\\sun-rotater-script.jpg",
   "PreviewInSolutionExplorer": false
 }

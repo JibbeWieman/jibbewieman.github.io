@@ -35,6 +35,14 @@
         <img src="assets/images/icons/arrow-right.png" alt="Right Arrow">
     </div>
 
+    <!-- Image Overlay -->
+    <div id="image-overlay">
+        <div class="overlay-content">
+            <span class="close-button" onclick="closeOverlay()">&times;</span>
+            <img id="overlay-image" src="" alt="Enlarged Image">
+        </div>
+    </div>
+
     <header class="mechmates-header">
         <img src="assets/images/mechmates/logo.png" alt="MechMates Logo" />
         <!--h1>MechMates</h1>-->
@@ -61,6 +69,7 @@
                     <dd>5</dd>
                 </dl>
             </aside>
+
             <div class="content-wrapper">
                 <iframe width="560"
                         height="315"
@@ -87,15 +96,24 @@
                         <button class="expandable-button" onclick="toggleContent(this)">Bullet Behaviour</button>
                         <div class="expandable-content">
                             <p>Handled bullet physics, collision, and damage logic.</p>
-                            <img src="assets/images/bullet.png" alt="Bullet System">
+                            <img src="assets/images/mechmates/bullet-script.jpg" onclick="openOverlay(this)" alt="Bullet System">
                         </div>
                     </div>
 
                     <div class="expandable-container">
                         <button class="expandable-button" onclick="toggleContent(this)">Enemy AI System</button>
                         <div class="expandable-content">
-                            <p>Designed enemy pathfinding and attack patterns.</p>
-                            <img src="assets/images/enemy-ai.png" alt="Enemy AI System">
+                            <p>Developed the two enemy AI's within our game: The Chomper & The Spitter.</p>
+                            <br />
+                            <p>AI Parent Class:</p>
+                            <img src="assets/images/mechmates/enemy-ai-script.jpg" onclick="openOverlay(this)" alt="Enemy AI Script">
+                            <br />
+                            <p>Chomper AI Class:</p>
+                            <img src="assets/images/mechmates/chomper-ai-script.jpg" onclick="openOverlay(this)" alt="Chomper AI Script">
+                            <br />
+                            <p>Spitter AI Class:</p>
+                            <img src="assets/images/mechmates/spitter-ai-script.jpg" onclick="openOverlay(this)" alt="Spitter AI Script">
+                            <img src="assets/images/mechmates/spit-projectile-script.jpg" onclick="openOverlay(this)" alt="Spitter Projectile Script">
                         </div>
                     </div>
 
@@ -103,6 +121,7 @@
                         <button class="expandable-button" onclick="toggleContent(this)">Mech Upper & Lower Body Rotation</button>
                         <div class="expandable-content">
                             <p>Implemented separate rotation for mech torso and legs.</p>
+                            <img src="assets/images/mechmates/mech-rotater-script.jpg" onclick="openOverlay(this)" alt="Mech Rotation Script">
                         </div>
                     </div>
 
@@ -110,6 +129,7 @@
                         <button class="expandable-button" onclick="toggleContent(this)">Movement System</button>
                         <div class="expandable-content">
                             <p>Developed smooth movement and input handling.</p>
+                            <img src="assets/images/mechmates/mech-movement-script.jpg" onclick="openOverlay(this)" alt="Mech Rotation Script">
                         </div>
                     </div>
 
@@ -117,20 +137,23 @@
                         <button class="expandable-button" onclick="toggleContent(this)">Rotating Skybox Sun</button>
                         <div class="expandable-content">
                             <p>Created a dynamic sun rotation effect for immersion.</p>
+                            <img src="assets/images/mechmates/sun-rotater-script.jpg" onclick="openOverlay(this)" alt="Sun Rotation Script">
                         </div>
                     </div>
 
                     <div class="expandable-container">
                         <button class="expandable-button" onclick="toggleContent(this)">Score System</button>
                         <div class="expandable-content">
-                            <p>Implemented a scoring system with UI feedback.</p>
+                            <p>Implemented a scoring system, which saves the score and highscore using PlayerPrefs.</p>
+                            <img src="assets/images/mechmates/highscore-script.jpg" onclick="openOverlay(this)" alt="Score Count Script">
                         </div>
                     </div>
 
                     <div class="expandable-container">
                         <button class="expandable-button" onclick="toggleContent(this)">Spawning System</button>
                         <div class="expandable-content">
-                            <p>Designed enemy wave spawning logic.</p>
+                            <p>Implemented enemy spawning logic.</p>
+                            <img src="assets/images/mechmates/enemy-spawner-script.jpg" onclick="openOverlay(this)" alt="Enemy Spawner Script">
                         </div>
                     </div>
                 </div>

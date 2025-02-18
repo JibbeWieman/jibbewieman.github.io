@@ -35,6 +35,14 @@
         <img src="assets/images/icons/arrow-right.png" alt="Right Arrow">
     </div>
 
+    <!-- Image Overlay -->
+    <div id="image-overlay">
+        <div class="overlay-content">
+            <span class="close-button" onclick="closeOverlay()">&times;</span>
+            <img id="overlay-image" src="" alt="Enlarged Image">
+        </div>
+    </div>
+
     <header class="noorderpoort-header">
         <img src="assets/images/noorderpoort/logo.png" alt="Noorderpoort Escape Room Logo" />
         <!--h1>MechMates</h1>-->
@@ -61,6 +69,7 @@
                     <dd>6</dd>
                 </dl>
             </aside>
+
             <div class="content-wrapper">
                 <iframe width="560"
                         height="315"
@@ -142,6 +151,13 @@
                         <button class="expandable-button" onclick="toggleContent(this)">USB Logic</button>
                         <div class="expandable-content">
                             <p>Designed USB interactions, including data transfers and key-based unlocks.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">3D Models</button>
+                        <div class="expandable-content">
+                            <a href="https://www.artstation.com/artwork/3EmZvB" target="_blank">See ArtStation.</a>
                         </div>
                     </div>
                 </div>

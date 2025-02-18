@@ -35,6 +35,14 @@
         <img src="assets/images/icons/arrow-right.png" alt="Right Arrow">
     </div>
 
+    <!-- Image Overlay -->
+    <div id="image-overlay">
+        <div class="overlay-content">
+            <span class="close-button" onclick="closeOverlay()">&times;</span>
+            <img id="overlay-image" src="" alt="Enlarged Image">
+        </div>
+    </div>
+
     <header class="revenge-of-the-renter-header">
         <img src="assets/images/revenge-of-the-renter/logo.png" alt="Revenge of the Renter Logo" />
         <!--<h1>Revenge of the Renter</h1>-->
@@ -61,6 +69,7 @@
                     <dd>6</dd>
                 </dl>
             </aside>
+
             <div class="content-wrapper">
                 <iframe width="560"
                         height="315"
@@ -77,10 +86,14 @@
                     The game targets 18 to 30-year-olds, focusing on renters who typically have limited control over their living spaces. Our gameplay highlights renters' rights and landlords' responsibilities,
                     encouraging sustainable practices and empowering players to advocate for accountability.
                 </p>
+                <br />
                 <p>
                     I contributed to this project over 15 weeks, from February to June 2024, taking on the role of a Programmer and secondary responsibilities as a 3D Artist.
                     I worked extensively with Unity and C#, while also creating textured 3D models to enrich the game environment.
                 </p>
+                <br />
+                <img src="assets/images/revenge-of-the-renter/jury's-favorite.jpg" onclick="openOverlay(this)" alt="group picture" />
+                <br />
                 <p>
                     This project received a grade of <strong>10</strong> and was recognised as the 'Jury's Favourite' among all Year 1 student games, awarded by a panel of industry professionals.
                 </p>
@@ -99,6 +112,10 @@
                         <button class="expandable-button" onclick="toggleContent(this)">Damage Feedback</button>
                         <div class="expandable-content">
                             <p>During playtesting, our group discovered that players didn't notice when they were taking damage. To fix this, I wrote code to display action lines and added a screen shake.</p>
+                            <video controls width="100%">
+                                <source src="assets/videos/hit-feedback.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </div>
 
@@ -106,31 +123,35 @@
                         <button class="expandable-button" onclick="toggleContent(this)">Movement System</button>
                         <div class="expandable-content">
                             <p>I was responsible for the player movement, which includes walking, crouching and jumping.</p>
+                            <img src="assets/images/revenge-of-the-renter/movement-script.jpg" onclick="openOverlay(this)" alt="Movement Script" />
                         </div>
                     </div>
 
                     <div class="expandable-container">
                         <button class="expandable-button" onclick="toggleContent(this)">Remote Control Car</button>
                         <div class="expandable-content">
-                            <p>I was responsible for adding a remote control car to the game, which the player could safely spy on the landlord. 
-                            This required writing code for a battery that depletes with use and recharges at a charging station. 
-                            I also implemented the Cinemachine camera switch and adjusted our player movement script to replicate a rc car's movement.</p>
+                            <p>
+                                I was responsible for adding a remote control car to the game, which the player could safely spy on the landlord.
+                                This required writing code for a battery that depletes with use and recharges at a charging station.
+                                I also implemented the Cinemachine camera switch and adjusted our player movement script to replicate a rc car's movement.
+                            </p>
                         </div>
                     </div>
 
                     <div class="expandable-container">
                         <button class="expandable-button" onclick="toggleContent(this)">Scenes</button>
                         <div class="expandable-content">
-                            <p>I was responsible for adding functional scenes, which include a main and a settings menu.</p>
-                            <img src="assets/images/revenge-of-the-renter/main-menu.jpg" alt="Main Menu Scene" />
-                            <img src="assets/images/revenge-of-the-renter/settings-menu.jpg" alt="Settings Menu Scene" />
+                            <p>I was responsible for adding functional scenes, which include a main, a settings and pause menu.</p>
+                            <img src="assets/images/revenge-of-the-renter/main-menu.jpg" onclick="openOverlay(this)" alt="Main Menu Scene" />
+                            <img src="assets/images/revenge-of-the-renter/settings-menu.jpg" onclick="openOverlay(this)" alt="Settings Menu Scene" />
+                            <img src="assets/images/revenge-of-the-renter/pause-menu.jpg" onclick="openOverlay(this)" alt="Pause Menu Overlay" />
                         </div>
                     </div>
 
                     <div class="expandable-container">
                         <button class="expandable-button" onclick="toggleContent(this)">3D Models</button>
                         <div class="expandable-content">
-                            <p>Created and optimised 3D assets, including environmental objects and interactive elements.</p>
+                            <a href="https://www.artstation.com/artwork/oJyWYq" target="_blank">See ArtStation.</a>
                         </div>
                     </div>
 

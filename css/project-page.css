@@ -142,6 +142,81 @@
     }
 }
 
+/* Overlay background */
+#image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Centered content */
+.overlay-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#overlay-image {
+    cursor: zoom-in;
+    transition: transform 0.3s ease-in-out, cursor 0.2s;
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 10px;
+    position: relative;
+}
+
+    /* When zoomed in */
+    #overlay-image.zoomed {
+        cursor: zoom-out !important;
+        max-width: none;
+        max-height: none;
+    }
+
+/* Close button */
+.close-button {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 40px;
+    height: 40px;
+    background: white;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 50%;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    z-index: 3;
+}
+
+    /* Hover effect */
+    .close-button:hover {
+        background: #ff4444;
+        color: white;
+        transform: scale(1.1);
+    }
+
+
 .project-logo {
     max-height: 100px; /* Limit the maximum height */
     width: auto; /* Adjust the width proportionally */
@@ -196,6 +271,11 @@
     align-items: flex-start; /* Ensures everything aligns left */
     max-width: calc(var(--recontent-width) - 5vw);
 }
+
+    .content-wrapper img {
+        border-radius: 1rem;
+        max-width: 50%;
+    }
 
 /* Media container for the iframe */
 .media-container {

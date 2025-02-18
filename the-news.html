@@ -35,6 +35,14 @@
         <img src="assets/images/icons/arrow-right.png" alt="Right Arrow">
     </div>
 
+    <!-- Image Overlay -->
+    <div id="image-overlay">
+        <div class="overlay-content">
+            <span class="close-button" onclick="closeOverlay()">&times;</span>
+            <img id="overlay-image" src="" alt="Enlarged Image">
+        </div>
+    </div>
+
     <header class="the-news-header">
         <img src="assets/images/the-news/logo.png" alt="The News Logo" />
         <!--<h1>The News</h1>-->
@@ -84,86 +92,122 @@
                     (money, viewership, and awareness raised). Additionally, they must determine which ads are aired and work to prevent the world
                     from descending into chaos.
                 </p> <br />
-                     <div class="contributions">
-                         <h2>My Contributions</h2>
+                <div class="contributions">
+                    <h2>My Contributions</h2>
 
-                         <div class="expandable-container">
-                             <button class="expandable-button" onclick="toggleContent(this)">Destructible Object Code</button>
-                             <div class="expandable-content">
-                                 <p>Implemented object destruction mechanics, including physics-based breakage and damage interaction.</p>
-                             </div>
-                         </div>
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Destroy Zone</button>
+                        <div class="expandable-content">
+                            <p>Implemented a Destroy Zone for optimization and error prevention. 
+                            In VR, players could throw objects outside the world, 
+                            which could be problematic since some objects are required for gameplay, 
+                            such as the mug in the tutorial and the news stories in the main gameplay loop.</p>
+                            <img src="assets/images/the-news/destroy-zone-script.jpg" onclick="openOverlay(this)" alt="Destroy Zone Script" />
+                        </div>
+                    </div>
 
-                         <div class="expandable-container">
-                             <button class="expandable-button" onclick="toggleContent(this)">News Story Spawner</button>
-                             <div class="expandable-content">
-                                 <p>Designed a system to dynamically generate news stories based on in-game events and player choices.</p>
-                             </div>
-                         </div>
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Destructible Object</button>
+                        <div class="expandable-content">
+                            <p>Implemented object destruction mechanics, including physics-based breakage with a custom editor.</p>
+                            <img src="assets/images/the-news/destructible-object-script.jpg" onclick="openOverlay(this)" alt="Destruction Script" />
+                        </div>
+                    </div>
 
-                         <div class="expandable-container">
-                             <button class="expandable-button" onclick="toggleContent(this)">News Story Statistics System</button>
-                             <div class="expandable-content">
-                                 <p>Created a system that tracks and updates statistics for news stories, influencing gameplay and narrative.</p>
-                             </div>
-                         </div>
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">News Story Class</button>
+                        <div class="expandable-content">
+                            <p>Main class of the news stories which acts as a facade between systems sending their data. 
+                            Also holds the logic for automatically setting variables and setting the state of the news story to used.</p>
+                            <img src="assets/images/the-news/news-class-script.jpg" onclick="openOverlay(this)" alt="News Class Script" />
+                        </div>
+                    </div>
 
-                         <div class="expandable-container">
-                             <button class="expandable-button" onclick="toggleContent(this)">Political Impact System</button>
-                             <div class="expandable-content">
-                                 <p>Developed a system where in-game choices affect political standings, leading to branching consequences.</p>
-                             </div>
-                         </div>
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">News Story Spawner</button>
+                        <div class="expandable-content">
+                            <p>Designed a system to dynamically generate news stories based on in-game events and player choices.</p>
+                            <img src="assets/images/the-news/news-spawner-script.jpg" onclick="openOverlay(this)" alt="News Spawner Script" />
+                        </div>
+                    </div>
 
-                         <div class="expandable-container">
-                             <button class="expandable-button" onclick="toggleContent(this)">Randomised Story Trends</button>
-                             <div class="expandable-content">
-                                 <p>Implemented a dynamic system that randomises trending news topics, ensuring varied playthroughs.</p>
-                             </div>
-                         </div>
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">News Story Statistics System</button>
+                        <div class="expandable-content">
+                            <p>Created a system that tracks and updates statistics for news stories, influencing gameplay and narrative.</p>
+                            <img src="assets/images/the-news/stats-manager-script.jpg" onclick="openOverlay(this)" alt="Statistics Manager Script" />
+                        </div>
+                    </div>
 
-                         <div class="expandable-container">
-                             <button class="expandable-button" onclick="toggleContent(this)">Room Interactivity</button>
-                             <div class="expandable-content">
-                                 <p>
-                                     Added interactive room elements including:
-                                     <ul>
-                                         <li>Functional coffee machine</li>
-                                         <li>Auto-opening door</li>
-                                         <li>Studio camera with 'On Air' light and display view</li>
-                                     </ul>
-                                 </p>
-                             </div>
-                         </div>
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Political Impact System</button>
+                        <div class="expandable-content">
+                            <p>Developed a system where in-game choices affect political standings, leading to branching consequences.</p>
+                            <img src="assets/images/the-news/political-compass-script.jpg" onclick="openOverlay(this)" alt="Political Compass Script" />
+                        </div>
+                    </div>
 
-                         <div class="expandable-container">
-                             <button class="expandable-button" onclick="toggleContent(this)">Statistics UI System</button>
-                             <div class="expandable-content">
-                                 <p>Designed a user-friendly statistics display to track player progress and game impact.</p>
-                             </div>
-                         </div>
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Randomised Story Trends</button>
+                        <div class="expandable-content">
+                            <p>Implemented a dynamic system that randomises trending news topics, ensuring varied playthroughs.</p>
+                            <img src="assets/images/the-news/trend-manager-script.jpg" onclick="openOverlay(this)" alt="Trend Manager Script" />
+                        </div>
+                    </div>
 
-                         <div class="expandable-container">
-                             <button class="expandable-button" onclick="toggleContent(this)">Supporting Group Members with Programming</button>
-                             <div class="expandable-content">
-                                 <p>Assisted team members with coding challenges, debugging, and optimising game systems.</p>
-                             </div>
-                         </div>
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Room Interactivity</button>
+                        <div class="expandable-content">
+                            <p>
+                                Added interactive room elements including:
+                                <ul>
+                                    <li>Functional coffee machine</li>
+                                    <li>Auto-opening door</li>
+                                    <li>Studio camera with 'On Air' light and display view</li>
+                                </ul>
+                            </p>
+                            <br/>
+                            <p><strong>Door:</strong></p>
+                            <img src="assets/images/the-news/door-script.jpg" onclick="openOverlay(this)" alt="Door Script" />
+                        </div>
+                    </div>
 
-                         <div class="expandable-container">
-                             <button class="expandable-button" onclick="toggleContent(this)">Tutorial Sequence</button>
-                             <div class="expandable-content">
-                                 <p>Developed a guided tutorial to introduce players to mechanics and gameplay objectives.</p>
-                             </div>
-                         </div>
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Statistics UI System</button>
+                        <div class="expandable-content">
+                            <p>Designed a user-friendly statistics display to track player progress and game impact.</p>
+                            <img src="assets/images/the-news/ui-manager-script.jpg" onclick="openOverlay(this)" alt="User Interface Manager Script" />
+                        </div>
+                    </div>
 
-                         <div class="expandable-container">
-                             <button class="expandable-button" onclick="toggleContent(this)">3D Models</button>
-                             <div class="expandable-content">
-                                 <p>Created and optimised various 3D models for in-game use, enhancing visual fidelity.</p>
-                             </div>
-                         </div>
-                     </div>
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Supporting Group Members with Programming</button>
+                        <div class="expandable-content">
+                            <p>Assisted team members with coding challenges, debugging, and optimising game systems.</p>
+                            <br/>
+                            <p>TrashShute Script which I helped a teammate debug and optimize.</p>
+                            <img src="assets/images/the-news/trash-iteration-script.jpg" onclick="openOverlay(this)" alt="Trash Shute Script" />
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Tutorial Sequence</button>
+                        <div class="expandable-content">
+                            <p>Developed a guided tutorial to introduce players to mechanics and gameplay objectives.</p>
+                            <img src="assets/images/the-news/fmv-tutorial-script.jpg" onclick="openOverlay(this)" alt="Tutorial Script" />
+                            <br/>
+                            <p><strong>Tutorial Flags:</strong></p>
+                            <img src="assets/images/the-news/tutorial-flags-script.jpg" onclick="openOverlay(this)" alt="Tutorial Flags Script" />
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">3D Models</button>
+                        <div class="expandable-content">
+                            <a href="https://www.artstation.com/jibbew" target="_blank">To Be Added On ArtStation.</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
