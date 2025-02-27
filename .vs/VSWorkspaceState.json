@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets\\images\\mechmates",
-    "\\js\\scripts"
+    "\\assets",
+    "\\assets\\images",
+    "\\assets\\images\\the-news"
   ],
-  "SelectedNode": "\\projects.html",
+  "SelectedNode": "\\assets\\images\\the-news\\political-compass-script.jpg",
   "PreviewInSolutionExplorer": false
 }
