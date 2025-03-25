@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio website of Jibbe Wieman">
+    <title>Jibbe Wieman | Noorderpoort Escape Room</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/icons/personal-icon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/project-page.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="/js/scripts/expandable-section.js"></script>
+
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <script>
+        if (location.protocol !== 'file:') {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error fetching nav.html:', error));
+        } else {
+            console.warn('Fetch skipped because you are running locally (file:// protocol).');
+        }
+    </script>
+
+    <div class="arrow-button arrow-left" onclick="window.location.href='the-news.html';">
+        <img src="assets/images/icons/arrow-left.png" alt="Left Arrow">
+    </div>
+    <div class="arrow-button arrow-right" onclick="window.location.href='project-parasite.html';">
+        <img src="assets/images/icons/arrow-right.png" alt="Right Arrow">
+    </div>
+
+    <!-- Image Overlay -->
+    <div id="image-overlay">
+        <div class="overlay-content">
+            <span class="close-button" onclick="closeOverlay()">&times;</span>
+            <img id="overlay-image" src="" alt="Enlarged Image">
+        </div>
+    </div>
+
+    <header class="noorderpoort-header">
+        <img src="assets/images/noorderpoort/logo.png" alt="Noorderpoort Escape Room Logo" />
+        <!--h1>MechMates</h1>-->
+        <!--<p>gun goes pew pew</p>-->
+    </header>
+
+    <div class="main-wrapper">
+        <main>
+            <aside class="project-sidebar">
+                <dl class="project-details">
+                    <dt>PROJECT STATUS:</dt>
+                    <dd>FINISHED</dd>
+                    <dt>PROJECT TYPE:</dt>
+                    <dd>UNIVERSITY</dd>
+                    <dt>PROJECT DURATION:</dt>
+                    <dd>18 NOVEMBER 2024 - 21 JANUARY 2025</dd>
+                    <dt>SOFTWARE USED:</dt>
+                    <dd>UNITY</dd>
+                    <dt>LANGUAGES USED:</dt>
+                    <dd>C#</dd>
+                    <dt>PRIMARY ROLE(S):</dt>
+                    <dd>PROGRAMMER & GAME DESIGNER</dd>
+                    <dt>TEAM SIZE:</dt>
+                    <dd>6</dd>
+                </dl>
+            </aside>
+
+            <div class="content-wrapper">
+                <iframe width="560"
+                        height="315"
+                        src="https://www.youtube-nocookie.com/embed/KIEHpEm2dvA?si=b7kuWqZl2NBSn_wj;"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                </iframe>
+                <br />
+                <p>
+                    Noorderpoort Escape Room is a VR game developed for the client: Noorderpoort. They tasked us with creating a VR Escape Room for them which they can use during their Digital Citizenship classes to further raise awareness about these topics and build upon the class material.
+                </p>
+                <p>
+                    .
+                </p>
+                <br />
+                <div class="contributions">
+                    <h2>My Contributions</h2>
+                    <!--data-color="#EAC700"-->
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Drawer Logic</button>
+                        <div class="expandable-content">
+                            <p>Implemented interactive drawers with smooth animations and logical constraints.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Game Design</button>
+                        <div class="expandable-content">
+                            <p>Contributed to the overall game mechanics, narrative, and player experience.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Key Safe Logic</button>
+                        <div class="expandable-content">
+                            <p>Developed the logic for a secure key safe, including password validation and item retrieval.</p>
+                            <img src="assets/images/noordepoort/keysafe-script.jpg" onclick="openOverlay(this)" alt="Key Safe Script" />
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Laptop Logic</button>
+                        <div class="expandable-content">
+                            <p>Implemented laptop interactions, including password protection and in-game functionality.</p>
+                            <p><strong>Keyboard Script:</strong></p>
+                            <img src="assets/images/noordepoort/vr-keyboard-script.jpg" onclick="openOverlay(this)" alt="VR Keyboard Script" />
+                            <p><strong>Mouse Script:</strong></p>
+                            <img src="assets/images/noordepoort/vr-mouse-script.jpg" onclick="openOverlay(this)" alt="VR Mouse Script" />
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Level Design</button>
+                        <div class="expandable-content">
+                            <p>Designed engaging environments, ensuring balance between challenge and accessibility.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Lock Logic</button>
+                        <div class="expandable-content">
+                            <p>Created locking mechanisms for doors, safes, and other interactable objects.</p>
+                            <img src="assets/images/noordepoort/check-key-script.jpg" onclick="openOverlay(this)" alt="Lock Script" />
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Puzzle Integration</button>
+                        <div class="expandable-content">
+                            <p>Seamlessly integrated various puzzles into gameplay, ensuring logical progression.</p>
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">Randomization System</button>
+                        <div class="expandable-content">
+                            <p>Developed a system to randomise puzzle elements for replayability.</p>
+                            <img src="assets/images/noordepoort/randomizer-script.jpg" onclick="openOverlay(this)" alt="Randomization Script" />
+                        </div>
+                    </div>
+
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">3D Models</button>
+                        <div class="expandable-content">
+                            <a href="https://www.artstation.com/artwork/3EmZvB" target="_blank">See ArtStation.</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <footer>
+        <p>site by Jibbe Wieman, 2024 | <a href="https://github.com/JibbeWieman">GitHub</a> | <a href="https://www.linkedin.com/in/jibbe-wieman-53b34428b/">LinkedIn</a></p>
+    </footer>
+</body>
+</html>
