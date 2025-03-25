@@ -3,8 +3,10 @@
     "",
     "\\assets",
     "\\assets\\images",
-    "\\assets\\images\\noorderpoort"
+    "\\assets\\images\\noorderpoort",
+    "\\js",
+    "\\js\\scripts"
   ],
-  "SelectedNode": "\\nav.html",
+  "SelectedNode": "\\js\\scripts\\project-card-anim.js",
   "PreviewInSolutionExplorer": false
 }

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const elapsedTime = (Date.now() - animationStartTime) / 1000; // in seconds
 
     // Set the animation delay based on the elapsed time
-    const animationDuration = 15; // Duration of your keyframes animation in seconds
+    const animationDuration = 20; // Duration of your keyframes animation in seconds
     const animationOffset = elapsedTime % animationDuration;
     header.style.animationDelay = `-${animationOffset}s`;
 

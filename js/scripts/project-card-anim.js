@@ -117,7 +117,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     if (window.matchMedia("(min-width: 769px)").matches) {
-        new PanelScroll(".projects-container", 0.5);
+        new PanelScroll(".projects-container", 0.35);
     }
 });
 
