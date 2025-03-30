@@ -2,11 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\assets",
-    "\\assets\\images",
-    "\\assets\\images\\noorderpoort",
+    "\\css",
     "\\js",
     "\\js\\scripts"
   ],
-  "SelectedNode": "\\js\\scripts\\project-card-anim.js",
+  "SelectedNode": "\\css\\navigation.css",
   "PreviewInSolutionExplorer": false
 }
