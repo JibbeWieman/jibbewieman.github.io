@@ -1,7 +1,7 @@
 
 /* WIDE SCREENS */
 :root {
-    --recontent-width: calc(80%); /* Define a reusable width */
+    --recontent-width: calc(80vw); /* Define a reusable width */
 }
 * {
     margin: 0;
@@ -27,7 +27,7 @@ body {
 
 main {
     display: block; /* Default works fine unless other styles interfere */
-    width: 100%; /* Ensure main doesn’t clip child sections */
+    width: 100%; /* Ensure main doesnâ€™t clip child sections */
 }
 
 .main-wrapper {
