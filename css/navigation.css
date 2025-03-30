@@ -71,6 +71,31 @@
                         color: #00b57f;
                     }
 
+    /* Button Styling */
+    #theme-toggle {
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        background: var(--text-color);
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s ease, opacity 0.3s ease;
+    }
+
+        /* Style the image inside */
+        #theme-toggle img {
+            width: 80%; /* Adjust size */
+            height: auto;
+        }
+
+        /* Hover effect */
+        #theme-toggle:hover {
+            opacity: 0.8;
+        }
+
     .active {
         color: #00b57f; /* Bright green */
         text-decoration: underline; /* Underline the link */

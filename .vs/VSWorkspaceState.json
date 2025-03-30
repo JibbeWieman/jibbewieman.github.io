@@ -4,8 +4,9 @@
     "\\assets",
     "\\css",
     "\\js",
-    "\\js\\scripts"
+    "\\js\\scripts",
+    "\\js\\scripts\\modules"
   ],
-  "SelectedNode": "\\css\\about.css",
+  "SelectedNode": "\\the-news.html",
   "PreviewInSolutionExplorer": false
 }

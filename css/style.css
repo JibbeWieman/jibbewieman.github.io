@@ -16,13 +16,33 @@ html, body {
     flex-direction: column; /* Align content in a column layout */
 }
 
+/* Default (Light Mode) */
+:root {
+    --background-color: #f7f9f9; /* light beige */
+    --text-color: #2c2c2c;
+}
+
+/* Dark Mode */
+.dark-mode {
+    --background-color: #121212;
+    --text-color: #ffffff;
+}
+
+/* Apply variables */
+/*body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}*/
+
 /* General Styles */
 body {
     font-family: 'Poppins', sans-serif;
     background: url('../assets/images/background-image.jpg') no-repeat center center fixed;
     background-size: cover;
-    color: #2c2c2c; /* Neutral dark grey for text */
+    color: var(--text-color); /* Neutral dark grey for text */
     scroll-behavior: smooth;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 main {
@@ -36,11 +56,12 @@ main {
     flex-direction: column; /* Stack children vertically */
     width: var(--recontent-width);
     margin: 0 auto;
-    background-color: #f7f9f9; /* light beige */
+    background-color: var(--background-color);
     padding: 2rem;
     border-radius: 0 0 12px 12px; /* Bottom-left and bottom-right corners */
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     box-sizing: border-box; /* Include padding and border in width calculation */
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 a {
