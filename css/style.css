@@ -27,14 +27,14 @@ body {
 
 main {
     display: block; /* Default works fine unless other styles interfere */
-    width: 100%; /* Ensure main doesnâ€™t clip child sections */
+    width: 100%; /* Ensure main doesn’t clip child sections */
 }
 
 .main-wrapper {
     flex: 1; /* Fills remaining space in the viewport */
     display: flex;
     flex-direction: column; /* Stack children vertically */
-    width: var(--recontent-width); /* Use root variable */
+    width: var(--recontent-width);
     margin: 0 auto;
     background-color: #f7f9f9; /* light beige */
     padding: 2rem;
@@ -166,7 +166,7 @@ header.index-header {
     max-width: 100%; /* Prevent overflow */
 
     margin: 0 auto; /* Centre the header horizontally */
-    padding: 7.5rem 2rem 2rem;
+    padding: 13vh 2vw 2vw;
     color: #f7f9f9; /* Subtle beige for contrast */
     box-sizing: border-box;
 
