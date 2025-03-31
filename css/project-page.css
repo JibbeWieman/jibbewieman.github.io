@@ -1,6 +1,6 @@
 @media screen and (max-width: 768px) {
     .project-sidebar {
-        background-color: #f8f9fa;
+        background-color: var(--card-color);
         padding: 1rem;
         box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
         border-radius: 0 0 10px 10px;
@@ -72,7 +72,7 @@
 
 @media screen and (min-width: 769px) {
     .project-sidebar {
-        background-color: #f8f9fa;
+        background-color: var(--card-color);
         padding: 1rem;
         box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
         border-radius: 0 0 10px 10px;
@@ -313,8 +313,6 @@
 
 
 /* Headers */
-
-
 img {
     max-width: var(--recontent-width);
 }

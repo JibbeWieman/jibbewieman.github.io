@@ -2,6 +2,11 @@
 /* WIDE SCREENS */
 :root {
     --recontent-width: calc(80vw); /* Define a reusable width */
+
+    --background-color: #f7f9f9; /* light beige */
+    --card-color: #eaecec;
+    --text-color: #2c2c2c;
+    --tag-color: #d2d4d4;
 }
 * {
     margin: 0;
@@ -16,17 +21,17 @@ html, body {
     flex-direction: column; /* Align content in a column layout */
 }
 
-/* Default (Light Mode) */
-:root {
-    --background-color: #f7f9f9; /* light beige */
-    --text-color: #2c2c2c;
-}
-
 /* Dark Mode */
 .dark-mode {
-    --background-color: #121212;
+    --background-color: #2c2c2c;
+    --card-color: #484848;
     --text-color: #ffffff;
+    --tag-color: #2c2c2c;
 }
+    /* Invert the image in dark mode */
+    .dark-mode #theme-toggle img {
+        filter: invert(1);
+    }
 
 /* Apply variables */
 /*body {

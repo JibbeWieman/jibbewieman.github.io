@@ -13,7 +13,7 @@
     .project-card {
         display: flex;
         flex-direction: column;
-        background: #eaecec;
+        background: var(--card-colour);
         border-radius: 0.75vw;
         overflow: hidden;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -34,7 +34,7 @@
             font-size: 5.25vw;
             margin: 0;
             padding-left: 1vw;
-            color: #2c2c2c;
+            color: var(--text-color);
         }
 
         .project-card p {
@@ -42,7 +42,7 @@
             margin-top: 0.5vw;
             padding-left: 1vw;
             padding-right: 1vw;
-            color: #4f4f4f; /* Medium grey */
+            color: var(--text-color);
         }
 
         .project-card .tags {
@@ -61,7 +61,7 @@
 
             /* Individual Tag Styles */
             .project-card .tags span {
-                background: #d2d4d4; /* Light grey */
+                background: var(--tag-color);
                 padding: 1.2vw 2.4vw;
                 margin: 0;
                 margin-top: 1.5vw;
@@ -100,18 +100,16 @@
             -webkit-user-drag: none; /* For Safari */
         }
 
-
-
     .project-card h3 {
         font-size: 1.25vw;
         margin: 0;
-        color: #2c2c2c;
+        color: var(--text-color);
     }
 
     .project-card p {
         font-size: 0.9vw;
         margin-top: 0.5vw;
-        color: #4f4f4f; /* Medium grey */
+        color: var(--text-color); /* Medium grey */
     }
 
     .project-card .tags {
@@ -129,7 +127,7 @@
 
         /* Individual Tag Styles */
         .project-card .tags span {
-            background: #d2d4d4; /* Light grey */
+            background: var(--tag-color); /* Light grey */
             padding: 0.2vw 0.4vw;
             margin: 0;
             margin-top: 0.6vw;
@@ -137,7 +135,7 @@
             border-radius: 0.3125vw;
             font-size: 0.8vw;
             font-weight: bold;
-            color: #2c2c2c;
+            color: var(--background-color);
             white-space: nowrap; /* Prevent line breaks in tags */
             overflow: hidden;
             text-overflow: ellipsis;
@@ -148,7 +146,7 @@
         min-width: 250px; /* Ensure cards don’t shrink too much */
         display: flex;
         flex-direction: column;
-        background: #eaecec;
+        background: var(--card-color);
         border-radius: 0.75vw;
         overflow: hidden;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -206,14 +204,14 @@
 
     .tag {
         display: inline-block;
-        background: #e7e7e7; /* Light grey for tags */
+        background: var(--tag-color); /* Light grey for tags */
         padding: 0.5vw .7vw; /* tb - rl*/
         margin: 0.4vw;
         border-radius: 0.5vw;
-        color: #2c2c2c;
+        color: var(--text-color);
         font-size: .9rem;
         font-weight: bold;
-        transition: background-color 0.3s ease, color 0.3s ease;
+        transition: 0.3s ease, color 0.3s ease;
     }
 
     /* Project Title Image */
