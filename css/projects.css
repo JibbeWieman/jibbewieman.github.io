@@ -204,7 +204,7 @@
 
     .tag {
         display: inline-block;
-        background: var(--tag-color); /* Light grey for tags */
+        background: var(--tag2-color);
         padding: 0.5vw .7vw; /* tb - rl*/
         margin: 0.4vw;
         border-radius: 0.5vw;
