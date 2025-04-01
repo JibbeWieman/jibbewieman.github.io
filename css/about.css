@@ -8,9 +8,10 @@
         align-items: center;
         text-align: center;
         padding-bottom: 2rem;
-        background-color: white;
+        background-color: var(--tech-stack-color);
         border-radius: 1.5vw;
         border: 5px solid #eaecec; /* Neutral dark grey */
+        border: 5px solid var(--border-color); /* Neutral dark grey */
     }
 
     .section.about-me {
