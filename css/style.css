@@ -8,6 +8,7 @@
     --text-color: #2c2c2c;
     --tag-color: #d2d4d4;
     --border-color: #eaecec;
+    --tech-stack-color: #ffffff;
 }
 
 .dark-mode {
@@ -15,7 +16,8 @@
     --card-color: #484848;
     --text-color: #ffffff;
     --tag-color: #2c2c2c;
-    --border-color: #000000;
+    --border-color: #d2d4d4;
+    --tech-stack-color: #484848;
 }
     /* Invert the image in dark mode */
     .dark-mode #theme-toggle img {
