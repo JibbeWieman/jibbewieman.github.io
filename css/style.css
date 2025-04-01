@@ -10,6 +10,8 @@
     --tag2-color: #eaecec;
     --border-color: #eaecec;
     --tech-stack-color: #ffffff;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .dark-mode {
@@ -72,7 +74,6 @@ main {
     border-radius: 0 0 12px 12px; /* Bottom-left and bottom-right corners */
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     box-sizing: border-box; /* Include padding and border in width calculation */
-    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 a {
@@ -186,6 +187,37 @@ button {
         box-shadow: 0 0 6px rgba(0, 191, 127, 0.5); /* Soft green glow */
     }
 
+#drag-button {
+    position: absolute;
+    bottom: 1vw;
+    right: 1vw;
+    width: 8vw;
+    height: 2.5vw;
+    background-color: #ffffff;
+    border-radius: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    z-index: 4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-top: auto;
+    margin-bottom: 4vh;
+}
+
+    #drag-button img {
+        width: 1.2vw;
+        height: 1.2vw;
+        user-select: none;
+        pointer-events: none;
+        padding-right: .3vw;
+    }
+
+    #drag-button p {
+        color: black;
+        font-size: 1vw;
+    }
+
 /* Header Styles */
 header.index-header {
     display: flex;
@@ -201,7 +233,6 @@ header.index-header {
     padding: 13vh 2vw 2vw;
     color: #f7f9f9; /* Subtle beige for contrast */
     box-sizing: border-box;
-
     /* Animation */
     background-size: cover; /* Maintain a good visual fill */
     background-repeat: no-repeat; /* Prevent tiling of smaller images */

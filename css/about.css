@@ -63,7 +63,7 @@
         object-fit: cover; /* Ensure the image fills the circle while maintaining its aspect ratio */
     }
 
-    /* Style for the content inside the section */ s
+    /* Style for the content inside the section */
     .stack-content {
         max-width: calc(var(--recontent-width)-2rem);
         width: 100%;

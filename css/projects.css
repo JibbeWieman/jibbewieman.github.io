@@ -76,6 +76,10 @@
             }
 }
 
+#projects {
+    position: relative;
+}
+
 @media screen and (min-width: 769px) {
 
     .projects-container {
