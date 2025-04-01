@@ -1,12 +1,6 @@
 
 /* Mobile Styles */
 @media screen and (max-width: 768px) {
-        /* Individual Tag Styles */
-        .project-card .tags span {
-            background: var(--tag-color); /* Light grey */
-            color: var(--text-color);
-        }
-
     .projects-container {
         display: grid;
         grid-template-columns: repeat(1, 1fr); /* 4 equal-width columns */
@@ -19,7 +13,7 @@
     .project-card {
         display: flex;
         flex-direction: column;
-        background: var(--card-colour);
+        background: var(--card-color);
         border-radius: 0.75vw;
         overflow: hidden;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -76,7 +70,7 @@
                 border-radius: 1.5vw;
                 font-size: 2.8vw;
                 font-weight: bold;
-                color: #2c2c2c;
+                color: var(--text-color);;
                 white-space: nowrap; /* Prevent line breaks in tags */
                 overflow: hidden;
                 text-overflow: ellipsis;
