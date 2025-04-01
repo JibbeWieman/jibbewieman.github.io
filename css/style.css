@@ -11,7 +11,8 @@
     --border-color: #eaecec;
     --tech-stack-color: #ffffff;
     --footer-color: #2c2c2c;
-    
+    --expandable-color: #e9e9e9;
+
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -23,6 +24,7 @@
     --tag2-color: #1e1e1e;
     --border-color: #d2d4d4;
     --tech-stack-color: #484848;
+    --expandable-color: #1e1e1e;
 }
     /* Invert the image in dark mode */
     .dark-mode #theme-toggle img {

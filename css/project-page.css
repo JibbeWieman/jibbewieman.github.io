@@ -239,7 +239,7 @@
 }
 
 .expandable-content {
-    background: #f4f4f4;
+    background: var(--expandable-color);
     padding: 10px;
     border-radius: 5px;
     display: none;
