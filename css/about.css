@@ -73,7 +73,7 @@
     /* Style for the heading */
     #technical-experience h3 {
         font-size: 2rem;
-        color: #333;
+        color: var(--text-color);
         margin-bottom: 1rem;
     }
 
@@ -86,9 +86,9 @@
         align-items: center;
         text-align: center;
         padding-bottom: 2rem;
-        background-color: white;
+        background-color: var(--card-color);
         border-radius: 0.625vw;
-        border: 5px solid #eaecec; /* Neutral dark grey */
+        border: 5px solid var(--border-color); /* Neutral dark grey */
     }
 
     /* Default (Larger screens) Layout */

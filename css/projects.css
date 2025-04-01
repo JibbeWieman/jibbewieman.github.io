@@ -135,7 +135,7 @@
             border-radius: 0.3125vw;
             font-size: 0.8vw;
             font-weight: bold;
-            color: var(--background-color);
+            color: var(--text-color);
             white-space: nowrap; /* Prevent line breaks in tags */
             overflow: hidden;
             text-overflow: ellipsis;
@@ -146,7 +146,7 @@
         min-width: 250px; /* Ensure cards don’t shrink too much */
         display: flex;
         flex-direction: column;
-        background: var(--card-color);
+        background-color: var(--card-color);
         border-radius: 0.75vw;
         overflow: hidden;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -192,7 +192,7 @@
     .tag.active,
     .tag:hover {
         background: #00b57f; /* Green accent for active/hovered tags */
-        color: white;
+        color: var(--text-color);
     }
 
     /* General Tag Styles */
