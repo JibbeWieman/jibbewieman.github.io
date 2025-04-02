@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets"
+    "\\assets",
+    "\\js",
+    "\\js\\scripts"
   ],
-  "SelectedNode": "\\skill-tree.html",
+  "SelectedNode": "\\about.html",
   "PreviewInSolutionExplorer": false
 }
