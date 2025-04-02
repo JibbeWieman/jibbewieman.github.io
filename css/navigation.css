@@ -75,7 +75,7 @@
 #theme-toggle {
     cursor: pointer;
     background: var(--background-color);
-    border: none;
+    border: .1vw solid white;
     border-radius: 30rem;
     display: flex;
     align-items: center;
