@@ -123,11 +123,6 @@
         line-height: 1.5;
     }
 
-    .expandable-container {
-        width: 30vw; /* Set a fixed width */
-        margin-bottom: 5px;
-    }
-
     .phobophobia-header,
     .project-parasite-header,
     .revenge-of-the-renter-header,
@@ -224,11 +219,23 @@
     margin: 0 auto; /* Center the image horizontally */
 }
 
+/*.text-wrapper {
+    max-width: 50vw;*/ /* Optional: limits width */
+    /*text-align: left;*/ /* Aligns paragraph text to the left */
+/*}*/
+
+.expandable-container {
+    width: 50vw; /* Set a fixed width */
+    margin-bottom: 5px;
+}
+
 .expandable-button {
     color: white;
     border: none;
+    display: flex;
     padding: 12px;
     width: 100%;
+    max-height: 8vh;
     text-align: left;
     cursor: pointer;
     border-radius: 5px;
@@ -236,6 +243,10 @@
     margin-top: 10px;
     margin-bottom: 5px;
     box-sizing: border-box;
+
+    align-items: center; /* Vertically center the text + icon */
+    justify-content: space-between; /* Push icon to far right */
+    gap: 0.5em; /* Optional: spacing between text & icon */
 }
 
 .expandable-content {
@@ -254,6 +265,19 @@
         border-radius: 5px;
     }
 
+.expand-icon {
+    margin-left: auto;
+    height: 1vh;
+    aspect-ratio: 1 / 1;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
+.expandable-button.flipped .expand-icon {
+    transform: rotate(180deg);
+}
+
+
 .project-container {
     display: grid;
     grid-template-columns: 2fr 1fr; /* Two columns: content on the left, sidebar on the right */
@@ -263,14 +287,25 @@
     align-items: start; /* Aligns items to the top */
 }
 
-/* Left side content (text, video, etc.) */
+/* Align stuff to da middle */
+/*.content-wrapper {
+    grid-area: content;*/ /* Assigns to the content area */
+    /*display: flex;
+    flex-direction: column;
+    align-items: center;*/ /* Align items horizontally to the centre */
+    /*justify-content: center;*/ /* Align items vertically to the centre */
+    /*max-width: calc(var(--recontent-width) - 5vw);
+    margin: 0 auto;*/ /* Centres the wrapper itself horizontally in its container */
+    /*text-align: center;*/ /* Optional: Centres text inside elements */
+/*}*/
+/* Align stuff to da left */
 .content-wrapper {
     grid-area: content; /* Assigns to the content area */
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Ensures everything aligns left */
     max-width: calc(var(--recontent-width) - 5vw);
-}
+} 
 
     .content-wrapper img {
         border-radius: 1rem;

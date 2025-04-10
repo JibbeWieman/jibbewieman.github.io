@@ -4,8 +4,11 @@ function toggleContent(button) {
     let content = button.nextElementSibling;
 
     if (content && content.classList.contains("expandable-content")) {
-        // Toggle display between 'none' and 'block'
-        content.style.display = content.style.display === "none" ? "block" : "none";
+        const isVisible = content.style.display !== "none";
+        content.style.display = isVisible ? "none" : "block";
+
+        // Flip the image on expand/collapse
+        button.classList.toggle("flipped", !isVisible);
     }
 }
 
@@ -56,6 +59,14 @@ function createExpandableSection(parentId, buttonText, contentText, imageUrl) {
     button.onclick = function () {
         toggleContent(button);
     };
+
+    // Add the arrow icon to the button
+    let img = document.createElement("img");
+    img.className = "arrow-icon";
+    img.src = "arrow-down.svg";
+    img.alt = "Toggle Arrow";
+    button.appendChild(img);
+
     container.appendChild(button);
 
     let content = document.createElement("div");
@@ -69,16 +80,17 @@ function createExpandableSection(parentId, buttonText, contentText, imageUrl) {
     if (imageUrl) {
         let image = document.createElement("img");
         image.src = imageUrl;
+        image.alt = "Image";
         image.onclick = function () {
             openOverlay(this);
         };
-        image.alt = "Image";
         content.appendChild(image);
     }
 
     container.appendChild(content);
     document.getElementById(parentId).appendChild(container);
 }
+
 
 // Image enlargement overlay for expandable sections
 window.openOverlay = function (imgElement) {
