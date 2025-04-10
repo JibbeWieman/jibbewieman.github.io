@@ -219,10 +219,10 @@
     margin: 0 auto; /* Center the image horizontally */
 }
 
-/*.text-wrapper {
-    max-width: 50vw;*/ /* Optional: limits width */
-    /*text-align: left;*/ /* Aligns paragraph text to the left */
-/*}*/
+.text-wrapper {
+    max-width: 50vw;
+    text-align: left; 
+}
 
 .expandable-container {
     width: 50vw; /* Set a fixed width */
