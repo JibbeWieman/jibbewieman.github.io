@@ -11,7 +11,7 @@ function escapeHtml(text) {
 }
 
 function highlightCSharp(codeElement) {
-    let text = codeElement.innerText;
+    let text = codeElement.textContent;
 
     // Escape HTML first
     text = escapeHtml(text);
@@ -19,6 +19,11 @@ function highlightCSharp(codeElement) {
     // Step 1: Replace comments and strings with placeholders
     const replacements = [];
     let i = 0;
+
+    text = text.replace(/^(\s+)/gm, (match) => {
+        return match.replace(/ /g, '&nbsp;').replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+    });
+
 
     text = text.replace(commentPattern, (match) => {
         const token = `__COMMENT_${i}__`;
@@ -44,8 +49,13 @@ function highlightCSharp(codeElement) {
 
     // Step 2: Highlight keywords with a trailing space
     keywords.forEach(keyword => {
-        const regex = new RegExp(`\\b${keyword}\\b`, 'g');
-        text = text.replace(regex, `<span class="keyword">${keyword}</span> `);
+        const regex = new RegExp(`\\b(${keyword})(\\b)(?![^<]*>)`, 'g');
+        text = text.replace(regex, (match, word, boundary, offset, fullText) => {
+            const nextChar = fullText[offset + match.length];
+            const needsSpace =
+                nextChar && ![' ', '\t', '\n', ';', ')', '.', ',', ':', '<'].includes(nextChar);
+            return `<span class="keyword">${word}</span>${needsSpace ? ' ' : ''}`;
+        });
     });
 
     // Step 3: Highlight types (no trailing space)
@@ -53,6 +63,10 @@ function highlightCSharp(codeElement) {
         const regex = new RegExp(`\\b${type}\\b`, 'g');
         text = text.replace(regex, `<span class="type">${type}</span>`);
     });
+
+    // Step 3.5: Normalize spacing after spans (ensure one space or punctuation, no duplication)
+    text = text.replace(/<\/span>(?!\s)/g, '</span> ');
+
 
     // Step 4: Restore highlighted comments and strings
     replacements.forEach(replacement => {
@@ -65,6 +79,7 @@ function highlightCSharp(codeElement) {
     });
 
     codeElement.innerHTML = lines.join('');
+
 }
 
 document.addEventListener('DOMContentLoaded', () => {

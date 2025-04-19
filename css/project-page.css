@@ -248,10 +248,14 @@
         display: block;
     }
 
+code.language-csharp {
+    white-space: pre-wrap; /* keeps line breaks and indentation */
+    font-family: monospace;
+}
 
 .code-line {
     display: flex;
-    white-space: pre-wrap;
+    white-space: pre;
 }
 
 .line-number {
@@ -313,7 +317,7 @@
     box-sizing: border-box; /* Ensures padding doesn't affect width */
 }
 
-    .expandable-content img {
+    .expandable-content .content-image {
         width: 100%;
         max-width: 300px;
         margin-top: 10px;
