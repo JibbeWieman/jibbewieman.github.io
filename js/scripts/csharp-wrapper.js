@@ -1,9 +1,4 @@
-﻿const keywords = ["public", "private", "protected", "static", "void", "class", "return", "new", "if", "else", "switch", "case", "break"];
-const types = ["int", "string", "float", "double", "bool", "char", "decimal", "long", "short", "object", "Console"];
-const commentPattern = /(\/\/.*)/g;
-const stringPattern = /"([^"\\]*(\\.[^"\\]*)*)"/g;
-
-function escapeHtml(text) {
+﻿function escapeHtml(text) {
     return text
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
@@ -13,24 +8,20 @@ function escapeHtml(text) {
 function highlightCSharp(codeElement) {
     let text = codeElement.textContent;
 
-    // Escape HTML first
-    text = escapeHtml(text);
+    const keywords = ["public", "private", "protected", "static", "void", "class", "return", "new", "if", "else", "switch", "case", "break", "int", "string", "float", "double", "bool", "char", "enum", "Awake", "Start", "Update", "FixedUpdate", "OnDestoy", "OnEnable", "OnDisable", "OnDrawGizmosSelected", "OnDrawGizmos", "OnCollisionEnter", "OnTriggerEnter", "OnTriggerStay", "OnTriggerExit"];
+    const types = ["Console", "Header", "SerializeField", "MonoBehaviour", "List", "Transform", "HideInInspector", "Space", "Animator", "Rigidbody", "GameObject", "Health", "NavMeshAgent", "Gizmos"];
+    const commentPattern = /(\/\/.*)/g;
+    const stringPattern = /"([^"\\]*(\\.[^"\\]*)*)"/g;
 
-    // Step 1: Replace comments and strings with placeholders
+    // Store replacements first
     const replacements = [];
     let i = 0;
-
-    text = text.replace(/^(\s+)/gm, (match) => {
-        return match.replace(/ /g, '&nbsp;').replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
-    });
-
 
     text = text.replace(commentPattern, (match) => {
         const token = `__COMMENT_${i}__`;
         replacements.push({
             token,
-            original: match,
-            html: `<span class="comment">${match}</span>`
+            html: `<span class="comment">${escapeHtml(match)}</span>`
         });
         i++;
         return token;
@@ -40,47 +31,63 @@ function highlightCSharp(codeElement) {
         const token = `__STRING_${i}__`;
         replacements.push({
             token,
-            original: match,
-            html: `<span class="string">${match}</span>`
+            html: `<span class="string">${escapeHtml(match)}</span>`
         });
         i++;
         return token;
     });
 
-    // Step 2: Highlight keywords with a trailing space
+    // Highlight keywords
     keywords.forEach(keyword => {
-        const regex = new RegExp(`\\b(${keyword})(\\b)(?![^<]*>)`, 'g');
-        text = text.replace(regex, (match, word, boundary, offset, fullText) => {
-            const nextChar = fullText[offset + match.length];
-            const needsSpace =
-                nextChar && ![' ', '\t', '\n', ';', ')', '.', ',', ':', '<'].includes(nextChar);
-            return `<span class="keyword">${word}</span>${needsSpace ? ' ' : ''}`;
+        const regex = new RegExp(`\\b(${keyword})\\b`, 'g');
+        text = text.replace(regex, (match) => {
+            const token = `__KEYWORD_${i}__`;
+            replacements.push({
+                token,
+                html: `<span class="keyword">${match}</span>`
+            });
+            i++;
+            return token;
         });
     });
 
-    // Step 3: Highlight types (no trailing space)
+    // Highlight types
     types.forEach(type => {
-        const regex = new RegExp(`\\b${type}\\b`, 'g');
-        text = text.replace(regex, `<span class="type">${type}</span>`);
+        const regex = new RegExp(`\\b(${type})\\b`, 'g');
+        text = text.replace(regex, (match) => {
+            const token = `__TYPE_${i}__`;
+            replacements.push({
+                token,
+                html: `<span class="type">${match}</span>`
+            });
+            i++;
+            return token;
+        });
     });
 
-    // Step 3.5: Normalize spacing after spans (ensure one space or punctuation, no duplication)
-    text = text.replace(/<\/span>(?!\s)/g, '</span> ');
+    // Escape the entire thing safely now
+    // Insert space between adjacent tokens to preserve spacing
+    text = text.replace(/(__\w+_\d+__)(__\w+_\d+__)/g, '$1 $2');
+    text = escapeHtml(text);
 
-
-    // Step 4: Restore highlighted comments and strings
+    // Replace preserved placeholders with their HTML
     replacements.forEach(replacement => {
         text = text.replaceAll(replacement.token, replacement.html);
     });
 
-    // Step 5: Add line numbers
+    // Convert whitespace
+    text = text.replace(/^(\s+)/gm, match =>
+        match.replace(/ /g, '&nbsp;').replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;')
+    );
+
+    // Add line numbers
     const lines = text.split('\n').map((line, index) => {
         return `<div class="code-line"><span class="line-number">${index + 1}</span> ${line}</div>`;
     });
 
     codeElement.innerHTML = lines.join('');
-
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('code.language-csharp').forEach(codeBlock => {

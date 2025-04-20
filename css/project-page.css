@@ -248,6 +248,10 @@
         display: block;
     }
 
+    .code-container pre {
+        white-space: pre-wrap;
+    }
+
 code.language-csharp {
     white-space: pre-wrap; /* keeps line breaks and indentation */
     font-family: monospace;
@@ -268,23 +272,10 @@ code.language-csharp {
     color: #858585;
 }
 
-/* Highlighting */
-.keyword {
-    color: #569cd6;
-}
-
-.type {
-    color: #4ec9b0;
-}
-
-.comment {
-    color: #6a9955;
-    font-style: italic;
-}
-
-.string {
-    color: #ce9178;
-}
+.keyword { color: #569cd6; }
+.type { color: #4ec9b0; }
+.comment { color: #6a9955; font-style: italic; }
+.string { color: #ce9178; }
 
 
 /* Expandable Button */
