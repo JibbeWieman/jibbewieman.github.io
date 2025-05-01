@@ -5,15 +5,18 @@
         .replace(/>/g, "&gt;");
 }
 
+/* BROKEN
+/// <summary>
+/// Highlights C# syntax inside a code element.
+/// </summary>
 function highlightCSharp(codeElement) {
     let text = codeElement.textContent;
 
-    const keywords = ["public", "private", "protected", "static", "void", "class", "return", "new", "if", "else", "switch", "case", "break", "int", "string", "float", "double", "bool", "char", "enum", "Awake", "Start", "Update", "FixedUpdate", "OnDestoy", "OnEnable", "OnDisable", "OnDrawGizmosSelected", "OnDrawGizmos", "OnCollisionEnter", "OnTriggerEnter", "OnTriggerStay", "OnTriggerExit"];
+    const keywords = ["public", "private", "protected", "static", "void", "class", "return", "new", "if", "else", "switch", "case", "break", "int", "string", "float", "double", "bool", "char", "enum", "Awake", "Start", "Update", "FixedUpdate", "OnDestroy", "OnEnable", "OnDisable", "OnDrawGizmosSelected", "OnDrawGizmos", "OnCollisionEnter", "OnTriggerEnter", "OnTriggerStay", "OnTriggerExit"];
     const types = ["Console", "Header", "SerializeField", "MonoBehaviour", "List", "Transform", "HideInInspector", "Space", "Animator", "Rigidbody", "GameObject", "Health", "NavMeshAgent", "Gizmos"];
     const commentPattern = /(\/\/.*)/g;
     const stringPattern = /"([^"\\]*(\\.[^"\\]*)*)"/g;
 
-    // Store replacements first
     const replacements = [];
     let i = 0;
 
@@ -37,7 +40,6 @@ function highlightCSharp(codeElement) {
         return token;
     });
 
-    // Highlight keywords
     keywords.forEach(keyword => {
         const regex = new RegExp(`\\b(${keyword})\\b`, 'g');
         text = text.replace(regex, (match) => {
@@ -51,7 +53,6 @@ function highlightCSharp(codeElement) {
         });
     });
 
-    // Highlight types
     types.forEach(type => {
         const regex = new RegExp(`\\b(${type})\\b`, 'g');
         text = text.replace(regex, (match) => {
@@ -65,22 +66,25 @@ function highlightCSharp(codeElement) {
         });
     });
 
-    // Escape the entire thing safely now
-    // Insert space between adjacent tokens to preserve spacing
     text = text.replace(/(__\w+_\d+__)(__\w+_\d+__)/g, '$1 $2');
     text = escapeHtml(text);
 
-    // Replace preserved placeholders with their HTML
     replacements.forEach(replacement => {
         text = text.replaceAll(replacement.token, replacement.html);
     });
 
-    // Convert whitespace
     text = text.replace(/^(\s+)/gm, match =>
         match.replace(/ /g, '&nbsp;').replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;')
     );
 
-    // Add line numbers
+    codeElement.innerHTML = text;
+} */
+
+/// <summary>
+/// Adds line numbers to each line of the code inside a code element.
+/// </summary>
+function addLineNumbers(codeElement) {
+    const text = codeElement.innerHTML;
     const lines = text.split('\n').map((line, index) => {
         return `<div class="code-line"><span class="line-number">${index + 1}</span> ${line}</div>`;
     });
@@ -88,11 +92,12 @@ function highlightCSharp(codeElement) {
     codeElement.innerHTML = lines.join('');
 }
 
-
+// --------- Initialise Highlighting and Line Numbering ---------
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('code.language-csharp').forEach(codeBlock => {
         if (!codeBlock.dataset.highlighted) {
-            highlightCSharp(codeBlock);
+            //highlightCSharp(codeBlock);
+            addLineNumbers(codeBlock);
             codeBlock.dataset.highlighted = "true";
         }
     });

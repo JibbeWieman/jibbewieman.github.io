@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="/js/scripts/expandable-section.js"></script>
     <script src="/js/scripts/mode-toggle.js"></script>
+    <script src="/js/scripts/csharp-wrapper.js"></script>
 
 </head>
 <body>
@@ -99,6 +100,228 @@
                         </button>
                         <div class="expandable-content">
                             <p>TBD.</p>
+                            <button class="expandable-button" onclick="toggleContent(this)">
+                                Script Snippet
+                                <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
+                            </button>
+                            <div class="expandable-content">
+                                <div class="code-container">
+                                    <pre><code class="language-csharp">
+<span class="keyword">using</span> Unity.VisualScripting;
+<span class="keyword">using</span> UnityEngine;
+<span class="keyword">using</span> UnityEngine.AI;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="class-name">ActorFacade</span> : <span class="class-name">MonoBehaviour</span>
+{
+    <span class="preprocessor">#region</span> VARIABLES
+    <span class="keyword">private</span> <span class="class-name">ActorsManager</span> <span class="variable">actorManager</span>;
+    <span class="keyword">private</span> <span class="class-name">ActorCharacterController</span> <span class="variable">actorController</span>;
+    <span class="keyword">private</span> <span class="class-name">ActorWeaponsManager</span> <span class="variable">actorWeaponsManager</span>;
+
+    <span class="keyword">private</span> <span class="class-name">Actor</span> <span class="variable">currentActor</span>;
+
+    [<span class="attribute">Tooltip</span>(<span class="string">"The parasite."</span>)]
+    <span class="keyword">private</span> <span class="class-name">GameObject</span> <span class="variable">player</span>;
+
+    <span class="keyword">private</span> <span class="class-name">HostThirdPersonCam</span> <span class="variable">hostCam</span>;
+    <span class="keyword">private</span> <span class="class-name">InfectAbility</span> <span class="variable">infectAbility</span>;
+    <span class="preprocessor">#endregion</span>
+
+    <span class="preprocessor">#region</span> UNITY METHODS
+
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">Start</span>()
+    {
+        <span class="variable">actorManager</span> = <span class="function">GetComponent</span>&lt;<span class="class-name">ActorsManager</span>&gt;();
+        <span class="variable">player</span> = <span class="variable">actorManager</span>?.<span class="property">Player</span>;
+
+        <span class="class-name">EventManager</span>.<span class="function">AddListener</span>&lt;<span class="class-name">ActorPossesedEvent</span>&gt;(<span class="function">SwitchActor</span>);
+        <span class="class-name">EventManager</span>.<span class="function">AddListener</span>&lt;<span class="class-name">AimEvent</span>&gt;(<span class="function">HandleCameraSwitching</span>);
+        <span class="class-name">Events</span>.<span class="class-name">ActorPossesedEvent</span>.<span class="property">CurrentActor</span> = <span class="number">0</span>; <span class="comment">// Player actor ID is 0</span>
+
+        <span class="variable">hostCam</span> = <span class="function">FindOrLogError</span>&lt;<span class="class-name">HostThirdPersonCam</span>&gt;();
+        <span class="variable">infectAbility</span> = <span class="function">FindOrLogError</span>&lt;<span class="class-name">InfectAbility</span>&gt;();
+    }
+
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">Update</span>()
+    {
+        <span class="keyword">if</span> (<span class="class-name">Input</span>.<span class="function">GetKeyDown</span>(<span class="class-name">KeyCode</span>.<span class="property">F</span>) <span class="operator">&amp;&amp;</span> <span class="class-name">Events</span>.<span class="class-name">ActorPossesedEvent</span>.<span class="property">InHost</span>)
+            <span class="function">LeaveHost</span>();
+    }
+
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">FixedUpdate</span>()
+    {
+        <span class="variable">actorController</span>?.<span class="function">AdjustAnimationSpeed</span>();
+        <span class="variable">actorController</span>?.<span class="function">HandleCharacterMovement</span>();
+    }
+
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">OnDestroy</span>()
+    {
+        <span class="class-name">EventManager</span>.<span class="function">RemoveListener</span>&lt;<span class="class-name">ActorPossesedEvent</span>&gt;(<span class="function">SwitchActor</span>);
+        <span class="class-name">EventManager</span>.<span class="function">RemoveListener</span>&lt;<span class="class-name">AimEvent</span>&gt;(<span class="function">HandleCameraSwitching</span>);
+    }
+    <span class="preprocessor">#endregion</span>
+
+    <span class="preprocessor">#region</span> ACTOR MANAGEMENT
+
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="function">SwitchActor</span>(<span class="class-name">ActorPossesedEvent</span> <span class="variable">evt</span>)
+    {
+        <span class="keyword">var</span> <span class="variable">targetActor</span> = <span class="class-name">ActorsManager</span>.<span class="function">FindActorById</span>(<span class="variable">evt</span>.<span class="property">CurrentActor</span>);
+        <span class="keyword">if</span> (<span class="variable">targetActor</span> == <span class="keyword">null</span>)
+        {
+            <span class="class-name">Debug</span>.<span class="function">LogError</span>(<span class="string">$"Actor with ID {evt.CurrentActor} not found!"</span>);
+            <span class="keyword">return</span>;
+        }
+
+        <span class="function">EnterActor</span>(<span class="variable">targetActor</span>);
+    }
+
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">EnterActor</span>(<span class="class-name">Actor</span> <span class="variable">targetActor</span>)
+    {
+        <span class="function">SetHostLogic</span>(<span class="variable">targetActor</span>);
+        <span class="variable">currentActor</span> = <span class="variable">targetActor</span>;
+        <span class="variable">actorController</span> = <span class="function">FindActorController</span>(<span class="variable">currentActor</span>.<span class="property">gameObject</span>);
+
+        <span class="keyword">if</span> (<span class="variable">actorController</span> == <span class="keyword">null</span>)
+        {
+            <span class="class-name">Debug</span>.<span class="function">LogError</span>(<span class="string">$"ActorCharacterController not found for {currentActor.gameObject.name}!"</span>);
+            <span class="keyword">return</span>;
+        }
+
+        <span class="keyword">if</span> (!<span class="variable">currentActor</span>.<span class="function">IsPlayer</span>())
+        {
+            <span class="variable">currentActor</span>.<span class="property">Affiliation</span> = <span class="number">0</span>;
+        }
+
+        <span class="keyword">if</span> (!<span class="variable">currentActor</span>.<span class="function">GetComponent</span>&lt;<span class="class-name">AudioListener</span>&gt;())
+        {
+            <span class="variable">currentActor</span>.<span class="function">AddComponent</span>&lt;<span class="class-name">AudioListener</span>&gt;();
+        }
+
+        <span class="function">ReviveActor</span>(<span class="variable">currentActor</span>);
+        <span class="function">DisableAIComponents</span>(<span class="variable">currentActor</span>);
+        <span class="function">EnableWeaponsManager</span>(<span class="variable">currentActor</span>);
+
+        <span class="variable">actorController</span>.<span class="property">transform</span>.<span class="function">SetPositionAndRotation</span>(<span class="variable">currentActor</span>.<span class="property">transform</span>.<span class="property">position</span>, <span class="variable">currentActor</span>.<span class="property">transform</span>.<span class="property">rotation</span>);
+
+        <span class="variable">hostCam</span>?.<span class="function">SetupHostVariables</span>(<span class="variable">currentActor</span>);
+        <span class="class-name">CameraSwitcher</span>.<span class="function">RegisterCameras</span>(<span class="variable">currentActor</span>);
+
+        <span class="class-name">CameraSwitcher</span>.<span class="function">SwitchCamera</span>(<span class="variable">currentActor</span>.<span class="property">BasicCam</span>);
+    }
+
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">LeaveHost</span>()
+    {
+        <span class="variable">currentActor</span>.<span class="function">GetComponent</span>&lt;<span class="class-name">Health</span>&gt;().<span class="function">TakeDamage</span>(<span class="number">250</span>, <span class="variable">player</span>);
+        <span class="variable">currentActor</span>.<span class="function">GetComponentInChildren</span>&lt;<span class="class-name">Animator</span>&gt;().<span class="function">SetBool</span>(<span class="string">"isWalking"</span>, <span class="keyword">false</span>);
+
+        <span class="variable">player</span>.<span class="property">transform</span>.<span class="function">SetPositionAndRotation</span>(<span class="variable">currentActor</span>.<span class="property">transform</span>.<span class="property">position</span> <span class="operator">+</span> <span class="class-name">Vector3</span>.<span class="property">left</span>, <span class="variable">currentActor</span>.<span class="property">transform</span>.<span class="property">rotation</span>);
+        <span class="variable">player</span>.<span class="function">SetActive</span>(<span class="keyword">true</span>);
+
+        <span class="keyword">if</span> (!<span class="variable">currentActor</span>.<span class="function">IsPlayer</span>())
+        {
+            <span class="variable">currentActor</span>.<span class="property">Affiliation</span> = <span class="number">1</span>;
+        }
+
+        <span class="keyword">if</span> (<span class="variable">currentActor</span>.<span class="function">TryGetComponent</span>&lt;<span class="class-name">AudioListener</span>&gt;(<span class="keyword">out</span> <span class="keyword">var</span> <span class="variable">audioListener</span>))
+        {
+            <span class="function">Destroy</span>(<span class="variable">audioListener</span>);
+        }
+
+        <span class="function">DisableWeaponsManager</span>();
+        <span class="function">MoveHostToRefuge</span>();
+
+        <span class="class-name">CameraSwitcher</span>.<span class="function">UnregisterCameras</span>(<span class="variable">currentActor</span>);
+        <span class="class-name">Events</span>.<span class="class-name">ActorPossesedEvent</span>.<span class="property">CurrentActor</span> = <span class="number">0</span>;
+    }
+
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">HandleCameraSwitching</span>(<span class="class-name">AimEvent</span> <span class="variable">evt</span>)
+    {
+        <span class="keyword">if</span> (<span class="variable">evt</span>.<span class="property">IsAiming</span>)
+        {
+            <span class="class-name">CameraSwitcher</span>.<span class="function">SwitchCamera</span>(<span class="variable">currentActor</span>.<span class="property">CombatCam</span>);
+        }
+        <span class="keyword">else</span>
+        {
+            <span class="class-name">CameraSwitcher</span>.<span class="function">SwitchCamera</span>(<span class="variable">currentActor</span>.<span class="property">BasicCam</span>);
+        }
+    }
+    <span class="preprocessor">#endregion</span>
+
+    <span class="preprocessor">#region</span> HELPER METHODS
+    <span class="keyword">private</span> <span class="type">T</span> <span class="function">FindOrLogError</span><<span class="type">T</span>>() <span class="keyword">where</span> <span class="type">T</span> : <span class="class-name">MonoBehaviour</span>
+    {
+        <span class="keyword">var</span> <span class="variable">component</span> = <span class="method">FindObjectOfType</span><<span class="type">T</span>>();
+        <span class="class-name">DebugUtility</span>.<span class="method">HandleErrorIfNullFindObject</span><<span class="type">T</span>, <span class="class-name">ActorFacade</span>>(<span class="variable">component</span>, <span class="keyword">this</span>);
+        <span class="keyword">return</span> <span class="variable">component</span>;
+    }
+
+    <span class="keyword">private</span> <span class="class-name">ActorCharacterController</span> <span class="function">FindActorController</span>(<span class="class-name">GameObject</span> <span class="parameter">actor</span>)
+    {
+        <span class="keyword">return</span> <span class="parameter">actor</span>.<span class="method">GetComponent</span><<span class="class-name">ActorCharacterController</span>>() ?? <span class="parameter">actor</span>.<span class="method">GetComponentInParent</span><<span class="class-name">ActorCharacterController</span>>();
+    }
+
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">SetHostLogic</span>(<span class="class-name">Actor</span> <span class="parameter">targetActor</span>)
+    {
+        <span class="keyword">if</span> (<span class="parameter">targetActor</span>.<span class="method">IsPlayer</span>())
+        {
+            <span class="namespace">Events</span>.<span class="property">ActorPossesedEvent</span>.<span class="property">InHost</span> = <span class="constant">false</span>;
+            <span class="keyword">return</span>;
+        }
+
+        <span class="variable">player</span>.<span class="method">SetActive</span>(<span class="constant">false</span>);
+        <span class="variable">infectAbility</span>.<span class="variable">isLeeching</span> = <span class="constant">false</span>;
+        <span class="namespace">Events</span>.<span class="property">ActorPossesedEvent</span>.<span class="property">InHost</span> = <span class="constant">true</span>;
+    }
+
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">ReviveActor</span>(<span class="class-name">Actor</span> <span class="parameter">actor</span>)
+    {
+        <span class="keyword">var</span> <span class="variable">health</span> = <span class="parameter">actor</span>.<span class="method">GetComponent</span><<span class="class-name">Health</span>>();
+        <span class="keyword">if</span> (<span class="variable">health</span>?.<span class="property">CurrentHealth</span> <= <span class="number">0</span>)
+        {
+            <span class="variable">health</span>.<span class="method">Heal</span>(<span class="number">1</span>);
+        }
+    }
+
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">DisableAIComponents</span>(<span class="class-name">Actor</span> <span class="parameter">actor</span>)
+    {
+        <span class="parameter">actor</span>.<span class="method">TryGetComponent</span>(<span class="keyword">out</span> <span class="class-name">PatrolAgent</span> <span class="variable">_patrolAgent</span>);
+        <span class="parameter">actor</span>.<span class="method">TryGetComponent</span>(<span class="keyword">out</span> <span class="class-name">NavMeshAgent</span> <span class="variable">_navMeshAgent</span>);
+
+        <span class="keyword">if</span> (<span class="variable">_patrolAgent</span> != <span class="constant">null</span>)
+            <span class="variable">_patrolAgent</span>.<span class="property">enabled</span> = <span class="constant">false</span>;
+        <span class="keyword">if</span> (<span class="variable">_navMeshAgent</span> != <span class="constant">null</span>)
+            <span class="variable">_navMeshAgent</span>.<span class="property">enabled</span> = <span class="constant">false</span>;
+    }
+
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">EnableWeaponsManager</span>(<span class="class-name">Actor</span> <span class="parameter">actor</span>)
+    {
+        <span class="keyword">if</span> (<span class="parameter">actor</span>.<span class="method">TryGetComponent</span>(<span class="keyword">out</span> <span class="variable">actorWeaponsManager</span>))
+        {
+            <span class="variable">actorWeaponsManager</span>.<span class="property">enabled</span> = <span class="constant">true</span>;
+        }
+    }
+
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">DisableWeaponsManager</span>()
+    {
+        <span class="keyword">if</span> (<span class="variable">actorWeaponsManager</span> != <span class="constant">null</span>)
+        {
+            <span class="variable">actorWeaponsManager</span>.<span class="property">enabled</span> = <span class="constant">false</span>;
+        }
+    }
+
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">MoveHostToRefuge</span>()
+    {
+        <span class="class-name">Transform</span> <span class="variable">refugeCamp</span> = <span class="class-name">GameObject</span>.<span class="method">FindWithTag</span>(<span class="string">"HostRefugeCamp"</span>)?.<span class="property">transform</span>;
+        <span class="keyword">if</span> (<span class="variable">refugeCamp</span> != <span class="constant">null</span>)
+        {
+            <span class="variable">currentActor</span>.<span class="property">transform</span>.<span class="method">SetParent</span>(<span class="variable">refugeCamp</span>);
+        }
+    }
+    <span class="preprocessor">#endregion</span>
+}
+                                    </code></pre>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

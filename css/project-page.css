@@ -276,6 +276,23 @@ code.language-csharp {
 .type { color: #4ec9b0; }
 .comment { color: #6a9955; font-style: italic; }
 .string { color: #ce9178; }
+.number { color: #b5cea8; }
+.function { color: #dcdcaa; }
+.operator { color: #d4d4d4; }
+.class-name { color: #4ec9b0; }
+.interface-name { color: #b8d7a3; }
+.enum-name { color: #b8d7a3; }
+.namespace { color: #4ec9b0; } 
+.property { color: #9cdcfe; }
+.method { color: #dcdcaa; }
+.parameter { color: #9cdcfe; }
+.variable { color: #ffffff; }
+.preprocessor { color: #808080; }
+.attribute { color: #4ec9b0; }
+.constant { color: #4fc1ff; }
+.struct-name { color: #4ec9b0; }
+.punctuation { color: #d4d4d4; }
+
 
 
 /* Expandable Button */

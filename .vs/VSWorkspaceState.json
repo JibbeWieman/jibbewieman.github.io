@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\css",
+    "\\js",
+    "\\js\\scripts"
   ],
-  "SelectedNode": "\\sitemap.xml.html",
+  "SelectedNode": "\\js\\scripts\\csharp-wrapper.js",
   "PreviewInSolutionExplorer": false
 }
