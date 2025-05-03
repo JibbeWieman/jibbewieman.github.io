@@ -261,6 +261,9 @@ code.language-csharp {
     display: flex;
     white-space: pre;
 }
+    .code-line span:not(.line-number) {
+        white-space: pre;
+    }
 
 .line-number {
     display: inline-block;
