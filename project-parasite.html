@@ -99,7 +99,10 @@
                             <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
                         </button>
                         <div class="expandable-content">
-                            <p>TBD.</p>
+                            <p>The main mechanic of Project Parasite is the parasite's ability to infect and posses other creatures.'.</p>
+                            <p>To achieve this I setup an actor system which has an Actor script on each playable object, which all have their own id and afiliation.</p>
+                            <p>To manage these I setup an ActorManager, which I can use to access these actors.</p>
+                            <p>Besides this I made an ActorFacade script which takes in all the important variables and triggers the logic for the parasite swapping an actor.</p>
                             <button class="expandable-button" onclick="toggleContent(this)">
                                 Script Snippet
                                 <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
@@ -331,7 +334,7 @@
                             <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
                         </button>
                         <div class="expandable-content">
-                            <p>TBD.</p>
+                            <p>Project Parasite uses Additive Scene Loading for making sure the actors stay in their respective spot when loading another level, and deloads and loads levels depending on which level the player is in to limit the assets to load, thus boosting performance.</p>
                         </div>
                     </div>
 
@@ -341,7 +344,8 @@
                             <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
                         </button>
                         <div class="expandable-content">
-                            <p>TBD.</p>
+                            <p>I used Cinemachine 2.0 (the newest version at the time of starting the project), to set up the third-person camera for the parasite and hosts.</p>
+                            <p>And extended on this system with my own Camera Switcher code, which sets the camera's priority and enables/disables based on the which character is currently infected.</p>
                         </div>
                     </div>
 
@@ -351,7 +355,8 @@
                             <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
                         </button>
                         <div class="expandable-content">
-                            <p>TBD.</p>
+                            <p>The desctruction logic plays a big part in the game as the player can destroy vents, and shatter incubation pods, creating new paths to areas previously inaccessible.</p>
+                            <p>I made an modular script, with custom editor, which lets you easily adjust the parameters in the inspector (e.g. Do you want the children of the instantiated destroyedObject to self destruct). </p>
                         </div>
                     </div>
 
@@ -361,7 +366,8 @@
                             <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
                         </button>
                         <div class="expandable-content">
-                            <p>TBD.</p>
+                            <p>One of the puzzle components of the game comes down to the doors of which some needs a person with a keycard to open it.</p>
+                            <p>It has a nice animation of the doors slide out and inwards. And there is a child script for the elevator door which has prerequisites for it to be able to open, displayed by the text outside the door.</p>
                         </div>
                     </div>
 
@@ -371,7 +377,8 @@
                             <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
                         </button>
                         <div class="expandable-content">
-                            <p>TBD.</p>
+                            <p>The Enemy AI plays a very important part in the game, as they should act naturally like an enemy, but should also be controllable.</p>
+                            <p>...</p>
                         </div>
                     </div>
 
@@ -381,7 +388,7 @@
                             <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
                         </button>
                         <div class="expandable-content">
-                            <p>TBD.</p>
+                            <p>To add a layer of stealth and another puzzle element I added security camera's, which pan around and when the player comes into its cone shape, an alarm gets set trigger the geared Enemy AI to patrol to the player's last seen location.</p>
                         </div>
                     </div>
 
