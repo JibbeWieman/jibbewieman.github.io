@@ -14,9 +14,9 @@
     <script src="/js/scripts/expandable-section.js"></script>
     <script src="/js/scripts/mode-toggle.js"></script>
     <script src="/js/scripts/csharp-wrapper.js"></script>
-
 </head>
 <body>
+
     <div id="nav-placeholder"></div>
     <script>
         if (location.protocol !== 'file:') {
@@ -82,12 +82,13 @@
                         allowfullscreen>
                 </iframe>
 
-                 <br/>
+                <br/>
+
                 <div class="text-wrapper">
                     <p>In a top-secret government facility, unethical experiments on living creatures take a dark turn when a sudden power outage disrupts containment. Among the test subjects, a genetically modified <strong>hookworm parasite</strong> (the player) seizes the moment and escapes before lockdown is restored. Now, it must fight for survival.</p>
-                
                     <p>Using its unique ability to <strong>possess living hosts</strong>, the parasite infiltrates the facility, commandeering staff and experimental creatures to navigate high-security areas, disable defences, and outwit enemies. Each encounter demands a mix of <strong>stealth, combat, and puzzle-solving</strong>, challenging players to think strategically and adapt on the fly.</p>
-                <div/> 
+                </div>
+
                 <br/>
 
                 <div class="contributions">
@@ -99,10 +100,13 @@
                             <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
                         </button>
                         <div class="expandable-content">
-                            <p>The main mechanic of Project Parasite is the parasite's ability to infect and posses other creatures.'.</p>
+                            <p>The main mechanic of Project Parasite is the parasite's ability to infect and posses other creatures.</p>
+                            <br/>
                             <p>To achieve this I setup an actor system which has an Actor script on each playable object, which all have their own id and afiliation.</p>
+                            <br/>
                             <p>To manage these I setup an ActorManager, which I can use to access these actors.</p>
                             <p>Besides this I made an ActorFacade script which takes in all the important variables and triggers the logic for the parasite swapping an actor.</p>
+
                             <button class="expandable-button" onclick="toggleContent(this)">
                                 Script Snippet
                                 <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
@@ -323,10 +327,10 @@
     <span class="preprocessor">#endregion</span>
 }
                                     </code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                </div> <!-- code-container -->
+                            </div> <!-- code expandable-content -->
+                        </div> <!-- expandable-content -->
+                    </div> <!-- expandable-container -->
 
                     <div class="expandable-container">
                         <button class="expandable-button" onclick="toggleContent(this)">
@@ -335,8 +339,100 @@
                         </button>
                         <div class="expandable-content">
                             <p>Project Parasite uses Additive Scene Loading for making sure the actors stay in their respective spot when loading another level, and deloads and loads levels depending on which level the player is in to limit the assets to load, thus boosting performance.</p>
-                        </div>
-                    </div>
+                            <button class="expandable-button" onclick="toggleContent(this)">
+                                Script Snippet
+                                <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
+                            </button>
+                            <div class="expandable-content">
+                                <div class="code-container">
+                                    <pre><code class="language-csharp">
+<span class="keyword">using</span> System.Linq;
+<span class="keyword">using</span> UnityEngine;
+<span class="keyword">using</span> UnityEngine.SceneManagement;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="class-name">SceneLoadTrigger</span> : <span class="class-name">MonoBehaviour</span>
+{
+    <span class="preprocessor">#region</span> VARIABLES
+    [<span class="attribute">SerializeField</span>] <span class="keyword">private</span> <span class="class-name">SceneField</span>[] <span class="variable">_scenesToUnload</span>;
+    [<span class="attribute">SerializeField</span>] <span class="keyword">private</span> <span class="class-name">SceneField</span>[] <span class="variable">_scenesToLoad</span>;
+
+    <span class="keyword">private</span> <span class="class-name">GameObject</span> <span class="variable">_player</span>;
+    <span class="keyword">private</span> <span class="class-name">GameObject</span>[] <span class="variable">_hosts</span>;
+    <span class="preprocessor">#endregion</span>
+
+    <span class="preprocessor">#region</span> UNITY METHODS
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">Awake</span>()
+    {
+        <span class="variable">_player</span> = <span class="class-name">GameObject</span>.<span class="function">FindGameObjectWithTag</span>(<span class="string">"Player"</span>);
+        <span class="variable">_hosts</span> = <span class="class-name">GameObject</span>.<span class="function">FindGameObjectsWithTag</span>(<span class="string">"Host"</span>);
+    }
+
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">OnTriggerEnter</span>(<span class="class-name">Collider</span> <span class="variable">collision</span>)
+    {
+        <span class="keyword">if</span> (<span class="variable">collision</span>.<span class="property">gameObject</span> == <span class="variable">_player</span> <span class="operator">||</span> <span class="variable">_hosts</span>.<span class="function">Contains</span>&lt;<span class="class-name">GameObject</span>&gt;(<span class="variable">collision</span>.<span class="property">gameObject</span>))
+        {
+            <span class="comment">// Load and unload the scenes we want</span>
+            <span class="function">LoadScene</span>();
+            <span class="function">UnloadScene</span>();
+        }
+    }
+
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">OnControllerColliderHit</span>(<span class="class-name">ControllerColliderHit</span> <span class="variable">hit</span>)
+    {
+        <span class="keyword">if</span> (<span class="variable">hit</span>.<span class="property">gameObject</span> == <span class="variable">_player</span> <span class="operator">||</span> <span class="variable">_hosts</span>.<span class="function">Contains</span>&lt;<span class="class-name">GameObject</span>&gt;(<span class="variable">hit</span>.<span class="property">gameObject</span>))
+        {
+            <span class="comment">// Load and unload the scenes we want</span>
+            <span class="function">LoadScene</span>();
+            <span class="function">UnloadScene</span>();
+        }
+    }
+    <span class="preprocessor">#endregion</span>
+
+    <span class="preprocessor">#region</span> SCENE MANAGEMENT
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">LoadScene</span>()
+    {
+        <span class="keyword">for</span> (<span class="keyword">int</span> <span class="variable">i</span> = <span class="number">0</span>; <span class="variable">i</span> &lt; <span class="variable">_scenesToLoad</span>.<span class="property">Length</span>; <span class="variable">i</span>++)
+        {
+            <span class="keyword">bool</span> <span class="variable">isSceneLoaded</span> = <span class="keyword">false</span>;
+
+            <span class="keyword">for</span> (<span class="keyword">int</span> <span class="variable">j</span> = <span class="number">0</span>; <span class="variable">j</span> &lt; <span class="class-name">SceneManager</span>.<span class="property">sceneCount</span>; <span class="variable">j</span>++)
+            {
+                <span class="class-name">Scene</span> <span class="variable">loadedScene</span> = <span class="class-name">SceneManager</span>.<span class="function">GetSceneAt</span>(<span class="variable">j</span>);
+                <span class="keyword">if</span> (<span class="variable">loadedScene</span>.<span class="property">name</span> == <span class="variable">_scenesToLoad</span>[<span class="variable">i</span>].<span class="property">SceneName</span>)
+                {
+                    <span class="variable">isSceneLoaded</span> = <span class="keyword">true</span>;
+                    <span class="keyword">break</span>;
+                }
+            }
+
+            <span class="keyword">if</span> (!<span class="variable">isSceneLoaded</span>)
+            {
+                <span class="class-name">SceneManager</span>.<span class="function">LoadSceneAsync</span>(<span class="variable">_scenesToLoad</span>[<span class="variable">i</span>], <span class="class-name">LoadSceneMode</span>.<span class="property">Additive</span>);
+            }
+        }
+    }
+
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">UnloadScene</span>()
+    {
+        <span class="keyword">for</span> (<span class="keyword">int</span> <span class="variable">i</span> = <span class="number">0</span>; <span class="variable">i</span> &lt; <span class="variable">_scenesToUnload</span>.<span class="property">Length</span>; <span class="variable">i</span>++)
+        {
+            <span class="keyword">for</span> (<span class="keyword">int</span> <span class="variable">j</span> = <span class="number">0</span>; <span class="variable">j</span> &lt; <span class="class-name">SceneManager</span>.<span class="property">sceneCount</span>; <span class="variable">j</span>++)
+            {
+                <span class="class-name">Scene</span> <span class="variable">loadedScene</span> = <span class="class-name">SceneManager</span>.<span class="function">GetSceneAt</span>(<span class="variable">j</span>);
+                <span class="keyword">if</span> (<span class="variable">loadedScene</span>.<span class="property">name</span> == <span class="variable">_scenesToUnload</span>[<span class="variable">i</span>].<span class="property">SceneName</span>)
+                {
+                    <span class="class-name">SceneManager</span>.<span class="function">UnloadSceneAsync</span>(<span class="variable">_scenesToUnload</span>[<span class="variable">i</span>]);
+                }
+            }
+        }
+    }
+    <span class="preprocessor">#endregion</span>
+}
+                                    </code></pre>
+                                </div> <!-- code-container -->
+                            </div> <!-- code expandable-content -->
+                        </div> <!-- expandable-content -->
+                    </div> <!-- expandable-container -->
 
                     <div class="expandable-container">
                         <button class="expandable-button" onclick="toggleContent(this)">
@@ -403,13 +499,16 @@
                     </div>
                 </div>
             </div>
-            </div>
+                </div> <!-- contributions -->
+
+            </div> <!-- content-wrapper -->
         </main>
-    </div>
+    </div> <!-- main-wrapper -->
 
     <footer>
-        <p>site by Jibbe Wieman, 2024 | <a href="https://github.com/JibbeWieman">GitHub</a> | <a href="https://www.linkedin.com/in/jibbe-wieman-53b34428b/">LinkedIn</a></p>
+    <p>site by Jibbe Wieman, 2024 | <a href="https://github.com/JibbeWieman">GitHub</a> | <a href="https://www.linkedin.com/in/jibbe-wieman-53b34428b/">LinkedIn</a></p>
     </footer>
+
 </body>
 </html>
 
