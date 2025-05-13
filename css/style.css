@@ -240,7 +240,7 @@ header.index-header {
     background-size: cover; /* Maintain a good visual fill */
     background-repeat: no-repeat; /* Prevent tiling of smaller images */
     background-position: center; /* Centre the image for alignment */
-    animation: fadeBackground 15s infinite;
+    animation: fadeBackground 25s infinite;
     /* Positioning for overlay */
     position: relative;
     z-index: 1; /* Ensure content stays above the overlay */
@@ -260,23 +260,31 @@ header.index-header {
 
 /* Keyframes for background fading */
 @keyframes fadeBackground {
-    0%, 25% {
+    0%, 16.66% {
         background-image: url('../assets/images/phobophobia/banner.jpg');
     }
 
-    25%, 50% {
+    16.67%, 33.33% {
         background-image: url('../assets/images/revenge-of-the-renter/banner.jpg');
     }
 
-    50%, 75% {
+    33.34%, 49.99% {
         background-image: url('../assets/images/mechmates/banner.jpg');
     }
 
-    75%, 99.9% {
+    50%, 66.66% {
         background-image: url('../assets/images/the-news/banner.jpg');
     }
 
-    99.9%, 100% {
+    66.67%, 83.33% {
+        background-image: url('../assets/images/noorderpoort/banner.jpg');
+    }
+
+    83.34%, 99.9% {
+        background-image: url('../assets/images/project-parasite/banner.jpg');
+    }
+
+    99.91%, 100% {
         background-image: url('../assets/images/phobophobia/banner.jpg');
     }
 }

@@ -61,6 +61,7 @@
     .revenge-of-the-renter-header,
     .mechmates-header,
     .the-news-header,
+    .skill-tree-header,
     .noorderpoort-header {
         position: relative; /* Ensure the overlay is positioned correctly */
         background-size: cover;
@@ -128,6 +129,7 @@
     .revenge-of-the-renter-header,
     .mechmates-header,
     .the-news-header,
+    .skill-tree-header,
     .noorderpoort-header {
         position: relative; /* Ensure the overlay is positioned correctly */
         background-size: cover;
@@ -330,7 +332,7 @@ code.language-csharp {
 
     .expandable-content .content-image {
         width: 100%;
-        max-width: 300px;
+        max-width: 600px;
         margin-top: 10px;
         border-radius: 5px;
     }
@@ -428,6 +430,7 @@ img {
     .revenge-of-the-renter-header img,
     .mechmates-header img,
     .the-news-header img,
+    .skill-tree-header img,
     .noorderpoort-header img {
         position: absolute;
         top: 50%;
@@ -465,6 +468,11 @@ img {
     background-image: url('../assets/images/noorderpoort/banner.jpg');
 }
 
+/* Background for Skill Tree */
+.skill-tree-header {
+    background-image: url('../assets/images/skill-tree/banner.jpg');
+}
+
 /* Background for The News */
 .project-parasite-header {
     background-image: url('../assets/images/project-parasite/banner.jpg');
@@ -476,6 +484,7 @@ img {
     .mechmates-header::before,
     .the-news-header::before,
     .noorderpoort-header::before,
+    .skill-tree-header::before,
     .project-parasite-header::before {
         content: ''; /* Empty content for the pseudo-element */
         position: absolute;
@@ -499,7 +508,8 @@ img {
     .revenge-of-the-renter-header p,
     .mechmates-header p,
     .the-news-header p,
-    .noorderpoort-header p {
+    .noorderpoort-header p,
+    .skill-tree-header {
         position: relative;
         z-index: 2; /* Ensure text is above the overlay */
     }
