@@ -47,7 +47,7 @@
     </div>
 
     <header class="skill-tree-header">
-        <h1>Leveling && Skill Tree System</h1>    
+        <h1>Levelling && Skill Tree System</h1>    
     <!--<img src="assets/images/skill-tree/banner.g" alt="Project Parasite Logo" />-->
     </header>
 
@@ -74,7 +74,7 @@
 
             <div class="content-wrapper">
                 <div class="text-wrapper">
-                    <p>For my university's programming track I focused on programming a leveling system and skill tree, and incorporate that into the existing data base of the Unity Learn FPS game.</p>
+                    <p>For my university's programming track I focused on programming a levelling system and skill tree, and incorporate that into the existing data base of the Unity Learn FPS game.</p>
                     <p>During this project I learned about software and game design patterns, and incorporated some into the system. Besides this I also made a UML Chart for the two systems:</p>
                 </div>
                 <button onclick="window.open('https://github.com/JibbeWieman/LevellingSkillTree', '_blank')">
@@ -99,47 +99,218 @@
 
                     <div class="expandable-container">
                         <button class="expandable-button" onclick="toggleContent(this)">
-                            Leveling System
+                            Levelling System
                             <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
                         </button>
                         <div class="expandable-content">
                             <p>Will be added in the near future.</p>
                             <button class="expandable-button" onclick="toggleContent(this)">
-                                Script Snippet
+                                Script Snippet - XP Manager
                                 <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
                             </button>
                             <div class="expandable-content">
                                 <div class="code-container">
                                     <pre><code class="language-csharp">
+<span class="keyword">using</span> Unity.FPS.Game;
+<span class="keyword">using</span> UnityEngine;
 
-                                    </code></pre>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="class-name">XpManager</span> : <span class="class-name">Manager</span>
+{
+                                    <span class="preprocessor">#region</span> VARIABLES
+
+                                    <span class="keyword">public</span> <span class="type">int</span> PlayerLevel { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
+                                    <span class="keyword">public</span> <span class="type">int</span> PlayerXP { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
+
+    [<span class="attribute">Tooltip</span>(<span class="string">"Previous XP Threshold required to level up"</span>)]
+                                    <span class="keyword">public</span> <span class="type">int</span> PrevThreshold { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
+
+    [<span class="attribute">Tooltip</span>(<span class="string">"XP required to level up"</span>)]
+    <span class="keyword">public</span> <span class="type">int</span> CurThreshold { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
+
+    <span class="preprocessor">#endregion</span>
+
+    <span class="preprocessor">#region</span> UNITY METHODS
+
+    <span class="keyword">public override</span> <span class="keyword">void</span> <span class="method">Start</span>()
+    {
+        <span class="comment">// Initialise XP system and subscribe to XP update events</span>
+        <span class="keyword">base</span>.Start();
+
+        <span class="class-name">EventManager</span>.AddListener&lt;<span class="class-name">XpUpdateEvent</span>&gt;(<span class="method">UpdateXP</span>);
+
+        PlayerLevel = <span class="number">1</span>;
+        PlayerXP = <span class="number">0</span>;
+        PrevThreshold = <span class="number">0</span>;
+
+        <span class="method">CalculateXPThreshold</span>();
+    }
+
+        <span class="keyword">private</span> <span class="keyword">void</span> <span class="method">OnDestroy</span>()
+    {
+        <span class="comment">// Unsubscribe from XP update events</span>
+        <span class="class-name">EventManager</span>.RemoveListener&lt;<span class="class-name">XpUpdateEvent</span>&gt;(<span class="method">UpdateXP</span>);
+    }
+
+    <span class="preprocessor">#endregion</span>
+
+    <span class="preprocessor">#region</span> XP METHODS
+
+    <span class="comment">// Updates the player's XP based on the event data</span>
+    <span class="keyword">public void</span> <span class="method">UpdateXP</span>(<span class="class-name">XpUpdateEvent</span> <span class="parameter">evt</span>)
+    {
+        PlayerXP = evt.XP;
+
+            <span class="keyword">if</span> (PlayerXP &gt;= CurThreshold)
+        {
+            <span class="class-name">LevelUpEvent</span> lvlUpEvt = <span class="class-name">Events</span>.LevelUpEvent;
+            <span class="method">LevelUp</span>(lvlUpEvt);
+        }
+    }
+
+    <span class="comment">// Handles logic for when the player levels up</span>
+    <span class="keyword">private void</span> <span class="method">LevelUp</span>(<span class="class-name">LevelUpEvent</span> <span class="parameter">evt</span>)
+    {
+        evt.Level++;
+
+        PlayerLevel = evt.Level;
+
+        <span class="class-name">SkillPointsChangedEvent</span> skillPointEvent = <span class="class-name">Events</span>.SkillPointsChangedEvent;
+        skillPointEvent.SkillPoints++;
+
+        <span class="method">CalculateXPThreshold</span>();
+    }
+
+        <span class="comment">// Calculates the next XP threshold for levelling up</span>
+        <span class="keyword">private void</span> <span class="method">CalculateXPThreshold</span>()
+    {
+        PrevThreshold = CurThreshold;
+        CurThreshold = PlayerLevel * <span class="number">150</span>;
+    }
+
+                                    <span class="preprocessor">#endregion</span>
+}
+</code></pre>
                                 </div> <!-- code-container -->
                             </div> <!-- code expandable-content -->
-                        </div> <!-- expandable-content -->
-                    </div> <!-- expandable-container -->
 
-                    <div class="expandable-container">
-                        <button class="expandable-button" onclick="toggleContent(this)">
-                            Skill Tree
-                            <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
-                        </button>
-                        <div class="expandable-content">
-                            <p>Will be added in the near future.</p>
                             <button class="expandable-button" onclick="toggleContent(this)">
-                                Script Snippet
+                                Script Snippet - PlayerXpBar
                                 <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
                             </button>
                             <div class="expandable-content">
                                 <div class="code-container">
                                     <pre><code class="language-csharp">
+<span class="keyword">using</span> System.Collections;
+<span class="keyword">using</span> TMPro;
+<span class="keyword">using</span> Unity.FPS.Game;
+<span class="keyword">using</span> UnityEngine;
+<span class="keyword">using</span> UnityEngine.UI;
 
-                                    </code></pre>
+<span class="keyword">namespace</span> Unity.FPS.UI
+{
+    <span class="keyword">public class</span> <span class="class-name">PlayerXpBar</span> : <span class="class-name">MonoBehaviour</span>
+    {
+    <span class="preprocessor">#region</span> VARIABLES
+
+    [<span class="attribute">Tooltip</span>(<span class="string">"Image component displaying current XP"</span>)]
+    <span class="keyword">public</span> Image XpFillImage;
+
+    <span class="keyword">public</span> TextMeshProUGUI PlayerLevelText;
+
+    [<span class="attribute">SerializeField</span>, <span class="attribute">Tooltip</span>(<span class="string">"Speed of the XP bar transition"</span>)]
+    <span class="keyword">private</span> <span class="type">float</span> LerpSpeed = <span class="number">5f</span>;
+
+    [<span class="attribute">SerializeField</span>]
+    <span class="keyword">private</span> SceneTypeObject ST_GameManager;
+
+    <span class="keyword">private</span> XpManager _xpManager;
+    <span class="keyword">private</span> Coroutine currentLerpCoroutine;
+
+    <span class="preprocessor">#endregion</span>
+
+    <span class="preprocessor">#region</span> UNITY METHODS
+
+    <span class="comment">// Initialises XP Manager and sets up XP bar on start</span>
+    <span class="keyword">void</span> <span class="method">Start</span>()
+    {
+    _xpManager = ST_GameManager.Objects[<span class="number">0</span>].GetComponent&lt;<span class="class-name">XpManager</span>&gt;();
+
+    <span class="class-name">DebugUtility</span>.HandleErrorIfNullGetComponent&lt;<span class="class-name">XpManager</span>, <span class="class-name">PlayerXpBar</span>&gt;(_xpManager, <span class="keyword">this</span>, gameObject);
+
+    <span class="class-name">EventManager</span>.AddListener&lt;<span class="class-name">XpUpdateEvent</span>&gt;(<span class="method">UpdateXpBar</span>);
+
+    XpFillImage.fillAmount = <span class="number">0</span>;
+    }
+
+    <span class="comment">// Cleans up event subscriptions when destroyed</span>
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="method">OnDestroy</span>()
+    {
+    <span class="class-name">EventManager</span>.RemoveListener&lt;<span class="class-name">XpUpdateEvent</span>&gt;(<span class="method">UpdateXpBar</span>);
+    }
+
+    <span class="preprocessor">#endregion</span>
+
+    <span class="preprocessor">#region</span> XP METHODS
+
+    <span class="comment">// Updates the XP bar fill amount and level text</span>
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="method">UpdateXpBar</span>(<span class="class-name">XpUpdateEvent</span> evt)
+    {
+    <span class="type">float</span> targetXpFill = (<span class="type">float</span>)(_xpManager.PlayerXP - _xpManager.PrevThreshold)
+    / (<span class="type">float</span>)(_xpManager.CurThreshold - _xpManager.PrevThreshold);
+
+    <span class="keyword">if</span> (currentLerpCoroutine != <span class="keyword">null</span>)
+    {
+    StopCoroutine(currentLerpCoroutine);
+    }
+
+    currentLerpCoroutine = StartCoroutine(<span class="method">LerpXpFill</span>(targetXpFill));
+    PlayerLevelText.text = _xpManager.PlayerLevel.ToString();
+    }
+
+    <span class="comment">// Lerps the fill amount of the XP bar towards the target value</span>
+    <span class="keyword">private</span> IEnumerator <span class="method">LerpXpFill</span>(<span class="type">float</span> targetXpFill)
+    {
+    <span class="keyword">while</span> (Mathf.Abs(XpFillImage.fillAmount - targetXpFill) > <span class="number">0.01f</span>)
+    {
+    XpFillImage.fillAmount = Mathf.Lerp(XpFillImage.fillAmount, targetXpFill, Time.deltaTime * LerpSpeed);
+    <span class="keyword">yield return</span> <span class="keyword">null</span>;
+    }
+
+    XpFillImage.fillAmount = targetXpFill;
+    }
+
+    <span class="preprocessor">#endregion</span>
+    }
+    }
+</code></pre>
                                 </div> <!-- code-container -->
                             </div> <!-- code expandable-content -->
-                        </div> <!-- expandable-content -->
-                    </div> <!-- expandable-container -->
 
-                </div> <!-- contributions -->
+                        </div> <!-- expandable-content -->
+                            </div> <!-- expandable-container -->
+
+                            <div class="expandable-container">
+                                <button class="expandable-button" onclick="toggleContent(this)">
+                                    Skill Tree
+                                    <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
+                                </button>
+                                <div class="expandable-content">
+                                    <p>Will be added in the near future.</p>
+                                    <button class="expandable-button" onclick="toggleContent(this)">
+                                        Script Snippet
+                                        <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
+                                    </button>
+                                    <div class="expandable-content">
+                                        <div class="code-container">
+                                            <pre><code class="language-csharp">
+
+                                    </code></pre>
+                                        </div> <!-- code-container -->
+                                    </div> <!-- code expandable-content -->
+                                </div> <!-- expandable-content -->
+                            </div> <!-- expandable-container -->
+
+                        </div> <!-- contributions -->
             </div><!-- content-wrapper -->
         </main>
     </div> <!-- main-wrapper -->
