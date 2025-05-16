@@ -3,8 +3,10 @@
     "",
     "\\assets",
     "\\assets\\images",
-    "\\assets\\images\\skill-tree",
-    "\\css"
+    "\\css",
+    "\\js",
+    "\\js\\scripts"
   ],
+  "SelectedNode": "\\index.html",
   "PreviewInSolutionExplorer": false
 }

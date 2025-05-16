@@ -412,6 +412,49 @@ code.language-csharp {
     text-align: left;
 }
 
+/* Social Buttons */
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.25vh;
+}
+
+    .social-buttons a {
+        display: inline-flex;
+        position: relative;
+        width: 3.75rem;
+        height: 3.75rem;
+        justify-content: center;
+        align-items: center;
+        background-color: white; /* White circular background */
+        border-radius: 100%;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden; /* Ensure the icon stays within the circle */
+    }
+
+        .social-buttons a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+
+        .social-buttons a img {
+            width: 60%; /* Adjust icon size to fit nicely in the circle */
+            height: auto;
+            transition: filter 0.3s ease; /* Smooth transition for filter */
+            filter: brightness(0) saturate(100%);
+            /* This creates a greenish color effect */
+        }
+
+        .social-buttons a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 .625vw rgba(255, 255, 255, 0.7);
+        }
+
+            /* Apply filter effect on the image inside the anchor tag when hovering over the button */
+            .social-buttons a:hover img {
+                filter: none;
+            }
+
 /* Contributions section */
 .contributions {
     max-width: 100%;

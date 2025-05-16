@@ -54,7 +54,7 @@
                     card.style.pointerEvents = "none"; // Disable clicks only if dragging
                 });
             }
-        }, 100);
+        }, 350);
     }
 
     handleDrag(event) {

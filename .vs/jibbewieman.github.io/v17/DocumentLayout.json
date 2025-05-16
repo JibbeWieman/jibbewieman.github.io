@@ -3,12 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\skill-tree.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:skill-tree.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\loading-manager.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:js\\scripts\\loading-manager.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\mechmates.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:mechmates.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\the-news.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:the-news.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\project-parasite.html||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:project-parasite.html||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\project-page.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:css\\project-page.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\contact.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:css\\contact.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\skill-tree.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:skill-tree.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\noorderpoort.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -17,18 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\phobophobia.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:phobophobia.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\project-page.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:css\\project-page.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\the-news.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:the-news.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\projects.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -43,20 +59,12 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:nav.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\projects.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:projects.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\revenge-of-the-renter.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:revenge-of-the-renter.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\mechmates.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:mechmates.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\csharp-wrapper.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -86,21 +94,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 472,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "project-parasite.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\project-parasite.html",
               "RelativeDocumentMoniker": "project-parasite.html",
               "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\project-parasite.html",
               "RelativeToolTip": "project-parasite.html",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFoAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAuwFMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-02-04T17:20:01.116Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -110,36 +117,51 @@
               "RelativeDocumentMoniker": "css\\project-page.css",
               "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\project-page.css",
               "RelativeToolTip": "css\\project-page.css",
-              "ViewState": "AgIAADUBAAAAAAAAAAAAAFABAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAK4BAAAAAAAAAAAuwLYBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-04-28T17:25:19.592Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "the-news.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\the-news.html",
               "RelativeDocumentMoniker": "the-news.html",
               "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\the-news.html",
               "RelativeToolTip": "the-news.html",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACkAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAFQAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-04-10T08:56:51.893Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 2,
               "Title": "mechmates.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\mechmates.html",
               "RelativeDocumentMoniker": "mechmates.html",
               "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\mechmates.html",
               "RelativeToolTip": "mechmates.html",
-              "ViewState": "AgIAACwBAAAAAAAAAAAAADkBAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAAAGkAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-04-28T17:56:08.153Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "loading-manager.js",
+              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\loading-manager.js",
+              "RelativeDocumentMoniker": "js\\scripts\\loading-manager.js",
+              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\loading-manager.js",
+              "RelativeToolTip": "js\\scripts\\loading-manager.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-16T06:24:23.677Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -147,68 +169,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "style.css",
-              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\style.css",
-              "RelativeDocumentMoniker": "css\\style.css",
-              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\style.css",
-              "RelativeToolTip": "css\\style.css",
-              "ViewState": "AgIAANcAAAAAAAAAAAAiwPEAAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-05-13T20:56:13.389Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "navigation.css",
-              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\navigation.css",
-              "RelativeDocumentMoniker": "css\\navigation.css",
-              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\navigation.css",
-              "RelativeToolTip": "css\\navigation.css",
-              "ViewState": "AgIAADgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-05-13T20:55:48.545Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "nav.html",
-              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\nav.html",
-              "RelativeDocumentMoniker": "nav.html",
-              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\nav.html",
-              "RelativeToolTip": "nav.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-05-13T20:55:44.011Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "projects.css",
-              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\projects.css",
-              "RelativeDocumentMoniker": "css\\projects.css",
-              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\projects.css",
-              "RelativeToolTip": "css\\projects.css",
-              "ViewState": "AgIAANIAAAAAAAAAAAAkwKAAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-05-06T10:29:36.617Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "skill-tree.html",
-              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\skill-tree.html",
-              "RelativeDocumentMoniker": "skill-tree.html",
-              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\skill-tree.html",
-              "RelativeToolTip": "skill-tree.html",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAFEAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-28T17:56:41.748Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "revenge-of-the-renter.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\revenge-of-the-renter.html",
               "RelativeDocumentMoniker": "revenge-of-the-renter.html",
@@ -220,7 +181,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "phobophobia.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\phobophobia.html",
               "RelativeDocumentMoniker": "phobophobia.html",
@@ -232,7 +193,92 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 1,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\index.html",
+              "RelativeDocumentMoniker": "index.html",
+              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\index.html",
+              "RelativeToolTip": "index.html",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-22T19:47:41.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "contact.css",
+              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\contact.css",
+              "RelativeDocumentMoniker": "css\\contact.css",
+              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\contact.css",
+              "RelativeToolTip": "css\\contact.css",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAAAIcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-16T06:03:13.667Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "style.css",
+              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\style.css",
+              "RelativeDocumentMoniker": "css\\style.css",
+              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\style.css",
+              "RelativeToolTip": "css\\style.css",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAwwHcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-13T20:56:13.389Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "skill-tree.html",
+              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\skill-tree.html",
+              "RelativeDocumentMoniker": "skill-tree.html",
+              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\skill-tree.html",
+              "RelativeToolTip": "skill-tree.html",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAFEAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-28T17:56:41.748Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "projects.css",
+              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\projects.css",
+              "RelativeDocumentMoniker": "css\\projects.css",
+              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\projects.css",
+              "RelativeToolTip": "css\\projects.css",
+              "ViewState": "AgIAANIAAAAAAAAAAAAkwKAAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-06T10:29:36.617Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "nav.html",
+              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\nav.html",
+              "RelativeDocumentMoniker": "nav.html",
+              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\nav.html",
+              "RelativeToolTip": "nav.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-05-13T20:55:44.011Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "navigation.css",
+              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\navigation.css",
+              "RelativeDocumentMoniker": "css\\navigation.css",
+              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\navigation.css",
+              "RelativeToolTip": "css\\navigation.css",
+              "ViewState": "AgIAADgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-13T20:55:48.545Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "sitemap.xml.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\sitemap.xml.html",
               "RelativeDocumentMoniker": "sitemap.xml.html",
@@ -244,7 +290,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "robots.txt",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\robots.txt",
               "RelativeDocumentMoniker": "robots.txt",
@@ -256,7 +302,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "projects.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\projects.html",
               "RelativeDocumentMoniker": "projects.html",
@@ -268,19 +314,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\index.html",
-              "RelativeDocumentMoniker": "index.html",
-              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\index.html",
-              "RelativeToolTip": "index.html",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAgwIsAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-22T19:47:41.434Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "contact.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\contact.html",
               "RelativeDocumentMoniker": "contact.html",
@@ -292,7 +326,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "noorderpoort.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\noorderpoort.html",
               "RelativeDocumentMoniker": "noorderpoort.html",
@@ -300,12 +334,11 @@
               "RelativeToolTip": "noorderpoort.html",
               "ViewState": "AgIAAEIAAAAAAAAAAAAAAFsAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-10T08:52:46.729Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-10T08:52:46.729Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "csharp-wrapper.js",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\csharp-wrapper.js",
               "RelativeDocumentMoniker": "js\\scripts\\csharp-wrapper.js",
@@ -317,7 +350,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "about.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\about.html",
               "RelativeDocumentMoniker": "about.html",

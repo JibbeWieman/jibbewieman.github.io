@@ -1,3 +1,5 @@
+//Immediately call function on page load
+addLoadingScreen();
 function addLoadingScreen() {
     // Check if the loading screen has already been shown (using sessionStorage to persist across reloads)
     if (sessionStorage.getItem("loadingScreenShown") === "true") {
@@ -54,4 +56,4 @@ function addLoadingScreen() {
 }
 
 // Call the function on page load
-document.addEventListener("DOMContentLoaded", addLoadingScreen);
+/*document.addEventListener("DOMContentLoaded", addLoadingScreen);*/
