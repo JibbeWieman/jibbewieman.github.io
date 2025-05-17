@@ -464,9 +464,132 @@
                         </button>
                         <div class="expandable-content">
                             <p>The desctruction logic plays a big part in the game as the player can destroy vents, and shatter incubation pods, creating new paths to areas previously inaccessible.</p>
-                            <p>I made an modular script, with custom editor, which lets you easily adjust the parameters in the inspector (e.g. Do you want the children of the instantiated destroyedObject to self destruct). </p>
-                        </div>
-                    </div>
+                            <p>I made a modular script, with custom editor, which lets you easily adjust the parameters in the inspector (e.g. Do you want the children of the instantiated destroyedObject to self destruct). </p>
+                            <button class="expandable-button" onclick="toggleContent(this)">
+                                Script Snippet
+                                <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
+                            </button>
+                            <div class="expandable-content">
+                                <div class="code-container">
+                                    <pre><code class="language-csharp">
+<span class="keyword">using</span> UnityEngine;
+<span class="keyword">using</span> UnityEngine.SceneManagement;
+<span class="keyword">using</span> System.Collections;
+<span class="keyword">using</span> UnityEditor;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="class-name">DestructibleObject</span> : <span class="class-name">MonoBehaviour</span>
+{
+    <span class="preprocessor">#region</span> VARIABLES
+    [<span class="attribute">Header</span>(<span class="string">"Destructible Settings"</span>)]
+    [<span class="attribute">SerializeField</span>]
+    <span class="keyword">private</span> <span class="class-name">GameObject</span> <span class="variable">destroyedVersion</span>;
+
+    [<span class="attribute">SerializeField</span>]
+    <span class="keyword">private</span> <span class="class-name">AudioClip</span>[] <span class="variable">destructionSfx</span>;
+    <span class="keyword">private</span> <span class="class-name">AudioSource</span> <span class="variable">m_AudioSource</span>;
+
+    [<span class="attribute">Header</span>(<span class="string">"Self-Destruct Settings"</span>)]
+    [<span class="attribute">SerializeField</span>]
+    <span class="keyword">private</span> <span class="keyword">bool</span> <span class="variable">enableSelfDestruct</span> = <span class="literal">false</span>;
+    <span class="keyword">public</span> <span class="keyword">bool</span> <span class="variable">EnableSelfDestruct</span> { <span class="keyword">get</span> =&gt; <span class="variable">enableSelfDestruct</span>; <span class="keyword">set</span> =&gt; <span class="variable">enableSelfDestruct</span> = <span class="variable">value</span>; }
+
+    [<span class="attribute">SerializeField</span>, <span class="attribute">Tooltip</span>(<span class="string">"Destroy the main object after all children are destroyed"</span>), <span class="attribute">HideInInspector</span>]
+    <span class="keyword">private</span> <span class="keyword">bool</span> <span class="variable">destroyRoot</span> = <span class="literal">false</span>;
+    <span class="keyword">public</span> <span class="keyword">bool</span> <span class="variable">DestroyRoot</span> { <span class="keyword">get</span> =&gt; <span class="variable">destroyRoot</span>; <span class="keyword">set</span> =&gt; <span class="variable">destroyRoot</span> = <span class="variable">value</span>; }
+
+    [<span class="attribute">SerializeField</span>, <span class="attribute">Range</span>(1f, 20f), <span class="attribute">HideInInspector</span>]
+    <span class="keyword">private</span> <span class="keyword">float</span> <span class="variable">minDestroyTime</span> = 3f;
+    <span class="keyword">public</span> <span class="keyword">float</span> <span class="variable">MinDestroyTime</span> { <span class="keyword">get</span> =&gt; <span class="variable">minDestroyTime</span>; <span class="keyword">set</span> =&gt; <span class="variable">minDestroyTime</span> = <span class="variable">value</span>; }
+
+    [<span class="attribute">SerializeField</span>, <span class="attribute">Range</span>(1f, 20f), <span class="attribute">HideInInspector</span>]
+    <span class="keyword">private</span> <span class="keyword">float</span> <span class="variable">maxDestroyTime</span> = 10f;
+    <span class="keyword">public</span> <span class="keyword">float</span> <span class="variable">MaxDestroyTime</span> { <span class="keyword">get</span> =&gt; <span class="variable">maxDestroyTime</span>; <span class="keyword">set</span> =&gt; <span class="variable">maxDestroyTime</span> = <span class="variable">value</span>; }
+    <span class="preprocessor">#endregion</span>
+
+    <span class="preprocessor">#region</span> UNITY METHODS
+    <span class="keyword">private</span> <span class="keyword">void</span> <span class="function">OnCollisionEnter</span>(<span class="class-name">Collision</span> <span class="variable">collision</span>)
+    {
+        <span class="keyword">if</span> (<span class="variable">collision</span>.<span class="property">gameObject</span>.<span class="function">CompareTag</span>(<span class="string">"Bullet"</span>))
+        {
+            <span class="function">DestroyObject</span>();
+        }
+    }
+    <span class="preprocessor">#endregion</span>
+
+    <span class="preprocessor">#region</span> DESTRUCTION METHODS
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="function">DestroyObject</span>()
+    {
+        <span class="class-name">Scene</span> <span class="variable">currentScene</span> = <span class="variable">gameObject</span>.<span class="property">scene</span>;
+
+        <span class="keyword">if</span> (!<span class="variable">currentScene</span>.<span class="property">isLoaded</span> || <span class="variable">destroyedVersion</span> == <span class="literal">null</span>) <span class="keyword">return</span>;
+
+        <span class="class-name">GameObject</span> <span class="variable">instantiatedObject</span> = <span class="function">Instantiate</span>(<span class="variable">destroyedVersion</span>, <span class="variable">transform</span>.<span class="property">position</span>, <span class="variable">transform</span>.<span class="property">rotation</span>);
+
+        <span class="variable">m_AudioSource</span> = <span class="variable">instantiatedObject</span>.<span class="function">GetComponent</span>&lt;<span class="class-name">AudioSource</span>&gt;();
+        <span class="class-name">DebugUtility</span>.<span class="function">HandleErrorIfNullGetComponent</span>&lt;<span class="class-name">AudioSource</span>, <span class="class-name">DestructibleObject</span>&gt;(<span class="variable">m_AudioSource</span>, <span class="variable">instantiatedObject</span>.<span class="property">transform</span>, <span class="variable">instantiatedObject</span>);
+
+        <span class="class-name">Game_Manager</span>.<span class="function">PlayRandomSfx</span>(<span class="variable">m_AudioSource</span>, <span class="variable">destructionSfx</span>);
+
+        <span class="class-name">SceneManager</span>.<span class="function">MoveGameObjectToScene</span>(<span class="variable">instantiatedObject</span>, <span class="variable">currentScene</span>);
+        <span class="variable">instantiatedObject</span>.<span class="property">transform</span>.<span class="function">SetParent</span>(<span class="variable">transform</span>.<span class="property">parent</span>);
+
+        <span class="function">Destroy</span>(<span class="keyword">gameObject</span>);
+
+        <span class="keyword">if</span> (<span class="variable">EnableSelfDestruct</span>)
+        {
+            <span class="function">StartCoroutine</span>(<span class="function">SelfDestructRoutine</span>(<span class="variable">instantiatedObject</span>));
+        }
+    }
+
+    <span class="keyword">private</span> <span class="class-name">IEnumerator</span> <span class="function">SelfDestructRoutine</span>(<span class="class-name">GameObject</span> <span class="variable">targetObject</span>)
+    {
+        <span class="class-name">DestructionTarget</span>[] <span class="variable">destructionTargets</span> = <span class="variable">targetObject</span>.<span class="function">GetComponentsInChildren</span>&lt;<span class="class-name">DestructionTarget</span>&gt;();
+
+        <span class="keyword">foreach</span> (<span class="class-name">DestructionTarget</span> <span class="variable">target</span> <span class="keyword">in</span> <span class="variable">destructionTargets</span>)
+        {
+            <span class="function">Destroy</span>(<span class="variable">target</span>.<span class="property">gameObject</span>, <span class="class-name">Random</span>.<span class="function">Range</span>(<span class="variable">minDestroyTime</span>, <span class="variable">maxDestroyTime</span>));
+        }
+
+        <span class="keyword">if</span> (<span class="variable">destroyRoot</span>)
+        {
+            <span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="class-name">WaitForSeconds</span>(<span class="variable">maxDestroyTime</span>);
+            <span class="function">Destroy</span>(<span class="variable">targetObject</span>);
+        }
+    }
+    <span class="preprocessor">#endregion</span>
+}
+
+<span class="preprocessor">#if</span> UNITY_EDITOR
+<span class="preprocessor">#region</span> Custom Inspector for DestructibleObject
+[<span class="attribute">CustomEditor</span>(<span class="keyword">typeof</span>(<span class="class-name">DestructibleObject</span>))]
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="class-name">DestructibleObjectEditor</span> : <span class="class-name">Editor</span>
+{
+    <span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="function">OnInspectorGUI</span>()
+    {
+        <span class="class-name">DestructibleObject</span> <span class="variable">destructibleObject</span> = (<span class="class-name">DestructibleObject</span>)<span class="variable">target</span>;
+
+        <span class="function">DrawDefaultInspector</span>();
+
+        <span class="keyword">if</span> (<span class="variable">destructibleObject</span>.<span class="variable">EnableSelfDestruct</span>)
+        {
+            <span class="variable">destructibleObject</span>.<span class="variable">DestroyRoot</span> = <span class="class-name">EditorGUILayout</span>.<span class="function">Toggle</span>(<span class="string">"Destroy Root"</span>, <span class="variable">destructibleObject</span>.<span class="variable">DestroyRoot</span>);
+            <span class="variable">destructibleObject</span>.<span class="variable">MinDestroyTime</span> = <span class="class-name">EditorGUILayout</span>.<span class="function">FloatField</span>(<span class="string">"Min Destroy Time"</span>, <span class="variable">destructibleObject</span>.<span class="variable">MinDestroyTime</span>);
+            <span class="variable">destructibleObject</span>.<span class="variable">MaxDestroyTime</span> = <span class="class-name">EditorGUILayout</span>.<span class="function">FloatField</span>(<span class="string">"Max Destroy Time"</span>, <span class="variable">destructibleObject</span>.<span class="variable">MaxDestroyTime</span>);
+        }
+
+        <span class="keyword">if</span> (<span class="class-name">GUI</span>.<span class="property">changed</span>)
+        {
+            <span class="class-name">EditorUtility</span>.<span class="function">SetDirty</span>(<span class="variable">target</span>);
+        }
+    }
+}
+<span class="preprocessor">#endregion</span>
+<span class="preprocessor">#endif</span>
+                                    </code></pre>
+                                </div> <!-- code-container -->
+                            </div> <!-- code expandable-content -->
+                        </div> <!-- expandable-content -->
+                    </div> <!-- expandable-container -->
 
                     <div class="expandable-container">
                         <button class="expandable-button" onclick="toggleContent(this)">
