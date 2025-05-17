@@ -28,7 +28,7 @@
         tags: ["3D", "Artist", "Programmer", "Unity", "University", "VR"]
     },
     {
-        title: "Levelling & Skill‑Tree System",
+        title: "Levelling & Skill Tree System",
         slug: "skill-tree",
         banner: "assets/images/skill-tree/banner.jpg",
         blurb: "A scalable levelling system and skill tree implemented with game‑design patterns.",

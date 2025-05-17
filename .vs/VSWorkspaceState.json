@@ -2,11 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\assets",
-    "\\assets\\images",
+    "\\assets\\snippets",
+    "\\assets\\snippets\\skill-tree",
     "\\css",
     "\\js",
     "\\js\\scripts"
   ],
-  "SelectedNode": "\\css\\projects.css",
+  "SelectedNode": "\\assets\\snippets\\skill-tree\\playerxpbar.cs",
   "PreviewInSolutionExplorer": false
 }

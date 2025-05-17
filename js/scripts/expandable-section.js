@@ -1,54 +1,84 @@
-console.log("Expandable script loaded!");
+﻿console.log("Expandable script loaded!");
 
-function toggleContent(button) {
-    let content = button.nextElementSibling;
+/* -------------------------------------------------------------
+    expandable-sections + lazy code‑snippet loader
+    ----------------------------------------------------------- */
 
-    if (content && content.classList.contains("expandable-content")) {
-        const isVisible = content.style.display !== "none";
-        content.style.display = isVisible ? "none" : "block";
+/* ---------- lazy snippet fetcher -------------------------------- */
+async function loadSnippet(container, file) {
+    if (container.dataset.loaded) return;
 
-        // Flip the image on expand/collapse
-        button.classList.toggle("flipped", !isVisible);
+    try {
+        const resp = await fetch(`/assets/snippets/${file}`);
+        if (!resp.ok) throw new Error(resp.statusText);
+
+        const code = await resp.text();
+        const escaped = code
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+
+        container.innerHTML = `
+      <div class="code-container">
+        <pre><code class="language-csharp">${escaped}</code></pre>
+      </div>`;
+        container.dataset.loaded = "true";
+
+        /*  👉  run the highlighter right after injection  */
+        const codeEl = container.querySelector("code");
+        console.log("highlighting", codeEl);       // should log the <code> node
+        if (window.hljs && codeEl) hljs.highlightElement(codeEl);
+
+
+    } catch (err) {
+        container.textContent = "Could not load snippet 😞";
+        console.error(`assets/snippets/${file}`, err);
     }
-}
+}   // ← this closing brace was missing
 
+/* ---------- expand / collapse ---------------------------------- */
+function toggleContent(button, filename = null) {
+    const content = button.nextElementSibling;
+    if (!content || !content.classList.contains("expandable-content")) return;
+
+    const show = content.style.display === "none";
+    content.style.display = show ? "block" : "none";
+    button.classList.toggle("flipped", show);
+
+    if (show && filename) loadSnippet(content, filename);
+}
+window.toggleContent = toggleContent;
+
+
+/* ---------- initial setup -------------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".expandable-container").forEach(container => {
-        let button = container.querySelector(".expandable-button");
-        let content = container.querySelector(".expandable-content");
+        const button = container.querySelector(".expandable-button");
+        const content = container.querySelector(".expandable-content");
 
-        if (content) {
-            content.style.display = "none"; // Ensure content is hidden initially
-        }
+        if (content) content.style.display = "none";
 
-        if (button) {
-            let color = button.dataset.color;
-            if (color) {
-                button.style.background = color;
-
-                // Generate and apply darker color on hover
-                let darkenedColor = darkenColor(color, 0.85);
-
-                button.addEventListener("mouseenter", () => {
-                    button.style.background = darkenedColor;
-                });
-
-                button.addEventListener("mouseleave", () => {
-                    button.style.background = color;
-                });
-            }
+        /* colour‑hover logic (unchanged) */
+        if (button?.dataset.color) {
+            const base = button.dataset.color;
+            const dark = darkenColor(base, 0.85);
+            button.style.background = base;
+            button.addEventListener("mouseenter", () => (button.style.background = dark));
+            button.addEventListener("mouseleave", () => (button.style.background = base));
         }
     });
 });
 
-function darkenColor(hex, percent) {
-    let num = parseInt(hex.replace("#", ""), 16);
-    let r = Math.max(0, (num >> 16) - (255 * (1 - percent)));
-    let g = Math.max(0, ((num >> 8) & 0x00FF) - (255 * (1 - percent)));
-    let b = Math.max(0, (num & 0x0000FF) - (255 * (1 - percent)));
-    return `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
+/* ---------- helpers -------------------------------------------- */
+function darkenColor(hex, pct) {
+    const num = parseInt(hex.replace("#", ""), 16);
+    const r = Math.max(0, (num >> 16) - 255 * (1 - pct));
+    const g = Math.max(0, ((num >> 8) & 0xff) - 255 * (1 - pct));
+    const b = Math.max(0, (num & 0xff) - 255 * (1 - pct));
+    return `rgb(${r | 0},${g | 0},${b | 0})`;
 }
 
+/* ---------- image overlay code --------------------------------- */
 function createExpandableSection(parentId, buttonText, contentText, imageUrl) {
     let container = document.createElement("div");
     container.classList.add("expandable-container");
