@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/project-page.css">
     <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="/js/scripts/injectHTML.js"></script>
     <script src="/js/scripts/expandable-section.js"></script>
     <script src="/js/scripts/mode-toggle.js"></script>
     <script src="/js/scripts/csharp-wrapper.js"></script>
@@ -18,18 +19,6 @@
 <body>
 
     <div id="nav-placeholder"></div>
-    <script>
-        if (location.protocol !== 'file:') {
-            fetch('nav.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('nav-placeholder').innerHTML = data;
-                })
-                .catch(error => console.error('Error fetching nav.html:', error));
-        } else {
-            console.warn('Fetch skipped because you are running locally (file:// protocol).');
-        }
-    </script>
 
     <div class="arrow-button arrow-left" onclick="window.location.href='the-news.html';">
         <img src="assets/images/icons/arrow-left.png" alt="Left Arrow">
@@ -78,7 +67,7 @@
                     <p>During this project I learned about software and game design patterns (e.g. Observer, Command), and incorporated some into the system. Besides this I also made a UML Chart for the two systems:</p>
                 </div>
 
-                <br/>
+                <br />
 
                 <div class="social-buttons">
                     <a href="https://github.com/JibbeWieman/LevellingSkillTree" target="_blank" aria-label="GitHub">
@@ -122,78 +111,78 @@
 
 <span class="keyword">public</span> <span class="keyword">class</span> <span class="class-name">XpManager</span> : <span class="class-name">Manager</span>
 {
-    <span class="preprocessor">#region</span> VARIABLES
+                                    <span class="preprocessor">#region</span> VARIABLES
 
-    <span class="keyword">public</span> <span class="type">int</span> PlayerLevel { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
-    <span class="keyword">public</span> <span class="type">int</span> PlayerXP { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
+                                    <span class="keyword">public</span> <span class="type">int</span> PlayerLevel { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
+                                    <span class="keyword">public</span> <span class="type">int</span> PlayerXP { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
 
     [<span class="attribute">Tooltip</span>(<span class="string">"Previous XP Threshold required to level up"</span>)]
-    <span class="keyword">public</span> <span class="type">int</span> PrevThreshold { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
+                                    <span class="keyword">public</span> <span class="type">int</span> PrevThreshold { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
 
     [<span class="attribute">Tooltip</span>(<span class="string">"XP required to level up"</span>)]
-    <span class="keyword">public</span> <span class="type">int</span> CurThreshold { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
+                                    <span class="keyword">public</span> <span class="type">int</span> CurThreshold { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
 
-    <span class="preprocessor">#endregion</span>
+                                    <span class="preprocessor">#endregion</span>
 
-    <span class="preprocessor">#region</span> UNITY METHODS
+                                    <span class="preprocessor">#region</span> UNITY METHODS
 
-    <span class="keyword">public override</span> <span class="keyword">void</span> <span class="method">Start</span>()
+                                    <span class="keyword">public override</span> <span class="keyword">void</span> <span class="method">Start</span>()
     {
-        <span class="comment">// Initialise XP system and subscribe to XP update events</span>
-        <span class="keyword">base</span>.Start();
+                                    <span class="comment">// Initialise XP system and subscribe to XP update events</span>
+                                    <span class="keyword">base</span>.Start();
 
-        <span class="class-name">EventManager</span>.AddListener&lt;<span class="class-name">XpUpdateEvent</span>&gt;(<span class="method">UpdateXP</span>);
+                                    <span class="class-name">EventManager</span>.AddListener&lt;<span class="class-name">XpUpdateEvent</span>&gt;(<span class="method">UpdateXP</span>);
 
         PlayerLevel = <span class="number">1</span>;
         PlayerXP = <span class="number">0</span>;
         PrevThreshold = <span class="number">0</span>;
 
-        <span class="method">CalculateXPThreshold</span>();
+                                    <span class="method">CalculateXPThreshold</span>();
     }
 
-    <span class="keyword">private</span> <span class="keyword">void</span> <span class="method">OnDestroy</span>()
+                                    <span class="keyword">private</span> <span class="keyword">void</span> <span class="method">OnDestroy</span>()
     {
-        <span class="comment">// Unsubscribe from XP update events</span>
-        <span class="class-name">EventManager</span>.RemoveListener&lt;<span class="class-name">XpUpdateEvent</span>&gt;(<span class="method">UpdateXP</span>);
+                                    <span class="comment">// Unsubscribe from XP update events</span>
+                                    <span class="class-name">EventManager</span>.RemoveListener&lt;<span class="class-name">XpUpdateEvent</span>&gt;(<span class="method">UpdateXP</span>);
     }
 
-    <span class="preprocessor">#endregion</span>
+                                    <span class="preprocessor">#endregion</span>
 
-    <span class="preprocessor">#region</span> XP METHODS
+                                    <span class="preprocessor">#region</span> XP METHODS
 
-    <span class="comment">// Updates the player's XP based on the event data</span>
-    <span class="keyword">public void</span> <span class="method">UpdateXP</span>(<span class="class-name">XpUpdateEvent</span> <span class="parameter">evt</span>)
+                                    <span class="comment">// Updates the player's XP based on the event data</span>
+                                    <span class="keyword">public void</span> <span class="method">UpdateXP</span>(<span class="class-name">XpUpdateEvent</span> <span class="parameter">evt</span>)
     {
         PlayerXP = evt.XP;
 
-        <span class="keyword">if</span> (PlayerXP &gt;= CurThreshold)
+                                    <span class="keyword">if</span> (PlayerXP &gt;= CurThreshold)
         {
-            <span class="class-name">LevelUpEvent</span> lvlUpEvt = <span class="class-name">Events</span>.LevelUpEvent;
-            <span class="method">LevelUp</span>(lvlUpEvt);
+                                    <span class="class-name">LevelUpEvent</span> lvlUpEvt = <span class="class-name">Events</span>.LevelUpEvent;
+                                    <span class="method">LevelUp</span>(lvlUpEvt);
         }
     }
 
-    <span class="comment">// Handles logic for when the player levels up</span>
-    <span class="keyword">private void</span> <span class="method">LevelUp</span>(<span class="class-name">LevelUpEvent</span> <span class="parameter">evt</span>)
+                                    <span class="comment">// Handles logic for when the player levels up</span>
+                                    <span class="keyword">private void</span> <span class="method">LevelUp</span>(<span class="class-name">LevelUpEvent</span> <span class="parameter">evt</span>)
     {
         evt.Level++;
 
         PlayerLevel = evt.Level;
 
-        <span class="class-name">SkillPointsChangedEvent</span> skillPointEvent = <span class="class-name">Events</span>.SkillPointsChangedEvent;
+                                    <span class="class-name">SkillPointsChangedEvent</span> skillPointEvent = <span class="class-name">Events</span>.SkillPointsChangedEvent;
         skillPointEvent.SkillPoints++;
 
-        <span class="method">CalculateXPThreshold</span>();
+                                    <span class="method">CalculateXPThreshold</span>();
     }
 
-    <span class="comment">// Calculates the next XP threshold for levelling up</span>
-    <span class="keyword">private void</span> <span class="method">CalculateXPThreshold</span>()
+                                    <span class="comment">// Calculates the next XP threshold for levelling up</span>
+                                    <span class="keyword">private void</span> <span class="method">CalculateXPThreshold</span>()
     {
         PrevThreshold = CurThreshold;
         CurThreshold = PlayerLevel * <span class="number">150</span>;
     }
 
-    <span class="preprocessor">#endregion</span>
+                                    <span class="preprocessor">#endregion</span>
 }
 </code></pre>
                                 </div> <!-- code-container -->
@@ -214,57 +203,57 @@
 
 <span class="keyword">namespace</span> Unity.FPS.UI
 {
-    <span class="keyword">public class</span> <span class="class-name">PlayerXpBar</span> : <span class="class-name">MonoBehaviour</span>
+                                    <span class="keyword">public class</span> <span class="class-name">PlayerXpBar</span> : <span class="class-name">MonoBehaviour</span>
     {
-        <span class="preprocessor">#region</span> VARIABLES
+                                    <span class="preprocessor">#region</span> VARIABLES
 
         [<span class="attribute">Tooltip</span>(<span class="string">"Image component displaying current XP"</span>)]
-        <span class="keyword">public</span> Image XpFillImage;
+                                    <span class="keyword">public</span> Image XpFillImage;
 
-        <span class="keyword">public</span> TextMeshProUGUI PlayerLevelText;
+                                    <span class="keyword">public</span> TextMeshProUGUI PlayerLevelText;
 
         [<span class="attribute">SerializeField</span>, <span class="attribute">Tooltip</span>(<span class="string">"Speed of the XP bar transition"</span>)]
-        <span class="keyword">private</span> <span class="type">float</span> LerpSpeed = <span class="number">5f</span>;
+                                    <span class="keyword">private</span> <span class="type">float</span> LerpSpeed = <span class="number">5f</span>;
 
         [<span class="attribute">SerializeField</span>]
-        <span class="keyword">private</span> SceneTypeObject ST_GameManager;
+                                    <span class="keyword">private</span> SceneTypeObject ST_GameManager;
 
-        <span class="keyword">private</span> XpManager _xpManager;
-        <span class="keyword">private</span> Coroutine currentLerpCoroutine;
+                                    <span class="keyword">private</span> XpManager _xpManager;
+                                    <span class="keyword">private</span> Coroutine currentLerpCoroutine;
 
-        <span class="preprocessor">#endregion</span>
+                                    <span class="preprocessor">#endregion</span>
 
-        <span class="preprocessor">#region</span> UNITY METHODS
+                                    <span class="preprocessor">#region</span> UNITY METHODS
 
-        <span class="comment">// Initialises XP Manager and sets up XP bar on start</span>
-        <span class="keyword">void</span> <span class="method">Start</span>()
+                                    <span class="comment">// Initialises XP Manager and sets up XP bar on start</span>
+                                    <span class="keyword">void</span> <span class="method">Start</span>()
         {
             _xpManager = ST_GameManager.Objects[<span class="number">0</span>].GetComponent&lt;<span class="class-name">XpManager</span>&gt;();
 
-            <span class="class-name">DebugUtility</span>.HandleErrorIfNullGetComponent&lt;<span class="class-name">XpManager</span>, <span class="class-name">PlayerXpBar</span>&gt;(_xpManager, <span class="keyword">this</span>, gameObject);
+                                    <span class="class-name">DebugUtility</span>.HandleErrorIfNullGetComponent&lt;<span class="class-name">XpManager</span>, <span class="class-name">PlayerXpBar</span>&gt;(_xpManager, <span class="keyword">this</span>, gameObject);
 
-            <span class="class-name">EventManager</span>.AddListener&lt;<span class="class-name">XpUpdateEvent</span>&gt;(<span class="method">UpdateXpBar</span>);
+                                    <span class="class-name">EventManager</span>.AddListener&lt;<span class="class-name">XpUpdateEvent</span>&gt;(<span class="method">UpdateXpBar</span>);
 
             XpFillImage.fillAmount = <span class="number">0</span>;
         }
 
-        <span class="comment">// Cleans up event subscriptions when destroyed</span>
-        <span class="keyword">private</span> <span class="keyword">void</span> <span class="method">OnDestroy</span>()
+                                    <span class="comment">// Cleans up event subscriptions when destroyed</span>
+                                    <span class="keyword">private</span> <span class="keyword">void</span> <span class="method">OnDestroy</span>()
         {
-            <span class="class-name">EventManager</span>.RemoveListener&lt;<span class="class-name">XpUpdateEvent</span>&gt;(<span class="method">UpdateXpBar</span>);
+                                    <span class="class-name">EventManager</span>.RemoveListener&lt;<span class="class-name">XpUpdateEvent</span>&gt;(<span class="method">UpdateXpBar</span>);
         }
 
-        <span class="preprocessor">#endregion</span>
+                                    <span class="preprocessor">#endregion</span>
 
-        <span class="preprocessor">#region</span> XP METHODS
+                                    <span class="preprocessor">#region</span> XP METHODS
 
-        <span class="comment">// Updates the XP bar fill amount and level text</span>
-        <span class="keyword">private</span> <span class="keyword">void</span> <span class="method">UpdateXpBar</span>(<span class="class-name">XpUpdateEvent</span> evt)
+                                    <span class="comment">// Updates the XP bar fill amount and level text</span>
+                                    <span class="keyword">private</span> <span class="keyword">void</span> <span class="method">UpdateXpBar</span>(<span class="class-name">XpUpdateEvent</span> evt)
         {
-            <span class="type">float</span> targetXpFill = (<span class="type">float</span>)(_xpManager.PlayerXP - _xpManager.PrevThreshold)
+                                    <span class="type">float</span> targetXpFill = (<span class="type">float</span>)(_xpManager.PlayerXP - _xpManager.PrevThreshold)
             / (<span class="type">float</span>)(_xpManager.CurThreshold - _xpManager.PrevThreshold);
 
-            <span class="keyword">if</span> (currentLerpCoroutine != <span class="keyword">null</span>)
+                                    <span class="keyword">if</span> (currentLerpCoroutine != <span class="keyword">null</span>)
             {
                 StopCoroutine(currentLerpCoroutine);
             }
@@ -273,19 +262,19 @@
             PlayerLevelText.text = _xpManager.PlayerLevel.ToString();
         }
 
-        <span class="comment">// Lerps the fill amount of the XP bar towards the target value</span>
-        <span class="keyword">private</span> IEnumerator <span class="method">LerpXpFill</span>(<span class="type">float</span> targetXpFill)
+                                    <span class="comment">// Lerps the fill amount of the XP bar towards the target value</span>
+                                    <span class="keyword">private</span> IEnumerator <span class="method">LerpXpFill</span>(<span class="type">float</span> targetXpFill)
         {
-            <span class="keyword">while</span> (Mathf.Abs(XpFillImage.fillAmount - targetXpFill) > <span class="number">0.01f</span>)
+                                    <span class="keyword">while</span> (Mathf.Abs(XpFillImage.fillAmount - targetXpFill) > <span class="number">0.01f</span>)
             {
                 XpFillImage.fillAmount = Mathf.Lerp(XpFillImage.fillAmount, targetXpFill, Time.deltaTime * LerpSpeed);
-                <span class="keyword">yield return</span> <span class="keyword">null</span>;
+                                    <span class="keyword">yield return</span> <span class="keyword">null</span>;
             }
 
             XpFillImage.fillAmount = targetXpFill;
         }
 
-        <span class="preprocessor">#endregion</span>
+                                    <span class="preprocessor">#endregion</span>
     }
 }
                                     </code></pre>
@@ -299,148 +288,146 @@
                             <div class="expandable-content">
                                 <div class="code-container">
                                     <pre><code class="language-csharp">
-    <span class="keyword"> using</span> <span class="namespace"> UnityEngine</span>;
+                                    <span class="keyword"> using</span> <span class="namespace"> UnityEngine</span>;
 
 <span class="keyword">namespace</span> <span class="namespace"> Unity.FPS.Game</span> 
 {
-    <span class="comment">// The Game Events used across the Game.</span>
-    <span class="comment">// Anytime there is a need for a new event, it should be added here.</span>
+                                    <span class="comment">// The Game Events used across the Game.</span>
+                                    <span class="comment">// Anytime there is a need for a new event, it should be added here.</span>
 
-    <span class="keyword">public static</span> <span class="class-name">class</span> <span class="class-name">Events</span>
+                                    <span class="keyword">public static</span> <span class="class-name">class</span> <span class="class-name">Events</span>
     {
-    <span class="preprocessor">#region</span> BASE EVENTS
+                                    <span class="preprocessor">#region</span> BASE EVENTS
 
-    <span class="keyword">public static</span> <span class="type">ObjectiveUpdateEvent</span> <span class="variable">ObjectiveUpdateEvent</span> = <span class="keyword">new</span>();
-    <span class="keyword">public static</span> <span class="type">AllObjectivesCompletedEvent</span> <span class="variable">AllObjectivesCompletedEvent</span> = <span class="keyword">new</span>();
-    <span class="keyword">public static</span> <span class="type">GameOverEvent</span> <span class="variable">GameOverEvent</span> = <span class="keyword">new</span>();
-    <span class="keyword">public static</span> <span class="type">PlayerDeathEvent</span> <span class="variable">PlayerDeathEvent</span> = <span class="keyword">new</span>();
-    <span class="keyword">public static</span> <span class="type">EnemyKillEvent</span> <span class="variable">EnemyKillEvent</span> = <span class="keyword">new</span>();
-    <span class="keyword">public static</span> <span class="type">PickupEvent</span> <span class="variable">PickupEvent</span> = <span class="keyword">new</span>();
-    <span class="keyword">public static</span> <span class="type">AmmoPickupEvent</span> <span class="variable">AmmoPickupEvent</span> = <span class="keyword">new</span>();
-    <span class="keyword">public static</span> <span class="type">DamageEvent</span> <span class="variable">DamageEvent</span> = <span class="keyword">new</span>();
-    <span class="keyword">public static</span> <span class="type">DisplayMessageEvent</span> <span class="variable">DisplayMessageEvent</span> = <span class="keyword">new</span>();
+                                    <span class="keyword">public static</span> <span class="type">ObjectiveUpdateEvent</span> <span class="variable">ObjectiveUpdateEvent</span> = <span class="keyword">new</span>();
+                                    <span class="keyword">public static</span> <span class="type">AllObjectivesCompletedEvent</span> <span class="variable">AllObjectivesCompletedEvent</span> = <span class="keyword">new</span>();
+                                    <span class="keyword">public static</span> <span class="type">GameOverEvent</span> <span class="variable">GameOverEvent</span> = <span class="keyword">new</span>();
+                                    <span class="keyword">public static</span> <span class="type">PlayerDeathEvent</span> <span class="variable">PlayerDeathEvent</span> = <span class="keyword">new</span>();
+                                    <span class="keyword">public static</span> <span class="type">EnemyKillEvent</span> <span class="variable">EnemyKillEvent</span> = <span class="keyword">new</span>();
+                                    <span class="keyword">public static</span> <span class="type">PickupEvent</span> <span class="variable">PickupEvent</span> = <span class="keyword">new</span>();
+                                    <span class="keyword">public static</span> <span class="type">AmmoPickupEvent</span> <span class="variable">AmmoPickupEvent</span> = <span class="keyword">new</span>();
+                                    <span class="keyword">public static</span> <span class="type">DamageEvent</span> <span class="variable">DamageEvent</span> = <span class="keyword">new</span>();
+                                    <span class="keyword">public static</span> <span class="type">DisplayMessageEvent</span> <span class="variable">DisplayMessageEvent</span> = <span class="keyword">new</span>();
 
-    <span class="preprocessor">#endregion</span>
+                                    <span class="preprocessor">#endregion</span>
 
-    <span class="preprocessor">#region Custom Events (Jibbe)</span>
+                                    <span class="preprocessor">#region Custom Events (Jibbe)</span>
 
-    <span class="keyword">public static</span> <span class="type">XpUpdateEvent</span> <span class="variable">XpUpdateEvent</span> = <span class="keyword">new</span>();
-    <span class="keyword">public static</span> <span class="type">LevelUpEvent</span> <span class="variable">LevelUpEvent</span> = <span class="keyword">new</span>();
-    <span class="keyword">public static</span> <span class="type">SkillPointsChangedEvent</span> <span class="variable">SkillPointsChangedEvent</span> = <span class="keyword">new</span>();
-    <span class="keyword">public static</span> <span class="type">SkillUnlockedEvent</span> <span class="variable">SkillUnlockedEvent</span> = <span class="keyword">new</span>();
-    <span class="keyword">public static</span> <span class="type">PlayerEvent</span> <span class="variable">PlayerEvent</span> = <span class="keyword">new</span>();
-    <span class="keyword">public static</span> <span class="type">BlasterDMGIncreasedEvent</span> <span class="variable">BlasterDMGIncreasedEvent</span> = <span class="keyword">new</span>();
-    <span class="keyword">public static</span> <span class="type">HPIncreasedEvent</span> <span class="variable">HPIncreasedEvent</span> = <span class="keyword">new</span>();
-    <span class="keyword">public static</span> <span class="type">SpeedIncreasedEvent</span> <span class="variable">SpeedIncreasedEvent</span> = <span class="keyword">new</span>();
-    <span class="keyword">public static</span> <span class="type">SkillTreeUIClosedEvent</span> <span class="variable">SkillTreeUIClosedEvent</span> = <span class="keyword">new</span>();
+                                    <span class="keyword">public static</span> <span class="type">XpUpdateEvent</span> <span class="variable">XpUpdateEvent</span> = <span class="keyword">new</span>();
+                                    <span class="keyword">public static</span> <span class="type">LevelUpEvent</span> <span class="variable">LevelUpEvent</span> = <span class="keyword">new</span>();
+                                    <span class="keyword">public static</span> <span class="type">SkillPointsChangedEvent</span> <span class="variable">SkillPointsChangedEvent</span> = <span class="keyword">new</span>();
+                                    <span class="keyword">public static</span> <span class="type">SkillUnlockedEvent</span> <span class="variable">SkillUnlockedEvent</span> = <span class="keyword">new</span>();
+                                    <span class="keyword">public static</span> <span class="type">PlayerEvent</span> <span class="variable">PlayerEvent</span> = <span class="keyword">new</span>();
+                                    <span class="keyword">public static</span> <span class="type">BlasterDMGIncreasedEvent</span> <span class="variable">BlasterDMGIncreasedEvent</span> = <span class="keyword">new</span>();
+                                    <span class="keyword">public static</span> <span class="type">HPIncreasedEvent</span> <span class="variable">HPIncreasedEvent</span> = <span class="keyword">new</span>();
+                                    <span class="keyword">public static</span> <span class="type">SpeedIncreasedEvent</span> <span class="variable">SpeedIncreasedEvent</span> = <span class="keyword">new</span>();
+                                    <span class="keyword">public static</span> <span class="type">SkillTreeUIClosedEvent</span> <span class="variable">SkillTreeUIClosedEvent</span> = <span class="keyword">new</span>();
 
-    <span class="preprocessor">#endregion</span>
+                                    <span class="preprocessor">#endregion</span>
     }
 
-    <span class="preprocessor">#region</span> EVENT CLASSES
+                                    <span class="preprocessor">#region</span> EVENT CLASSES
 
-    <span class="comment"> /// &lt;summary&gt;</span>
-    <span class="comment"> /// Event carrying a reference to the Player GameObject.</span>
-    <span class="comment"> /// &lt;/summary&gt;</span>
-    <span class="keyword"> public class</span> <span class="class-name"> PlayerEvent</span> : <span class="type"> GameEvent</span> 
+                                    <span class="comment"> /// &lt;summary&gt;</span>
+                                    <span class="comment"> /// Event carrying a reference to the Player GameObject.</span>
+                                    <span class="comment"> /// &lt;/summary&gt;</span>
+                                    <span class="keyword"> public class</span> <span class="class-name"> PlayerEvent</span> : <span class="type"> GameEvent</span> 
     {
-        <span class="keyword">public</span> <span class="type">GameObject</span> <span class="variable">player</span>;
+                                    <span class="keyword">public</span> <span class="type">GameObject</span> <span class="variable">player</span>;
     }
 
-    <span class="comment"> /// &lt;summary&gt;</span>
-    <span class="comment"> /// Event triggered when the blaster damage buff is increased.</span>
-    <span class="comment"> /// &lt;/summary&gt;</span>
-    <span class="keyword"> public class</span> <span class="class-name"> BlasterDMGIncreasedEvent</span> : <span class="type"> GameEvent</span>
+                                    <span class="comment"> /// &lt;summary&gt;</span>
+                                    <span class="comment"> /// Event triggered when the blaster damage buff is increased.</span>
+                                    <span class="comment"> /// &lt;/summary&gt;</span>
+                                    <span class="keyword"> public class</span> <span class="class-name"> BlasterDMGIncreasedEvent</span> : <span class="type"> GameEvent</span>
     {
-        <span class="keyword">private</span> <span class="type">int</span> <span class="variable">dmgBuff</span>;
-        <span class="comment"> /// &lt;/summary&gt;</span>
-        <span class="comment"> /// Damage buff amount. Automatically broadcasts event when set.</span>
-        <span class="comment"> /// &lt;/summary&gt;</span>
-        <span class="keyword">public</span> <span class="type">int</span> <span class="property">DMGBuff</span>
+                                    <span class="keyword">private</span> <span class="type">int</span> <span class="variable">dmgBuff</span>;
+                                    <span class="comment"> /// &lt;/summary&gt;</span>
+                                    <span class="comment"> /// Damage buff amount. Automatically broadcasts event when set.</span>
+                                    <span class="comment"> /// &lt;/summary&gt;</span>
+                                    <span class="keyword">public</span> <span class="type">int</span> <span class="property">DMGBuff</span>
         {
-            <span class="keyword">get</span> => <span class="variable">dmgBuff</span>;
-            <span class="keyword">set</span>
+                                    <span class="keyword">get</span> => <span class="variable">dmgBuff</span>;
+                                    <span class="keyword">set</span>
             {
-                <span class="variable">dmgBuff</span> = <span class="variable">value</span>;
-                <span class="type">EventManager</span>.<span class="method">Broadcast</span>(<span class="type">Events</span>.<span class="property">BlasterDMGIncreasedEvent</span>);
+                                    <span class="variable">dmgBuff</span> = <span class="variable">value</span>;
+                                    <span class="type">EventManager</span>.<span class="method">Broadcast</span>(<span class="type">Events</span>.<span class="property">BlasterDMGIncreasedEvent</span>);
             }
         }
     }
 
-    <span class="comment"> /// &lt;summary&gt;</span>
-    <span class="comment"> /// Event triggered when the player's HP is increased.</span>
-    <span class="comment"> /// &lt;/summary&gt;</span>
-    <span class="keyword"> public class</span> <span class="class-name"> HPIncreasedEvent</span> : <span class="type"> GameEvent</span>
+                                    <span class="comment"> /// &lt;summary&gt;</span>
+                                    <span class="comment"> /// Event triggered when the player's HP is increased.</span>
+                                    <span class="comment"> /// &lt;/summary&gt;</span>
+                                    <span class="keyword"> public class</span> <span class="class-name"> HPIncreasedEvent</span> : <span class="type"> GameEvent</span>
     {
-        <span class="keyword">private</span> <span class="type">int</span> <span class="variable">hpBuff</span>;
-        <span class="comment"> /// &lt;/summary&gt;</span>
-        <span class="comment"> /// HP buff amount. Automatically broadcasts event when set.</span>
-        <span class="comment"> /// &lt;/summary&gt;</span>
-        <span class="keyword">public</span> <span class="type">int</span> <span class="property">HPBuff</span>
+                                    <span class="keyword">private</span> <span class="type">int</span> <span class="variable">hpBuff</span>;
+                                    <span class="comment"> /// &lt;/summary&gt;</span>
+                                    <span class="comment"> /// HP buff amount. Automatically broadcasts event when set.</span>
+                                    <span class="comment"> /// &lt;/summary&gt;</span>
+                                    <span class="keyword">public</span> <span class="type">int</span> <span class="property">HPBuff</span>
         {
-            <span class="keyword">get</span> => <span class="variable">hpBuff</span>;
-            <span class="keyword">set</span>
+                                    <span class="keyword">get</span> => <span class="variable">hpBuff</span>;
+                                    <span class="keyword">set</span>
             {
-                <span class="variable">hpBuff</span> = <span class="variable">value</span>;
-                <span class="type">EventManager</span>.<span class="method">Broadcast</span>(<span class="type">Events</span>.<span class="property">HPIncreasedEvent</span>);
+                                    <span class="variable">hpBuff</span> = <span class="variable">value</span>;
+                                    <span class="type">EventManager</span>.<span class="method">Broadcast</span>(<span class="type">Events</span>.<span class="property">HPIncreasedEvent</span>);
             }
         }
     }
 
-    <span class="comment"> /// &lt;summary&gt;</span>
-    <span class="comment"> /// Event triggered when the player's speed is increased.</span>
-    <span class="comment"> /// &lt;/summary&gt;</span>
-    <span class="keyword"> public class</span> <span class="class-name"> SpeedIncreasedEvent</span> : <span class="type"> GameEvent</span> 
+                                    <span class="comment"> /// &lt;summary&gt;</span>
+                                    <span class="comment"> /// Event triggered when the player's speed is increased.</span>
+                                    <span class="comment"> /// &lt;/summary&gt;</span>
+                                    <span class="keyword"> public class</span> <span class="class-name"> SpeedIncreasedEvent</span> : <span class="type"> GameEvent</span> 
     {
-        <span class="keyword">private</span> <span class="type">int</span> <span class="variable">speedBuff</span>;
-        <span class="comment"> /// &lt;/summary&gt;</span>
-        <span class="comment"> /// HP buff amount. Automatically broadcasts event when set.</span>
-        <span class="comment"> /// &lt;/summary&gt;</span>
-        <span class="keyword">public</span> <span class="type">int</span> <span class="property">SpeedBuff</span>
+                                    <span class="keyword">private</span> <span class="type">int</span> <span class="variable">speedBuff</span>;
+                                    <span class="comment"> /// &lt;/summary&gt;</span>
+                                    <span class="comment"> /// HP buff amount. Automatically broadcasts event when set.</span>
+                                    <span class="comment"> /// &lt;/summary&gt;</span>
+                                    <span class="keyword">public</span> <span class="type">int</span> <span class="property">SpeedBuff</span>
         {
-            <span class="keyword">get</span> => <span class="variable">speedBuff</span>;
-            <span class="keyword">set</span>
+                                    <span class="keyword">get</span> => <span class="variable">speedBuff</span>;
+                                    <span class="keyword">set</span>
             {
-                <span class="variable">speedBuff</span> = <span class="variable">value</span>;
-                <span class="type">EventManager</span>.<span class="method">Broadcast</span>(<span class="type">Events</span>.<span class="property">SpeedIncreasedEvent</span>);
+                                    <span class="variable">speedBuff</span> = <span class="variable">value</span>;
+                                    <span class="type">EventManager</span>.<span class="method">Broadcast</span>(<span class="type">Events</span>.<span class="property">SpeedIncreasedEvent</span>);
             }
         }
     }
 ...</code></pre>
-                            </div> <!-- code-container -->
-                        </div> <!-- code expandable-content -->
+                                </div> <!-- code-container -->
+                            </div> <!-- code expandable-content -->
                         </div> <!-- expandable-content -->
-                            </div> <!-- expandable-container -->
+                    </div> <!-- expandable-container -->
 
-                            <div class="expandable-container">
-                                <button class="expandable-button" onclick="toggleContent(this)">
-                                    Skill Tree
-                                    <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
-                                </button>
-                                <div class="expandable-content">
-                                    <p>Will be added in the near future.</p>
-                                    <button class="expandable-button" onclick="toggleContent(this)">
-                                        Script Snippet
-                                        <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
-                                    </button>
-                                    <div class="expandable-content">
-                                        <div class="code-container">
-                                            <pre><code class="language-csharp">
+                    <div class="expandable-container">
+                        <button class="expandable-button" onclick="toggleContent(this)">
+                            Skill Tree
+                            <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
+                        </button>
+                        <div class="expandable-content">
+                            <p>Will be added in the near future.</p>
+                            <button class="expandable-button" onclick="toggleContent(this)">
+                                Script Snippet
+                                <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
+                            </button>
+                            <div class="expandable-content">
+                                <div class="code-container">
+                                    <pre><code class="language-csharp">
 
                                     </code></pre>
-                                        </div> <!-- code-container -->
-                                    </div> <!-- code expandable-content -->
-                                </div> <!-- expandable-content -->
-                            </div> <!-- expandable-container -->
+                                </div> <!-- code-container -->
+                            </div> <!-- code expandable-content -->
+                        </div> <!-- expandable-content -->
+                    </div> <!-- expandable-container -->
 
-                        </div> <!-- contributions -->
+                </div> <!-- contributions -->
             </div><!-- content-wrapper -->
         </main>
     </div> <!-- main-wrapper -->
 
-    <footer>
-        <p>site by Jibbe Wieman, 2024 | <a href="https://github.com/JibbeWieman">GitHub</a> | <a href="https://www.linkedin.com/in/jibbe-wieman-53b34428b/">LinkedIn</a></p>
-    </footer>
+    <div id="footer-placeholder"></div>
 
 </body>
 </html>

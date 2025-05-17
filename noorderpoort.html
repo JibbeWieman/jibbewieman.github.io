@@ -11,24 +11,13 @@
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/project-page.css">
     <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="/js/scripts/injectHTML.js"></script>
     <script src="/js/scripts/expandable-section.js"></script>
     <script src="/js/scripts/mode-toggle.js"></script>
 
 </head>
 <body>
     <div id="nav-placeholder"></div>
-    <script>
-        if (location.protocol !== 'file:') {
-            fetch('nav.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('nav-placeholder').innerHTML = data;
-                })
-                .catch(error => console.error('Error fetching nav.html:', error));
-        } else {
-            console.warn('Fetch skipped because you are running locally (file:// protocol).');
-        }
-    </script>
 
     <div class="arrow-button arrow-left" onclick="window.location.href='skill-tree.html';">
         <img src="assets/images/icons/arrow-left.png" alt="Left Arrow">
@@ -88,8 +77,8 @@
                 <div class="text-wrapper">
                     <p> Noorderpoort Escape Room is a VR game developed for the client: Noorderpoort. They tasked us with creating a VR Escape Room for them which they can use during their Digital Citizenship classes to further raise awareness about these topics and build upon the class material. </p>
                 </div>
-                    
-                <br/>
+
+                <br />
 
                 <div class="social-buttons">
                     <a href="https://github.com/JibbeWieman/Y2-P2" target="_blank" aria-label="GitHub">
@@ -201,9 +190,7 @@
         </main>
     </div>
 
+    <div id="footer-placeholder"></div>
 
-    <footer>
-        <p>site by Jibbe Wieman, 2024 | <a href="https://github.com/JibbeWieman">GitHub</a> | <a href="https://www.linkedin.com/in/jibbe-wieman-53b34428b/">LinkedIn</a></p>
-    </footer>
 </body>
 </html>

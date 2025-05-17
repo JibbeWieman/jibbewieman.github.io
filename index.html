@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/about.css">
+    <script type="module" src="/js/scripts/injectHTML.js"></script>
     <script src="/js/scripts/header-animation.js"></script>
     <script src="/js/scripts/project-card-anim.js"></script>
     <script src="/js/scripts/mode-toggle.js"></script>
@@ -25,18 +26,6 @@
 </head>
 <body>
     <div id="nav-placeholder"></div>
-    <script>
-        if (location.protocol !== 'file:') {
-            fetch('nav.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('nav-placeholder').innerHTML = data;
-                })
-                .catch(error => console.error('Error fetching nav.html:', error));
-        } else {
-            console.warn('Fetch skipped because you are running locally (file:// protocol).');
-        }
-    </script>
 
     <script src="js/scripts/loading-manager.js"></script>
     <header class="index-header">
@@ -49,7 +38,7 @@
                 <div class="text">
                     <h2 style="margin-top: 0;">About Me</h2>
                     <p>
-                        Hi! I'm Jibbe, a game programmer from The Netherlands born in 2006,
+                        Hey hi hello! I'm Jibbe, a game programmer from The Netherlands born in 2006,
                         currently a <a href="https://www.hanze.nl/en/programmes/full-time/bachelor/creative-media-and-game-technologies" target="_blank">Creative Media & Game Technologies</a> student at Hanze.<br />
                         Here you can see some of the projects I have had the opportunity of contributing to,
                         and feel free to get in touch if you'd like to collaborate or learn more about my work.
@@ -301,9 +290,8 @@
         </main>
     </div>
 
-    <footer>
-        <p>site by Jibbe Wieman, 2024 | <a href="https://github.com/JibbeWieman">GitHub</a> | <a href="https://www.linkedin.com/in/jibbe-wieman-53b34428b/">LinkedIn</a></p>
-    </footer>
+    <div id="footer-placeholder"></div>
+    
 </body>
 </html>
 

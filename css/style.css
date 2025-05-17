@@ -150,7 +150,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60px; /* Fixed height */
+    height: 40px; /* Fixed height */
     width: var(--recontent-width);
     max-width: 100%;
     background: var(--footer-color);

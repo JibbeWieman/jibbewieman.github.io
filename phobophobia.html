@@ -11,24 +11,13 @@
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/project-page.css">
     <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="/js/scripts/injectHTML.js"></script>
     <script src="/js/scripts/expandable-section.js"></script>
     <script src="/js/scripts/mode-toggle.js"></script>
 
 </head>
 <body>
     <div id="nav-placeholder"></div>
-    <script>
-        if (location.protocol !== 'file:') {
-            fetch('nav.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('nav-placeholder').innerHTML = data;
-                })
-                .catch(error => console.error('Error fetching nav.html:', error));
-        } else {
-            console.warn('Fetch skipped because you are running locally (file:// protocol).');
-        }
-    </script>
 
     <div class="arrow-button arrow-left" onclick="window.location.href='project-parasite.html';">
         <img src="assets/images/icons/arrow-left.png" alt="Left Arrow">
@@ -86,129 +75,127 @@
                 <div class="text-wrapper">
                     <p>
                         Phobophobia is my first university project, where I served as Lead Programmer and Level Designer.
-                        <br/>I collaborated with a team of five other students to bring our vision to life.
+                        <br />I collaborated with a team of five other students to bring our vision to life.
                         The game is about overcoming fears and solving puzzles in a story-driven environment.
                         I worked on this project from December 2023 to February 2024, dedicating about 7-8 weeks to its development.
                         My key contributions included programming player movement, developing the camera system, coding the lighting, designing room mechanics, creating puzzles, implementing farming elements, and setting up warps.
                         During this project, I learned coding principles, GML, and game design.
-                    </p> 
-                <div/>
-                <br />
-                <div class="contributions">
-                    <h2>My Contributions</h2>
-                    <!--data-color="#cd0000"-->
-                    <div class="expandable-container">
-                        <button class="expandable-button" onclick="toggleContent(this)">
-                            Audio Integration
-                            <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
-                        </button>
-                        <div class="expandable-content">
-                            <p>Implemented sound effects, background music, and audio triggers for a more immersive experience.</p>
+                    </p>
+                    <div />
+                    <br />
+                    <div class="contributions">
+                        <h2>My Contributions</h2>
+                        <!--data-color="#cd0000"-->
+                        <div class="expandable-container">
+                            <button class="expandable-button" onclick="toggleContent(this)">
+                                Audio Integration
+                                <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
+                            </button>
+                            <div class="expandable-content">
+                                <p>Implemented sound effects, background music, and audio triggers for a more immersive experience.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="expandable-container">
-                        <button class="expandable-button" onclick="toggleContent(this)">
-                            Camera System
-                            <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
-                        </button>
-                        <div class="expandable-content">
-                            <p>Designed and implemented a dynamic camera system, including smooth transitions and player tracking.</p>
-                            <img src="assets/images/phobophobia/cam01-script.jpg" onclick="openOverlay(this)" alt="Camera Script" />
-                            <img src="assets/images/phobophobia/cam02-script.jpg" onclick="openOverlay(this)" alt="Camera Script" />
-                            <img src="assets/images/phobophobia/cam03-script.jpg" onclick="openOverlay(this)" alt="Camera Script" />
-                            <img src="assets/images/phobophobia/cam04-script.jpg" onclick="openOverlay(this)" alt="Camera Script" />
-                            <img src="assets/images/phobophobia/cam05-script.jpg" onclick="openOverlay(this)" alt="Camera Script" />
+                        <div class="expandable-container">
+                            <button class="expandable-button" onclick="toggleContent(this)">
+                                Camera System
+                                <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
+                            </button>
+                            <div class="expandable-content">
+                                <p>Designed and implemented a dynamic camera system, including smooth transitions and player tracking.</p>
+                                <img src="assets/images/phobophobia/cam01-script.jpg" onclick="openOverlay(this)" alt="Camera Script" />
+                                <img src="assets/images/phobophobia/cam02-script.jpg" onclick="openOverlay(this)" alt="Camera Script" />
+                                <img src="assets/images/phobophobia/cam03-script.jpg" onclick="openOverlay(this)" alt="Camera Script" />
+                                <img src="assets/images/phobophobia/cam04-script.jpg" onclick="openOverlay(this)" alt="Camera Script" />
+                                <img src="assets/images/phobophobia/cam05-script.jpg" onclick="openOverlay(this)" alt="Camera Script" />
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="expandable-container">
-                        <button class="expandable-button" onclick="toggleContent(this)">
-                            Dialogue Integration
-                            <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
-                        </button>
-                        <div class="expandable-content">
-                            <p>Handled dialogue display and interactions, ensuring seamless text presentation and progression.</p>
+                        <div class="expandable-container">
+                            <button class="expandable-button" onclick="toggleContent(this)">
+                                Dialogue Integration
+                                <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
+                            </button>
+                            <div class="expandable-content">
+                                <p>Handled dialogue display and interactions, ensuring seamless text presentation and progression.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="expandable-container">
-                        <button class="expandable-button" onclick="toggleContent(this)">
-                            Farming System
-                            <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
-                        </button>
-                        <div class="expandable-content">
-                            <p>Developed a farming mechanic that allows players to plant, grow, and harvest crops.</p>
+                        <div class="expandable-container">
+                            <button class="expandable-button" onclick="toggleContent(this)">
+                                Farming System
+                                <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
+                            </button>
+                            <div class="expandable-content">
+                                <p>Developed a farming mechanic that allows players to plant, grow, and harvest crops.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="expandable-container">
-                        <button class="expandable-button" onclick="toggleContent(this)">
-                            Lighting System
-                            <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
-                        </button>
-                        <div class="expandable-content">
-                            <p>Implemented a lighting system with dynamic effects to enhance the game's atmosphere.</p>
+                        <div class="expandable-container">
+                            <button class="expandable-button" onclick="toggleContent(this)">
+                                Lighting System
+                                <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
+                            </button>
+                            <div class="expandable-content">
+                                <p>Implemented a lighting system with dynamic effects to enhance the game's atmosphere.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="expandable-container">
-                        <button class="expandable-button" onclick="toggleContent(this)">
-                            Movement System & Actions
-                            <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
-                        </button>
-                        <div class="expandable-content">
-                            <p>Designed and refined the player movement system, including walking, running, and interactions.</p>
+                        <div class="expandable-container">
+                            <button class="expandable-button" onclick="toggleContent(this)">
+                                Movement System & Actions
+                                <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
+                            </button>
+                            <div class="expandable-content">
+                                <p>Designed and refined the player movement system, including walking, running, and interactions.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="expandable-container">
-                        <button class="expandable-button" onclick="toggleContent(this)">
-                            Pushing System
-                            <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
-                        </button>
-                        <div class="expandable-content">
-                            <p>Created a mechanic allowing objects to be pushed for puzzles and environmental interaction.</p>
+                        <div class="expandable-container">
+                            <button class="expandable-button" onclick="toggleContent(this)">
+                                Pushing System
+                                <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
+                            </button>
+                            <div class="expandable-content">
+                                <p>Created a mechanic allowing objects to be pushed for puzzles and environmental interaction.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="expandable-container">
-                        <button class="expandable-button" onclick="toggleContent(this)">
-                            Puzzle Code
-                            <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
-                        </button>
-                        <div class="expandable-content">
-                            <p>Developed logic for various in-game puzzles, ensuring engaging and solvable challenges.</p>
+                        <div class="expandable-container">
+                            <button class="expandable-button" onclick="toggleContent(this)">
+                                Puzzle Code
+                                <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
+                            </button>
+                            <div class="expandable-content">
+                                <p>Developed logic for various in-game puzzles, ensuring engaging and solvable challenges.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="expandable-container">
-                        <button class="expandable-button" onclick="toggleContent(this)">
-                            Room Switching Code
-                            <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
-                        </button>
-                        <div class="expandable-content">
-                            <p>Implemented a seamless room transition system, managing loading and visual continuity.</p>
+                        <div class="expandable-container">
+                            <button class="expandable-button" onclick="toggleContent(this)">
+                                Room Switching Code
+                                <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
+                            </button>
+                            <div class="expandable-content">
+                                <p>Implemented a seamless room transition system, managing loading and visual continuity.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="expandable-container">
-                        <button class="expandable-button" onclick="toggleContent(this)">
-                            2D Assets
-                            <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
-                        </button>
-                        <div class="expandable-content">
-                            <a href="https://www.artstation.com/artwork/n05ybr" target="_blank">See ArtStation.</a>
+                        <div class="expandable-container">
+                            <button class="expandable-button" onclick="toggleContent(this)">
+                                2D Assets
+                                <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
+                            </button>
+                            <div class="expandable-content">
+                                <a href="https://www.artstation.com/artwork/n05ybr" target="_blank">See ArtStation.</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </main>
     </div>
 
+    <div id="footer-placeholder"></div>
 
-    <footer>
-        <p>site by Jibbe Wieman, 2024 | <a href="https://github.com/JibbeWieman">GitHub</a> | <a href="https://www.linkedin.com/in/jibbe-wieman-53b34428b/">LinkedIn</a></p>
-    </footer>
 </body>
 </html>
