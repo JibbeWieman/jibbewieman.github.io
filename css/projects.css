@@ -1,4 +1,4 @@
-
+﻿
 /* Mobile Styles */
 @media screen and (max-width: 768px) {
     .projects-container {
@@ -117,18 +117,19 @@
         color: var(--text-color);
     }
 
-    .project-card .tags {
-        display: flex;
-        flex-wrap: wrap; /* Allow tags to move to the next line */
-        gap: 0;
-        margin-top: auto; /* Push tags to the bottom */
-        justify-content: start; /* Align tags to the left */
-        overflow: hidden;
-        padding: 0;
-        padding-top: 0.5vw;
-        max-width: 100%; /* Ensure tags stay within the card width */
-        box-sizing: border-box; /* Ensure consistent sizing */
-    }
+    
+.project-card .tags {
+    display: flex;
+    flex-wrap: wrap; /* Allow tags to move to the next line */
+    gap: 0;
+    margin-top: auto; /* Push tags to the bottom */
+    justify-content: start; /* Align tags to the left */
+    overflow: hidden;
+    padding: 0;
+    padding-top: 0.5vw;
+    max-width: 100%; /* Ensure tags stay within the card width */
+    box-sizing: border-box; /* Ensure consistent sizing */
+}
 
         /* Individual Tag Styles */
         .project-card .tags span {
@@ -148,7 +149,7 @@
 
     .project-card {
         flex: 0 0 calc(25% - 2vw); /* Adjust width for proper alignment */
-        min-width: 250px; /* Ensure cards don�t shrink too much */
+        min-width: 250px; /* Ensure cards don’t shrink too much */
         display: flex;
         flex-direction: column;
         background-color: var(--card-color);

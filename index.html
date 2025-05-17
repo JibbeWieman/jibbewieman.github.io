@@ -17,9 +17,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/about.css">
     <script type="module" src="/js/scripts/injectHTML.js"></script>
-    <script src="/js/scripts/header-animation.js"></script>
-    <script src="/js/scripts/project-card-anim.js"></script>
-    <script src="/js/scripts/mode-toggle.js"></script>
+    <script src="/js/scripts/header-animation.js" defer></script>
+    <script src="/js/scripts/project-card-anim.js" defer></script>
+    <script src="/js/scripts/mode-toggle.js" defer></script>
     <script src="/js/scripts/loading-manager.js"></script>
     <!--<script src="path/to/theme-favicon.js" defer></script>-->
 
@@ -27,7 +27,6 @@
 <body>
     <div id="nav-placeholder"></div>
 
-    <script src="js/scripts/loading-manager.js"></script>
     <header class="index-header">
         <h1>Jibbe Wieman</h1>
         <p>CMGT Student | Programmer | Content Creator</p>
@@ -53,131 +52,9 @@
             <section id="projects">
                 <h2>My Projects</h2>
                 <div class="projects-container">
-                    <!-- Project panels will go here -->
-                    <div class="project-card" data-tags="GameMaker">
-                        <a href="phobophobia.html">
-                            <img src="assets/images/phobophobia/banner.jpg" alt="Phobophobia Image">
-                            <div>
-                                <h3>Phobophobia</h3>
-                                <p>A story-driven puzzle game about conquering fears and helping others do the same in a new town.</p>
-                                <div class="tags">
-                                    <span class="tag 2D" data-tag="2D">2D</span>
-                                    <span class="tag artist" data-tag="Artist">Artist</span>
-                                    <span class="tag gamemaker" data-tag="GameMaker">GameMaker</span>
-                                    <span class="tag programmer" data-tag="Programmer">Programmer</span>
-                                    <span class="tag university" data-tag="University">University</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="project-card" data-tags="Unity">
-                        <a href="revenge-of-the-renter.html">
-                            <img src="assets/images/revenge-of-the-renter/banner.jpg" alt="Revenge Of The Renter Image">
-                            <div>
-                                <h3>Revenge of the Renter</h3>
-                                <p>A stealth puzzle game about holding your slumlord accountable and saving energy.</p>
-                                <div class="tags">
-                                    <span class="tag 3D" data-tag="3D">3D</span>
-                                    <span class="tag artist" data-tag="Artist">Artist</span>
-                                    <span class="tag programmer" data-tag="Programmer">Programmer</span>
-                                    <span class="tag unity" data-tag="Unity">Unity</span>
-                                    <span class="tag university" data-tag="University">University</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="project-card" data-tags="Unity">
-                        <a href="mechmates.html">
-                            <img src="assets/images/mechmates/banner.jpg" alt="Mech Mates Image">
-                            <div>
-                                <h3>Mech Mates</h3>
-                                <p>A local co-op game about trying to defeat as many aliens together as possible.</p>
-                                <div class="tags">
-                                    <span class="tag 3D" data-tag="3D">3D</span>
-                                    <span class="tag gamejam" data-tag="GameMaker">GameJam</span>
-                                    <span class="tag personal" data-tag="Personal">Personal</span>
-                                    <span class="tag programmer" data-tag="Programmer">Programmer</span>
-                                    <span class="tag unity" data-tag="Unity">Unity</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="project-card" data-tags="VR">
-                        <a href="the-news.html">
-                            <img src="assets/images/the-news/banner.jpg" alt="The News Image">
-                            <div>
-                                <h3>The News</h3>
-                                <p>A VR game about managing a news broadcast 30-years into the future.</p>
-                                <div class="tags">
-                                    <span class="tag 3D" data-tag="3D">3D</span>
-                                    <span class="tag artist" data-tag="Artist">Artist</span>
-                                    <span class="tag programmer" data-tag="Programmer">Programmer</span>
-                                    <span class="tag unity" data-tag="Unity">Unity</span>
-                                    <span class="tag university" data-tag="University">University</span>
-                                    <span class="tag vr" data-tag="VR">VR</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="project-card" data-tags="University Programmer 3D Unity">
-                        <a href="skill-tree.html">
-                            <img src="assets/images/skill-tree/banner.jpg" alt="Skill Tree Image">
-                            <div>
-                                <h3>Levelling && Skill Tree System</h3>
-                                <p>A scalable levelling system and skill tree using game design patterns.</p>
-                                <div class="tags">
-                                    <span class="tag 3D" data-tag="3D">3D</span>
-                                    <span class="tag programmer" data-tag="Programmer">Programmer</span>
-                                    <span class="tag unity" data-tag="Unity">Unity</span>
-                                    <span class="tag university" data-tag="University">University</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="project-card" data-tags="3D University Programmer 3D Artist VR Unity GameDesigner Client">
-                        <a href="noorderpoort.html">
-                            <img src="assets/images/noorderpoort/banner.jpg" alt="Noorderpoort Escape Room Image">
-                            <div>
-                                <h3>Noorderpoort Escape Room</h3>
-                                <p>A vr escape room about digital citizenship.</p>
-                                <div class="tags">
-                                    <span class="tag 3D" data-tag="3D">3D</span>
-                                    <span class="tag artist" data-tag="Artist">Artist</span>
-                                    <span class="tag client" data-tag="Client">Client</span>
-                                    <span class="tag gamedesigner" data-tag="GameDesigner">Game Designer</span>
-                                    <span class="tag programmer" data-tag="Programmer">Programmer</span>
-                                    <span class="tag unity" data-tag="Unity">Unity</span>
-                                    <span class="tag university" data-tag="University">University</span>
-                                    <span class="tag vr" data-tag="VR">VR</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="project-card" data-tags="3D Personal Programmer 3D Artist Unity GameDesigner">
-                        <a href="project-parasite.html">
-                            <img src="assets/images/project-parasite/banner.jpg" alt="Project Parasite Image">
-                            <div>
-                                <h3>Project Parasite</h3>
-                                <p>A reverse-horror game about escaping a secret facility by using your possession ability.</p>
-                                <div class="tags">
-                                    <span class="tag 3D" data-tag="3D">3D</span>
-                                    <span class="tag artist" data-tag="Artist">Artist</span>
-                                    <span class="tag gamedesigner" data-tag="GameDesigner">Game Designer</span>
-                                    <span class="tag programmer" data-tag="Programmer">Programmer</span>
-                                    <span class="tag unity" data-tag="Unity">Unity</span>
-                                    <span class="tag personal" data-tag="Personal">Personal</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!--<div class="scrollbar"></div>-->
+                    <!-- Project panels will dynamically be added here -->
                 </div>
+
                 <div id="drag-button">
                     <img src="assets/images/icons/drag.png" alt="Try Dragging!">
                     <p>Draggable</p>
@@ -218,7 +95,6 @@
                             word-wrap: break-word;
                             overflow-wrap: break-word;
                             white-space: normal;
-                            /* 🔹 Optional: Limit line length for better readability */
                             line-height: 1.3;
                             color: var(--text-color)
                         }
@@ -231,7 +107,6 @@
                             word-wrap: break-word;
                             overflow-wrap: break-word;
                             white-space: normal;
-                            /* 🔹 Optional: Limit line length for better readability */
                             line-height: 1.3;
                             color: var(--text-color)
                         }
@@ -243,17 +118,17 @@
                     <br />
                     <h3 style="margin-top: 0;">Technical Experience</h3>
                     <div class="app-logos">
-                        <img src="/assets/images/icons/unity.svg" alt="Unity" title="Unity" />
-                        <img src="/assets/images/icons/c-sharp.png" alt="C#" title="C#" />
-                        <img src="/assets/images/icons/gamemaker.png" alt="GameMaker Studio 2" title="GameMaker Studio 2" />
-                        <img src="/assets/images/icons/blender.png" alt="Blender 3D" title="Blender 3D" />
-                        <img src="/assets/images/icons/photoshop.png" alt="Adobe Photoshop" title="Adobe Photoshop" />
-                        <img src="/assets/images/icons/illustrator.png" alt="Adobe Illustrator" title="Adobe Illustrator" />
-                        <img src="/assets/images/icons/substance-painter.svg" alt="Substance Painter" title="Substance Painter" />
-                        <img src="/assets/images/icons/figma.png" alt="Figma" title="Figma" />
-                        <img src="/assets/images/icons/davinci-resolve.png" alt="Davinci Resolve" title="Davinci Resolve" />
-                        <img src="/assets/images/icons/html.svg" alt="HTML" title="HTML" />
-                        <img src="/assets/images/icons/github.png" alt="GitHub" title="GitHub" />
+                        <img src="/assets/images/icons/unity.svg" alt="Unity" title="Unity" loading="lazy"/>
+                        <img src="/assets/images/icons/c-sharp.png" alt="C#" title="C#" loading="lazy"/>
+                        <img src="/assets/images/icons/gamemaker.png" alt="GameMaker Studio 2" title="GameMaker Studio 2" loading="lazy"/>
+                        <img src="/assets/images/icons/blender.png" alt="Blender 3D" title="Blender 3D" loading="lazy"/>
+                        <img src="/assets/images/icons/photoshop.png" alt="Adobe Photoshop" title="Adobe Photoshop" loading="lazy"/>
+                        <img src="/assets/images/icons/illustrator.png" alt="Adobe Illustrator" title="Adobe Illustrator" loading="lazy"/>
+                        <img src="/assets/images/icons/substance-painter.svg" alt="Substance Painter" title="Substance Painter" loading="lazy"/>
+                        <img src="/assets/images/icons/figma.png" alt="Figma" title="Figma" loading="lazy"/>
+                        <img src="/assets/images/icons/davinci-resolve.png" alt="Davinci Resolve" title="Davinci Resolve" loading="lazy"/>
+                        <img src="/assets/images/icons/html.svg" alt="HTML" title="HTML" loading="lazy"/>
+                        <img src="/assets/images/icons/github.png" alt="GitHub" title="GitHub" loading="lazy"/>
                     </div>
                 </div>
             </section>
@@ -268,19 +143,19 @@
                         </p>
                         <div class="social-buttons">
                             <a href="https://www.linkedin.com/in/jibbe-wieman-53b34428b/" target="_blank" aria-label="LinkedIn">
-                                <img src="assets/images/icons/linkedin.png" alt="LinkedIn Icon" title="LinkedIn">
+                                <img src="assets/images/icons/linkedin.png" alt="LinkedIn Icon" title="LinkedIn" loading="lazy">
                             </a>
                             <a href="https://github.com/JibbeWieman" target="_blank" aria-label="GitHub">
-                                <img src="assets/images/icons/github.png" alt="GitHub Icon" title="GitHub">
+                                <img src="assets/images/icons/github.png" alt="GitHub Icon" title="GitHub" loading="lazy">
                             </a>
                             <a href="https://greenygamedev.itch.io" target="_blank" aria-label="Itch.io">
-                                <img src="assets/images/icons/itchio.png" alt="Itch.io Icon" title="Itch.io">
+                                <img src="assets/images/icons/itchio.png" alt="Itch.io Icon" title="Itch.io" loading="lazy">
                             </a>
                             <a href="https://www.artstation.com/jibbew" target="_blank" aria-label="ArtStation">
-                                <img src="assets/images/icons/artstation.svg" alt="ArtStation Icon" title="ArtStation">
+                                <img src="assets/images/icons/artstation.svg" alt="ArtStation Icon" title="ArtStation" loading="lazy">
                             </a>
                             <a href="https://www.youtube.com/@GreenyGameDev?sub_confirmation=1" target="_blank" aria-label="YouTube">
-                                <img src="assets/images/icons/youtube.png" alt="YouTube Icon" title="YouTube">
+                                <img src="assets/images/icons/youtube.png" alt="YouTube Icon" title="YouTube" loading="lazy">
                             </a>
                         </div>
                     </div>
