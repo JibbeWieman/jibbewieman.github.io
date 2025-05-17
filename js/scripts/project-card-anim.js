@@ -6,9 +6,11 @@
         this.isPaused = false;
         this.isDragging = false;
         this.lastMouseX = 0;
-        this.cardWidth = this.cards[0].offsetWidth + (1 * window.innerWidth / 100);
         this.hasDragged = false;
         this.dragTimeout = null;
+
+        this.cardWidth = this.cards[0].offsetWidth + (1 * window.innerWidth / 100);
+
         this.init();
     }
 
@@ -20,20 +22,41 @@
 
         this.container.addEventListener("mouseenter", () => (this.isPaused = true));
         this.container.addEventListener("mouseleave", () => (this.isPaused = false));
+        window.addEventListener('resize', this.handleResize.bind(this));
 
         requestAnimationFrame(this.update.bind(this));
     }
+
+    handleResize() {
+        // Recalculate card width
+        console.log("Window resized — updating card positions");
+        const cardRect = this.cards[0].getBoundingClientRect();
+        const spacing = window.innerWidth * 0.01;
+        this.cardWidth = cardRect.width + spacing;
+
+        // Reset left styles and reassign card positions cleanly
+        this.cards.forEach(card => card.style.left = '');
+
+        // Optional: reset the order of cards to initial DOM order
+        // This is to keep the array and DOM in sync for recycling logic
+        this.cards = Array.from(this.container.children);
+
+        // Reposition cards based on new cardWidth
+        this.positionCards();
+    }
+
 
     positionCards() {
         this.cards.forEach((card, index) => {
             card.style.left = `${index * this.cardWidth}px`;
         });
+        //console.log("Cards positioned:", this.cards.map(c => c.style.left));
     }
 
     update() {
         if (!this.isDragging && !this.isPaused) {
             this.cards.forEach(card => {
-                let currentX = parseFloat(card.style.left);
+                let currentX = parseFloat(card.style.left) || 0;
                 card.style.left = `${currentX - this.scrollSpeed}px`;
             });
 
@@ -121,10 +144,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-document.querySelector(".projects-container").addEventListener("dragstart", (event) => {
-    event.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+    const projectsContainer = document.querySelector(".projects-container");
+    if (projectsContainer) {
+        projectsContainer.addEventListener("dragstart", (event) => {
+            event.preventDefault();
+        });
+    }
 });
-
 
 //snapToNearestCard() {
 //    let firstCard = this.cards[0];
