@@ -435,7 +435,9 @@ code.language-csharp {
 
 /* Social Buttons */
 .social-buttons {
-    display: flex;
+    display: inline-flex; /* Or inline-block */
+    width: fit-content;
+    max-width: 100%;
     justify-content: center;
     gap: 1.25vh;
 }
