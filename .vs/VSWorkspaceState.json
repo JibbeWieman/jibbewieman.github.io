@@ -2,13 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\assets",
-    "\\assets\\snippets",
     "\\assets\\snippets\\project-parasite",
     "\\assets\\snippets\\skill-tree",
+    "\\assets\\videos",
     "\\css",
     "\\js",
     "\\js\\scripts"
   ],
-  "SelectedNode": "\\assets\\snippets\\project-parasite\\destructible-object.cs",
+  "SelectedNode": "\\js\\scripts\\projects-renderer.js",
   "PreviewInSolutionExplorer": false
 }
