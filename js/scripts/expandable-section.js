@@ -1,54 +1,99 @@
 ﻿console.log("Expandable script loaded!");
 
 /* -------------------------------------------------------------
-    expandable-sections + lazy code‑snippet loader
-    ----------------------------------------------------------- */
+   expandable-sections + lazy code‑snippet loader + line nums
+   ----------------------------------------------------------- */
 
 /* ---------- lazy snippet fetcher -------------------------------- */
 async function loadSnippet(container, file) {
+    // Only load once
     if (container.dataset.loaded) return;
 
     try {
+        // 1) Fetch raw .cs text
         const resp = await fetch(`/assets/snippets/${file}`);
         if (!resp.ok) throw new Error(resp.statusText);
+        const rawCode = await resp.text();
 
-        const code = await resp.text();
-        const escaped = code
+        // 2) Escape HTML entities (so highlight.js won't choke)
+        const escaped = rawCode
             .replace(/&/g, "&amp;")
             .replace(/</g, "&lt;")
             .replace(/>/g, "&gt;");
 
+        // 3) Inject into container
         container.innerHTML = `
       <div class="code-container">
         <pre><code class="language-csharp">${escaped}</code></pre>
-      </div>`;
+      </div>`.trim();
+
+        // Mark as loaded
         container.dataset.loaded = "true";
 
-        /*  👉  run the highlighter right after injection  */
-        const codeEl = container.querySelector("code");
-        console.log("highlighting", codeEl);       // should log the <code> node
-        if (window.hljs && codeEl) hljs.highlightElement(codeEl);
+        // 4) Highlight with Highlight.js
+        const codeEl = container.querySelector("pre > code");
+        if (window.hljs && codeEl) {
+            hljs.highlightElement(codeEl);
+        }
 
-
-    } catch (err) {
-        container.textContent = "Could not load snippet 😞";
-        console.error(`assets/snippets/${file}`, err);
+        // 5) Add line numbers
+        addLineNumbers(container.querySelector(".code-container"));
     }
-}   // ← this closing brace was missing
+    catch (err) {
+        container.textContent = "Could not load snippet 😞";
+        console.error(`Error loading snippet [${file}]:`, err);
+    }
+}
+
+/* ---------- line-numbering helper -------------------------------- */
+function addLineNumbers(codeContainer) {
+    const pre = codeContainer.querySelector("pre");
+    const code = pre.querySelector("code");
+    if (!code) return;
+
+    // Get just the inner HTML of the <code> block (post-highlighted)
+    const html = code.innerHTML;
+
+    // Split by lines
+    const lines = html.split(/\n/);
+
+    // Clear the <pre> content
+    pre.innerHTML = "";
+
+    // Build each line with number + content
+    lines.forEach((lineHtml, idx) => {
+        const lineDiv = document.createElement("div");
+        lineDiv.classList.add("code-line");
+
+        const lineNumber = document.createElement("span");
+        lineNumber.classList.add("line-number");
+        lineNumber.textContent = idx + 1;
+
+        const content = document.createElement("span");
+        content.innerHTML = lineHtml === "" ? "\u200B" : lineHtml;
+
+        lineDiv.appendChild(lineNumber);
+        lineDiv.appendChild(content);
+
+        pre.appendChild(lineDiv);
+    });
+}
+
 
 /* ---------- expand / collapse ---------------------------------- */
 function toggleContent(button, filename = null) {
     const content = button.nextElementSibling;
-    if (!content || !content.classList.contains("expandable-content")) return;
+    if (!content || !content.classList.contains("expandable-content"))
+        return;
 
     const show = content.style.display === "none";
     content.style.display = show ? "block" : "none";
     button.classList.toggle("flipped", show);
 
+    // If expanding, load snippet (and highlight + line‑nums)
     if (show && filename) loadSnippet(content, filename);
 }
 window.toggleContent = toggleContent;
-
 
 /* ---------- initial setup -------------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {

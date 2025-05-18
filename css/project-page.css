@@ -1,4 +1,4 @@
-@media screen and (max-width: 768px) {
+﻿@media screen and (max-width: 768px) {
     .project-sidebar {
         background-color: var(--card-color);
         padding: 1rem;
@@ -233,7 +233,7 @@
 
 /* CODE SNIPPET */
 /* Base styles */
-.code-container {
+/*.code-container {
     background: #1e1e1e;
     color: #d4d4d4;
     padding: 16px;
@@ -255,17 +255,9 @@
     }
 
 code.language-csharp {
-    white-space: pre-wrap; /* keeps line breaks and indentation */
-    font-family: monospace;
+    white-space: pre-wrap;*/ /* keeps line breaks and indentation */
+    /*font-family: monospace;
 }
-
-.code-line {
-    display: flex;
-    white-space: pre;
-}
-    .code-line span:not(.line-number) {
-        white-space: pre;
-    }
 
 .line-number {
     display: inline-block;
@@ -275,9 +267,40 @@ code.language-csharp {
     text-align: right;
     margin-right: 1em;
     color: #858585;
+}*/
+
+.code-container {
+    font-family: Menlo, Consolas, monospace;
+    background: #1e1e1e;
+    color: #ddd;
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.4;
+    border-radius: 8px;
 }
 
-.keyword { color: #569cd6; }
+.code-line {
+    display: flex;
+}
+
+.line-number {
+    width: 3em; /* reserve space for 3‑digit lines */
+    text-align: right;
+    margin-right: 1em;
+    user-select: none;
+    opacity: 0.4;
+    color: #888; /* line‑number color */
+    flex-shrink: 0;
+}
+
+    .line-number + span {
+        white-space: pre-wrap; /* preserve wrapping of code lines */
+        flex: 1;
+    }
+
+
+/*.keyword { color: #569cd6; }
 .type { color: #4ec9b0; }
 .comment { color: #6a9955; font-style: italic; }
 .string { color: #ce9178; }
@@ -297,7 +320,7 @@ code.language-csharp {
 .constant { color: #4fc1ff; }
 .struct-name { color: #4ec9b0; }
 .punctuation { color: #d4d4d4; }
-
+*/
 /* Expandable Button */
 .expandable-button {
     color: white;
