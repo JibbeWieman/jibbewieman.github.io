@@ -1,0 +1,675 @@
+< span class= "keyword" >using</ span > Unity.VisualScripting;
+< span class= "keyword" >using</ span > UnityEngine;
+< span class= "keyword" >using</ span > UnityEngine.AI;
+
+< span class= "keyword" >public</ span > < span class= "keyword" >class</span> < span class= "class-name" > ActorFacade </ span > : < span class= "class-name" > MonoBehaviour </ span >
+{
+    < span class= "preprocessor" >#region</span> VARIABLES
+    < span class= "keyword" >private</ span > < span class= "class-name" > ActorsManager </ span > < span class= "variable" > actorManager </ span >;
+    < span class= "keyword" >private</ span > < span class= "class-name" > ActorCharacterController </ span > < span class= "variable" > actorController </ span >;
+    < span class= "keyword" >private</ span > < span class= "class-name" > ActorWeaponsManager </ span > < span class= "variable" > actorWeaponsManager </ span >;
+
+    < span class= "keyword" >private</ span > < span class= "class-name" > Actor </ span > < span class= "variable" > currentActor </ span >;
+
+[<span class="attribute">
+    Tooltip </ span > (< span class= "string" > "The parasite." </ span >)]
+    < span class= "keyword" >private</ span > < span class= "class-name" > GameObject </ span > < span class= "variable" > player </ span >;
+
+    < span class= "keyword" >private</ span > < span class= "class-name" > HostThirdPersonCam </ span > < span class= "variable" > hostCam </ span >;
+    < span class= "keyword" >private</ span > < span class= "class-name" > InfectAbility </ span > < span class= "variable" > infectAbility </ span >;
+    < span class= "preprocessor" >#endregion
+</span>
+
+    < span class= "preprocessor" >#region</span> UNITY METHODS
+
+    < span class= "keyword" >private</ span > < span class= "keyword" > void </ span > < span class= "function" > Start </ span > ()
+    {
+        < span class= "variable" > actorManager </ span > = < span class= "function" > GetComponent </ span > &lt;< span class= "class-name" > ActorsManager </ span > &gt; ();
+        < span class= "variable" > player </ span > = < span class= "variable" > actorManager </ span >?.< span class= "property" > Player </ span >;
+
+        < span class= "class-name" > EventManager </ span >.< span class= "function" > AddListener </ span > &lt;< span class= "class-name" > ActorPossesedEvent </ span > &gt; (< span class= "function" > SwitchActor </ span >);
+        < span class= "class-name" > EventManager </ span >.< span class= "function" > AddListener </ span > &lt;< span class= "class-name" > AimEvent </ span > &gt; (< span class= "function" > HandleCameraSwitching </ span >);
+        < span class= "class-name" > Events </ span >.< span class= "class-name" > ActorPossesedEvent </ span >.< span class= "property" > CurrentActor </ span > = < span class= "number" > 0 </ span >; < span class= "comment" >// Player actor ID is 0</span>
+
+        < span class= "variable" > hostCam </ span > = < span class= "function" > FindOrLogError </ span > &lt;< span class= "class-name" > HostThirdPersonCam </ span > &gt; ();
+        < span class= "variable" > infectAbility </ span > = < span class= "function" > FindOrLogError </ span > &lt;< span class= "class-name" > InfectAbility </ span > &gt; ();
+    }
+
+    < span class= "keyword" >private</ span > < span class= "keyword" > void </ span > < span class= "function" > Update </ span > ()
+    {
+        < span class= "keyword" >if</ span > (< span class= "class-name" > Input </ span >.< span class= "function" > GetKeyDown </ span > (< span class= "class-name" > KeyCode </ span >.< span class= "property" > F </ span >) < span class= "operator" > &amp; &amp;</ span > < span class= "class-name" > Events </ span >.< span class= "class-name" > ActorPossesedEvent </ span >.< span class= "property" > InHost </ span >)
+            < span class= "function" > LeaveHost </ span > ();
+    }
+
+    < span class= "keyword" >private</ span > < span class= "keyword" > void </ span > < span class= "function" > FixedUpdate </ span > ()
+    {
+        < span class= "variable" > actorController </ span >?.< span class= "function" > AdjustAnimationSpeed </ span > ();
+        < span class= "variable" > actorController </ span >?.< span class= "function" > HandleCharacterMovement </ span > ();
+    }
+
+    < span class= "keyword" >private</ span > < span class= "keyword" > void </ span > < span class= "function" > OnDestroy </ span > ()
+    {
+        < span class= "class-name" > EventManager </ span >.< span class= "function" > RemoveListener </ span > &lt;< span class= "class-name" > ActorPossesedEvent </ span > &gt; (< span class= "function" > SwitchActor </ span >);
+        < span class= "class-name" > EventManager </ span >.< span class= "function" > RemoveListener </ span > &lt;< span class= "class-name" > AimEvent </ span > &gt; (< span class= "function" > HandleCameraSwitching </ span >);
+    }
+    < span class= "preprocessor" >#endregion</span>
+
+    < span class= "preprocessor" >#region</span> ACTOR MANAGEMENT
+
+    < span class= "keyword" >public</ span > < span class= "keyword" > void </ span > < span class= "function" > SwitchActor </ span > (< span class= "class-name" > ActorPossesedEvent </ span > < span class= "variable" > evt </ span >)
+    {
+        < span class= "keyword" > var </ span > < span class= "variable" > targetActor </ span > = < span class= "class-name" > ActorsManager </ span >.< span class= "function" > FindActorById </ span > (< span class= "variable" > evt </ span >.< span class= "property" > CurrentActor </ span >);
+        < span class= "keyword" >if</ span > (< span class= "variable" > targetActor </ span > == < span class= "keyword" > null </ span >)
+        {
+            < span class= "class-name" > Debug </ span >.< span class= "function" > LogError </ span > (< span class= "string" > $"Actor with ID {evt.CurrentActor} not found!" </ span >);
+            < span class= "keyword" >return</ span >;
+        }
+
+        < span class= "function" > EnterActor </ span > (< span class= "variable" > targetActor </ span >);
+    }
+
+    < span class= "keyword" >private</ span > < span class= "keyword" > void </ span > < span class= "function" > EnterActor </ span > (< span class= "class-name" > Actor </ span > < span class= "variable" > targetActor </ span >)
+    {
+        < span class= "function" > SetHostLogic </ span > (< span class= "variable" > targetActor </ span >);
+        < span class= "variable" > currentActor </ span > = < span class= "variable" > targetActor </ span >;
+        < span class= "variable" > actorController </ span > = < span class= "function" > FindActorController </ span > (< span class= "variable" > currentActor </ span >.< span class= "property" > gameObject </ span >);
+
+        < span class= "keyword" >if</ span > (< span class= "variable" > actorController </ span > == < span class= "keyword" > null </ span >)
+        {
+            < span class= "class-name" > Debug </ span >.< span class= "function" > LogError </ span > (< span class= "string" > $"ActorCharacterController not found for {currentActor.gameObject.name}!" </ span >);
+            < span class= "keyword" >return</ span >;
+        }
+
+        < span class= "keyword" >if</ span > (!< span class= "variable" > currentActor </ span >.< span class= "function" > IsPlayer </ span > ())
+        {
+            < span class= "variable" > currentActor </ span >.< span class= "property" > Affiliation </ span > = < span class= "number" > 0 </ span >;
+        }
+
+        < span class= "keyword" >if</ span > (!< span class= "variable" > currentActor </ span >.< span class= "function" > GetComponent </ span > &lt;< span class= "class-name" > AudioListener </ span > &gt; ())
+        {
+            < span class= "variable" > currentActor </ span >.< span class= "function" > AddComponent </ span > &lt;< span class= "class-name" > AudioListener </ span > &gt; ();
+        }
+
+        < span class= "function" > ReviveActor </ span > (< span class= "variable" > currentActor </ span >);
+        < span class= "function" > DisableAIComponents </ span > (< span class= "variable" > currentActor </ span >);
+        < span class= "function" > EnableWeaponsManager </ span > (< span class= "variable" > currentActor </ span >);
+
+        < span class= "variable" > actorController </ span >.< span class= "property" > transform </ span >.< span class= "function" > SetPositionAndRotation </ span > (< span class= "variable" > currentActor </ span >.< span class= "property" > transform </ span >.< span class= "property" > position </ span >, < span class= "variable" > currentActor </ span >.< span class= "property" > transform </ span >.< span class= "property" > rotation </ span >);
+
+        < span class= "variable" > hostCam </ span >?.< span class= "function" > SetupHostVariables </ span > (< span class= "variable" > currentActor </ span >);
+        < span class= "class-name" > CameraSwitcher </ span >.< span class= "function" > RegisterCameras </ span > (< span class= "variable" > currentActor </ span >);
+
+        < span class= "class-name" > CameraSwitcher </ span >.< span class= "function" > SwitchCamera </ span > (< span class= "variable" > currentActor </ span >.< span class= "property" > BasicCam </ span >);
+    }
+
+    < span class= "keyword" >private</ span > < span class= "keyword" > void </ span > < span class= "function" > LeaveHost </ span > ()
+    {
+        < span class= "variable" > currentActor </ span >.< span class= "function" > GetComponent </ span > &lt;< span class= "class-name" > Health </ span > &gt; ().< span class= "function" > TakeDamage </ span > (< span class= "number" > 250 </ span >, < span class= "variable" > player </ span >);
+        < span class= "variable" > currentActor </ span >.< span class= "function" > GetComponentInChildren </ span > &lt;< span class= "class-name" > Animator </ span > &gt; ().< span class= "function" > SetBool </ span > (< span class= "string" > "isWalking" </ span >, < span class= "keyword" > false </ span >);
+
+        < span class= "variable" > player </ span >.< span class= "property" > transform </ span >.< span class= "function" > SetPositionAndRotation </ span > (< span class= "variable" > currentActor </ span >.< span class= "property" > transform </ span >.< span class= "property" > position </ span > < span class= "operator" > +</ span > < span class= "class-name" > Vector3 </ span >.< span class= "property" > left </ span >, < span class= "variable" > currentActor </ span >.< span class= "property" > transform </ span >.< span class= "property" > rotation </ span >);
+        < span class= "variable" > player </ span >.< span class= "function" > SetActive </ span > (< span class= "keyword" > true </ span >);
+
+        < span class= "keyword" >if</ span > (!< span class= "variable" > currentActor </ span >.< span class= "function" > IsPlayer </ span > ())
+        {
+            < span class= "variable" > currentActor </ span >.< span class= "property" > Affiliation </ span > = < span class= "number" > 1 </ span >;
+        }
+
+        < span class= "keyword" >if</ span > (< span class= "variable" > currentActor </ span >.< span class= "function" > TryGetComponent </ span > &lt;< span class= "class-name" > AudioListener </ span > &gt; (< span class= "keyword" >out</ span > < span class= "keyword" > var </ span > < span class= "variable" > audioListener </ span >))
+        {
+            < span class= "function" > Destroy </ span > (< span class= "variable" > audioListener </ span >);
+        }
+
+        < span class= "function" > DisableWeaponsManager </ span > ();
+        < span class= "function" > MoveHostToRefuge </ span > ();
+
+        < span class= "class-name" > CameraSwitcher </ span >.< span class= "function" > UnregisterCameras </ span > (< span class= "variable" > currentActor </ span >);
+        < span class= "class-name" > Events </ span >.< span class= "class-name" > ActorPossesedEvent </ span >.< span class= "property" > CurrentActor </ span > = < span class= "number" > 0 </ span >;
+    }
+
+    < span class= "keyword" >private</ span > < span class= "keyword" > void </ span > < span class= "function" > HandleCameraSwitching </ span > (< span class= "class-name" > AimEvent </ span > < span class= "variable" > evt </ span >)
+    {
+        < span class= "keyword" >if</ span > (< span class= "variable" > evt </ span >.< span class= "property" > IsAiming </ span >)
+        {
+            < span class= "class-name" > CameraSwitcher </ span >.< span class= "function" > SwitchCamera </ span > (< span class= "variable" > currentActor </ span >.< span class= "property" > CombatCam </ span >);
+        }
+        < span class= "keyword" >else</ span >
+        {
+            < span class= "class-name" > CameraSwitcher </ span >.< span class= "function" > SwitchCamera </ span > (< span class= "variable" > currentActor </ span >.< span class= "property" > BasicCam </ span >);
+        }
+    }
+    < span class= "preprocessor" >#endregion</span>
+
+    < span class= "preprocessor" >#region</span> HELPER METHODS
+    < span class= "keyword" >private</ span > < span class= "type" > T </ span > < span class= "function" > FindOrLogError </ span ><< span class= "type" > T </ span >> () < span class= "keyword" > where </ span > < span class= "type" > T </ span > : < span class= "class-name" > MonoBehaviour </ span >
+    {
+        < span class= "keyword" > var </ span > < span class= "variable" > component </ span > = < span class= "method" > FindObjectOfType </ span ><< span class= "type" > T </ span >> ();
+        < span class= "class-name" > DebugUtility </ span >.< span class= "method" > HandleErrorIfNullFindObject </ span ><< span class= "type" > T </ span >, < span class= "class-name" > ActorFacade </ span >> (< span class= "variable" > component </ span >, < span class= "keyword" > this </ span >);
+        < span class= "keyword" >return</ span > < span class= "variable" > component </ span >;
+    }
+
+    < span class= "keyword" >private</ span > < span class= "class-name" > ActorCharacterController </ span > < span class= "function" > FindActorController </ span > (< span class= "class-name" > GameObject </ span > < span class= "parameter" > actor </ span >)
+    {
+        < span class= "keyword" >return</ span > < span class= "parameter" > actor </ span >.< span class= "method" > GetComponent </ span ><< span class= "class-name" > ActorCharacterController </ span >> () ?? < span class= "parameter" > actor </ span >.< span class= "method" > GetComponentInParent </ span ><< span class= "class-name" > ActorCharacterController </ span >> ();
+    }
+
+    < span class= "keyword" >private</ span > < span class= "keyword" > void </ span > < span class= "function" > SetHostLogic </ span > (< span class= "class-name" > Actor </ span > < span class= "parameter" > targetActor </ span >)
+    {
+        < span class= "keyword" >if</ span > (< span class= "parameter" > targetActor </ span >.< span class= "method" > IsPlayer </ span > ())
+        {
+            < span class= "namespace" > Events </ span >.< span class= "property" > ActorPossesedEvent </ span >.< span class= "property" > InHost </ span > = < span class= "constant" > false </ span >;
+            < span class= "keyword" >return</ span >;
+        }
+
+        < span class= "variable" > player </ span >.< span class= "method" > SetActive </ span > (< span class= "constant" > false </ span >);
+        < span class= "variable" > infectAbility </ span >.< span class= "variable" > isLeeching </ span > = < span class= "constant" > false </ span >;
+        < span class= "namespace" > Events </ span >.< span class= "property" > ActorPossesedEvent </ span >.< span class= "property" > InHost </ span > = < span class= "constant" > true </ span >;
+    }
+
+    < span class= "keyword" >private</ span > < span class= "keyword" > void </ span > < span class= "function" > ReviveActor </ span > (< span class= "class-name" > Actor </ span > < span class= "parameter" > actor </ span >)
+    {
+        < span class= "keyword" > var </ span > < span class= "variable" > health </ span > = < span class= "parameter" > actor </ span >.< span class= "method" > GetComponent </ span ><< span class= "class-name" > Health </ span >> ();
+        < span class= "keyword" >if</ span > (< span class= "variable" > health </ span >?.< span class= "property" > CurrentHealth </ span > <= < span class= "number" > 0 </ span >)
+        {
+            < span class= "variable" > health </ span >.< span class= "method" > Heal </ span > (< span class= "number" > 1 </ span >);
+        }
+    }
+
+    < span class= "keyword" >private</ span > < span class= "keyword" > void </ span > < span class= "function" > DisableAIComponents </ span > (< span class= "class-name" > Actor </ span > < span class= "parameter" > actor </ span >)
+    {
+        < span class= "parameter" > actor </ span >.< span class= "method" > TryGetComponent </ span > (< span class= "keyword" >out</ span > < span class= "class-name" > PatrolAgent </ span > < span class= "variable" > _patrolAgent </ span >);
+        < span class= "parameter" > actor </ span >.< span class= "method" > TryGetComponent </ span > (< span class= "keyword" >out</ span > < span class= "class-name" > NavMeshAgent </ span > < span class= "variable" > _navMeshAgent </ span >);
+
+        < span class= "keyword" >if</ span > (< span class= "variable" > _patrolAgent </ span > != < span class= "constant" > null </ span >)
+            < span class= "variable" > _patrolAgent </ span >.< span class= "property" > enabled </ span > = < span class= "constant" > false </ span >;
+        < span class= "keyword" >if</ span > (< span class= "variable" > _navMeshAgent </ span > != < span class= "constant" > null </ span >)
+            < span class= "variable" > _navMeshAgent </ span >.< span class= "property" > enabled </ span > = < span class= "constant" > false </ span >;
+    }
+
+    < span class= "keyword" >private</ span > < span class= "keyword" > void </ span > < span class= "function" > EnableWeaponsManager </ span > (< span class= "class-name" > Actor </ span > < span class= "parameter" > actor </ span >)
+    {
+        < span class= "keyword" >if</ span > (< span class= "parameter" > actor </ span >.< span class= "method" > TryGetComponent </ span > (< span class= "keyword" >out</ span > < span class= "variable" > actorWeaponsManager </ span >))
+        {
+            < span class= "variable" > actorWeaponsManager </ span >.< span class= "property" > enabled </ span > = < span class= "constant" > true </ span >;
+        }
+    }
+
+    < span class= "keyword" >private</ span > < span class= "keyword" > void </ span > < span class= "function" > DisableWeaponsManager </ span > ()
+    {
+        < span class= "keyword" >if</ span > (< span class= "variable" > actorWeaponsManager </ span > != < span class= "constant" > null </ span >)
+        {
+            < span class= "variable" > actorWeaponsManager </ span >.< span class= "property" > enabled </ span > = < span class= "constant" > false </ span >;
+        }
+    }
+
+    < span class= "keyword" >private</ span > < span class= "keyword" > void </ span > < span class= "function" > MoveHostToRefuge </ span > ()
+    {
+        < span class= "class-name" > Transform </ span > < span class= "variable" > refugeCamp </ span > = < span class= "class-name" > GameObject </ span >.< span class= "method" > FindWithTag </ span > (< span class= "string" > "HostRefugeCamp" </ span >)?.<span class="property">
+    transform </ span >;
+    < span class= "keyword" >if</ span > (< span class= "variable" > refugeCamp </ span > != < span class= "constant" > null </ span >)
+    {
+    < span class= "variable" > currentActor </ span >.< span class= "property" > transform </ span >.< span class= "method" > SetParent </ span > (< span class= "variable" > refugeCamp </ span >);
+    }
+    }
+    < span class= "preprocessor" >#endregion
+</span>
+}
+
+<span class="keyword">using</span> System.Linq;
+<span class="keyword">using</span> UnityEngine;
+<span class="keyword">using</span> UnityEngine.SceneManagement;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="class-name">SceneLoadTrigger</span> : <span class="class-name">MonoBehaviour</span>
+{
+<span class="preprocessor">#region</span> VARIABLES
+    [<span class="attribute">SerializeField</span>] <span class="keyword">private</span> <span class="class-name">SceneField</span>[] <span class="variable">_scenesToUnload</span>;
+    [<span class="attribute">SerializeField</span>] <span class="keyword">private</span> <span class="class-name">SceneField</span>[] <span class="variable">_scenesToLoad</span>;
+
+<span class="keyword">private</span> <span class="class-name">GameObject</span> <span class="variable">_player</span>;
+<span class="keyword">private</span> <span class="class-name">GameObject</span>[] <span class="variable">_hosts</span>;
+<span class="preprocessor">#endregion</span>
+
+<span class="preprocessor">#region</span> UNITY METHODS
+<span class="keyword">private</span> <span class="keyword">void</span> <span class="function">Awake</span>()
+    {
+<span class="variable">_player</span> = <span class="class-name">GameObject</span>.<span class="function">FindGameObjectWithTag</span>(<span class="string">"Player"</span>);
+<span class="variable">_hosts</span> = <span class="class-name">GameObject</span>.<span class="function">FindGameObjectsWithTag</span>(<span class="string">"Host"</span>);
+    }
+
+<span class="keyword">private</span> <span class="keyword">void</span> <span class="function">OnTriggerEnter</span>(<span class="class-name">Collider</span> <span class="variable">collision</span>)
+    {
+<span class="keyword">if</span> (<span class="variable">collision</span>.<span class="property">gameObject</span> == <span class="variable">_player</span> <span class="operator">||</span> <span class="variable">_hosts</span>.<span class="function">Contains</span>&lt;<span class="class-name">GameObject</span>&gt;(<span class="variable">collision</span>.<span class="property">gameObject</span>))
+        {
+<span class="comment">// Load and unload the scenes we want</span>
+<span class="function">LoadScene</span>();
+<span class="function">UnloadScene</span>();
+        }
+    }
+
+<span class="keyword">private</span> <span class="keyword">void</span> <span class="function">OnControllerColliderHit</span>(<span class="class-name">ControllerColliderHit</span> <span class="variable">hit</span>)
+    {
+<span class="keyword">if</span> (<span class="variable">hit</span>.<span class="property">gameObject</span> == <span class="variable">_player</span> <span class="operator">||</span> <span class="variable">_hosts</span>.<span class="function">Contains</span>&lt;<span class="class-name">GameObject</span>&gt;(<span class="variable">hit</span>.<span class="property">gameObject</span>))
+        {
+<span class="comment">// Load and unload the scenes we want</span>
+<span class="function">LoadScene</span>();
+<span class="function">UnloadScene</span>();
+        }
+    }
+<span class="preprocessor">#endregion</span>
+
+<span class="preprocessor">#region</span> SCENE MANAGEMENT
+<span class="keyword">private</span> <span class="keyword">void</span> <span class="function">LoadScene</span>()
+    {
+<span class="keyword">for</span> (<span class="keyword">int</span> <span class="variable">i</span> = <span class="number">0</span>; <span class="variable">i</span> &lt; <span class="variable">_scenesToLoad</span>.<span class="property">Length</span>; <span class="variable">i</span>++)
+        {
+<span class="keyword">bool</span> <span class="variable">isSceneLoaded</span> = <span class="keyword">false</span>;
+
+<span class="keyword">for</span> (<span class="keyword">int</span> <span class="variable">j</span> = <span class="number">0</span>; <span class="variable">j</span> &lt; <span class="class-name">SceneManager</span>.<span class="property">sceneCount</span>; <span class="variable">j</span>++)
+            {
+<span class="class-name">Scene</span> <span class="variable">loadedScene</span> = <span class="class-name">SceneManager</span>.<span class="function">GetSceneAt</span>(<span class="variable">j</span>);
+<span class="keyword">if</span> (<span class="variable">loadedScene</span>.<span class="property">name</span> == <span class="variable">_scenesToLoad</span>[<span class="variable">i</span>].<span class="property">SceneName</span>)
+                {
+<span class="variable">isSceneLoaded</span> = <span class="keyword">true</span>;
+<span class="keyword">break</span>;
+                }
+            }
+
+<span class="keyword">if</span> (!<span class="variable">isSceneLoaded</span>)
+            {
+<span class="class-name">SceneManager</span>.<span class="function">LoadSceneAsync</span>(<span class="variable">_scenesToLoad</span>[<span class="variable">i</span>], <span class="class-name">LoadSceneMode</span>.<span class="property">Additive</span>);
+            }
+        }
+    }
+
+<span class="keyword">private</span> <span class="keyword">void</span> <span class="function">UnloadScene</span>()
+    {
+<span class="keyword">for</span> (<span class="keyword">int</span> <span class="variable">i</span> = <span class="number">0</span>; <span class="variable">i</span> &lt; <span class="variable">_scenesToUnload</span>.<span class="property">Length</span>; <span class="variable">i</span>++)
+        {
+<span class="keyword">for</span> (<span class="keyword">int</span> <span class="variable">j</span> = <span class="number">0</span>; <span class="variable">j</span> &lt; <span class="class-name">SceneManager</span>.<span class="property">sceneCount</span>; <span class="variable">j</span>++)
+            {
+<span class="class-name">Scene</span> <span class="variable">loadedScene</span> = <span class="class-name">SceneManager</span>.<span class="function">GetSceneAt</span>(<span class="variable">j</span>);
+<span class="keyword">if</span> (<span class="variable">loadedScene</span>.<span class="property">name</span> == <span class="variable">_scenesToUnload</span>[<span class="variable">i</span>].<span class="property">SceneName</span>)
+                {
+<span class="class-name">SceneManager</span>.<span class="function">UnloadSceneAsync</span>(<span class="variable">_scenesToUnload</span>[<span class="variable">i</span>]);
+                }
+            }
+        }
+    }
+<span class="preprocessor">#endregion</span>
+}
+
+
+
+<span class="keyword">using</span> UnityEngine;
+<span class="keyword">using</span> UnityEngine.SceneManagement;
+<span class="keyword">using</span> System.Collections;
+<span class="keyword">using</span> UnityEditor;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="class-name">DestructibleObject</span> : <span class="class-name">MonoBehaviour</span>
+{
+<span class="preprocessor">#region</span> VARIABLES
+    [<span class="attribute">Header</span>(<span class="string">"Destructible Settings"</span>)]
+    [<span class="attribute">SerializeField</span>]
+<span class="keyword">private</span> <span class="class-name">GameObject</span> <span class="variable">destroyedVersion</span>;
+
+    [<span class="attribute">SerializeField</span>]
+<span class="keyword">private</span> <span class="class-name">AudioClip</span>[] <span class="variable">destructionSfx</span>;
+<span class="keyword">private</span> <span class="class-name">AudioSource</span> <span class="variable">m_AudioSource</span>;
+
+    [<span class="attribute">Header</span>(<span class="string">"Self-Destruct Settings"</span>)]
+    [<span class="attribute">SerializeField</span>]
+<span class="keyword">private</span> <span class="keyword">bool</span> <span class="variable">enableSelfDestruct</span> = <span class="literal">false</span>;
+<span class="keyword">public</span> <span class="keyword">bool</span> <span class="variable">EnableSelfDestruct</span> { <span class="keyword">get</span> =&gt; <span class="variable">enableSelfDestruct</span>; <span class="keyword">set</span> =&gt; <span class="variable">enableSelfDestruct</span> = <span class="variable">value</span>; }
+
+    [<span class="attribute">SerializeField</span>, <span class="attribute">Tooltip</span>(<span class="string">"Destroy the main object after all children are destroyed"</span>), <span class="attribute">HideInInspector</span>]
+<span class="keyword">private</span> <span class="keyword">bool</span> <span class="variable">destroyRoot</span> = <span class="literal">false</span>;
+<span class="keyword">public</span> <span class="keyword">bool</span> <span class="variable">DestroyRoot</span> { <span class="keyword">get</span> =&gt; <span class="variable">destroyRoot</span>; <span class="keyword">set</span> =&gt; <span class="variable">destroyRoot</span> = <span class="variable">value</span>; }
+
+    [<span class="attribute">SerializeField</span>, <span class="attribute">Range</span>(1f, 20f), <span class="attribute">HideInInspector</span>]
+<span class="keyword">private</span> <span class="keyword">float</span> <span class="variable">minDestroyTime</span> = 3f;
+<span class="keyword">public</span> <span class="keyword">float</span> <span class="variable">MinDestroyTime</span> { <span class="keyword">get</span> =&gt; <span class="variable">minDestroyTime</span>; <span class="keyword">set</span> =&gt; <span class="variable">minDestroyTime</span> = <span class="variable">value</span>; }
+
+    [<span class="attribute">SerializeField</span>, <span class="attribute">Range</span>(1f, 20f), <span class="attribute">HideInInspector</span>]
+<span class="keyword">private</span> <span class="keyword">float</span> <span class="variable">maxDestroyTime</span> = 10f;
+<span class="keyword">public</span> <span class="keyword">float</span> <span class="variable">MaxDestroyTime</span> { <span class="keyword">get</span> =&gt; <span class="variable">maxDestroyTime</span>; <span class="keyword">set</span> =&gt; <span class="variable">maxDestroyTime</span> = <span class="variable">value</span>; }
+<span class="preprocessor">#endregion</span>
+
+<span class="preprocessor">#region</span> UNITY METHODS
+<span class="keyword">private</span> <span class="keyword">void</span> <span class="function">OnCollisionEnter</span>(<span class="class-name">Collision</span> <span class="variable">collision</span>)
+    {
+<span class="keyword">if</span> (<span class="variable">collision</span>.<span class="property">gameObject</span>.<span class="function">CompareTag</span>(<span class="string">"Bullet"</span>))
+        {
+<span class="function">DestroyObject</span>();
+        }
+    }
+<span class="preprocessor">#endregion</span>
+
+<span class="preprocessor">#region</span> DESTRUCTION METHODS
+<span class="keyword">public</span> <span class="keyword">void</span> <span class="function">DestroyObject</span>()
+    {
+<span class="class-name">Scene</span> <span class="variable">currentScene</span> = <span class="variable">gameObject</span>.<span class="property">scene</span>;
+
+<span class="keyword">if</span> (!<span class="variable">currentScene</span>.<span class="property">isLoaded</span> || <span class="variable">destroyedVersion</span> == <span class="literal">null</span>) <span class="keyword">return</span>;
+
+<span class="class-name">GameObject</span> <span class="variable">instantiatedObject</span> = <span class="function">Instantiate</span>(<span class="variable">destroyedVersion</span>, <span class="variable">transform</span>.<span class="property">position</span>, <span class="variable">transform</span>.<span class="property">rotation</span>);
+
+<span class="variable">m_AudioSource</span> = <span class="variable">instantiatedObject</span>.<span class="function">GetComponent</span>&lt;<span class="class-name">AudioSource</span>&gt;();
+<span class="class-name">DebugUtility</span>.<span class="function">HandleErrorIfNullGetComponent</span>&lt;<span class="class-name">AudioSource</span>, <span class="class-name">DestructibleObject</span>&gt;(<span class="variable">m_AudioSource</span>, <span class="variable">instantiatedObject</span>.<span class="property">transform</span>, <span class="variable">instantiatedObject</span>);
+
+<span class="class-name">Game_Manager</span>.<span class="function">PlayRandomSfx</span>(<span class="variable">m_AudioSource</span>, <span class="variable">destructionSfx</span>);
+
+<span class="class-name">SceneManager</span>.<span class="function">MoveGameObjectToScene</span>(<span class="variable">instantiatedObject</span>, <span class="variable">currentScene</span>);
+<span class="variable">instantiatedObject</span>.<span class="property">transform</span>.<span class="function">SetParent</span>(<span class="variable">transform</span>.<span class="property">parent</span>);
+
+<span class="function">Destroy</span>(<span class="keyword">gameObject</span>);
+
+<span class="keyword">if</span> (<span class="variable">EnableSelfDestruct</span>)
+        {
+<span class="function">StartCoroutine</span>(<span class="function">SelfDestructRoutine</span>(<span class="variable">instantiatedObject</span>));
+        }
+    }
+
+<span class="keyword">private</span> <span class="class-name">IEnumerator</span> <span class="function">SelfDestructRoutine</span>(<span class="class-name">GameObject</span> <span class="variable">targetObject</span>)
+    {
+<span class="class-name">DestructionTarget</span>[] <span class="variable">destructionTargets</span> = <span class="variable">targetObject</span>.<span class="function">GetComponentsInChildren</span>&lt;<span class="class-name">DestructionTarget</span>&gt;();
+
+<span class="keyword">foreach</span> (<span class="class-name">DestructionTarget</span> <span class="variable">target</span> <span class="keyword">in</span> <span class="variable">destructionTargets</span>)
+        {
+<span class="function">Destroy</span>(<span class="variable">target</span>.<span class="property">gameObject</span>, <span class="class-name">Random</span>.<span class="function">Range</span>(<span class="variable">minDestroyTime</span>, <span class="variable">maxDestroyTime</span>));
+        }
+
+<span class="keyword">if</span> (<span class="variable">destroyRoot</span>)
+        {
+<span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="class-name">WaitForSeconds</span>(<span class="variable">maxDestroyTime</span>);
+<span class="function">Destroy</span>(<span class="variable">targetObject</span>);
+        }
+    }
+<span class="preprocessor">#endregion</span>
+}
+
+<span class="preprocessor">#if</span> UNITY_EDITOR
+<span class="preprocessor">#region</span> Custom Inspector for DestructibleObject
+[<span class="attribute">CustomEditor</span>(<span class="keyword">typeof</span>(<span class="class-name">DestructibleObject</span>))]
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="class-name">DestructibleObjectEditor</span> : <span class="class-name">Editor</span>
+{
+<span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="function">OnInspectorGUI</span>()
+    {
+<span class="class-name">DestructibleObject</span> <span class="variable">destructibleObject</span> = (<span class="class-name">DestructibleObject</span>)<span class="variable">target</span>;
+
+<span class="function">DrawDefaultInspector</span>();
+
+<span class="keyword">if</span> (<span class="variable">destructibleObject</span>.<span class="variable">EnableSelfDestruct</span>)
+        {
+<span class="variable">destructibleObject</span>.<span class="variable">DestroyRoot</span> = <span class="class-name">EditorGUILayout</span>.<span class="function">Toggle</span>(<span class="string">"Destroy Root"</span>, <span class="variable">destructibleObject</span>.<span class="variable">DestroyRoot</span>);
+<span class="variable">destructibleObject</span>.<span class="variable">MinDestroyTime</span> = <span class="class-name">EditorGUILayout</span>.<span class="function">FloatField</span>(<span class="string">"Min Destroy Time"</span>, <span class="variable">destructibleObject</span>.<span class="variable">MinDestroyTime</span>);
+<span class="variable">destructibleObject</span>.<span class="variable">MaxDestroyTime</span> = <span class="class-name">EditorGUILayout</span>.<span class="function">FloatField</span>(<span class="string">"Max Destroy Time"</span>, <span class="variable">destructibleObject</span>.<span class="variable">MaxDestroyTime</span>);
+        }
+
+<span class="keyword">if</span> (<span class="class-name">GUI</span>.<span class="property">changed</span>)
+        {
+<span class="class-name">EditorUtility</span>.<span class="function">SetDirty</span>(<span class="variable">target</span>);
+        }
+    }
+}
+<span class="preprocessor">#endregion</span>
+<span class="preprocessor">#endif</span>
+
+<!--<button class="expandable-button" onclick="toggleContent(this)">
+                                Script Snippet - XP Manager
+                                <img class="expand-icon" src="assets/images/icons/arrow-down.png" alt="Expand">
+                            </button>
+                            <div class="expandable-content">
+                                <div class="code-container">
+                                    <pre><code class="language-csharp">
+<span class="keyword">using</span> Unity.FPS.Game;
+<span class="keyword">using</span> UnityEngine;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="class-name">XpManager</span> : <span class="class-name">Manager</span>
+{
+                                    <span class="preprocessor">#region</span> VARIABLES
+
+                                    <span class="keyword">public</span> <span class="type">int</span> PlayerLevel { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
+                                    <span class="keyword">public</span> <span class="type">int</span> PlayerXP { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
+
+    [<span class="attribute">Tooltip</span>(<span class="string">"Previous XP Threshold required to level up"</span>)]
+                                    <span class="keyword">public</span> <span class="type">int</span> PrevThreshold { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
+
+    [<span class="attribute">Tooltip</span>(<span class="string">"XP required to level up"</span>)]
+                                    <span class="keyword">public</span> <span class="type">int</span> CurThreshold { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
+
+                                    <span class="preprocessor">#endregion</span>
+
+                                    <span class="preprocessor">#region</span> UNITY METHODS
+
+                                    <span class="keyword">public override</span> <span class="keyword">void</span> <span class="method">Start</span>()
+    {
+                                    <span class="comment">// Initialise XP system and subscribe to XP update events</span>
+                                    <span class="keyword">base</span>.Start();
+
+                                    <span class="class-name">EventManager</span>.AddListener&lt;<span class="class-name">XpUpdateEvent</span>&gt;(<span class="method">UpdateXP</span>);
+
+        PlayerLevel = <span class="number">1</span>;
+        PlayerXP = <span class="number">0</span>;
+        PrevThreshold = <span class="number">0</span>;
+
+                                    <span class="method">CalculateXPThreshold</span>();
+    }
+
+                                    <span class="keyword">private</span> <span class="keyword">void</span> <span class="method">OnDestroy</span>()
+    {
+                                    <span class="comment">// Unsubscribe from XP update events</span>
+                                    <span class="class-name">EventManager</span>.RemoveListener&lt;<span class="class-name">XpUpdateEvent</span>&gt;(<span class="method">UpdateXP</span>);
+    }
+
+                                    <span class="preprocessor">#endregion</span>
+
+                                    <span class="preprocessor">#region</span> XP METHODS
+
+                                    <span class="comment">// Updates the player's XP based on the event data</span>
+                                    <span class="keyword">public void</span> <span class="method">UpdateXP</span>(<span class="class-name">XpUpdateEvent</span> <span class="parameter">evt</span>)
+    {
+        PlayerXP = evt.XP;
+
+                                    <span class="keyword">if</span> (PlayerXP &gt;= CurThreshold)
+        {
+                                    <span class="class-name">LevelUpEvent</span> lvlUpEvt = <span class="class-name">Events</span>.LevelUpEvent;
+                                    <span class="method">LevelUp</span>(lvlUpEvt);
+        }
+    }
+
+                                    <span class="comment">// Handles logic for when the player levels up</span>
+                                    <span class="keyword">private void</span> <span class="method">LevelUp</span>(<span class="class-name">LevelUpEvent</span> <span class="parameter">evt</span>)
+    {
+        evt.Level++;
+
+        PlayerLevel = evt.Level;
+
+                                    <span class="class-name">SkillPointsChangedEvent</span> skillPointEvent = <span class="class-name">Events</span>.SkillPointsChangedEvent;
+        skillPointEvent.SkillPoints++;
+
+                                    <span class="method">CalculateXPThreshold</span>();
+    }
+
+                                    <span class="comment">// Calculates the next XP threshold for levelling up</span>
+                                    <span class="keyword">private void</span> <span class="method">CalculateXPThreshold</span>()
+    {
+        PrevThreshold = CurThreshold;
+        CurThreshold = PlayerLevel * <span class="number">150</span>;
+    }
+
+                                    <span class="preprocessor">#endregion</span>
+}
+</code></pre>
+                                </div>-->
+<!-- code-container -->
+<!--</div>--> <!-- code expandable-content -->
+<!--<div class="code-container">
+                                <pre><code class="language-csharp">
+                                <span class="keyword"> using</span> <span class="namespace"> UnityEngine</span>;
+
+<span class="keyword">namespace</span> <span class="namespace"> Unity.FPS.Game</span>
+{
+                                <span class="comment">// The Game Events used across the Game.</span>
+                                <span class="comment">// Anytime there is a need for a new event, it should be added here.</span>
+
+                                <span class="keyword">public static</span> <span class="class-name">class</span> <span class="class-name">Events</span>
+    {
+                                <span class="preprocessor">#region</span> BASE EVENTS
+
+                                <span class="keyword">public static</span> <span class="type">ObjectiveUpdateEvent</span> <span class="variable">ObjectiveUpdateEvent</span> = <span class="keyword">new</span>();
+                                <span class="keyword">public static</span> <span class="type">AllObjectivesCompletedEvent</span> <span class="variable">AllObjectivesCompletedEvent</span> = <span class="keyword">new</span>();
+                                <span class="keyword">public static</span> <span class="type">GameOverEvent</span> <span class="variable">GameOverEvent</span> = <span class="keyword">new</span>();
+                                <span class="keyword">public static</span> <span class="type">PlayerDeathEvent</span> <span class="variable">PlayerDeathEvent</span> = <span class="keyword">new</span>();
+                                <span class="keyword">public static</span> <span class="type">EnemyKillEvent</span> <span class="variable">EnemyKillEvent</span> = <span class="keyword">new</span>();
+                                <span class="keyword">public static</span> <span class="type">PickupEvent</span> <span class="variable">PickupEvent</span> = <span class="keyword">new</span>();
+                                <span class="keyword">public static</span> <span class="type">AmmoPickupEvent</span> <span class="variable">AmmoPickupEvent</span> = <span class="keyword">new</span>();
+                                <span class="keyword">public static</span> <span class="type">DamageEvent</span> <span class="variable">DamageEvent</span> = <span class="keyword">new</span>();
+                                <span class="keyword">public static</span> <span class="type">DisplayMessageEvent</span> <span class="variable">DisplayMessageEvent</span> = <span class="keyword">new</span>();
+
+                                <span class="preprocessor">#endregion</span>
+
+                                <span class="preprocessor">#region Custom Events (Jibbe)</span>
+
+                                <span class="keyword">public static</span> <span class="type">XpUpdateEvent</span> <span class="variable">XpUpdateEvent</span> = <span class="keyword">new</span>();
+                                <span class="keyword">public static</span> <span class="type">LevelUpEvent</span> <span class="variable">LevelUpEvent</span> = <span class="keyword">new</span>();
+                                <span class="keyword">public static</span> <span class="type">SkillPointsChangedEvent</span> <span class="variable">SkillPointsChangedEvent</span> = <span class="keyword">new</span>();
+                                <span class="keyword">public static</span> <span class="type">SkillUnlockedEvent</span> <span class="variable">SkillUnlockedEvent</span> = <span class="keyword">new</span>();
+                                <span class="keyword">public static</span> <span class="type">PlayerEvent</span> <span class="variable">PlayerEvent</span> = <span class="keyword">new</span>();
+                                <span class="keyword">public static</span> <span class="type">BlasterDMGIncreasedEvent</span> <span class="variable">BlasterDMGIncreasedEvent</span> = <span class="keyword">new</span>();
+                                <span class="keyword">public static</span> <span class="type">HPIncreasedEvent</span> <span class="variable">HPIncreasedEvent</span> = <span class="keyword">new</span>();
+                                <span class="keyword">public static</span> <span class="type">SpeedIncreasedEvent</span> <span class="variable">SpeedIncreasedEvent</span> = <span class="keyword">new</span>();
+                                <span class="keyword">public static</span> <span class="type">SkillTreeUIClosedEvent</span> <span class="variable">SkillTreeUIClosedEvent</span> = <span class="keyword">new</span>();
+
+                                <span class="preprocessor">#endregion</span>
+    }
+
+                                <span class="preprocessor">#region</span> EVENT CLASSES
+
+                                <span class="comment"> /// &lt;summary&gt;</span>
+                                <span class="comment"> /// Event carrying a reference to the Player GameObject.</span>
+                                <span class="comment"> /// &lt;/summary&gt;</span>
+                                <span class="keyword"> public class</span> <span class="class-name"> PlayerEvent</span> : <span class="type"> GameEvent</span>
+    {
+                                <span class="keyword">public</span> <span class="type">GameObject</span> <span class="variable">player</span>;
+    }
+
+                                <span class="comment"> /// &lt;summary&gt;</span>
+                                <span class="comment"> /// Event triggered when the blaster damage buff is increased.</span>
+                                <span class="comment"> /// &lt;/summary&gt;</span>
+                                <span class="keyword"> public class</span> <span class="class-name"> BlasterDMGIncreasedEvent</span> : <span class="type"> GameEvent</span>
+    {
+                                <span class="keyword">private</span> <span class="type">int</span> <span class="variable">dmgBuff</span>;
+                                <span class="comment"> /// &lt;/summary&gt;</span>
+                                <span class="comment"> /// Damage buff amount. Automatically broadcasts event when set.</span>
+                                <span class="comment"> /// &lt;/summary&gt;</span>
+                                <span class="keyword">public</span> <span class="type">int</span> <span class="property">DMGBuff</span>
+        {
+                                <span class="keyword">get</span> => <span class="variable">dmgBuff</span>;
+                                <span class="keyword">set</span>
+            {
+                                <span class="variable">dmgBuff</span> = <span class="variable">value</span>;
+                                <span class="type">EventManager</span>.<span class="method">Broadcast</span>(<span class="type">Events</span>.<span class="property">BlasterDMGIncreasedEvent</span>);
+            }
+        }
+    }
+
+                                <span class="comment"> /// &lt;summary&gt;</span>
+                                <span class="comment"> /// Event triggered when the player's HP is increased.</span>
+                                <span class="comment"> /// &lt;/summary&gt;</span>
+                                <span class="keyword"> public class</span> <span class="class-name"> HPIncreasedEvent</span> : <span class="type"> GameEvent</span>
+    {
+                                <span class="keyword">private</span> <span class="type">int</span> <span class="variable">hpBuff</span>;
+                                <span class="comment"> /// &lt;/summary&gt;</span>
+                                <span class="comment"> /// HP buff amount. Automatically broadcasts event when set.</span>
+                                <span class="comment"> /// &lt;/summary&gt;</span>
+                                <span class="keyword">public</span> <span class="type">int</span> <span class="property">HPBuff</span>
+        {
+                                <span class="keyword">get</span> => <span class="variable">hpBuff</span>;
+                                <span class="keyword">set</span>
+            {
+                                <span class="variable">hpBuff</span> = <span class="variable">value</span>;
+                                <span class="type">EventManager</span>.<span class="method">Broadcast</span>(<span class="type">Events</span>.<span class="property">HPIncreasedEvent</span>);
+            }
+        }
+    }
+
+                                <span class="comment"> /// &lt;summary&gt;</span>
+                                <span class="comment"> /// Event triggered when the player's speed is increased.</span>
+                                <span class="comment"> /// &lt;/summary&gt;</span>
+                                <span class="keyword"> public class</span> <span class="class-name"> SpeedIncreasedEvent</span> : <span class="type"> GameEvent</span>
+    {
+                                <span class="keyword">private</span> <span class="type">int</span> <span class="variable">speedBuff</span>;
+                                <span class="comment"> /// &lt;/summary&gt;</span>
+                                <span class="comment"> /// HP buff amount. Automatically broadcasts event when set.</span>
+                                <span class="comment"> /// &lt;/summary&gt;</span>
+                                <span class="keyword">public</span> <span class="type">int</span> <span class="property">SpeedBuff</span>
+        {
+                                <span class="keyword">get</span> => <span class="variable">speedBuff</span>;
+                                <span class="keyword">set</span>
+            {
+                                <span class="variable">speedBuff</span> = <span class="variable">value</span>;
+                                <span class="type">EventManager</span>.<span class="method">Broadcast</span>(<span class="type">Events</span>.<span class="property">SpeedIncreasedEvent</span>);
+            }
+        }
+    }
+...</code></pre>
+                            </div>-->
+<!-- code-container -->
+<!--</div>--> <!-- code expandable-content -->
+<!--</div>--> <!-- expandable-content -->
+
+
+
+<!--<section id="skills">
+    <div>
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skills-column">
+                <h3>Soft Skills</h3>
+                <ul>
+                    <li>Adaptibility</li>
+                    <li>Communication</li>
+                    <li>Creativity</li>
+                    <li>Hard-working</li>
+                    <li>Proactive</li>
+                    <li>Teamwork</li>
+                </ul>
+            </div>
+            <div class="skills-column">
+                <h3>Hard Skills</h3>
+                <ul>
+                    <li>Adobe Creative Cloud: Photoshop, Illustrator, Substance Painter</li>
+                    <li>Microsoft Office 365</li>
+                    <li>Blender</li>
+                    <li>Unity</li>
+                    <li>C#</li>
+                    <li>GML</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>-->
+<!-- LinkedIn -->
+<!--<a href="https://www.linkedin.com/in/jibbe-wieman-53b34428b/" target="_blank">
+    <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 8.75h3.96v12H3v-12zM8.75 8.75h3.79v1.65h.05c.53-.94 1.84-1.92 3.78-1.92 4.04 0 4.78 2.65 4.78 6.08v6.19h-3.97V15c0-1.23-.02-2.82-1.87-2.82s-2.16 1.37-2.16 2.71v6h-3.97v-12z" />
+    </svg>
+</a>-->
+<!-- GitHub -->
+<!--<a href="https://github.com/JibbeWieman" target="_blank">
+    <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.48v-1.68c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.12-1.47-1.12-1.47-.91-.62.07-.61.07-.61 1.01.07 1.54 1.03 1.54 1.03.9 1.53 2.36 1.09 2.94.84.09-.65.35-1.09.63-1.34-2.22-.26-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.26-.45-1.3.1-2.7 0 0 .84-.27 2.75 1.02A9.58 9.58 0 0112 6.8c.86.004 1.72.11 2.52.33 1.9-1.29 2.74-1.02 2.74-1.02.56 1.4.21 2.44.11 2.7.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.69.93.69 1.87v2.78c0 .26.18.58.69.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z" />
+    </svg>
+</a>-->
+<!-- ArtStation -->
+<!--<a href="https://www.artstation.com/jibbew" target="_blank">
+    <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2.38 17.07l2.55-4.6 3.94 6.98H3.5a1.73 1.73 0 0 1-1.5-2.38zM17.96 21.45l-1.7-2.92h5.35a1.75 1.75 0 0 0 1.51-2.62l-6.94-12.3a1.75 1.75 0 0 0-3.03 0L6.23 10.97l6.21 10.48a1.72 1.72 0 0 0 2.97 0l2.55-4.59 1.72 2.98a1.76 1.76 0 0 1-1.72 2.6h-3.64z" />
+    </svg>
+</a>-->
+<!-- Itch.io -->
+<!--<a href="https://greenygamedev.itch.io" target="_blank">
+    <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 4v7.5L6 21h12l4-9.5V4H2zm18 2v5.86l-3.16 7.64H7.16L4 11.86V6h16zM9 7.5c-.96 0-1.75.79-1.75 1.75v2.5c0 .96.79 1.75 1.75 1.75h6c.96 0 1.75-.79 1.75-1.75v-2.5c0-.96-.79-1.75-1.75-1.75H9zm0 1.5h6c.14 0 .25.11.25.25v2.5c0 .14-.11.25-.25.25H9a.25.25 0 0 1-.25-.25v-2.5c0-.14.11-.25.25-.25zM7 15h10v1H7v-1z" />
+    </svg>
+</a>-->

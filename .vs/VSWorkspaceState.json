@@ -3,11 +3,12 @@
     "",
     "\\assets",
     "\\assets\\snippets",
+    "\\assets\\snippets\\project-parasite",
     "\\assets\\snippets\\skill-tree",
     "\\css",
     "\\js",
     "\\js\\scripts"
   ],
-  "SelectedNode": "\\assets\\snippets\\skill-tree\\xp-manager.cs",
+  "SelectedNode": "\\assets\\snippets\\project-parasite\\destructible-object.cs",
   "PreviewInSolutionExplorer": false
 }
