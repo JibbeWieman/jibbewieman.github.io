@@ -6,7 +6,7 @@ function cardHTML(p) {
     return `
     <div class="project-card" data-tags="${p.tags.join(" ")}">
         <a href="${p.slug}.html">
-            <img src="${p.banner}" alt="${p.title} banner" loading="lazy">
+            <img src="${p.banner}" alt="${p.title} banner">
             <div>
                 <h3>${p.title}</h3>
                 <p>${p.blurb}</p>
