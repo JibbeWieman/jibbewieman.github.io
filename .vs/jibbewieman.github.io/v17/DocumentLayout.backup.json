@@ -3,6 +3,30 @@
   "WorkspaceRootPath": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\skill-tree.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:skill-tree.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\assets\\snippets\\skill-tree\\edge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\snippets\\skill-tree\\edge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\assets\\snippets\\skill-tree\\command.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\snippets\\skill-tree\\command.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\assets\\snippets\\skill-tree\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\snippets\\skill-tree\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\safe.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:safe.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\assets\\snippets\\skill-tree\\graph-manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\snippets\\skill-tree\\graph-manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\projects-renderer.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:js\\scripts\\projects-renderer.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
@@ -15,10 +39,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:revenge-of-the-renter.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\skill-tree.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:skill-tree.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\contact.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:contact.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -29,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\project-parasite.html||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:project-parasite.html||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\safe.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:safe.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -70,11 +86,64 @@
       "DocumentGroups": [
         {
           "DockedWidth": 472,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
+              "Title": "skill-tree.html",
+              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\skill-tree.html",
+              "RelativeDocumentMoniker": "skill-tree.html",
+              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\skill-tree.html",
+              "RelativeToolTip": "skill-tree.html",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAAAIoAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-05-17T20:05:34.672Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "edge.cs",
+              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\assets\\snippets\\skill-tree\\edge.cs",
+              "RelativeDocumentMoniker": "assets\\snippets\\skill-tree\\edge.cs",
+              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\assets\\snippets\\skill-tree\\edge.cs",
+              "RelativeToolTip": "assets\\snippets\\skill-tree\\edge.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T06:53:05.248Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "command.cs",
+              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\assets\\snippets\\skill-tree\\command.cs",
+              "RelativeDocumentMoniker": "assets\\snippets\\skill-tree\\command.cs",
+              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\assets\\snippets\\skill-tree\\command.cs",
+              "RelativeToolTip": "assets\\snippets\\skill-tree\\command.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAFQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T06:51:02.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "node.cs",
+              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\assets\\snippets\\skill-tree\\node.cs",
+              "RelativeDocumentMoniker": "assets\\snippets\\skill-tree\\node.cs",
+              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\assets\\snippets\\skill-tree\\node.cs",
+              "RelativeToolTip": "assets\\snippets\\skill-tree\\node.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFcAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T06:48:27.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "safe.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\safe.html",
               "RelativeDocumentMoniker": "safe.html",
@@ -83,11 +152,11 @@
               "ViewState": "AgIAADQCAAAAAAAAAAAYwG0CAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-05-18T10:28:52.569Z",
-              "IsPinned": true
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "project-parasite.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\project-parasite.html",
               "RelativeDocumentMoniker": "project-parasite.html",
@@ -95,8 +164,20 @@
               "RelativeToolTip": "project-parasite.html",
               "ViewState": "AgIAAHAAAAAAAAAAAAAlwFYAAABlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-02-04T17:20:01.116Z",
-              "IsPinned": true
+              "WhenOpened": "2025-02-04T17:20:01.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "graph-manager.cs",
+              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\assets\\snippets\\skill-tree\\graph-manager.cs",
+              "RelativeDocumentMoniker": "assets\\snippets\\skill-tree\\graph-manager.cs",
+              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\assets\\snippets\\skill-tree\\graph-manager.cs",
+              "RelativeToolTip": "assets\\snippets\\skill-tree\\graph-manager.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAIwDMAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T06:43:20.425Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -104,20 +185,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "project-page.css",
-              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\project-page.css",
-              "RelativeDocumentMoniker": "css\\project-page.css",
-              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\project-page.css",
-              "RelativeToolTip": "css\\project-page.css",
-              "ViewState": "AgIAAHoBAAAAAAAAAAAlwKIBAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-05-18T11:15:38.044Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "mechmates.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\mechmates.html",
               "RelativeDocumentMoniker": "mechmates.html",
@@ -129,7 +197,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\index.html",
               "RelativeDocumentMoniker": "index.html",
@@ -141,7 +209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "the-news.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\the-news.html",
               "RelativeDocumentMoniker": "the-news.html",
@@ -153,7 +221,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "noorderpoort.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\noorderpoort.html",
               "RelativeDocumentMoniker": "noorderpoort.html",
@@ -165,7 +233,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "about.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\about.html",
               "RelativeDocumentMoniker": "about.html",
@@ -177,7 +245,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
+              "Title": "project-page.css",
+              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\project-page.css",
+              "RelativeDocumentMoniker": "css\\project-page.css",
+              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\css\\project-page.css",
+              "RelativeToolTip": "css\\project-page.css",
+              "ViewState": "AgIAAHoBAAAAAAAAAAAlwKIBAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-18T11:15:38.044Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "projects-renderer.js",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\js\\scripts\\projects-renderer.js",
               "RelativeDocumentMoniker": "js\\scripts\\projects-renderer.js",
@@ -190,19 +270,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "skill-tree.html",
-              "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\skill-tree.html",
-              "RelativeDocumentMoniker": "skill-tree.html",
-              "ToolTip": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\skill-tree.html",
-              "RelativeToolTip": "skill-tree.html",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAAHIAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-05-17T20:05:34.672Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "nav.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\nav.html",
               "RelativeDocumentMoniker": "nav.html",
@@ -214,7 +282,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "phobophobia.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\phobophobia.html",
               "RelativeDocumentMoniker": "phobophobia.html",
@@ -226,7 +294,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "projects.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\projects.html",
               "RelativeDocumentMoniker": "projects.html",
@@ -238,7 +306,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "revenge-of-the-renter.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\revenge-of-the-renter.html",
               "RelativeDocumentMoniker": "revenge-of-the-renter.html",
@@ -250,7 +318,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "contact.html",
               "DocumentMoniker": "C:\\Users\\Victus\\Documents\\GitHub\\jibbewieman.github.io\\contact.html",
               "RelativeDocumentMoniker": "contact.html",
