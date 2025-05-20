@@ -617,9 +617,6 @@
 <!-- code-container -->
 <!--</div>--> <!-- code expandable-content -->
 <!--</div>--> <!-- expandable-content -->
-
-
-
 <!--<section id="skills">
     <div>
         <h2>Skills</h2>
@@ -673,3 +670,73 @@
         <path d="M2 4v7.5L6 21h12l4-9.5V4H2zm18 2v5.86l-3.16 7.64H7.16L4 11.86V6h16zM9 7.5c-.96 0-1.75.79-1.75 1.75v2.5c0 .96.79 1.75 1.75 1.75h6c.96 0 1.75-.79 1.75-1.75v-2.5c0-.96-.79-1.75-1.75-1.75H9zm0 1.5h6c.14 0 .25.11.25.25v2.5c0 .14-.11.25-.25.25H9a.25.25 0 0 1-.25-.25v-2.5c0-.14.11-.25.25-.25zM7 15h10v1H7v-1z" />
     </svg>
 </a>-->
+<!--.css-->
+<!--.keyword { color: #569cd6; }
+.type { color: #4ec9b0; }
+.comment { color: #6a9955; font-style: italic; }
+.string { color: #ce9178; }
+.number { color: #b5cea8; }
+.function { color: #dcdcaa; }
+.operator { color: #d4d4d4; }
+.class-name { color: #4ec9b0; }
+.interface-name { color: #b8d7a3; }
+.enum-name { color: #b8d7a3; }
+.namespace { color: #ffffff; }
+.property { color: #9cdcfe; }
+.method { color: #dcdcaa; }
+.parameter { color: #9cdcfe; }
+.variable { color: #ffffff; }
+.preprocessor { color: #808080; }
+.attribute { color: #4ec9b0; }
+.constant { color: #4fc1ff; }
+.struct-name { color: #4ec9b0; }
+.punctuation { color: #d4d4d4; }/-->
+<!--/* Base styles */
+.code-container {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 16px;
+    font-family: Consolas, 'Courier New', monospace;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.4;
+    position: relative;
+}
+
+    .code-container code {
+        white-space: pre-wrap;
+        display: block;
+    }
+
+    .code-container pre {
+        white-space: pre-wrap;
+    }
+
+code.language-csharp {
+    white-space: pre-wrap;*/ /* keeps line breaks and indentation */
+    /*font-family: monospace;
+}
+
+.line-number {
+    display: inline-block;
+    width: 2em;
+    user-select: none;
+    opacity: 0.5;
+    text-align: right;
+    margin-right: 1em;
+    color: #858585;
+}-->
+
+
+<!--/* Align stuff to da middle */
+.content-wrapper {
+    grid-area: content;*/ /* Assigns to the content area */
+    /*display: flex;
+    flex-direction: column;
+    align-items: center;*/ /* Align items horizontally to the centre */
+    /*justify-content: center;*/ /* Align items vertically to the centre */
+    /*max-width: calc(var(--recontent-width) - 5vw);
+    margin: 0 auto;*/ /* Centres the wrapper itself horizontally in its container */
+    /*text-align: center;*/ /* Optional: Centres text inside elements */
+}-->
