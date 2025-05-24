@@ -144,7 +144,14 @@
                         </button>
                         <div class="expandable-content">
                             <p>I was responsible for the player movement, which includes walking, crouching and jumping.</p>
-                            <img src="assets/images/revenge-of-the-renter/movement-script.jpg" onclick="openOverlay(this)" alt="Movement Script" />
+                            <!--<img src="assets/images/revenge-of-the-renter/movement-script.jpg" onclick="openOverlay(this)" alt="Movement Script" />-->
+                            <!-- RC Movement snippet -->
+                            <button class="expandable-button"
+                                    onclick="toggleContent(this,'revenge-of-the-renter/player-movement.cs')">
+                                <img class="snippet-icon" src="assets/images/icons/code.png" alt="Code Snippet">
+                                CODE SNIPPET - Player Movement
+                                <img src="assets/images/icons/arrow-down.png" class="expand-icon" alt="">
+                            </button>
                         </div>
                     </div>
 
@@ -159,6 +166,14 @@
                                 This required writing code for a battery that depletes with use and recharges at a charging station.
                                 I also implemented the Cinemachine camera switch and adjusted our player movement script to replicate an RC car's movement.
                             </p>
+                            <!-- RC Movement snippet -->
+                            <button class="expandable-button"
+                                    onclick="toggleContent(this,'revenge-of-the-renter/rc-movement.cs')">
+                                <img class="snippet-icon" src="assets/images/icons/code.png" alt="Code Snippet">
+                                CODE SNIPPET - RC Movement
+                                <img src="assets/images/icons/arrow-down.png" class="expand-icon" alt="">
+                            </button>
+                            <div class="expandable-content"></div>
                         </div>
                     </div>
 
