@@ -81,19 +81,22 @@ function addLineNumbers(codeContainer) {
 
 
 /* ---------- expand / collapse ---------------------------------- */
-function toggleContent(button, filename = null) {
-    const content = button.nextElementSibling;
-    if (!content || !content.classList.contains("expandable-content"))
-        return;
+function toggleContent(button, filename = null, event = null) {
+    if (event) event.stopPropagation();
 
-    const show = content.style.display === "none";
+    const content = button.nextElementSibling;
+    if (!content || !content.classList.contains("expandable-content")) return;
+
+    // ✅ Use getComputedStyle for accurate display check
+    const currentDisplay = window.getComputedStyle(content).display;
+    const show = currentDisplay === "none";
+
     content.style.display = show ? "block" : "none";
     button.classList.toggle("flipped", show);
 
-    // If expanding, load snippet (and highlight + line‑nums)
     if (show && filename) loadSnippet(content, filename);
 }
-window.toggleContent = toggleContent;
+//window.toggleContent = toggleContent;
 
 /* ---------- initial setup -------------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {

@@ -3,13 +3,12 @@
     "",
     "\\assets",
     "\\assets\\snippets",
-    "\\assets\\snippets\\project-parasite",
     "\\assets\\snippets\\revenge-of-the-renter",
     "\\assets\\videos",
     "\\css",
     "\\js",
     "\\js\\scripts"
   ],
-  "SelectedNode": "\\assets\\snippets\\project-parasite\\security-camera.cs",
+  "SelectedNode": "\\js\\scripts\\expandable-section.js",
   "PreviewInSolutionExplorer": false
 }
